@@ -20,7 +20,7 @@ Future<void> main() async {
   runApp(const MyApp());
 }
 
-//my baby tracker
+//my baby tracker app
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
