@@ -60,3 +60,10 @@ const String lowEnergyT = 'Low Energy';
 const String nauseaT = 'Nausea';
 const String coughT = 'Cough';
 const String feverT = 'Fever';
+
+//Information
+const String babyFullName = 'Baby Full Name';
+const String babyBirthDate = 'Baby Birth Date';
+const String babyWidth = 'Baby Height';
+const String babyHeight = 'Baby Width';
+const String babyContinue = 'Continue';
