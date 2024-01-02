@@ -1,6 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+
 import 'package:baby_tracker_app/app/core/constants/color_constants.dart';
+
 import '../../constants/mediaquery_constants.dart';
 
 class CustomInformationTextField extends StatelessWidget {
@@ -8,6 +10,7 @@ class CustomInformationTextField extends StatelessWidget {
   final TextInputType? textInputType;
   final Function()? onTap;
   final String? hintText;
+  final Function(String)? onChanged;
 
   const CustomInformationTextField({
     Key? key,
@@ -15,6 +18,7 @@ class CustomInformationTextField extends StatelessWidget {
     this.textInputType,
     this.onTap,
     this.hintText,
+    required this.onChanged,
   }) : super(key: key);
 
   @override
@@ -26,6 +30,7 @@ class CustomInformationTextField extends StatelessWidget {
         child: TextField(
           keyboardType: textInputType,
           onTap: onTap,
+          onChanged: onChanged,
           style: const TextStyle(fontWeight: FontWeight.bold),
           controller: controller,
           decoration: InputDecoration(

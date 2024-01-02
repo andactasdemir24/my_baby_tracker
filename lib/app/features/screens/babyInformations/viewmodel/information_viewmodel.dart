@@ -1,6 +1,102 @@
+import 'dart:io';
+import 'package:baby_tracker_app/app/core/hive/datasource/information_datasource.dart';
+import 'package:baby_tracker_app/app/core/hive/model/information_model.dart';
+import 'package:baby_tracker_app/app/features/screens/home/view/home_page.dart';
+import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:mobx/mobx.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:uuid/uuid.dart';
+
+import '../../../../core/getIt/locator.dart';
+
 part 'information_viewmodel.g.dart';
 
 class InformationViewModel = _InformationViewModelBase with _$InformationViewModel;
 
-abstract class _InformationViewModelBase with Store {}
+abstract class _InformationViewModelBase with Store {
+  var informationDatasource = locator.get<InformationDatasource>();
+
+  @observable
+  File? selectedImage;
+
+  @observable
+  bool isBlurred = false;
+
+  @observable
+  bool isButtonVisibleInf = false;
+
+  @observable
+  TextEditingController nameController = TextEditingController();
+
+  @observable
+  TextEditingController birthDateController = TextEditingController();
+
+  @observable
+  TextEditingController heightController = TextEditingController();
+
+  @observable
+  TextEditingController widthController = TextEditingController();
+
+  @action
+  void toggleBlur(BuildContext context) {
+    if (!isBlurred) {
+      isBlurred = true;
+      Future.delayed(const Duration(milliseconds: 1500), () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const HomePage(),
+            ));
+        isBlurred = false;
+      });
+    }
+  }
+
+  @action
+  void changeVisible() {
+    isButtonVisibleInf = selectedImage != null &&
+        nameController.text.isNotEmpty &&
+        birthDateController.text.isNotEmpty &&
+        heightController.text.isNotEmpty &&
+        widthController.text.isNotEmpty;
+  }
+
+  @action
+  Future<void> selectDate(BuildContext context, TextEditingController controller) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2101),
+    );
+    if (picked != null) {
+      final DateFormat formatter = DateFormat('dd/MM/yyyy');
+      final String formattedDate = formatter.format(picked);
+      controller.text = formattedDate;
+    }
+  }
+
+  @action
+  Future pickImageFromGalery() async {
+    final returnedImage = await ImagePicker().pickImage(source: ImageSource.gallery);
+    if (returnedImage == null) {
+      return;
+    }
+    selectedImage = File(returnedImage.path);
+  }
+
+  @action
+  Future<void> addInformation() async {
+    var uuid = const Uuid();
+
+    Information informationModel = Information(
+        id: uuid.v4(),
+        fullname: nameController.text,
+        image: selectedImage,
+        birthDate: birthDateController.text,
+        width: int.tryParse(widthController.text),
+        height: int.tryParse(heightController.text));
+    await informationDatasource.add(informationModel);
+  }
+}
