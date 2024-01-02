@@ -7,7 +7,6 @@ const Color cgrey = Colors.grey;
 const Color ctransparent = Colors.transparent;
 const Color cred = Colors.red;
 
-
 //Onboarding
 const Color buttonColor = Color(0xff4625c3);
 const Color buttonTextColor = Color(0xfffafafa);
@@ -29,3 +28,5 @@ const Color feedindIconColor = Color(0xff9B64FF);
 const Color symptompsIconColor = Color(0xffFFC664);
 // calender icon color
 const Color mainIconColor = Color(0xff4625C3);
+//information
+const Color pickerColor = Color(0xff547eff);

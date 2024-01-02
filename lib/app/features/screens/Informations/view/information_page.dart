@@ -43,12 +43,12 @@ class InformationPage extends StatelessWidget {
                                       child: Container(
                                         decoration: const ShapeDecoration(
                                           shape: OvalBorder(
-                                            side: BorderSide(width: 2, color: Color(0xff547eff)),
+                                            side: BorderSide(width: 2, color: pickerColor),
                                           ),
                                         ),
                                       ),
                                     )
-                                  : Image.asset('assets/images/picker.png', height: displayHeight(context) * 0.2),
+                                  : Image.asset(picker, height: displayHeight(context) * 0.2),
                             ));
                       },
                     ),
@@ -56,8 +56,8 @@ class InformationPage extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image.asset('assets/images/girlbw.png', height: displayHeight(context) * 0.06),
-                        Image.asset('assets/images/boybw.png', height: displayHeight(context) * 0.06),
+                        Image.asset(girlbw, height: displayHeight(context) * 0.06),
+                        Image.asset(boybw, height: displayHeight(context) * 0.06),
                       ],
                     ),
                     AspectRatio(aspectRatio: displayHeight(context) * 0.02),

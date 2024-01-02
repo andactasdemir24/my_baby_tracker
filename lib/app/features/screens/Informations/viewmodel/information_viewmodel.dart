@@ -43,7 +43,7 @@ abstract class _InformationViewModelBase with Store {
     if (!isBlurred) {
       isBlurred = true;
       Future.delayed(const Duration(milliseconds: 1500), () {
-        Navigator.push(
+        Navigator.pushReplacement(
             context,
             MaterialPageRoute(
               builder: (context) => const MainNavBar(),

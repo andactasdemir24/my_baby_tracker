@@ -30,3 +30,8 @@ const String lowEnergy = 'assets/images/lowEnergy.png';
 const String nausea = 'assets/images/Nussea.png';
 const String cough = 'assets/images/Cough.png';
 const String fever = 'assets/images/Fever.png';
+
+//informations
+const String girlbw = 'assets/images/girlbw.png';
+const String boybw = 'assets/images/boybw.png';
+const String picker = 'assets/images/picker.png';
