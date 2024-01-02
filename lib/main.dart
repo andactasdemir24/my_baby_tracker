@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:baby_tracker_app/app/core/getIt/locator.dart';
-import 'package:baby_tracker_app/app/features/screens/babyInformations/view/information_page.dart';
 import 'package:baby_tracker_app/app/features/screens/mainview/mainview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
@@ -34,7 +33,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const InformationPage(),
+      home: const MainView(),
     );
   }
 }

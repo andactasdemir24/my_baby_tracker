@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:baby_tracker_app/app/core/hive/datasource/information_datasource.dart';
 import 'package:baby_tracker_app/app/core/hive/model/information_model.dart';
-import 'package:baby_tracker_app/app/features/screens/home/view/home_page.dart';
+import 'package:baby_tracker_app/app/features/screens/main_navbar/main_navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:mobx/mobx.dart';
@@ -46,7 +46,7 @@ abstract class _InformationViewModelBase with Store {
         Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const HomePage(),
+              builder: (context) => const MainNavBar(),
             ));
         isBlurred = false;
       });

@@ -1,5 +1,5 @@
 import 'package:baby_tracker_app/app/core/getIt/locator.dart';
-import 'package:baby_tracker_app/app/features/screens/inapp/view/inapp_page.dart';
+import 'package:baby_tracker_app/app/features/screens/Informations/view/information_page.dart';
 import 'package:baby_tracker_app/app/features/screens/onboarding/view/onboarding_page.dart';
 import 'package:baby_tracker_app/app/features/screens/onboarding/viewmodel/onboarding_viewmodel.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +25,7 @@ class _MainViewState extends State<MainView> {
   Widget build(BuildContext context) {
     return Observer(
       builder: (context) {
-        return viewModel.isSeen ? const InAppPage() : const OnboardingPage();
+        return viewModel.isSeen ? const InformationPage() : const OnboardingPage();
       },
     );
   }

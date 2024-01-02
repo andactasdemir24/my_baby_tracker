@@ -3,7 +3,6 @@ import 'dart:ui';
 import 'package:baby_tracker_app/app/core/components/custom_widgets/custom_button.dart';
 import 'package:baby_tracker_app/app/core/constants/color_constants.dart';
 import 'package:baby_tracker_app/app/core/constants/mediaquery_constants.dart';
-import 'package:baby_tracker_app/app/features/screens/babyInformations/viewmodel/information_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:lottie/lottie.dart';
@@ -12,6 +11,7 @@ import '../../../../core/components/custom_widgets/custom_information_textfield.
 import '../../../../core/constants/images_constants.dart';
 import '../../../../core/constants/text_constants.dart';
 import '../../../../core/getIt/locator.dart';
+import '../viewmodel/information_viewmodel.dart';
 
 class InformationPage extends StatelessWidget {
   const InformationPage({super.key});
@@ -64,11 +64,13 @@ class InformationPage extends StatelessWidget {
                     CustomInformationTextField(
                         onChanged: (p0) => informationviewmodel.changeVisible(),
                         controller: informationviewmodel.nameController,
+                        textInputType: TextInputType.name,
                         hintText: babyFullName),
                     CustomInformationTextField(
                       onChanged: (p0) => informationviewmodel.changeVisible(),
                       controller: informationviewmodel.birthDateController,
                       hintText: babyBirthDate,
+                      textInputType: TextInputType.datetime,
                       onTap: () {
                         informationviewmodel.selectDate(context, informationviewmodel.birthDateController);
                       },
@@ -76,10 +78,12 @@ class InformationPage extends StatelessWidget {
                     CustomInformationTextField(
                         onChanged: (p0) => informationviewmodel.changeVisible(),
                         controller: informationviewmodel.heightController,
+                        textInputType: TextInputType.number,
                         hintText: babyHeight),
                     CustomInformationTextField(
                         onChanged: (p0) => informationviewmodel.changeVisible(),
                         controller: informationviewmodel.widthController,
+                        textInputType: TextInputType.number,
                         hintText: babyWidth),
                     AspectRatio(aspectRatio: displayHeight(context) * 0.015),
                     Observer(builder: (context) {

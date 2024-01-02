@@ -1,11 +1,11 @@
 import 'package:baby_tracker_app/app/core/constants/color_constants.dart';
-import 'package:baby_tracker_app/app/features/screens/inapp/view/inapp_page.dart';
 import 'package:baby_tracker_app/app/features/screens/onboarding/widgets/custom_current_page_container.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/constants/mediaquery_constants.dart';
 import '../../../../core/constants/text_constants.dart';
 import '../../../../core/getIt/locator.dart';
 import '../../../../core/components/custom_widgets/custom_button.dart';
+import '../../Informations/view/information_page.dart';
 import '../viewmodel/onboarding_viewmodel.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
@@ -58,7 +58,7 @@ class CustomContainer extends StatelessWidget {
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const InAppPage(),
+                            builder: (context) => const InformationPage(),
                           ),
                         );
                       }
