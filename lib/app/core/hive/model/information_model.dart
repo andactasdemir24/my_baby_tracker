@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:hive/hive.dart';
 
 part 'information_model.g.dart';
@@ -12,13 +11,13 @@ class Information extends HiveObject {
   String? fullname;
 
   @HiveField(2)
-  File? image;
+  String? image;
 
   @HiveField(3)
   String? birthDate;
 
   @HiveField(4)
-  int? width;
+  int? weight;
 
   @HiveField(5)
   int? height;
@@ -30,7 +29,7 @@ class Information extends HiveObject {
     required this.fullname,
     required this.image,
     required this.birthDate,
-    required this.width,
+    required this.weight,
     required this.height,
   });
 

@@ -57,6 +57,38 @@ mixin _$InformationViewModel on _InformationViewModelBase, Store {
     });
   }
 
+  late final _$infoListAtom =
+      Atom(name: '_InformationViewModelBase.infoList', context: context);
+
+  @override
+  List<Information> get infoList {
+    _$infoListAtom.reportRead();
+    return super.infoList;
+  }
+
+  @override
+  set infoList(List<Information> value) {
+    _$infoListAtom.reportWrite(value, super.infoList, () {
+      super.infoList = value;
+    });
+  }
+
+  late final _$selectedInformationAtom = Atom(
+      name: '_InformationViewModelBase.selectedInformation', context: context);
+
+  @override
+  Information? get selectedInformation {
+    _$selectedInformationAtom.reportRead();
+    return super.selectedInformation;
+  }
+
+  @override
+  set selectedInformation(Information? value) {
+    _$selectedInformationAtom.reportWrite(value, super.selectedInformation, () {
+      super.selectedInformation = value;
+    });
+  }
+
   late final _$nameControllerAtom =
       Atom(name: '_InformationViewModelBase.nameController', context: context);
 
@@ -105,20 +137,28 @@ mixin _$InformationViewModel on _InformationViewModelBase, Store {
     });
   }
 
-  late final _$widthControllerAtom =
-      Atom(name: '_InformationViewModelBase.widthController', context: context);
+  late final _$weightControllerAtom = Atom(
+      name: '_InformationViewModelBase.weightController', context: context);
 
   @override
-  TextEditingController get widthController {
-    _$widthControllerAtom.reportRead();
-    return super.widthController;
+  TextEditingController get weightController {
+    _$weightControllerAtom.reportRead();
+    return super.weightController;
   }
 
   @override
-  set widthController(TextEditingController value) {
-    _$widthControllerAtom.reportWrite(value, super.widthController, () {
-      super.widthController = value;
+  set weightController(TextEditingController value) {
+    _$weightControllerAtom.reportWrite(value, super.weightController, () {
+      super.weightController = value;
     });
+  }
+
+  late final _$_initAsyncAction =
+      AsyncAction('_InformationViewModelBase._init', context: context);
+
+  @override
+  Future<void> _init() {
+    return _$_initAsyncAction.run(() => super._init());
   }
 
   late final _$selectDateAsyncAction =
@@ -147,6 +187,16 @@ mixin _$InformationViewModel on _InformationViewModelBase, Store {
   @override
   Future<void> addInformation() {
     return _$addInformationAsyncAction.run(() => super.addInformation());
+  }
+
+  late final _$fetchLatestInformationAsyncAction = AsyncAction(
+      '_InformationViewModelBase.fetchLatestInformation',
+      context: context);
+
+  @override
+  Future<void> fetchLatestInformation() {
+    return _$fetchLatestInformationAsyncAction
+        .run(() => super.fetchLatestInformation());
   }
 
   late final _$_InformationViewModelBaseActionController =
@@ -180,10 +230,12 @@ mixin _$InformationViewModel on _InformationViewModelBase, Store {
 selectedImage: ${selectedImage},
 isBlurred: ${isBlurred},
 isButtonVisibleInf: ${isButtonVisibleInf},
+infoList: ${infoList},
+selectedInformation: ${selectedInformation},
 nameController: ${nameController},
 birthDateController: ${birthDateController},
 heightController: ${heightController},
-widthController: ${widthController}
+weightController: ${weightController}
     ''';
   }
 }

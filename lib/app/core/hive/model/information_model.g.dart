@@ -19,9 +19,9 @@ class InformationAdapter extends TypeAdapter<Information> {
     return Information(
       id: fields[0] as String?,
       fullname: fields[1] as String?,
-      image: fields[2] as File?,
+      image: fields[2] as String?,
       birthDate: fields[3] as String?,
-      width: fields[4] as int?,
+      weight: fields[4] as int?,
       height: fields[5] as int?,
     );
   }
@@ -39,7 +39,7 @@ class InformationAdapter extends TypeAdapter<Information> {
       ..writeByte(3)
       ..write(obj.birthDate)
       ..writeByte(4)
-      ..write(obj.width)
+      ..write(obj.weight)
       ..writeByte(5)
       ..write(obj.height);
   }

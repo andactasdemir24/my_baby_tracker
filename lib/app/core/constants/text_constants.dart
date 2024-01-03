@@ -64,6 +64,16 @@ const String feverT = 'Fever';
 //Information
 const String babyFullName = 'Baby Full Name';
 const String babyBirthDate = 'Baby Birth Date';
-const String babyWidth = 'Baby Height';
-const String babyHeight = 'Baby Width';
+const String babyWeight = 'Baby Weight';
+const String babyHeight = 'Baby Height';
 const String babyContinue = 'Continue';
+const String babyAppbartext = 'Baby Tracker';
+const String weightText = 'Weight';
+const String heightText = 'Height';
+const String kgs = ' kgs';
+const String cms = ' cms';
+
+//bottom nav var
+const String home = 'Home';
+const String calendar = 'Calendar';
+const String profile = 'Profile';

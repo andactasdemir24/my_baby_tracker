@@ -9,4 +9,5 @@ abstract class InformationDatasource {
   Future<DataResult<List<Information>>> getAll();
   Future<Result> delete(String id);
   Future<Result> update(Information informationModel);
+  Future<DataResult<Information>> get();
 }

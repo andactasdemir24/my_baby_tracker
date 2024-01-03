@@ -1,6 +1,5 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:baby_tracker_app/app/core/constants/mediaquery_constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart'; // Ekran boyutlarına göre ölçekleme için
 
 class CustomImageContainer extends StatelessWidget {
   final String image;
@@ -12,8 +11,11 @@ class CustomImageContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: displayHeight(context) * 0.02, vertical: displayWidth(context) * 0.02),
-      child: Image.asset(image),
+      padding: EdgeInsets.symmetric(
+        horizontal: 15.w,
+        vertical: 5.h,
+      ),
+      child: SizedBox(width: double.infinity, child: Image.asset(image, fit: BoxFit.cover)),
     );
   }
 }

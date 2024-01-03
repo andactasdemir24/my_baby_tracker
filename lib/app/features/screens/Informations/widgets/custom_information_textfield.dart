@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:baby_tracker_app/app/core/constants/color_constants.dart';
 
-import '../../constants/mediaquery_constants.dart';
+import '../../../../core/constants/mediaquery_constants.dart';
 
 class CustomInformationTextField extends StatelessWidget {
   final TextEditingController controller;

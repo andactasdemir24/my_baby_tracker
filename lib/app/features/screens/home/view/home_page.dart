@@ -1,15 +1,18 @@
 import 'package:baby_tracker_app/app/core/constants/images_constants.dart';
+import 'package:baby_tracker_app/app/features/screens/Informations/viewmodel/information_viewmodel.dart';
 import 'package:baby_tracker_app/app/features/screens/feeding/view/feeding_page.dart';
 import 'package:baby_tracker_app/app/features/screens/home/widgets/custom_appbar.dart';
 import 'package:baby_tracker_app/app/features/screens/sleep/view/sleep_page.dart';
 import 'package:baby_tracker_app/app/features/screens/symptomps/view/symptomps_page.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_mobx/flutter_mobx.dart';
+import '../../../../core/constants/color_constants.dart';
 import '../../../../core/getIt/locator.dart';
 import '../../feeding/viewmodel/feeding_viewmodel.dart';
 import '../../sleep/viewmodel/sleep_viewmodel.dart';
 import '../../symptomps/viewmodel/symptomps_viewmodel.dart';
 import '../widgets/custom_container.dart';
+import '../widgets/custom_stack.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -19,19 +22,31 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePagetate extends State<HomePage> {
-  final feedingViewmodel = locator.get<FeedingViewModel>();
-  final sleepViewmodel = locator.get<SleepViewModel>();
-  final symptompsViewmodel = locator.get<SymptompsViewmodel>();
+  var feedingViewmodel = locator.get<FeedingViewModel>();
+  var sleepViewmodel = locator.get<SleepViewModel>();
+  var symptompsViewmodel = locator.get<SymptompsViewmodel>();
+  var informationVeiwmodel = locator.get<InformationViewModel>();
+
+  @override
+  void initState() {
+    super.initState();
+    informationVeiwmodel.fetchLatestInformation();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: shade100,
         appBar: const CustomAppbar(),
         body: Column(
           children: [
+            Observer(builder: (context) {
+              return CustomStack(informationVeiwmodel: informationVeiwmodel);
+            }),
+            const AspectRatio(aspectRatio: 5 / 1),
             GestureDetector(
                 onTap: () {
-                  feedingViewmodel.clearTime(); //time sıfırla
+                  feedingViewmodel.clearTime();
                   Navigator.push(context, MaterialPageRoute(builder: (context) => const FeedingPage()));
                 },
                 child: const CustomImageContainer(image: homeImage1)),

@@ -1,8 +1,10 @@
 import 'package:baby_tracker_app/app/core/constants/color_constants.dart';
 import 'package:baby_tracker_app/app/features/screens/calender/view/calender_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
+import '../../../core/constants/text_constants.dart';
 import '../home/view/home_page.dart';
 import '../profile/view/profile_view.dart';
 
@@ -33,27 +35,27 @@ class _MainNavBarState extends State<MainNavBar> {
       body: _widgetOptions.elementAt(_selectedIndex),
       bottomNavigationBar: GNav(
           onTabChange: (index) => _onItemTapped(index),
-          tabMargin: const EdgeInsets.all(15),
-          padding: const EdgeInsets.all(15),
+          tabMargin: EdgeInsets.all(15.r),
+          padding: EdgeInsets.all(15.r),
           mainAxisAlignment: MainAxisAlignment.spaceAround,
-          color: Colors.grey.shade500,
+          color: shade500,
           activeColor: mainIconColor,
           backgroundColor: cwhite,
-          tabBackgroundColor: Colors.grey.shade200,
+          tabBackgroundColor: shade200,
           selectedIndex: _selectedIndex,
           gap: 10,
           tabs: const [
             GButton(
               icon: Icons.home,
-              text: 'Home',
+              text: home,
             ),
             GButton(
               icon: Icons.calendar_month_outlined,
-              text: 'Calendar',
+              text: calendar,
             ),
             GButton(
               icon: Icons.person,
-              text: 'Profile',
+              text: profile,
             ),
           ]),
     );

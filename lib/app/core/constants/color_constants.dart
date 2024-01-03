@@ -30,3 +30,11 @@ const Color symptompsIconColor = Color(0xffFFC664);
 const Color mainIconColor = Color(0xff4625C3);
 //information
 const Color pickerColor = Color(0xff547eff);
+//homeappbar color
+const Color homeAppbar = Color.fromARGB(255, 230, 30, 80);
+
+//grey shade
+Color shade100 = Colors.grey.shade100;
+Color shade200 = Colors.grey.shade200;
+Color shade400 = Colors.grey.shade400;
+Color shade500 = Colors.grey.shade500;

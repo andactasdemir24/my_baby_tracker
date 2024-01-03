@@ -35,3 +35,5 @@ const String fever = 'assets/images/Fever.png';
 const String girlbw = 'assets/images/girlbw.png';
 const String boybw = 'assets/images/boybw.png';
 const String picker = 'assets/images/picker.png';
+const String weight = 'assets/images/weight.png';
+const String height = 'assets/images/heights.png';

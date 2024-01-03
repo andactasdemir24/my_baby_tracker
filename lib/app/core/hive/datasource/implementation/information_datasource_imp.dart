@@ -54,4 +54,18 @@ class InformationDatasourceImp extends InformationDatasource {
       return Result.fail(e.toString());
     }
   }
+
+  @override
+  Future<DataResult<Information>> get() async {
+    try {
+      var allInformations = informationBox.values.toList();
+      if (allInformations.isNotEmpty) {
+        return DataResult<Information>.success("Success", data: allInformations.first);
+      } else {
+        return DataResult<Information>.fail("No information available");
+      }
+    } catch (e) {
+      return DataResult<Information>.fail(e.toString());
+    }
+  }
 }

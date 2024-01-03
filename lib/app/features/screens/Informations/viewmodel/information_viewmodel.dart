@@ -27,6 +27,12 @@ abstract class _InformationViewModelBase with Store {
   bool isButtonVisibleInf = false;
 
   @observable
+  List<Information> infoList = [];
+
+  @observable
+  Information? selectedInformation;
+
+  @observable
   TextEditingController nameController = TextEditingController();
 
   @observable
@@ -36,7 +42,17 @@ abstract class _InformationViewModelBase with Store {
   TextEditingController heightController = TextEditingController();
 
   @observable
-  TextEditingController widthController = TextEditingController();
+  TextEditingController weightController = TextEditingController();
+
+  _InformationViewModelBase() {
+    _init();
+  }
+
+  @action
+  Future<void> _init() async {
+    //await getInformation();
+    await fetchLatestInformation();
+  }
 
   @action
   void toggleBlur(BuildContext context) {
@@ -59,7 +75,7 @@ abstract class _InformationViewModelBase with Store {
         nameController.text.isNotEmpty &&
         birthDateController.text.isNotEmpty &&
         heightController.text.isNotEmpty &&
-        widthController.text.isNotEmpty;
+        weightController.text.isNotEmpty;
   }
 
   @action
@@ -89,14 +105,28 @@ abstract class _InformationViewModelBase with Store {
   @action
   Future<void> addInformation() async {
     var uuid = const Uuid();
-
     Information informationModel = Information(
         id: uuid.v4(),
         fullname: nameController.text,
-        image: selectedImage,
+        image: selectedImage?.path,
         birthDate: birthDateController.text,
-        width: int.tryParse(widthController.text),
+        weight: int.tryParse(weightController.text),
         height: int.tryParse(heightController.text));
     await informationDatasource.add(informationModel);
+  }
+
+  // @action
+  // Future<void> getInformation() async {
+  //   infoList.clear();
+  //   var informationData = await informationDatasource.getAll();
+  //   infoList.addAll(informationData.data!);
+  // }
+
+  @action
+  Future<void> fetchLatestInformation() async {
+    var informationData = await informationDatasource.get();
+    if (informationData.success && informationData.data != null) {
+      selectedInformation = informationData.data;
+    }
   }
 }
