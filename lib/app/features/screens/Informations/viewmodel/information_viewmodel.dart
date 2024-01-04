@@ -1,4 +1,6 @@
 import 'dart:io';
+import 'package:baby_tracker_app/app/core/constants/images_constants.dart';
+import 'package:baby_tracker_app/app/core/constants/text_constants.dart';
 import 'package:baby_tracker_app/app/core/hive/datasource/information_datasource.dart';
 import 'package:baby_tracker_app/app/core/hive/model/information_model.dart';
 import 'package:baby_tracker_app/app/features/model/information_gender_model_f.dart';
@@ -7,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:mobx/mobx.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uuid/uuid.dart';
 
 import '../../../../core/getIt/locator.dart';
@@ -35,9 +38,12 @@ abstract class _InformationViewModelBase with Store {
 
   @observable
   List<InformationGender> genderList = [
-    InformationGender(image: 'assets/images/girl.png', name: 'Girl'),
-    InformationGender(image: 'assets/images/boy.png', name: 'Boy'),
+    InformationGender(image: girl, name: girlText),
+    InformationGender(image: boy, name: boyText),
   ];
+
+  @observable
+  bool isSeenInformation = false;
 
   @observable
   Information? selectedInformation;
@@ -62,6 +68,18 @@ abstract class _InformationViewModelBase with Store {
   Future<void> _init() async {
     //await getInformation();
     await fetchLatestInformation();
+  }
+
+  @action
+  Future<void> saveIsSeenInformation() async {
+    final preferences = await SharedPreferences.getInstance();
+    preferences.setBool('information', true);
+  }
+
+  @action
+  Future<void> loadIsSeenInformation() async {
+    final preferences = await SharedPreferences.getInstance();
+    isSeenInformation = preferences.getBool('information') ?? false;
   }
 
   @action

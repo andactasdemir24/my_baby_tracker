@@ -72,6 +72,8 @@ const String weightText = 'Weight';
 const String heightText = 'Height';
 const String kgs = ' kgs';
 const String cms = ' cms';
+const String boyText = 'Boy';
+const String girlText = 'Girl';
 
 //bottom nav var
 const String home = 'Home';

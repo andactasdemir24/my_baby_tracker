@@ -106,6 +106,7 @@ class InformationPage extends StatelessWidget {
                         child: CustomButton(
                           text: const Text(babyContinue, style: TextStyle(color: cwhite)),
                           onPressed: () {
+                            informationviewmodel.saveIsSeenInformation();
                             informationviewmodel.addInformation();
                             informationviewmodel.toggleBlur(context);
                           },

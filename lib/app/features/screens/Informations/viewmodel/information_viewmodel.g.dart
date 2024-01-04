@@ -105,6 +105,22 @@ mixin _$InformationViewModel on _InformationViewModelBase, Store {
     });
   }
 
+  late final _$isSeenInformationAtom = Atom(
+      name: '_InformationViewModelBase.isSeenInformation', context: context);
+
+  @override
+  bool get isSeenInformation {
+    _$isSeenInformationAtom.reportRead();
+    return super.isSeenInformation;
+  }
+
+  @override
+  set isSeenInformation(bool value) {
+    _$isSeenInformationAtom.reportWrite(value, super.isSeenInformation, () {
+      super.isSeenInformation = value;
+    });
+  }
+
   late final _$selectedInformationAtom = Atom(
       name: '_InformationViewModelBase.selectedInformation', context: context);
 
@@ -193,6 +209,26 @@ mixin _$InformationViewModel on _InformationViewModelBase, Store {
     return _$_initAsyncAction.run(() => super._init());
   }
 
+  late final _$saveIsSeenInformationAsyncAction = AsyncAction(
+      '_InformationViewModelBase.saveIsSeenInformation',
+      context: context);
+
+  @override
+  Future<void> saveIsSeenInformation() {
+    return _$saveIsSeenInformationAsyncAction
+        .run(() => super.saveIsSeenInformation());
+  }
+
+  late final _$loadIsSeenInformationAsyncAction = AsyncAction(
+      '_InformationViewModelBase.loadIsSeenInformation',
+      context: context);
+
+  @override
+  Future<void> loadIsSeenInformation() {
+    return _$loadIsSeenInformationAsyncAction
+        .run(() => super.loadIsSeenInformation());
+  }
+
   late final _$toggleSelectedIndexAsyncAction = AsyncAction(
       '_InformationViewModelBase.toggleSelectedIndex',
       context: context);
@@ -275,6 +311,7 @@ isButtonVisibleInf: ${isButtonVisibleInf},
 infoList: ${infoList},
 selectedIndices: ${selectedIndices},
 genderList: ${genderList},
+isSeenInformation: ${isSeenInformation},
 selectedInformation: ${selectedInformation},
 nameController: ${nameController},
 birthDateController: ${birthDateController},
