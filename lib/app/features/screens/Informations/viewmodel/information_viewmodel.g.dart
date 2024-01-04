@@ -73,6 +73,38 @@ mixin _$InformationViewModel on _InformationViewModelBase, Store {
     });
   }
 
+  late final _$selectedIndicesAtom =
+      Atom(name: '_InformationViewModelBase.selectedIndices', context: context);
+
+  @override
+  ObservableList<InformationGender> get selectedIndices {
+    _$selectedIndicesAtom.reportRead();
+    return super.selectedIndices;
+  }
+
+  @override
+  set selectedIndices(ObservableList<InformationGender> value) {
+    _$selectedIndicesAtom.reportWrite(value, super.selectedIndices, () {
+      super.selectedIndices = value;
+    });
+  }
+
+  late final _$genderListAtom =
+      Atom(name: '_InformationViewModelBase.genderList', context: context);
+
+  @override
+  List<InformationGender> get genderList {
+    _$genderListAtom.reportRead();
+    return super.genderList;
+  }
+
+  @override
+  set genderList(List<InformationGender> value) {
+    _$genderListAtom.reportWrite(value, super.genderList, () {
+      super.genderList = value;
+    });
+  }
+
   late final _$selectedInformationAtom = Atom(
       name: '_InformationViewModelBase.selectedInformation', context: context);
 
@@ -161,6 +193,16 @@ mixin _$InformationViewModel on _InformationViewModelBase, Store {
     return _$_initAsyncAction.run(() => super._init());
   }
 
+  late final _$toggleSelectedIndexAsyncAction = AsyncAction(
+      '_InformationViewModelBase.toggleSelectedIndex',
+      context: context);
+
+  @override
+  Future<void> toggleSelectedIndex(InformationGender gender) {
+    return _$toggleSelectedIndexAsyncAction
+        .run(() => super.toggleSelectedIndex(gender));
+  }
+
   late final _$selectDateAsyncAction =
       AsyncAction('_InformationViewModelBase.selectDate', context: context);
 
@@ -231,6 +273,8 @@ selectedImage: ${selectedImage},
 isBlurred: ${isBlurred},
 isButtonVisibleInf: ${isButtonVisibleInf},
 infoList: ${infoList},
+selectedIndices: ${selectedIndices},
+genderList: ${genderList},
 selectedInformation: ${selectedInformation},
 nameController: ${nameController},
 birthDateController: ${birthDateController},

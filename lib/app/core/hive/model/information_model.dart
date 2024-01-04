@@ -1,3 +1,4 @@
+import 'package:baby_tracker_app/app/features/model/information_gender_model_f.dart';
 import 'package:hive/hive.dart';
 
 part 'information_model.g.dart';
@@ -8,26 +9,30 @@ class Information extends HiveObject {
   String? id;
 
   @HiveField(1)
-  String? fullname;
-
-  @HiveField(2)
   String? image;
 
+  @HiveField(2)
+  List<InformationGender>? genderList;
+
   @HiveField(3)
-  String? birthDate;
+  String? fullname;
 
   @HiveField(4)
-  int? weight;
+  String? birthDate;
 
   @HiveField(5)
+  int? weight;
+
+  @HiveField(6)
   int? height;
 
   //bool isSelected;
 
   Information({
     required this.id,
-    required this.fullname,
     required this.image,
+    required this.genderList,
+    required this.fullname,
     required this.birthDate,
     required this.weight,
     required this.height,

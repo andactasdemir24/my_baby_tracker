@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:baby_tracker_app/app/core/hive/datasource/information_datasource.dart';
 import 'package:baby_tracker_app/app/core/hive/model/information_model.dart';
+import 'package:baby_tracker_app/app/features/model/information_gender_model_f.dart';
 import 'package:baby_tracker_app/app/features/screens/main_navbar/main_navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -28,6 +29,15 @@ abstract class _InformationViewModelBase with Store {
 
   @observable
   List<Information> infoList = [];
+
+  @observable
+  ObservableList<InformationGender> selectedIndices = ObservableList<InformationGender>();
+
+  @observable
+  List<InformationGender> genderList = [
+    InformationGender(image: 'assets/images/girl.png', name: 'Girl'),
+    InformationGender(image: 'assets/images/boy.png', name: 'Boy'),
+  ];
 
   @observable
   Information? selectedInformation;
@@ -70,8 +80,22 @@ abstract class _InformationViewModelBase with Store {
   }
 
   @action
+  Future<void> toggleSelectedIndex(InformationGender gender) async {
+    runInAction(() {
+      if (selectedIndices.contains(gender)) {
+        selectedIndices.remove(gender);
+      } else {
+        if (selectedIndices.length < 1) {
+          selectedIndices.add(gender);
+        }
+      }
+    });
+  }
+
+  @action
   void changeVisible() {
     isButtonVisibleInf = selectedImage != null &&
+        selectedIndices.isNotEmpty &&
         nameController.text.isNotEmpty &&
         birthDateController.text.isNotEmpty &&
         heightController.text.isNotEmpty &&
@@ -107,8 +131,9 @@ abstract class _InformationViewModelBase with Store {
     var uuid = const Uuid();
     Information informationModel = Information(
         id: uuid.v4(),
-        fullname: nameController.text,
         image: selectedImage?.path,
+        genderList: selectedIndices,
+        fullname: nameController.text,
         birthDate: birthDateController.text,
         weight: int.tryParse(weightController.text),
         height: int.tryParse(heightController.text));

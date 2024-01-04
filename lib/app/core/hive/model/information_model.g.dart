@@ -18,29 +18,32 @@ class InformationAdapter extends TypeAdapter<Information> {
     };
     return Information(
       id: fields[0] as String?,
-      fullname: fields[1] as String?,
-      image: fields[2] as String?,
-      birthDate: fields[3] as String?,
-      weight: fields[4] as int?,
-      height: fields[5] as int?,
+      image: fields[1] as String?,
+      genderList: (fields[2] as List?)?.cast<InformationGender>(),
+      fullname: fields[3] as String?,
+      birthDate: fields[4] as String?,
+      weight: fields[5] as int?,
+      height: fields[6] as int?,
     );
   }
 
   @override
   void write(BinaryWriter writer, Information obj) {
     writer
-      ..writeByte(6)
+      ..writeByte(7)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
-      ..write(obj.fullname)
-      ..writeByte(2)
       ..write(obj.image)
+      ..writeByte(2)
+      ..write(obj.genderList)
       ..writeByte(3)
-      ..write(obj.birthDate)
+      ..write(obj.fullname)
       ..writeByte(4)
-      ..write(obj.weight)
+      ..write(obj.birthDate)
       ..writeByte(5)
+      ..write(obj.weight)
+      ..writeByte(6)
       ..write(obj.height);
   }
 

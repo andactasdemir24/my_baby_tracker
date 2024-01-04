@@ -32,7 +32,7 @@ class CustomStack extends StatelessWidget {
               ),
             ),
             SizedBox(
-              width: 230.w,
+              width: 270.w,
               height: 100.h,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -55,7 +55,7 @@ class CustomStack extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        info.fullname!,
+                        '${info.fullname!} / ${info.genderList!.map((name) => name.name).join('')}',
                         style: TextStyle(color: shade200, fontSize: 15, fontWeight: FontWeight.w500),
                       ),
                       Text(info.birthDate!,

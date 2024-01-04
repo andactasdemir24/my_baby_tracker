@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:baby_tracker_app/app/core/components/custom_widgets/custom_button.dart';
 import 'package:baby_tracker_app/app/core/constants/color_constants.dart';
 import 'package:baby_tracker_app/app/core/constants/mediaquery_constants.dart';
+import 'package:baby_tracker_app/app/features/screens/Informations/widgets/custom_gender_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:lottie/lottie.dart';
@@ -32,8 +33,8 @@ class InformationPage extends StatelessWidget {
                       builder: (context) {
                         return GestureDetector(
                             onTap: () {
-                              informationviewmodel.changeVisible();
                               informationviewmodel.pickImageFromGalery();
+                              informationviewmodel.changeVisible();
                             },
                             child: ClipRRect(
                               child: informationviewmodel.selectedImage != null
@@ -52,15 +53,28 @@ class InformationPage extends StatelessWidget {
                             ));
                       },
                     ),
-                    AspectRatio(aspectRatio: displayHeight(context) * 0.015),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(girlbw, height: displayHeight(context) * 0.06),
-                        Image.asset(boybw, height: displayHeight(context) * 0.06),
-                      ],
+                    AspectRatio(aspectRatio: displayHeight(context) * 0.025),
+                    GridView.builder(
+                      padding: const EdgeInsets.symmetric(horizontal: 80),
+                      physics: const AlwaysScrollableScrollPhysics(),
+                      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                        maxCrossAxisExtent: 100,
+                        childAspectRatio: 2 / 2,
+                        crossAxisSpacing: displayHeight(context) * 0.04,
+                      ),
+                      shrinkWrap: true,
+                      itemCount: informationviewmodel.genderList.length,
+                      itemBuilder: (BuildContext context, index) {
+                        var gender = informationviewmodel.genderList[index];
+                        return Observer(builder: (_) {
+                          return CustomGenderListContainer(
+                            informationViewModel: informationviewmodel,
+                            gender: gender,
+                          );
+                        });
+                      },
                     ),
-                    AspectRatio(aspectRatio: displayHeight(context) * 0.02),
+                    AspectRatio(aspectRatio: displayHeight(context) * 0.05),
                     CustomInformationTextField(
                         onChanged: (p0) => informationviewmodel.changeVisible(),
                         controller: informationviewmodel.nameController,
