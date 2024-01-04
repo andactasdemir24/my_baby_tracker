@@ -6,6 +6,7 @@ import 'package:baby_tracker_app/app/core/constants/mediaquery_constants.dart';
 import 'package:baby_tracker_app/app/features/screens/Informations/widgets/custom_gender_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 
 import '../widgets/custom_information_textfield.dart';
@@ -39,12 +40,12 @@ class InformationPage extends StatelessWidget {
                             child: ClipRRect(
                               child: informationviewmodel.selectedImage != null
                                   ? CircleAvatar(
-                                      maxRadius: 75,
+                                      maxRadius: 75.r,
                                       backgroundImage: FileImage(informationviewmodel.selectedImage!),
                                       child: Container(
-                                        decoration: const ShapeDecoration(
+                                        decoration: ShapeDecoration(
                                           shape: OvalBorder(
-                                            side: BorderSide(width: 2, color: pickerColor),
+                                            side: BorderSide(width: 2.w, color: annualColor),
                                           ),
                                         ),
                                       ),
@@ -55,13 +56,13 @@ class InformationPage extends StatelessWidget {
                     ),
                     AspectRatio(aspectRatio: displayHeight(context) * 0.025),
                     GridView.builder(
-                      padding: const EdgeInsets.symmetric(horizontal: 80),
+                      padding: EdgeInsets.symmetric(horizontal: 80.h),
                       physics: const AlwaysScrollableScrollPhysics(),
                       gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                        maxCrossAxisExtent: 100,
-                        childAspectRatio: 2 / 2,
-                        crossAxisSpacing: displayHeight(context) * 0.04,
-                      ),
+                          maxCrossAxisExtent: displayWidth(context) * 0.4.w,
+                          childAspectRatio: 1,
+                          crossAxisSpacing: displayHeight(context) * 0.04.h,
+                          mainAxisExtent: displayHeight(context) * 0.1.h),
                       shrinkWrap: true,
                       itemCount: informationviewmodel.genderList.length,
                       itemBuilder: (BuildContext context, index) {

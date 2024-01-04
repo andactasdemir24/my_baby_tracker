@@ -2,6 +2,7 @@ import 'package:baby_tracker_app/app/features/model/information_gender_model_f.d
 import 'package:baby_tracker_app/app/features/screens/Informations/viewmodel/information_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/constants/color_constants.dart';
 import '../../../../core/constants/mediaquery_constants.dart';
 
@@ -31,12 +32,12 @@ class _CustomGenderListContainerState extends State<CustomGenderListContainer> {
           },
           child: Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(25),
+              borderRadius: BorderRadius.circular(25.r),
               color: annualColor,
               border: Border.all(
                 color:
                     widget.informationViewModel.selectedIndices.contains(widget.gender) ? sympListShadow : ctransparent,
-                width: 2,
+                width: 2.w,
               ),
             ),
             child: Column(
@@ -44,7 +45,7 @@ class _CustomGenderListContainerState extends State<CustomGenderListContainer> {
               children: [
                 Image.asset(
                   widget.gender.image!,
-                  height: displayHeight(context) * 0.05,
+                  height: displayHeight(context) * 0.05.h,
                 ),
                 Text(
                   widget.gender.name!,

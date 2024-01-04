@@ -41,7 +41,7 @@ class CustomStack extends StatelessWidget {
                       ? Container(
                           decoration: ShapeDecoration(
                             shape: OvalBorder(
-                              side: BorderSide(width: 2.w, color: shade400),
+                              side: BorderSide(width: 2.w, color: annualColor),
                             ),
                           ),
                           child: CircleAvatar(
