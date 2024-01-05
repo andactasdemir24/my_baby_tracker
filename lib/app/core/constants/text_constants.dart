@@ -67,6 +67,7 @@ const String babyBirthDate = 'Baby Birth Date';
 const String babyWeight = 'Baby Weight';
 const String babyHeight = 'Baby Height';
 const String babyContinue = 'Continue';
+const String babyUpdate = 'Update';
 const String babyAppbartext = 'Baby Tracker';
 const String weightText = 'Weight';
 const String heightText = 'Height';
@@ -79,3 +80,6 @@ const String girlText = 'Girl';
 const String home = 'Home';
 const String calendar = 'Calendar';
 const String profile = 'Profile';
+
+//profile
+const String edit = "Edit";

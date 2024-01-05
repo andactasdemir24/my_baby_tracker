@@ -77,29 +77,36 @@ class InformationPage extends StatelessWidget {
                     ),
                     AspectRatio(aspectRatio: displayHeight(context) * 0.05),
                     CustomInformationTextField(
-                        onChanged: (p0) => informationviewmodel.changeVisible(),
-                        controller: informationviewmodel.nameController,
-                        textInputType: TextInputType.name,
-                        hintText: babyFullName),
+                      onChanged: (p0) => informationviewmodel.changeVisible(),
+                      controller: informationviewmodel.nameController,
+                      textInputType: TextInputType.name,
+                      hintText: babyFullName,
+                      icon: const Icon(Icons.person),
+                    ),
                     CustomInformationTextField(
                       onChanged: (p0) => informationviewmodel.changeVisible(),
                       controller: informationviewmodel.birthDateController,
                       hintText: babyBirthDate,
                       textInputType: TextInputType.none,
+                      icon: const Icon(Icons.date_range),
                       onTap: () {
                         informationviewmodel.selectDate(context, informationviewmodel.birthDateController);
                       },
                     ),
                     CustomInformationTextField(
-                        onChanged: (p0) => informationviewmodel.changeVisible(),
-                        controller: informationviewmodel.weightController,
-                        textInputType: TextInputType.number,
-                        hintText: babyWeight),
+                      onChanged: (p0) => informationviewmodel.changeVisible(),
+                      controller: informationviewmodel.weightController,
+                      textInputType: TextInputType.number,
+                      hintText: babyWeight,
+                      icon: const Icon(Icons.monitor_weight_outlined),
+                    ),
                     CustomInformationTextField(
-                        onChanged: (p0) => informationviewmodel.changeVisible(),
-                        controller: informationviewmodel.heightController,
-                        textInputType: TextInputType.number,
-                        hintText: babyHeight),
+                      onChanged: (p0) => informationviewmodel.changeVisible(),
+                      controller: informationviewmodel.heightController,
+                      textInputType: TextInputType.number,
+                      hintText: babyHeight,
+                      icon: const Icon(Icons.height),
+                    ),
                     AspectRatio(aspectRatio: displayHeight(context) * 0.015),
                     Observer(builder: (context) {
                       return Visibility(

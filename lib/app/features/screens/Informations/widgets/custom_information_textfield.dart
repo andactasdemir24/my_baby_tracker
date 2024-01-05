@@ -11,6 +11,9 @@ class CustomInformationTextField extends StatelessWidget {
   final Function()? onTap;
   final String? hintText;
   final Function(String)? onChanged;
+  final Icon icon;
+  final bool? readOnly;
+  final TextStyle? textStyle;
 
   const CustomInformationTextField({
     Key? key,
@@ -18,7 +21,10 @@ class CustomInformationTextField extends StatelessWidget {
     this.textInputType,
     this.onTap,
     this.hintText,
-    required this.onChanged,
+    this.onChanged,
+    required this.icon,
+    this.readOnly,
+    this.textStyle,
   }) : super(key: key);
 
   @override
@@ -28,12 +34,15 @@ class CustomInformationTextField extends StatelessWidget {
         padding:
             EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.06, vertical: displayHeight(context) * 0.015),
         child: TextField(
+          readOnly: readOnly ?? false,
           keyboardType: textInputType,
           onTap: onTap,
           onChanged: onChanged,
-          style: const TextStyle(fontWeight: FontWeight.bold),
+          style: textStyle,
           controller: controller,
           decoration: InputDecoration(
+              prefixIcon: icon,
+              prefixIconColor: sympListShadow,
               filled: true,
               fillColor: annualColor,
               border: OutlineInputBorder(

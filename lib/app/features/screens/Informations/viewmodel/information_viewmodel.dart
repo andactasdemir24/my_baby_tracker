@@ -46,6 +46,9 @@ abstract class _InformationViewModelBase with Store {
   bool isSeenInformation = false;
 
   @observable
+  bool isEdit = false;
+
+  @observable
   Information? selectedInformation;
 
   @observable
@@ -61,13 +64,30 @@ abstract class _InformationViewModelBase with Store {
   TextEditingController weightController = TextEditingController();
 
   _InformationViewModelBase() {
-    _init();
+    init();
   }
 
   @action
-  Future<void> _init() async {
+  Future<void> init() async {
     //await getInformation();
     await fetchLatestInformation();
+  }
+
+  //uygulama açıldığında profile sayfasındaki textfieldların içlerinin dolu olması için
+  @action
+  void holdTextFieldsData() {
+    if (selectedInformation != null) {
+      selectedImage = selectedInformation!.image != null ? File(selectedInformation!.image!) : null;
+      nameController.text = selectedInformation!.fullname ?? '';
+      birthDateController.text = selectedInformation!.birthDate ?? '';
+      weightController.text = selectedInformation!.weight?.toString() ?? '';
+      heightController.text = selectedInformation!.height?.toString() ?? '';
+    }
+  }
+
+  @action
+  void isEditControl() {
+    isEdit = !isEdit;
   }
 
   @action
@@ -82,6 +102,7 @@ abstract class _InformationViewModelBase with Store {
     isSeenInformation = preferences.getBool('information') ?? false;
   }
 
+  //butona basınca blur lottiesinin gelmesi
   @action
   void toggleBlur(BuildContext context) {
     if (!isBlurred) {
@@ -97,6 +118,7 @@ abstract class _InformationViewModelBase with Store {
     }
   }
 
+  //gender listesindeki elemanın herhangi birine tıklayınca algılaması
   @action
   Future<void> toggleSelectedIndex(InformationGender gender) async {
     runInAction(() {
@@ -110,6 +132,7 @@ abstract class _InformationViewModelBase with Store {
     });
   }
 
+  //boş mu dolu mu kontrol
   @action
   void changeVisible() {
     isButtonVisibleInf = selectedImage != null &&
@@ -126,7 +149,7 @@ abstract class _InformationViewModelBase with Store {
       context: context,
       initialDate: DateTime.now(),
       firstDate: DateTime(2000),
-      lastDate: DateTime(2101),
+      lastDate: DateTime.now(),
     );
     if (picked != null) {
       final DateFormat formatter = DateFormat('dd/MM/yyyy');
@@ -158,18 +181,40 @@ abstract class _InformationViewModelBase with Store {
     await informationDatasource.add(informationModel);
   }
 
-  // @action
-  // Future<void> getInformation() async {
-  //   infoList.clear();
-  //   var informationData = await informationDatasource.getAll();
-  //   infoList.addAll(informationData.data!);
-  // }
-
+  // listeye eklenen son veriyi alması
   @action
   Future<void> fetchLatestInformation() async {
     var informationData = await informationDatasource.get();
     if (informationData.success && informationData.data != null) {
       selectedInformation = informationData.data;
+      holdTextFieldsData();
     }
+  }
+
+  @action
+  Future<void> refreshInformationList() async {
+    var informationData = await informationDatasource.getAll();
+    infoList = informationData.data ?? [];
+  }
+
+  @action
+  Future<void> updateInformation(Information info) async {
+    String? image = info.image;
+    String? fullname = info.fullname;
+    String? birthDate = info.birthDate;
+    int? weight = info.weight;
+    int? height = info.height;
+
+    Information informationModel = Information(
+        id: info.id,
+        image: image,
+        genderList: selectedIndices,
+        fullname: fullname,
+        birthDate: birthDate,
+        weight: weight,
+        height: height);
+
+    await informationDatasource.update(informationModel);
+    await refreshInformationList();
   }
 }

@@ -121,6 +121,22 @@ mixin _$InformationViewModel on _InformationViewModelBase, Store {
     });
   }
 
+  late final _$isEditAtom =
+      Atom(name: '_InformationViewModelBase.isEdit', context: context);
+
+  @override
+  bool get isEdit {
+    _$isEditAtom.reportRead();
+    return super.isEdit;
+  }
+
+  @override
+  set isEdit(bool value) {
+    _$isEditAtom.reportWrite(value, super.isEdit, () {
+      super.isEdit = value;
+    });
+  }
+
   late final _$selectedInformationAtom = Atom(
       name: '_InformationViewModelBase.selectedInformation', context: context);
 
@@ -201,12 +217,12 @@ mixin _$InformationViewModel on _InformationViewModelBase, Store {
     });
   }
 
-  late final _$_initAsyncAction =
-      AsyncAction('_InformationViewModelBase._init', context: context);
+  late final _$initAsyncAction =
+      AsyncAction('_InformationViewModelBase.init', context: context);
 
   @override
-  Future<void> _init() {
-    return _$_initAsyncAction.run(() => super._init());
+  Future<void> init() {
+    return _$initAsyncAction.run(() => super.init());
   }
 
   late final _$saveIsSeenInformationAsyncAction = AsyncAction(
@@ -277,8 +293,50 @@ mixin _$InformationViewModel on _InformationViewModelBase, Store {
         .run(() => super.fetchLatestInformation());
   }
 
+  late final _$refreshInformationListAsyncAction = AsyncAction(
+      '_InformationViewModelBase.refreshInformationList',
+      context: context);
+
+  @override
+  Future<void> refreshInformationList() {
+    return _$refreshInformationListAsyncAction
+        .run(() => super.refreshInformationList());
+  }
+
+  late final _$updateInformationAsyncAction = AsyncAction(
+      '_InformationViewModelBase.updateInformation',
+      context: context);
+
+  @override
+  Future<void> updateInformation(Information info) {
+    return _$updateInformationAsyncAction
+        .run(() => super.updateInformation(info));
+  }
+
   late final _$_InformationViewModelBaseActionController =
       ActionController(name: '_InformationViewModelBase', context: context);
+
+  @override
+  void holdTextFieldsData() {
+    final _$actionInfo = _$_InformationViewModelBaseActionController
+        .startAction(name: '_InformationViewModelBase.holdTextFieldsData');
+    try {
+      return super.holdTextFieldsData();
+    } finally {
+      _$_InformationViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void isEditControl() {
+    final _$actionInfo = _$_InformationViewModelBaseActionController
+        .startAction(name: '_InformationViewModelBase.isEditControl');
+    try {
+      return super.isEditControl();
+    } finally {
+      _$_InformationViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
 
   @override
   void toggleBlur(BuildContext context) {
@@ -312,6 +370,7 @@ infoList: ${infoList},
 selectedIndices: ${selectedIndices},
 genderList: ${genderList},
 isSeenInformation: ${isSeenInformation},
+isEdit: ${isEdit},
 selectedInformation: ${selectedInformation},
 nameController: ${nameController},
 birthDateController: ${birthDateController},
