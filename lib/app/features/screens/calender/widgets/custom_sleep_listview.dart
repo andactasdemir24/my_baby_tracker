@@ -1,3 +1,4 @@
+import 'package:baby_tracker_app/app/features/screens/calender/widgets/custom_nodata.dart';
 import 'package:baby_tracker_app/app/features/screens/sleep/view/sleep_edit_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -15,62 +16,66 @@ class CustomSleepListView extends StatelessWidget {
   Widget build(BuildContext context) {
     final calenderViewmodel = locator.get<CalenderViewModel>();
     return Observer(builder: (context) {
-      return ListView.builder(
-        itemCount: calenderViewmodel.sleepList.length,
-        itemBuilder: (context, index) {
-          var sleep = calenderViewmodel.sleepList[index];
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-            child: Column(
-              children: [
-                Center(child: Observer(
-                  builder: (context) {
-                    return Dismissible(
-                      key: Key(sleep.id!),
-                      background: Container(
-                        color: cred,
-                        alignment: Alignment.centerRight,
-                        padding: const EdgeInsets.only(right: 20.0),
-                        child: const Icon(Icons.delete, color: cwhite),
-                      ),
-                      direction: DismissDirection.endToStart,
-                      onDismissed: (direction) {
-                        calenderViewmodel.deleteSleep(sleep.id!);
-                      },
-                      child: GestureDetector(
-                          onDoubleTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => SleepPageEdit(
-                                        id: sleep.id!,
-                                        feelSleep: sleep.fellSleep!,
-                                        wokeUp: sleep.wokeUp!,
-                                        note: sleep.text!)));
-                          },
-                          onTap: () {
-                            calenderViewmodel.toggleSelected1(index);
-                          },
-                          child: AnimatedContainer(
-                            duration: const Duration(milliseconds: 500),
-                            curve: Curves.ease,
-                            width: displayWidth(context) * 0.8878,
-                            height: sleep.isSelected ? displayHeight(context) * 0.15 : displayHeight(context) * 0.1,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(25),
-                              color: annualColor,
-                            ),
-                            alignment: Alignment.center,
-                            child: !sleep.isSelected ? notpress(sleep) : whenipress(sleep),
-                          )),
-                    );
-                  },
-                )),
-              ],
-            ),
-          );
-        },
-      );
+      if (calenderViewmodel.sleepList.isNotEmpty) {
+        return ListView.builder(
+          itemCount: calenderViewmodel.sleepList.length,
+          itemBuilder: (context, index) {
+            var sleep = calenderViewmodel.sleepList[index];
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+              child: Column(
+                children: [
+                  Center(child: Observer(
+                    builder: (context) {
+                      return Dismissible(
+                        key: Key(sleep.id!),
+                        background: Container(
+                          color: cred,
+                          alignment: Alignment.centerRight,
+                          padding: const EdgeInsets.only(right: 20.0),
+                          child: const Icon(Icons.delete, color: cwhite),
+                        ),
+                        direction: DismissDirection.endToStart,
+                        onDismissed: (direction) {
+                          calenderViewmodel.deleteSleep(sleep.id!);
+                        },
+                        child: GestureDetector(
+                            onDoubleTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => SleepPageEdit(
+                                          id: sleep.id!,
+                                          feelSleep: sleep.fellSleep!,
+                                          wokeUp: sleep.wokeUp!,
+                                          note: sleep.text!)));
+                            },
+                            onTap: () {
+                              calenderViewmodel.toggleSelected1(index);
+                            },
+                            child: AnimatedContainer(
+                              duration: const Duration(milliseconds: 500),
+                              curve: Curves.ease,
+                              width: displayWidth(context) * 0.8878,
+                              height: sleep.isSelected ? displayHeight(context) * 0.15 : displayHeight(context) * 0.1,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(25),
+                                color: annualColor,
+                              ),
+                              alignment: Alignment.center,
+                              child: !sleep.isSelected ? notpress(sleep) : whenipress(sleep),
+                            )),
+                      );
+                    },
+                  )),
+                ],
+              ),
+            );
+          },
+        );
+      } else {
+        return const CustomNoDataWidget();
+      }
     });
   }
 

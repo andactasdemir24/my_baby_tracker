@@ -37,3 +37,6 @@ const String boy = 'assets/images/boy.png';
 const String picker = 'assets/images/picker.png';
 const String weight = 'assets/images/weight.png';
 const String height = 'assets/images/heights.png';
+
+//calender
+const String noDataImage = 'assets/images/sleep-baby.png';

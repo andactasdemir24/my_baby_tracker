@@ -3,6 +3,7 @@ import 'package:baby_tracker_app/app/core/hive/model/feeding_model.dart';
 import 'package:baby_tracker_app/app/core/hive/model/sleep_model.dart';
 import 'package:baby_tracker_app/app/core/hive/model/symptomps_model.dart';
 import 'package:baby_tracker_app/app/features/screens/calender/viewmodel/calender_viewmodel.dart';
+import 'package:baby_tracker_app/app/features/screens/calender/widgets/custom_nodata.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import '../../../../core/constants/color_constants.dart';
@@ -23,23 +24,27 @@ class CustomAllListview extends StatelessWidget {
     return Scaffold(
       body: Observer(
         builder: (context) {
-          return ListView(
-            children: allviewmodel.groupedItems.entries.map((entry) {
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
-                    child: Text(
-                      entry.key,
-                      style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: mainIconColor),
+          if (allviewmodel.allList.isNotEmpty) {
+            return ListView(
+              children: allviewmodel.groupedItems.entries.map((entry) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
+                      child: Text(
+                        entry.key,
+                        style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: mainIconColor),
+                      ),
                     ),
-                  ),
-                  ...entry.value.map((all) => _buildItem(context, all, allviewmodel)).toList(),
-                ],
-              );
-            }).toList(),
-          );
+                    ...entry.value.map((all) => _buildItem(context, all, allviewmodel)).toList(),
+                  ],
+                );
+              }).toList(),
+            );
+          } else {
+            return const CustomNoDataWidget();
+          }
         },
       ),
     );

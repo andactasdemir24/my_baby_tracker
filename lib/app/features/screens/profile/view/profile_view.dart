@@ -44,10 +44,6 @@ class _ProfilePageState extends State<ProfilePage> {
     informationviewmodel.birthDateController.text = widget.birthDate ?? '';
     informationviewmodel.weightController.text = widget.weight.toString();
     informationviewmodel.heightController.text = widget.height.toString();
-    // Seçilen cinsiyeti yükleme
-    if (informationviewmodel.selectedInformation?.selectedGender != null) {
-      // Seçilen cinsiyeti arayüzde göster
-    }
   }
 
   @override

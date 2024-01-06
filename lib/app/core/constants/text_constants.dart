@@ -50,6 +50,7 @@ const String symptomos = 'Symptomps';
 
 //Calender
 const String calenderAppbar = 'Calender';
+const String noDataText = 'No data about the baby has been\nentered yet.Please enter data.';
 
 //SymptompsList names
 const String runnyNoseT = 'Runny Nose';
