@@ -55,7 +55,7 @@ class CustomStack extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        '${info.fullname!} / ${info.genderList!.map((name) => name.name).join('')}',
+                        '${info.fullname!} / ${info.selectedGender}',
                         style: TextStyle(color: shade200, fontSize: 15, fontWeight: FontWeight.w500),
                       ),
                       Text(info.birthDate!,

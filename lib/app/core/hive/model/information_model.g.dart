@@ -24,13 +24,14 @@ class InformationAdapter extends TypeAdapter<Information> {
       birthDate: fields[4] as String?,
       weight: fields[5] as int?,
       height: fields[6] as int?,
+      selectedGender: fields[7] as String?,
     );
   }
 
   @override
   void write(BinaryWriter writer, Information obj) {
     writer
-      ..writeByte(7)
+      ..writeByte(8)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -44,7 +45,9 @@ class InformationAdapter extends TypeAdapter<Information> {
       ..writeByte(5)
       ..write(obj.weight)
       ..writeByte(6)
-      ..write(obj.height);
+      ..write(obj.height)
+      ..writeByte(7)
+      ..write(obj.selectedGender);
   }
 
   @override

@@ -35,6 +35,7 @@ class _ProfilePageState extends State<ProfilePage> {
   final informationviewmodel = locator.get<InformationViewModel>();
   @override
   void initState() {
+    super.initState();
     informationviewmodel.init();
     if (widget.image != null) {
       informationviewmodel.selectedImage = File(widget.image!);
@@ -43,7 +44,10 @@ class _ProfilePageState extends State<ProfilePage> {
     informationviewmodel.birthDateController.text = widget.birthDate ?? '';
     informationviewmodel.weightController.text = widget.weight.toString();
     informationviewmodel.heightController.text = widget.height.toString();
-    super.initState();
+    // Seçilen cinsiyeti yükleme
+    if (informationviewmodel.selectedInformation?.selectedGender != null) {
+      // Seçilen cinsiyeti arayüzde göster
+    }
   }
 
   @override
@@ -136,6 +140,8 @@ class _ProfilePageState extends State<ProfilePage> {
                               birthDate: informationviewmodel.birthDateController.text,
                               weight: int.parse(informationviewmodel.weightController.text),
                               height: int.parse(informationviewmodel.heightController.text),
+                              selectedGender:
+                                  informationviewmodel.selectedInformation?.selectedGender, // Yeni eklenen alan
                             );
                             informationviewmodel.updateInformation(value);
                             informationviewmodel.toggleBlur(context);

@@ -60,7 +60,7 @@ class InformationDatasourceImp extends InformationDatasource {
     try {
       var allInformations = informationBox.values.toList();
       if (allInformations.isNotEmpty) {
-        return DataResult<Information>.success("Success", data: allInformations.first);
+        return DataResult<Information>.success("Success", data: allInformations.single);
       } else {
         return DataResult<Information>.fail("No information available");
       }

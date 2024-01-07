@@ -28,6 +28,9 @@ class Information extends HiveObject {
 
   //bool isSelected;
 
+  @HiveField(7)
+  String? selectedGender;
+
   Information({
     required this.id,
     required this.image,
@@ -36,6 +39,7 @@ class Information extends HiveObject {
     required this.birthDate,
     required this.weight,
     required this.height,
+    this.selectedGender,
   });
 
   // Feeding copyWith({bool? isSelected}) {

@@ -122,13 +122,9 @@ abstract class _InformationViewModelBase with Store {
   @action
   Future<void> toggleSelectedIndex(InformationGender gender) async {
     runInAction(() {
-      if (selectedIndices.contains(gender)) {
-        selectedIndices.remove(gender);
-      } else {
-        if (selectedIndices.length < 1) {
-          selectedIndices.add(gender);
-        }
-      }
+      selectedIndices.clear();
+      selectedIndices.add(gender);
+      selectedInformation?.selectedGender = gender.name;
     });
   }
 
@@ -170,6 +166,9 @@ abstract class _InformationViewModelBase with Store {
   @action
   Future<void> addInformation() async {
     var uuid = const Uuid();
+
+    String? genderName = selectedIndices.isNotEmpty ? selectedIndices.first.name : null;
+
     Information informationModel = Information(
         id: uuid.v4(),
         image: selectedImage?.path,
@@ -177,7 +176,9 @@ abstract class _InformationViewModelBase with Store {
         fullname: nameController.text,
         birthDate: birthDateController.text,
         weight: int.tryParse(weightController.text),
-        height: int.tryParse(heightController.text));
+        height: int.tryParse(heightController.text),
+        selectedGender: genderName);
+
     await informationDatasource.add(informationModel);
   }
 
@@ -199,20 +200,16 @@ abstract class _InformationViewModelBase with Store {
 
   @action
   Future<void> updateInformation(Information info) async {
-    String? image = info.image;
-    String? fullname = info.fullname;
-    String? birthDate = info.birthDate;
-    int? weight = info.weight;
-    int? height = info.height;
-
     Information informationModel = Information(
-        id: info.id,
-        image: image,
-        genderList: selectedIndices,
-        fullname: fullname,
-        birthDate: birthDate,
-        weight: weight,
-        height: height);
+      id: info.id,
+      image: info.image,
+      genderList: selectedIndices,
+      fullname: info.fullname,
+      birthDate: info.birthDate,
+      weight: info.weight,
+      height: info.height,
+      selectedGender: selectedInformation?.selectedGender,
+    );
 
     await informationDatasource.update(informationModel);
     await refreshInformationList();

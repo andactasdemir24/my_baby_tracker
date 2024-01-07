@@ -82,6 +82,7 @@ class InformationPage extends StatelessWidget {
                       textInputType: TextInputType.name,
                       hintText: babyFullName,
                       icon: const Icon(Icons.person),
+                      textStyle: const TextStyle(fontWeight: FontWeight.bold),
                     ),
                     CustomInformationTextField(
                       onChanged: (p0) => informationviewmodel.changeVisible(),
@@ -89,6 +90,7 @@ class InformationPage extends StatelessWidget {
                       hintText: babyBirthDate,
                       textInputType: TextInputType.none,
                       icon: const Icon(Icons.date_range),
+                      textStyle: const TextStyle(fontWeight: FontWeight.bold),
                       onTap: () {
                         informationviewmodel.selectDate(context, informationviewmodel.birthDateController);
                       },
@@ -99,6 +101,7 @@ class InformationPage extends StatelessWidget {
                       textInputType: TextInputType.number,
                       hintText: babyWeight,
                       icon: const Icon(Icons.monitor_weight_outlined),
+                      textStyle: const TextStyle(fontWeight: FontWeight.bold),
                     ),
                     CustomInformationTextField(
                       onChanged: (p0) => informationviewmodel.changeVisible(),
@@ -106,6 +109,7 @@ class InformationPage extends StatelessWidget {
                       textInputType: TextInputType.number,
                       hintText: babyHeight,
                       icon: const Icon(Icons.height),
+                      textStyle: const TextStyle(fontWeight: FontWeight.bold),
                     ),
                     AspectRatio(aspectRatio: displayHeight(context) * 0.015),
                     Observer(builder: (context) {
