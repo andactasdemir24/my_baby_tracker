@@ -81,6 +81,7 @@ const String girlText = 'Girl';
 const String home = 'Home';
 const String calendar = 'Calendar';
 const String profile = 'Profile';
+const String memories = 'Memories';
 
 //profile
 const String edit = "Edit";

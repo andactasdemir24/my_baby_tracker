@@ -1,5 +1,6 @@
 import 'package:baby_tracker_app/app/core/constants/color_constants.dart';
 import 'package:baby_tracker_app/app/features/screens/calender/view/calender_page.dart';
+import 'package:baby_tracker_app/app/features/screens/memories/view/memories_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -20,6 +21,7 @@ class _MainNavBarState extends State<MainNavBar> {
   static const List<Widget> _widgetOptions = <Widget>[
     HomePage(),
     CalenderPage(),
+    MemoriesPage(),
     ProfilePage(),
   ];
 
@@ -35,15 +37,15 @@ class _MainNavBarState extends State<MainNavBar> {
       body: _widgetOptions.elementAt(_selectedIndex),
       bottomNavigationBar: GNav(
           onTabChange: (index) => _onItemTapped(index),
-          tabMargin: EdgeInsets.all(15.r),
-          padding: EdgeInsets.all(15.r),
+          tabMargin: EdgeInsets.symmetric(vertical: 15.h, horizontal: 10.w),
+          padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           color: shade500,
           activeColor: mainIconColor,
           backgroundColor: cwhite,
           tabBackgroundColor: shade200,
           selectedIndex: _selectedIndex,
-          gap: 10,
+          gap: 8,
           tabs: const [
             GButton(
               icon: Icons.home,
@@ -52,6 +54,10 @@ class _MainNavBarState extends State<MainNavBar> {
             GButton(
               icon: Icons.calendar_month_outlined,
               text: calendar,
+            ),
+            GButton(
+              icon: Icons.photo_library,
+              text: memories,
             ),
             GButton(
               icon: Icons.person,

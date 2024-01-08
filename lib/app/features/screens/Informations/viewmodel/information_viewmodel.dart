@@ -148,7 +148,7 @@ abstract class _InformationViewModelBase with Store {
       lastDate: DateTime.now(),
     );
     if (picked != null) {
-      final DateFormat formatter = DateFormat('dd/MM/yyyy');
+      final DateFormat formatter = DateFormat('dd.MM.yyyy');
       final String formattedDate = formatter.format(picked);
       controller.text = formattedDate;
     }
