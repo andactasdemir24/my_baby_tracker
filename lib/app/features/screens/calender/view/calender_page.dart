@@ -41,7 +41,7 @@ class _CalenderPageState extends State<CalenderPage> with TickerProviderStateMix
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppbar(appbarText: calenderAppbar),
+      appBar: const CustomAppbar(appbarText: calenderAppbar, centerTitle: true),
       body: Observer(builder: (context) {
         return Column(
           children: [

@@ -1,5 +1,6 @@
 import 'package:baby_tracker_app/app/core/hive/model/feeding_model.dart';
 import 'package:baby_tracker_app/app/core/hive/model/information_model.dart';
+import 'package:baby_tracker_app/app/core/hive/model/memories_model.dart';
 import 'package:baby_tracker_app/app/core/hive/model/sleep_model.dart';
 import 'package:baby_tracker_app/app/core/hive/model/symptomps_model.dart';
 import 'package:baby_tracker_app/app/features/model/information_gender_model_f.dart';
@@ -10,12 +11,14 @@ late Box<Feeding> feedingBox;
 late Box<Sleep> sleepBox;
 late Box<Symptomps> symptompsBox;
 late Box<Information> informationBox;
+late Box<MemoriesModel> memoriesBox;
 
 Future<void> hiveBox() async {
   feedingBox = await Hive.openBox<Feeding>('feeding');
   sleepBox = await Hive.openBox<Sleep>('sleep');
   symptompsBox = await Hive.openBox<Symptomps>('symptomps');
   informationBox = await Hive.openBox<Information>('information');
+  memoriesBox = await Hive.openBox<MemoriesModel>('memories');
 }
 
 void hiveRegisterAdapter() {
@@ -25,4 +28,5 @@ void hiveRegisterAdapter() {
   Hive.registerAdapter<SymptopmsModel>(SymptopmsModelAdapter());
   Hive.registerAdapter<Information>(InformationAdapter());
   Hive.registerAdapter<InformationGender>(InformationGenderAdapter());
+  Hive.registerAdapter<MemoriesModel>(MemoriesModelAdapter());
 }

@@ -85,3 +85,6 @@ const String memories = 'Memories';
 
 //profile
 const String edit = "Edit";
+
+//Memories
+const String memoriesAppbarText = "Memories";
