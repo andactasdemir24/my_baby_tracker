@@ -1,5 +1,6 @@
 import 'package:baby_tracker_app/app/core/hive/datasource/feeding_datasource.dart';
 import 'package:baby_tracker_app/app/core/hive/model/feeding_model.dart';
+import 'package:baby_tracker_app/app/features/screens/feeding/widgets/feeding_alert.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 import 'package:uuid/uuid.dart';
@@ -70,24 +71,7 @@ abstract class _FeedingViewModelBase with Store {
       context: context,
       barrierDismissible: false,
       builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text('Warning!'),
-          content: const SingleChildScrollView(
-            child: ListBody(
-              children: <Widget>[
-                Text('Please fill in the blank fields!'),
-              ],
-            ),
-          ),
-          actions: <Widget>[
-            TextButton(
-              child: const Text('Okey'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
+        return const FeedingAlert();
       },
     );
   }

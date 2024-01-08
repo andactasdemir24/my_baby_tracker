@@ -1,8 +1,9 @@
 import 'dart:io';
-
 import 'package:baby_tracker_app/app/core/getIt/locator.dart';
 import 'package:baby_tracker_app/app/core/hive/datasource/memories_datasource.dart';
 import 'package:baby_tracker_app/app/core/hive/model/memories_model.dart';
+import 'package:baby_tracker_app/app/features/screens/memories/widgets/custom_alert.dart';
+import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:mobx/mobx.dart';
 import 'package:uuid/uuid.dart';
@@ -47,6 +48,17 @@ abstract class _MemoriesViewModelBase with Store {
   }
 
   @action
+  Future<void> showMyDialog(BuildContext context, String id) async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return CustomAlert(id: id);
+      },
+    );
+  }
+
+  @action
   Future<void> addMemories() async {
     //picker açıldığında seçmezse en son seçili olanı eklemesin diye direkt return yaptım
     if (selectedImage == null) {
@@ -67,5 +79,11 @@ abstract class _MemoriesViewModelBase with Store {
     var memoriesData = await memoriesDatasource.getAll();
     memoriesList.clear();
     memoriesList.addAll(memoriesData.data!);
+  }
+
+  @action
+  Future<void> deleteMemories(String id) async {
+    await memoriesDatasource.delete(id);
+    memoriesList.removeWhere((feeding) => feeding.id.toString() == id);
   }
 }

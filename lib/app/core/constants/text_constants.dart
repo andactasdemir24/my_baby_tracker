@@ -88,3 +88,12 @@ const String edit = "Edit";
 
 //Memories
 const String memoriesAppbarText = "Memories";
+
+//showdialog texts
+const String listBodyText = 'Are you sure you want to delete.';
+const String deleteText = 'Delete';
+const String cancelText = 'Cancel';
+const String okeyText = 'Delete';
+const String feedingAlertText = 'Please fill in the blank fields!';
+const String warningText = 'Warning!';
+const String okey = 'Okey';

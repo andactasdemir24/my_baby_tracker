@@ -1,11 +1,9 @@
 import 'dart:ui';
-
-import 'package:baby_tracker_app/app/features/screens/home/view/home_page.dart';
 import 'package:baby_tracker_app/app/features/screens/symptomps/viewmodel/symptomps_viewmodel.dart';
-import 'package:baby_tracker_app/app/features/theme/baby_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:lottie/lottie.dart';
+import '../../../../core/components/custom_widgets/custom_appbar.dart';
 import '../../../../core/components/custom_widgets/custom_button.dart';
 import '../../../../core/components/custom_widgets/note_textfield.dart';
 import '../../../../core/components/custom_widgets/time_picker.dart';
@@ -28,16 +26,7 @@ class _SymptompsPageState extends State<SymptompsPage> {
   Widget build(BuildContext context) {
     final symptompsViewmodel = locator.get<SymptompsViewmodel>();
     return Scaffold(
-      appBar: AppBar(
-          centerTitle: true,
-          title: const Text(symptomos,
-              style: TextStyle(
-                  color: getPremiumTextColor, fontSize: 27, fontFamily: 'Poppins', fontWeight: FontWeight.w600)),
-          leading: IconButton(
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
-              },
-              icon: const Icon(Baby.right))),
+      appBar: const CustomAppbar(appbarText: symptomos),
       body: Observer(builder: (context) {
         return Stack(
           children: [

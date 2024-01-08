@@ -24,7 +24,7 @@ class MemoriesPage extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
               physics: const NeverScrollableScrollPhysics(),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3,
+                crossAxisCount: 2,
                 childAspectRatio: 1,
                 crossAxisSpacing: 10.w,
                 mainAxisSpacing: 15.h,
