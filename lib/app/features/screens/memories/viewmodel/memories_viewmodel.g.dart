@@ -101,6 +101,14 @@ mixin _$MemoriesViewModel on _MemoriesViewModelBase, Store {
     return _$deleteMemoriesAsyncAction.run(() => super.deleteMemories(id));
   }
 
+  late final _$clearAllMemoriesAsyncAction =
+      AsyncAction('_MemoriesViewModelBase.clearAllMemories', context: context);
+
+  @override
+  Future<void> clearAllMemories() {
+    return _$clearAllMemoriesAsyncAction.run(() => super.clearAllMemories());
+  }
+
   @override
   String toString() {
     return '''

@@ -86,4 +86,10 @@ abstract class _MemoriesViewModelBase with Store {
     await memoriesDatasource.delete(id);
     memoriesList.removeWhere((feeding) => feeding.id.toString() == id);
   }
+
+  @action
+  Future<void> clearAllMemories() async {
+    await memoriesDatasource.clear();
+    await getMemories();
+  }
 }

@@ -7,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/constants/color_constants.dart';
 import '../../../../core/constants/text_constants.dart';
 import '../../../../core/getIt/locator.dart';
+import '../widgets/custom_delete_all_button.dart';
 import '../widgets/custom_image_container.dart';
 
 class MemoriesPage extends StatelessWidget {
@@ -16,7 +17,13 @@ class MemoriesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     var memoriesViewmodel = locator.get<MemoriesViewModel>();
     return Scaffold(
-        appBar: const CustomAppbar(appbarText: memoriesAppbarText, centerTitle: true),
+        appBar: CustomAppbar(
+          appbarText: memoriesAppbarText,
+          centerTitle: false,
+          actions: [
+            CustomDeleteAllButton(memoriesViewmodel: memoriesViewmodel),
+          ],
+        ),
         backgroundColor: shade100,
         body: Observer(builder: (context) {
           return SingleChildScrollView(
