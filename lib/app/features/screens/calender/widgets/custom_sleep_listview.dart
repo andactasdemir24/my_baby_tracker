@@ -1,9 +1,11 @@
-import 'package:baby_tracker_app/app/features/screens/calender/widgets/custom_nodata.dart';
+import 'package:baby_tracker_app/app/core/components/custom_widgets/custom_nodata.dart';
 import 'package:baby_tracker_app/app/features/screens/sleep/view/sleep_edit_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import '../../../../core/constants/color_constants.dart';
+import '../../../../core/constants/images_constants.dart';
 import '../../../../core/constants/mediaquery_constants.dart';
+import '../../../../core/constants/text_constants.dart';
 import '../../../../core/getIt/locator.dart';
 import '../../../../core/hive/model/sleep_model.dart';
 import '../../../theme/baby_icons.dart';
@@ -74,7 +76,7 @@ class CustomSleepListView extends StatelessWidget {
           },
         );
       } else {
-        return const CustomNoDataWidget();
+        return const CustomNoDataWidget(image: noDataImage, text: noDataText);
       }
     });
   }

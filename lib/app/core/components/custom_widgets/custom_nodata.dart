@@ -1,13 +1,17 @@
-import 'package:baby_tracker_app/app/core/constants/color_constants.dart';
-import 'package:baby_tracker_app/app/core/constants/images_constants.dart';
-import 'package:baby_tracker_app/app/core/constants/text_constants.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:baby_tracker_app/app/core/constants/color_constants.dart';
 
 class CustomNoDataWidget extends StatelessWidget {
   const CustomNoDataWidget({
-    super.key,
-  });
+    Key? key,
+    required this.image,
+    required this.text,
+  }) : super(key: key);
+
+  final String image;
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +19,9 @@ class CustomNoDataWidget extends StatelessWidget {
         child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Image.asset(noDataImage, height: 120.h),
+        Image.asset(image, height: 120.h),
         Text(
-          noDataText,
+          text,
           style: TextStyle(color: shade500, fontWeight: FontWeight.bold),
         )
       ],

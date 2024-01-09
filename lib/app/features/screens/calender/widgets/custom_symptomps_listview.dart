@@ -1,10 +1,12 @@
 import 'package:baby_tracker_app/app/core/hive/model/symptomps_model.dart';
-import 'package:baby_tracker_app/app/features/screens/calender/widgets/custom_nodata.dart';
+import 'package:baby_tracker_app/app/core/components/custom_widgets/custom_nodata.dart';
 import 'package:baby_tracker_app/app/features/screens/symptomps/view/symptomps_edit_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import '../../../../core/constants/color_constants.dart';
+import '../../../../core/constants/images_constants.dart';
 import '../../../../core/constants/mediaquery_constants.dart';
+import '../../../../core/constants/text_constants.dart';
 import '../../../../core/getIt/locator.dart';
 import '../../../theme/baby_icons.dart';
 import '../viewmodel/calender_viewmodel.dart';
@@ -77,7 +79,7 @@ class CustomSymptompsListView extends StatelessWidget {
           },
         );
       } else {
-        return const CustomNoDataWidget();
+        return const CustomNoDataWidget(image: noDataImage, text: noDataText);
       }
     });
   }

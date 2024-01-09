@@ -40,3 +40,4 @@ const String height = 'assets/images/heights.png';
 
 //calender
 const String noDataImage = 'assets/images/sleep-baby.png';
+const String noDataImage2 = 'assets/images/family.png';
