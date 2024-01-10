@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:baby_tracker_app/app/core/constants/images_constants.dart';
+import 'package:baby_tracker_app/app/core/constants/mediaquery_constants.dart';
 import 'package:baby_tracker_app/app/core/constants/text_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -25,15 +26,15 @@ class CustomStack extends StatelessWidget {
           clipBehavior: Clip.none,
           children: <Widget>[
             Container(
-              height: 150.h,
+              height: displayHeight(context) * 0.21,
               decoration: BoxDecoration(
                 color: homeAppbar,
                 borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10.r), bottomRight: Radius.circular(10.r)),
               ),
             ),
             SizedBox(
-              width: 270.w,
-              height: 100.h,
+              width: displayWidth(context) * 0.7,
+              height: displayHeight(context) * 0.15,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -66,12 +67,12 @@ class CustomStack extends StatelessWidget {
               ),
             ),
             Positioned(
-              top: 100.h,
-              left: 15.w,
-              right: 15.w,
+              top: displayHeight(context) * 0.15,
+              left: displayHeight(context) * 0.025,
+              right: displayHeight(context) * 0.025,
               child: Container(
-                width: MediaQuery.of(context).size.width,
-                height: 100.h,
+                width: displayWidth(context),
+                height: displayHeight(context) * 0.15,
                 decoration: BoxDecoration(
                   color: cwhite,
                   borderRadius: BorderRadius.circular(10.r),
@@ -87,10 +88,10 @@ class CustomStack extends StatelessWidget {
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
-                            Image.asset(weight, height: 25.h),
-                            SizedBox(width: 10.w),
+                            Image.asset(weight, height: displayHeight(context) * 0.035),
+                            SizedBox(width: displayWidth(context) * 0.025),
                             SizedBox(
-                              height: 32.h,
+                              height: displayHeight(context) * 0.045,
                               child: Text(info.weight.toString(),
                                   style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
                             ),
@@ -108,10 +109,10 @@ class CustomStack extends StatelessWidget {
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
-                            Image.asset(height, height: 25.h),
-                            SizedBox(width: 10.w),
+                            Image.asset(height, height: displayHeight(context) * 0.035),
+                            SizedBox(width: displayWidth(context) * 0.025),
                             SizedBox(
-                              height: 32.h,
+                              height: displayHeight(context) * 0.045,
                               child: Text(info.height.toString(),
                                   style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
                             ),

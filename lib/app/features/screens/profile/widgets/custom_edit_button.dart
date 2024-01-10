@@ -1,6 +1,5 @@
+import 'package:baby_tracker_app/app/core/constants/mediaquery_constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../core/constants/color_constants.dart';
 import '../../../../core/constants/text_constants.dart';
 import '../../Informations/viewmodel/information_viewmodel.dart';
@@ -16,7 +15,7 @@ class CustomEditButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(right: 15.w),
+      padding: EdgeInsets.only(right: displayWidth(context) * 0.05),
       child: Align(
         alignment: Alignment.centerRight,
         child: GestureDetector(

@@ -29,23 +29,3 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
-
-// AppBar(
-//       centerTitle: true,
-//       title: const Text(appbarText, style: TextStyle(color: cblack, fontSize: 22, fontWeight: FontWeight.w500)),
-//       leading: GestureDetector(
-//           onTap: () {
-//             Navigator.push(context, MaterialPageRoute(builder: (context) => const SettingsPage()));
-//           },
-//           child: const Icon(Baby.settings, size: 50)),
-//       actions: [
-//         Padding(
-//           padding: EdgeInsets.symmetric(horizontal: displayHeight(context) * 0.02),
-//           child: GestureDetector(
-//               onTap: () {
-//                 Navigator.push(context, MaterialPageRoute(builder: (context) => const CalenderPage()));
-//               },
-//               child: const Icon(Baby.calendar)),
-//         )
-//       ],
-//     );

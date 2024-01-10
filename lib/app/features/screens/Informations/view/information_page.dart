@@ -56,13 +56,12 @@ class InformationPage extends StatelessWidget {
                     ),
                     AspectRatio(aspectRatio: displayHeight(context) * 0.025),
                     GridView.builder(
-                      padding: EdgeInsets.symmetric(horizontal: 80.h),
-                      physics: const AlwaysScrollableScrollPhysics(),
+                      padding: EdgeInsets.symmetric(horizontal: 90.w),
+                      physics: const NeverScrollableScrollPhysics(),
                       gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                          maxCrossAxisExtent: displayWidth(context) * 0.4.w,
-                          childAspectRatio: 1,
-                          crossAxisSpacing: displayHeight(context) * 0.04.h,
-                          mainAxisExtent: displayHeight(context) * 0.1.h),
+                          maxCrossAxisExtent: displayWidth(context) * 0.2,
+                          crossAxisSpacing: displayHeight(context) * 0.03,
+                          mainAxisExtent: displayHeight(context) * 0.1),
                       shrinkWrap: true,
                       itemCount: informationviewmodel.genderList.length,
                       itemBuilder: (BuildContext context, index) {

@@ -45,7 +45,7 @@ class _CustomGenderListContainerState extends State<CustomGenderListContainer> {
               children: [
                 Image.asset(
                   widget.gender.image!,
-                  height: displayHeight(context) * 0.05.h,
+                  height: displayHeight(context) * 0.05,
                 ),
                 Text(
                   widget.gender.name!,
