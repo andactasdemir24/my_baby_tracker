@@ -88,6 +88,7 @@ const String edit = "Edit";
 
 //Memories
 const String memoriesAppbarText = "Memories";
+const String galleryText = "Gallery";
 
 //showdialog texts
 const String listBodyText = 'Are you sure you want to delete.';
@@ -97,3 +98,8 @@ const String okeyText = 'Delete';
 const String feedingAlertText = 'Please fill in the blank fields!';
 const String warningText = 'Warning!';
 const String okey = 'Okey';
+
+//fab
+const String camera = 'Camera';
+const String gallery = 'Gallery';
+const String deleteAll = "Delete All";

@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:baby_tracker_app/app/features/screens/memories/widgets/custom_carousel.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/constants/color_constants.dart';
 import '../../../../core/getIt/locator.dart';
 import '../../../../core/hive/model/memories_model.dart';
@@ -32,15 +33,12 @@ class CustomImageContainer extends StatelessWidget {
       },
       child: Material(
         elevation: 10.0,
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(10.r),
         child: Container(
           decoration: BoxDecoration(
-            border: Border.all(color: cwhite, width: 1),
-            borderRadius: BorderRadius.circular(10),
-            image: DecorationImage(
-              image: FileImage(File(memories.image!)),
-              fit: BoxFit.fill,
-            ),
+            border: Border.all(color: cwhite, width: 1.w),
+            borderRadius: BorderRadius.circular(10.r),
+            image: DecorationImage(image: FileImage(File(memories.image!)), fit: BoxFit.fill),
           ),
         ),
       ),

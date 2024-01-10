@@ -1,10 +1,9 @@
 import 'package:baby_tracker_app/app/core/constants/color_constants.dart';
+import 'package:baby_tracker_app/app/core/constants/mediaquery_constants.dart';
 import 'package:baby_tracker_app/app/features/screens/calender/view/calender_page.dart';
 import 'package:baby_tracker_app/app/features/screens/memories/view/memories_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-
 import '../../../core/constants/text_constants.dart';
 import '../home/view/home_page.dart';
 import '../profile/view/profile_view.dart';
@@ -37,8 +36,9 @@ class _MainNavBarState extends State<MainNavBar> {
       body: _widgetOptions.elementAt(_selectedIndex),
       bottomNavigationBar: GNav(
           onTabChange: (index) => _onItemTapped(index),
-          tabMargin: EdgeInsets.symmetric(vertical: 15.h, horizontal: 10.w),
-          padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+          tabMargin: EdgeInsets.symmetric(vertical: displayWidth(context) * 0.04),
+          padding:
+              EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.03, vertical: displayWidth(context) * 0.03),
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           color: shade500,
           activeColor: mainIconColor,

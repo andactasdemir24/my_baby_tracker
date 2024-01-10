@@ -1,4 +1,5 @@
 import 'package:baby_tracker_app/app/core/constants/color_constants.dart';
+import 'package:baby_tracker_app/app/core/constants/text_constants.dart';
 import 'package:baby_tracker_app/app/features/screens/memories/viewmodel/memories_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -16,7 +17,7 @@ class CustomFloatActionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Observer(builder: (context) {
       return SpeedDial(
-        backgroundColor: Colors.grey.shade300,
+        backgroundColor: shade300,
         elevation: 5,
         activeIcon: Icons.clear,
         icon: Icons.add,
@@ -25,7 +26,7 @@ class CustomFloatActionButton extends StatelessWidget {
         children: [
           SpeedDialChild(
             child: const Icon(Icons.photo_camera),
-            label: 'Camera',
+            label: camera,
             onTap: () async {
               memoriesViewmodel.pickImageFromCamera();
               await memoriesViewmodel.addMemories();
@@ -33,7 +34,7 @@ class CustomFloatActionButton extends StatelessWidget {
           ),
           SpeedDialChild(
             child: const Icon(Icons.photo_outlined),
-            label: 'Galery',
+            label: gallery,
             onTap: () async {
               await memoriesViewmodel.pickImageFromGallery();
               await memoriesViewmodel.addMemories();

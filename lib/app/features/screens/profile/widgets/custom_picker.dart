@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 
 import '../../../../core/constants/color_constants.dart';
 import '../../../../core/constants/images_constants.dart';
@@ -16,24 +17,26 @@ class CustomPicker extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-        onTap: () {
-          informationviewmodel.pickImageFromGalery();
-        },
-        child: ClipRRect(
-          child: informationviewmodel.selectedImage != null
-              ? CircleAvatar(
-                  maxRadius: 75.r,
-                  backgroundImage: FileImage(informationviewmodel.selectedImage!),
-                  child: Container(
-                    decoration: ShapeDecoration(
-                      shape: OvalBorder(
-                        side: BorderSide(width: 2.w, color: mainIconColor),
+    return Observer(builder: (context) {
+      return GestureDetector(
+          onTap: () {
+            informationviewmodel.pickImageFromGalery();
+          },
+          child: ClipRRect(
+            child: informationviewmodel.selectedImage != null
+                ? CircleAvatar(
+                    maxRadius: 75.r,
+                    backgroundImage: FileImage(informationviewmodel.selectedImage!),
+                    child: Container(
+                      decoration: ShapeDecoration(
+                        shape: OvalBorder(
+                          side: BorderSide(width: 2.w, color: mainIconColor),
+                        ),
                       ),
                     ),
-                  ),
-                )
-              : Image.asset(picker, height: displayHeight(context) * 0.2),
-        ));
+                  )
+                : Image.asset(picker, height: displayHeight(context) * 0.2),
+          ));
+    });
   }
 }

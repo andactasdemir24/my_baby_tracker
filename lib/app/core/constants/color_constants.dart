@@ -36,5 +36,6 @@ const Color homeAppbar = Color.fromARGB(255, 230, 30, 80);
 //grey shade
 Color shade100 = Colors.grey.shade100;
 Color shade200 = Colors.grey.shade200;
+Color shade300 = Colors.grey.shade300;
 Color shade400 = Colors.grey.shade400;
 Color shade500 = Colors.grey.shade500;
