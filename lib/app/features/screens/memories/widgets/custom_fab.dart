@@ -35,7 +35,7 @@ class CustomFloatActionButton extends StatelessWidget {
             child: const Icon(Icons.photo_outlined),
             label: 'Galery',
             onTap: () async {
-              await memoriesViewmodel.pickImageFromGalery();
+              await memoriesViewmodel.pickImageFromGallery();
               await memoriesViewmodel.addMemories();
             },
           ),

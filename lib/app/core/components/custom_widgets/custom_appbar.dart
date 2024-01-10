@@ -6,11 +6,13 @@ import '../../constants/color_constants.dart';
 class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
   final String appbarText;
   final bool? centerTitle;
+  final Widget? leading;
   final List<Widget>? actions;
   const CustomAppbar({
     Key? key,
     required this.appbarText,
     this.centerTitle,
+    this.leading,
     this.actions,
   }) : super(key: key);
 
@@ -28,6 +30,7 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       actions: actions,
+      leading: leading,
     );
   }
 

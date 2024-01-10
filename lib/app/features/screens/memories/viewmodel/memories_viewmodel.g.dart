@@ -41,6 +41,38 @@ mixin _$MemoriesViewModel on _MemoriesViewModelBase, Store {
     });
   }
 
+  late final _$carouselControllerAtom =
+      Atom(name: '_MemoriesViewModelBase.carouselController', context: context);
+
+  @override
+  CarouselController get carouselController {
+    _$carouselControllerAtom.reportRead();
+    return super.carouselController;
+  }
+
+  @override
+  set carouselController(CarouselController value) {
+    _$carouselControllerAtom.reportWrite(value, super.carouselController, () {
+      super.carouselController = value;
+    });
+  }
+
+  late final _$isImagePickerActiveAtom = Atom(
+      name: '_MemoriesViewModelBase.isImagePickerActive', context: context);
+
+  @override
+  bool get isImagePickerActive {
+    _$isImagePickerActiveAtom.reportRead();
+    return super.isImagePickerActive;
+  }
+
+  @override
+  set isImagePickerActive(bool value) {
+    _$isImagePickerActiveAtom.reportWrite(value, super.isImagePickerActive, () {
+      super.isImagePickerActive = value;
+    });
+  }
+
   late final _$initAsyncAction =
       AsyncAction('_MemoriesViewModelBase.init', context: context);
 
@@ -49,14 +81,14 @@ mixin _$MemoriesViewModel on _MemoriesViewModelBase, Store {
     return _$initAsyncAction.run(() => super.init());
   }
 
-  late final _$pickImageFromGaleryAsyncAction = AsyncAction(
-      '_MemoriesViewModelBase.pickImageFromGalery',
+  late final _$pickImageFromGalleryAsyncAction = AsyncAction(
+      '_MemoriesViewModelBase.pickImageFromGallery',
       context: context);
 
   @override
-  Future<dynamic> pickImageFromGalery() {
-    return _$pickImageFromGaleryAsyncAction
-        .run(() => super.pickImageFromGalery());
+  Future<dynamic> pickImageFromGallery() {
+    return _$pickImageFromGalleryAsyncAction
+        .run(() => super.pickImageFromGallery());
   }
 
   late final _$pickImageFromCameraAsyncAction = AsyncAction(
@@ -113,7 +145,9 @@ mixin _$MemoriesViewModel on _MemoriesViewModelBase, Store {
   String toString() {
     return '''
 selectedImage: ${selectedImage},
-memoriesList: ${memoriesList}
+memoriesList: ${memoriesList},
+carouselController: ${carouselController},
+isImagePickerActive: ${isImagePickerActive}
     ''';
   }
 }

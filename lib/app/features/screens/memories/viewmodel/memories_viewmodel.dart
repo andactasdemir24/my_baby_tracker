@@ -3,7 +3,9 @@ import 'package:baby_tracker_app/app/core/getIt/locator.dart';
 import 'package:baby_tracker_app/app/core/hive/datasource/memories_datasource.dart';
 import 'package:baby_tracker_app/app/core/hive/model/memories_model.dart';
 import 'package:baby_tracker_app/app/features/screens/memories/widgets/custom_alert.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:mobx/mobx.dart';
 import 'package:uuid/uuid.dart';
@@ -20,6 +22,12 @@ abstract class _MemoriesViewModelBase with Store {
   @observable
   ObservableList<MemoriesModel> memoriesList = ObservableList<MemoriesModel>();
 
+  @observable
+  CarouselController carouselController = CarouselController();
+
+  @observable
+  bool isImagePickerActive = false;
+
   _MemoriesViewModelBase() {
     init();
   }
@@ -30,12 +38,19 @@ abstract class _MemoriesViewModelBase with Store {
   }
 
   @action
-  Future pickImageFromGalery() async {
-    final returnedImage = await ImagePicker().pickImage(source: ImageSource.gallery);
-    if (returnedImage == null) {
-      return;
+  Future pickImageFromGallery() async {
+    if (isImagePickerActive) return;
+    isImagePickerActive = true;
+    try {
+      final returnedImage = await ImagePicker().pickImage(source: ImageSource.gallery);
+      if (returnedImage != null) {
+        selectedImage = File(returnedImage.path);
+      }
+    } on PlatformException catch (e) {
+      Text(e.toString());
+    } finally {
+      isImagePickerActive = false;
     }
-    selectedImage = File(returnedImage.path);
   }
 
   @action
