@@ -42,7 +42,7 @@ class CustomSleepListView extends StatelessWidget {
                           calenderViewmodel.deleteSleep(sleep.id!);
                         },
                         child: GestureDetector(
-                            onDoubleTap: () {
+                            onLongPress: () {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
@@ -84,6 +84,7 @@ class CustomSleepListView extends StatelessWidget {
   ListTile notpress(Sleep sleep) {
     return ListTile(
         leading: const Icon(Baby.sleep, size: 50, color: mainIconColor),
+        trailing: const Icon(Icons.arrow_circle_down_outlined),
         title: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -115,6 +116,7 @@ class CustomSleepListView extends StatelessWidget {
     return SingleChildScrollView(
       child: ListTile(
           leading: const Icon(Baby.sleep, size: 50, color: mainIconColor),
+          trailing: const Icon(Icons.arrow_circle_up_outlined),
           title: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,

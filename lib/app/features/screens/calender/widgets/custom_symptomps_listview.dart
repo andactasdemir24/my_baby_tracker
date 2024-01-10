@@ -24,7 +24,7 @@ class CustomSymptompsListView extends StatelessWidget {
           itemBuilder: (context, index) {
             var symptomps = calenderViewmodel.symptompsList[index];
             return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+              padding: const EdgeInsets.symmetric(vertical: 5),
               child: Column(
                 children: [
                   Center(child: Observer(
@@ -42,7 +42,7 @@ class CustomSymptompsListView extends StatelessWidget {
                           calenderViewmodel.deleteSymptomps(symptomps.id!);
                         },
                         child: GestureDetector(
-                            onDoubleTap: () {
+                            onLongPress: () {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
@@ -87,8 +87,10 @@ class CustomSymptompsListView extends StatelessWidget {
   ListTile notpress(Symptomps symptomps) {
     return ListTile(
       leading: const Icon(Baby.symptoms, size: 50, color: mainIconColor),
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      trailing: const Icon(Icons.arrow_circle_down_outlined),
+      title: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(symptomps.sympList!.map((e) => e.name).join(', '),
               style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: mainIconColor)),
@@ -104,22 +106,17 @@ class CustomSymptompsListView extends StatelessWidget {
     return SingleChildScrollView(
       child: ListTile(
         leading: const Icon(Baby.symptoms, size: 50, color: mainIconColor),
+        trailing: const Icon(Icons.arrow_circle_up_outlined),
         title: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(symptomps.sympList!.map((e) => e.name).join(', '),
-                    style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: mainIconColor)),
-                Flexible(
-                  child: Text(
-                      '${symptomps.symTime!.hour.toString().padLeft(2, '0')}:${symptomps.symTime!.minute.toString().padLeft(2, '0')}',
-                      style:
-                          const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, overflow: TextOverflow.ellipsis)),
-                ),
-              ],
+            Text(symptomps.sympList!.map((e) => e.name).join(', '),
+                style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: mainIconColor)),
+            Flexible(
+              child: Text(
+                  '${symptomps.symTime!.hour.toString().padLeft(2, '0')}:${symptomps.symTime!.minute.toString().padLeft(2, '0')}',
+                  style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, overflow: TextOverflow.ellipsis)),
             ),
             Text('Note: ${symptomps.text.toString()}',
                 style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),

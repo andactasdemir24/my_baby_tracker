@@ -42,7 +42,7 @@ class CustomFeedigListView extends StatelessWidget {
                           calenderViewmodel.deleteFeeding(feeding.id!);
                         },
                         child: GestureDetector(
-                            onDoubleTap: () {
+                            onLongPress: () {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
@@ -85,6 +85,7 @@ class CustomFeedigListView extends StatelessWidget {
   ListTile notpress(Feeding feeding) {
     return ListTile(
       leading: const Icon(Baby.feed, size: 50, color: mainIconColor),
+      trailing: const Icon(Icons.arrow_circle_down_outlined),
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -101,24 +102,26 @@ class CustomFeedigListView extends StatelessWidget {
     return SingleChildScrollView(
       child: ListTile(
         leading: const Icon(Baby.feed, size: 50, color: mainIconColor),
-        title: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
+        trailing: const Icon(Icons.arrow_circle_up_outlined),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text('${feeding.amount} (ml)',
                     style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: mainIconColor)),
-                Flexible(
-                  child: Text(
-                    '${feeding.time?.hour.toString().padLeft(2, '0')}:${feeding.time?.minute.toString().padLeft(2, '0')}',
-                    style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, overflow: TextOverflow.ellipsis),
-                  ),
-                ),
+                Text('Note: ${feeding.text.toString()}',
+                    style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
               ],
             ),
-            Text('Note: ${feeding.text.toString()}', style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
+            Flexible(
+              child: Text(
+                '${feeding.time?.hour.toString().padLeft(2, '0')}:${feeding.time?.minute.toString().padLeft(2, '0')}',
+                style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, overflow: TextOverflow.ellipsis),
+              ),
+            ),
           ],
         ),
       ),
