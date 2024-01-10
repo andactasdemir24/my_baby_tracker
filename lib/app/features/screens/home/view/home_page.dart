@@ -62,6 +62,12 @@ class _HomePagetate extends State<HomePage> {
                   Navigator.push(context, MaterialPageRoute(builder: (context) => const SymptompsPage()));
                 },
                 child: const CustomImageContainer(image: homeImage3)),
+            GestureDetector(
+                onTap: () {
+                  // symptompsViewmodel.clearTime();
+                  // Navigator.push(context, MaterialPageRoute(builder: (context) => const SymptompsPage()));
+                },
+                child: const CustomImageContainer(image: homeImage4)),
           ],
         ));
   }
