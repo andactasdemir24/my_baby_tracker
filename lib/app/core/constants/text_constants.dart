@@ -103,3 +103,12 @@ const String okey = 'Okey';
 const String camera = 'Camera';
 const String gallery = 'Gallery';
 const String deleteAll = "Delete All";
+
+//nappy
+const String nappy1Text = "Wet";
+const String nappy2Text = "Dirty";
+const String nappy3Text = "Mixed";
+const String nappy4Text = "Dry";
+const String nappyAppbar = "Nappy";
+const String nappyTime = "Nappy Time";
+const String nappyStatus = 'Diaper Status';

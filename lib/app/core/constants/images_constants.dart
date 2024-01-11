@@ -42,3 +42,9 @@ const String height = 'assets/images/heights.png';
 //calender
 const String noDataImage = 'assets/images/sleep-baby.png';
 const String noDataImage2 = 'assets/images/family.png';
+
+//nappy
+const String nappy1 = 'assets/images/diaper1.png';
+const String nappy2 = 'assets/images/diaper2.png';
+const String nappy3 = 'assets/images/diaper3.png';
+const String nappy4 = 'assets/images/diaper4.png';

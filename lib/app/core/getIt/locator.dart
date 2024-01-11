@@ -2,14 +2,17 @@ import 'package:baby_tracker_app/app/core/hive/datasource/feeding_datasource.dar
 import 'package:baby_tracker_app/app/core/hive/datasource/implementation/feeding_datasource_imp.dart';
 import 'package:baby_tracker_app/app/core/hive/datasource/implementation/information_datasource_imp.dart';
 import 'package:baby_tracker_app/app/core/hive/datasource/implementation/memories_datasource_imp.dart';
+import 'package:baby_tracker_app/app/core/hive/datasource/implementation/nappy_datasource_imp.dart';
 import 'package:baby_tracker_app/app/core/hive/datasource/implementation/sleep_datasource_imp.dart';
 import 'package:baby_tracker_app/app/core/hive/datasource/implementation/symptomps_datasource_imp.dart';
 import 'package:baby_tracker_app/app/core/hive/datasource/information_datasource.dart';
 import 'package:baby_tracker_app/app/core/hive/datasource/memories_datasource.dart';
+import 'package:baby_tracker_app/app/core/hive/datasource/nappy_datasource.dart';
 import 'package:baby_tracker_app/app/core/hive/datasource/sleep_datasource.dart';
 import 'package:baby_tracker_app/app/core/hive/datasource/symptomps_datasource.dart';
 import 'package:baby_tracker_app/app/features/screens/feeding/viewmodel/feeding_viewmodel.dart';
 import 'package:baby_tracker_app/app/features/screens/memories/viewmodel/memories_viewmodel.dart';
+import 'package:baby_tracker_app/app/features/screens/nappy/viewmodel/nappy_viewmodel.dart';
 import 'package:baby_tracker_app/app/features/screens/onboarding/viewmodel/onboarding_viewmodel.dart';
 import 'package:baby_tracker_app/app/features/screens/sleep/viewmodel/sleep_viewmodel.dart';
 import 'package:baby_tracker_app/app/features/screens/symptomps/viewmodel/symptomps_viewmodel.dart';
@@ -27,6 +30,7 @@ void setupLocator() {
   locator.registerLazySingleton(() => CalenderViewModel());
   locator.registerLazySingleton(() => InformationViewModel());
   locator.registerLazySingleton(() => MemoriesViewModel());
+  locator.registerLazySingleton(() => NappyViewModel());
 
   //data source
   locator.registerLazySingleton<FeedingDatasource>(() => FeedingDatasourceImp());
@@ -34,4 +38,5 @@ void setupLocator() {
   locator.registerLazySingleton<SymptompsDatasource>(() => SymptompsDatasourceImp());
   locator.registerLazySingleton<InformationDatasource>(() => InformationDatasourceImp());
   locator.registerLazySingleton<MemoriesDatasource>(() => MemoriesDatasourceImp());
+  locator.registerLazySingleton<NappyDatasource>(() => NappyDatasourceImp());
 }
