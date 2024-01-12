@@ -127,6 +127,7 @@ abstract class _SymptompsViewmodelBase with Store {
         symTime: symptompsTime,
         sympList: newSymptmpsList,
         text: noteController.text,
+        createdTime: DateTime.now(),
       );
       await symptompsDatasource.add(symptompsModel);
     }
@@ -155,6 +156,7 @@ abstract class _SymptompsViewmodelBase with Store {
       symTime: updatedTime,
       sympList: newSymptmpsList,
       text: updatedText,
+      createdTime: symptomps.createdTime,
     );
 
     await symptompsDatasource.update(symptompsModel);

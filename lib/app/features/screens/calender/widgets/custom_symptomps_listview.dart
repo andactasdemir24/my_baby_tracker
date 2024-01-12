@@ -51,6 +51,7 @@ class CustomSymptompsListView extends StatelessWidget {
                                       symTime: symptomps.symTime!,
                                       sympList: symptomps.sympList!,
                                       note: symptomps.text!,
+                                      createdTime: symptomps.createdTime!,
                                     ),
                                   ));
                             },

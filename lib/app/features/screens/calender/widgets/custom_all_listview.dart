@@ -222,7 +222,12 @@ class CustomAllListview extends StatelessWidget {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => SymptompsPageEdit(
-                                        id: all.id!, symTime: all.symTime!, sympList: all.sympList!, note: all.text!)));
+                                          id: all.id!,
+                                          symTime: all.symTime!,
+                                          sympList: all.sympList!,
+                                          note: all.text!,
+                                          createdTime: all.createdTime!,
+                                        )));
                           },
                           child: Container(
                               width: displayWidth(context) * 0.8878,

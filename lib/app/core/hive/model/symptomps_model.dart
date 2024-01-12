@@ -17,6 +17,8 @@ class Symptomps extends HiveObject {
 
   @HiveField(3)
   String? text;
+  @HiveField(4)
+  DateTime? createdTime;
 
   bool isSelected;
 
@@ -25,6 +27,7 @@ class Symptomps extends HiveObject {
     required this.symTime,
     required this.sympList,
     required this.text,
+    required this.createdTime,
     this.isSelected = false,
   });
 
@@ -34,6 +37,7 @@ class Symptomps extends HiveObject {
       symTime: symTime,
       sympList: sympList,
       text: text,
+      createdTime: createdTime,
       isSelected: isSelected ?? this.isSelected,
     );
   }

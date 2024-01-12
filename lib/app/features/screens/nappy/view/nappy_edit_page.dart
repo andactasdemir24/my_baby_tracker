@@ -101,7 +101,7 @@ class _NappyPageEditState extends State<NappyPageEdit> {
                           nappyTime: widget.nappyTime,
                           napList: nappyViewmodel.selectedIndicess,
                           text: noteController.text,
-                          createdTime: widget.createdTime, // Bu değeri kullanın
+                          createdTime: widget.createdTime,
                         );
                         nappyViewmodel.updateNappy(updatedNappy);
                         nappyViewmodel.toggleBlur5(context);

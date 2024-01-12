@@ -25,12 +25,14 @@ class SymptompsPageEdit extends StatefulWidget {
     required this.symTime,
     required this.sympList,
     required this.note,
+    required this.createdTime,
   }) : super(key: key);
 
   final String id;
   final DateTime symTime;
   final List<SymptopmsModel> sympList;
   final String note;
+  final DateTime createdTime;
 
   @override
   State<SymptompsPageEdit> createState() => _SymptompsPageEditState();
@@ -100,10 +102,12 @@ class _SymptompsPageEditState extends State<SymptompsPageEdit> {
                       text: const Text(update, style: TextStyle(color: cwhite)),
                       onPressed: () {
                         var value = Symptomps(
-                            id: widget.id,
-                            symTime: widget.symTime,
-                            sympList: symptompsViewmodel.selectedIndices,
-                            text: noteController.text);
+                          id: widget.id,
+                          symTime: widget.symTime,
+                          sympList: symptompsViewmodel.selectedIndices,
+                          text: noteController.text,
+                          createdTime: widget.createdTime, 
+                        );
                         symptompsViewmodel.updateSymptomps(value);
                         symptompsViewmodel.toggleBlur4(context);
                       },

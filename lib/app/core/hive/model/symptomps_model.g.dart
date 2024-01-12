@@ -21,13 +21,14 @@ class SymptompsAdapter extends TypeAdapter<Symptomps> {
       symTime: fields[1] as DateTime?,
       sympList: (fields[2] as List?)?.cast<SymptopmsModel>(),
       text: fields[3] as String?,
+      createdTime: fields[4] as DateTime?,
     );
   }
 
   @override
   void write(BinaryWriter writer, Symptomps obj) {
     writer
-      ..writeByte(4)
+      ..writeByte(5)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -35,7 +36,9 @@ class SymptompsAdapter extends TypeAdapter<Symptomps> {
       ..writeByte(2)
       ..write(obj.sympList)
       ..writeByte(3)
-      ..write(obj.text);
+      ..write(obj.text)
+      ..writeByte(4)
+      ..write(obj.createdTime);
   }
 
   @override
