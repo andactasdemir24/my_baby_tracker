@@ -50,6 +50,11 @@ class FeedingDatasourceImp extends FeedingDatasource {
   Future<DataResult<List<Feeding>>> getAll() async {
     try {
       var list = feedingBox.values.toList();
+      list.sort((a, b) {
+        DateTime aTime = a.createdTime ?? DateTime.now();
+        DateTime bTime = b.createdTime ?? DateTime.now();
+        return bTime.compareTo(aTime);
+      });
       return DataResult<List<Feeding>>.success("Success", data: list);
     } catch (e) {
       return DataResult<List<Feeding>>.fail(e.toString());

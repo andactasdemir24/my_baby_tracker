@@ -93,6 +93,7 @@ abstract class _FeedingViewModelBase with Store {
         time: feedingTime,
         amount: int.parse(amountController.text),
         text: noteController.text,
+        createdTime: DateTime.now(),
       );
       await feedingDatasource.add(feedingModel);
     }
@@ -119,6 +120,7 @@ abstract class _FeedingViewModelBase with Store {
       time: updatedTime,
       amount: updatedAmount,
       text: updatedText,
+      createdTime: feed.createdTime,
     );
 
     await feedingDatasource.update(updatedFeeding);

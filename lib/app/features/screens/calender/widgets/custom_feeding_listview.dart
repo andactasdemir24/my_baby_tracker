@@ -47,10 +47,12 @@ class CustomFeedigListView extends StatelessWidget {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => FeedingEdit(
-                                        id: feeding.id!,
-                                        time: feeding.time!,
-                                        amount: feeding.amount!,
-                                        note: feeding.text!),
+                                      id: feeding.id!,
+                                      time: feeding.time!,
+                                      amount: feeding.amount!,
+                                      note: feeding.text!,
+                                      createdTime: feeding.createdTime!,
+                                    ),
                                   ));
                             },
                             onTap: () {

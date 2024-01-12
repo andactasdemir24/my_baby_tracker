@@ -16,6 +16,9 @@ class Feeding extends HiveObject {
   @HiveField(3)
   String? text;
 
+  @HiveField(4)
+  DateTime? createdTime;
+
   bool isSelected;
 
   Feeding({
@@ -23,6 +26,7 @@ class Feeding extends HiveObject {
     required this.time,
     required this.amount,
     required this.text,
+    required this.createdTime,
     this.isSelected = false,
   });
 
@@ -32,6 +36,7 @@ class Feeding extends HiveObject {
       time: time,
       amount: amount,
       text: text,
+      createdTime: createdTime,
       isSelected: isSelected ?? this.isSelected,
     );
   }

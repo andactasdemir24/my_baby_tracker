@@ -25,12 +25,14 @@ class FeedingEdit extends StatefulWidget {
     required this.time,
     required this.amount,
     required this.note,
+    required this.createdTime,
   }) : super(key: key);
 
   final String id;
   final DateTime time;
   final int amount;
   final String note;
+  final DateTime createdTime;
 
   @override
   State<FeedingEdit> createState() => _FeedingEditState();
@@ -94,10 +96,12 @@ class _FeedingEditState extends State<FeedingEdit> {
                             return;
                           }
                           var value = Feeding(
-                              id: widget.id,
-                              time: widget.time,
-                              amount: int.parse(_amountController.text),
-                              text: _noteController.text);
+                            id: widget.id,
+                            time: widget.time,
+                            amount: int.parse(_amountController.text),
+                            text: _noteController.text,
+                            createdTime: widget.createdTime,
+                          );
                           viewmodel.updateFeeding(value);
                           viewmodel.toggleBlur(context);
                         },

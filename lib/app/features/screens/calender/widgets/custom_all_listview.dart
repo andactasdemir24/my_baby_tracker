@@ -81,8 +81,13 @@ class CustomAllListview extends StatelessWidget {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) =>
-                                      FeedingEdit(id: all.id!, time: all.time!, amount: all.amount!, note: all.text!),
+                                  builder: (context) => FeedingEdit(
+                                    id: all.id!,
+                                    time: all.time!,
+                                    amount: all.amount!,
+                                    note: all.text!,
+                                    createdTime: all.createdTime!,
+                                  ),
                                 ));
                           },
                           child: Container(
