@@ -118,15 +118,16 @@ abstract class _SymptompsViewmodelBase with Store {
         time3!.minute,
       );
 
-      // // sympList için her öğe için yeni bir SymptopmsModel oluşturma
-      // var newSympList = selectedIndices
-      //     .map((symptopmsModel) => SymptopmsModel(image: symptopmsModel.image, name: symptopmsModel.name))
-      //     .toList();
+      List<SymptopmsModel> newSymptmpsList = selectedIndices
+          .map((symptopmsModel) => SymptopmsModel(image: symptopmsModel.image, name: symptopmsModel.name))
+          .toList();
+
+      print(newSymptmpsList);
 
       Symptomps symptompsModel = Symptomps(
         id: uuid.v4(),
         symTime: symptompsTime,
-        sympList: selectedIndices,
+        sympList: newSymptmpsList,
         text: noteController.text,
       );
       await symptompsDatasource.add(symptompsModel);
@@ -147,16 +148,19 @@ abstract class _SymptompsViewmodelBase with Store {
         time3!.minute,
       );
     }
+    List<SymptopmsModel> newSymptmpsList = selectedIndices
+        .map((symptopmsModel) => SymptopmsModel(image: symptopmsModel.image, name: symptopmsModel.name))
+        .toList();
 
     Symptomps symptompsModel = Symptomps(
       id: symptomps.id,
       symTime: updatedTime,
-      sympList: selectedIndices,
+      sympList: newSymptmpsList,
       text: updatedText,
     );
 
     await symptompsDatasource.update(symptompsModel);
     await calenderViewModel.refreshSymptompsList();
-     calenderViewModel.allListItem();
+    calenderViewModel.allListItem();
   }
 }

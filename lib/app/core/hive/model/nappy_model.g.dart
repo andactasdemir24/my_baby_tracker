@@ -19,7 +19,7 @@ class NappyAdapter extends TypeAdapter<Nappy> {
     return Nappy(
       id: fields[0] as String?,
       nappyTime: fields[1] as DateTime?,
-      nappyList: (fields[2] as List?)?.cast<NappyModel>(),
+      napList: (fields[2] as List?)?.cast<NappyModel>(),
       text: fields[3] as String?,
     );
   }
@@ -33,7 +33,7 @@ class NappyAdapter extends TypeAdapter<Nappy> {
       ..writeByte(1)
       ..write(obj.nappyTime)
       ..writeByte(2)
-      ..write(obj.nappyList)
+      ..write(obj.napList)
       ..writeByte(3)
       ..write(obj.text);
   }

@@ -2,6 +2,7 @@ import 'package:baby_tracker_app/app/core/components/custom_widgets/custom_appba
 import 'package:baby_tracker_app/app/core/constants/color_constants.dart';
 import 'package:baby_tracker_app/app/core/constants/text_constants.dart';
 import 'package:baby_tracker_app/app/features/screens/calender/viewmodel/calender_viewmodel.dart';
+import 'package:baby_tracker_app/app/features/screens/calender/widgets/custom_nappy_listview.dart';
 import 'package:baby_tracker_app/app/features/screens/calender/widgets/custom_symptomps_listview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -26,10 +27,11 @@ class _CalenderPageState extends State<CalenderPage> with TickerProviderStateMix
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 4, vsync: this);
+    _tabController = TabController(length: 5, vsync: this);
     calenderViewmodel.getSymptomps();
     calenderViewmodel.getFeeding();
     calenderViewmodel.getSleep();
+    calenderViewmodel.getNappy();
   }
 
   @override
@@ -52,18 +54,11 @@ class _CalenderPageState extends State<CalenderPage> with TickerProviderStateMix
               indicatorColor: buttonColor,
               labelColor: buttonColor,
               tabs: const <Widget>[
-                Tab(
-                  child: Text('All', style: TextStyle(fontSize: 20)),
-                ),
-                Tab(
-                  icon: Icon(Baby.feed, size: 45),
-                ),
-                Tab(
-                  icon: Icon(Baby.sleep, size: 45),
-                ),
-                Tab(
-                  icon: Icon(Baby.symptoms, size: 45),
-                ),
+                Tab(child: Text('All', style: TextStyle(fontSize: 20))),
+                Tab(icon: Icon(Baby.feed, size: 45)),
+                Tab(icon: Icon(Baby.sleep, size: 45)),
+                Tab(icon: Icon(Baby.symptoms, size: 45)),
+                Tab(icon: Icon(Icons.dialpad_rounded, size: 30)),
               ],
             ),
             Expanded(
@@ -71,22 +66,21 @@ class _CalenderPageState extends State<CalenderPage> with TickerProviderStateMix
                 physics: const NeverScrollableScrollPhysics(),
                 controller: _tabController,
                 children: <Widget>[
-                  Observer(
-                    builder: (context) {
-                      return const CustomAllListview();
-                    },
-                  ),
+                  Observer(builder: (context) {
+                    return const CustomAllListview();
+                  }),
                   Observer(builder: (_) {
                     return const CustomFeedigListView();
                   }),
-                  Observer(
-                    builder: (_) {
-                      return const CustomSleepListView();
-                    },
-                  ),
+                  Observer(builder: (_) {
+                    return const CustomSleepListView();
+                  }),
                   Observer(builder: (_) {
                     return const CustomSymptompsListView();
-                  })
+                  }),
+                  Observer(builder: (_) {
+                    return const CustomNappyListView();
+                  }),
                 ],
               ),
             ),

@@ -73,6 +73,22 @@ mixin _$CalenderViewModel on _CalenderViewModelBase, Store {
     });
   }
 
+  late final _$nappyListAtom =
+      Atom(name: '_CalenderViewModelBase.nappyList', context: context);
+
+  @override
+  List<Nappy> get nappyList {
+    _$nappyListAtom.reportRead();
+    return super.nappyList;
+  }
+
+  @override
+  set nappyList(List<Nappy> value) {
+    _$nappyListAtom.reportWrite(value, super.nappyList, () {
+      super.nappyList = value;
+    });
+  }
+
   late final _$allListAtom =
       Atom(name: '_CalenderViewModelBase.allList', context: context);
 
@@ -205,6 +221,30 @@ mixin _$CalenderViewModel on _CalenderViewModelBase, Store {
         .run(() => super.refreshSymptompsList());
   }
 
+  late final _$getNappyAsyncAction =
+      AsyncAction('_CalenderViewModelBase.getNappy', context: context);
+
+  @override
+  Future<void> getNappy() {
+    return _$getNappyAsyncAction.run(() => super.getNappy());
+  }
+
+  late final _$deleteNappyAsyncAction =
+      AsyncAction('_CalenderViewModelBase.deleteNappy', context: context);
+
+  @override
+  Future<void> deleteNappy(String id) {
+    return _$deleteNappyAsyncAction.run(() => super.deleteNappy(id));
+  }
+
+  late final _$refreshNappyListAsyncAction =
+      AsyncAction('_CalenderViewModelBase.refreshNappyList', context: context);
+
+  @override
+  Future<void> refreshNappyList() {
+    return _$refreshNappyListAsyncAction.run(() => super.refreshNappyList());
+  }
+
   late final _$_CalenderViewModelBaseActionController =
       ActionController(name: '_CalenderViewModelBase', context: context);
 
@@ -275,12 +315,24 @@ mixin _$CalenderViewModel on _CalenderViewModelBase, Store {
   }
 
   @override
+  void toogleSelected3(int index) {
+    final _$actionInfo = _$_CalenderViewModelBaseActionController.startAction(
+        name: '_CalenderViewModelBase.toogleSelected3');
+    try {
+      return super.toogleSelected3(index);
+    } finally {
+      _$_CalenderViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 dateTime: ${dateTime},
 feedingList: ${feedingList},
 sleepList: ${sleepList},
 symptompsList: ${symptompsList},
+nappyList: ${nappyList},
 allList: ${allList},
 isSelected: ${isSelected},
 groupedItems: ${groupedItems}

@@ -1,5 +1,6 @@
 // ignore_for_file: non_constant_identifier_names, library_private_types_in_public_api
 
+import 'package:baby_tracker_app/app/core/hive/datasource/nappy_datasource.dart';
 import 'package:baby_tracker_app/app/core/hive/datasource/sleep_datasource.dart';
 import 'package:baby_tracker_app/app/core/hive/datasource/symptomps_datasource.dart';
 import 'package:baby_tracker_app/app/core/hive/model/feeding_model.dart';
@@ -9,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 import '../../../../core/getIt/locator.dart';
 import '../../../../core/hive/datasource/feeding_datasource.dart';
+import '../../../../core/hive/model/nappy_model.dart';
 part 'calender_viewmodel.g.dart';
 
 class CalenderViewModel = _CalenderViewModelBase with _$CalenderViewModel;
@@ -17,6 +19,7 @@ abstract class _CalenderViewModelBase with Store {
   var feedingDatasource = locator.get<FeedingDatasource>();
   var sleepDatasource = locator.get<SleepDatasource>();
   var symptompsDatasource = locator.get<SymptompsDatasource>();
+  var nappyDatasource = locator.get<NappyDatasource>();
 
   @observable
   DateTime dateTime = DateTime.now();
@@ -29,6 +32,9 @@ abstract class _CalenderViewModelBase with Store {
 
   @observable
   List<Symptomps> symptompsList = [];
+
+  @observable
+  List<Nappy> nappyList = [];
 
   @observable
   ObservableList<dynamic> allList = ObservableList<dynamic>();
@@ -48,6 +54,7 @@ abstract class _CalenderViewModelBase with Store {
     await getFeeding();
     await getSleep();
     await getSymptomps();
+    await getNappy();
     allListItem();
   }
 
@@ -57,6 +64,7 @@ abstract class _CalenderViewModelBase with Store {
     allList.addAll(feedingList);
     allList.addAll(sleepList);
     allList.addAll(symptompsList);
+    allList.addAll(nappyList);
     groupItemsByType();
   }
 
@@ -167,5 +175,36 @@ abstract class _CalenderViewModelBase with Store {
   Future<void> refreshSymptompsList() async {
     var sympData = await symptompsDatasource.getAll();
     symptompsList = sympData.data ?? [];
+  }
+
+  //ALL NAPPY FUNCTİON
+  @action
+  void toogleSelected3(int index) {
+    var nappy = nappyList[index];
+    var updatedNappy = nappy.copyWith(isSelected: !nappy.isSelected);
+    nappyList = List.from(nappyList)..[index] = updatedNappy;
+  }
+
+  @action
+  Future<void> getNappy() async {
+    nappyList.clear();
+    var nappyData = await nappyDatasource.getAll();
+    nappyList.addAll(nappyData.data!);
+    allListItem();
+    groupItemsByType();
+  }
+
+  @action
+  Future<void> deleteNappy(String id) async {
+    await nappyDatasource.delete(id);
+    nappyList.removeWhere((nappy) => nappy.id.toString() == id);
+    allListItem();
+    groupItemsByType();
+  }
+
+  @action
+  Future<void> refreshNappyList() async {
+    var nappyData = await nappyDatasource.getAll();
+    nappyList = nappyData.data ?? [];
   }
 }

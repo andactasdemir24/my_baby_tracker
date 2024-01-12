@@ -27,7 +27,7 @@ abstract class _NappyViewModelBase with Store {
   bool isButtonVisible4 = false;
 
   @observable
-  ObservableList<NappyModel> selectedIndices = ObservableList<NappyModel>();
+  ObservableList<NappyModel> selectedIndicess = ObservableList<NappyModel>();
 
   @observable
   List<NappyModel> nappyStatusList = [
@@ -64,43 +64,93 @@ abstract class _NappyViewModelBase with Store {
 
   @action
   Future<void> changeVisibleNappy() async {
-    isButtonVisible4 = time4 != null && selectedIndices.isNotEmpty && noteController.text.isNotEmpty;
+    isButtonVisible4 = time4 != null && selectedIndicess.isNotEmpty && noteController.text.isNotEmpty;
   }
 
   @action
   Future<void> clearTime() async {
     time4 = null;
     noteController.clear();
-    selectedIndices.clear();
     changeVisibleNappy();
   }
 
   @action
   Future<void> toggleSelectedIndex(NappyModel nappyModel) async {
     runInAction(() {
-      if (selectedIndices.contains(nappyModel)) {
-        selectedIndices.clear();
+      if (selectedIndicess.contains(nappyModel)) {
+        selectedIndicess.remove(nappyModel);
       } else {
-        selectedIndices.clear();
-        selectedIndices.add(nappyModel);
+        if (selectedIndicess.isEmpty) {
+          selectedIndicess.clear();
+          selectedIndicess.add(nappyModel);
+        }
       }
     });
   }
+
+  // @action
+  // Future<void> toggleSelectedIndex(NappyModel nappy) async {
+  //   runInAction(() {
+  //     selectedIndicess.clear();
+  //     selectedIndicess.add(nappy);
+  //   });
+  // }
 
   @action
   Future<void> addNappy() async {
     var uuid = const Uuid();
     if (time4 != null) {
       final now = DateTime.now();
-      final nappyTime = DateTime(now.year, now.month, now.day, time4!.hour, time4!.minute);
+      final nappyTime = DateTime(
+        now.year,
+        now.month,
+        now.day,
+        time4!.hour,
+        time4!.minute,
+      );
+
+      // Burada, her bir NappyModel için yeni bir kopya oluşturuyoruz.
+      List<NappyModel> newNapList =
+          selectedIndicess.map((nappyModel) => NappyModel(image: nappyModel.image, name: nappyModel.name)).toList();
 
       Nappy nappyModel = Nappy(
         id: uuid.v4(),
         nappyTime: nappyTime,
-        nappyList: selectedIndices,
+        napList: newNapList,
         text: noteController.text,
       );
+
       await nappysDatasource.add(nappyModel);
     }
+  }
+
+  @action
+  Future<void> updateNappy(Nappy nappy) async {
+    DateTime? updatedTime = nappy.nappyTime;
+    String? updatedText = nappy.text;
+
+    if (time4 != null) {
+      updatedTime = DateTime(
+        nappy.nappyTime!.year,
+        nappy.nappyTime!.month,
+        nappy.nappyTime!.day,
+        time4!.hour,
+        time4!.minute,
+      );
+    }
+
+    List<NappyModel> newNapList =
+        selectedIndicess.map((nappyModel) => NappyModel(image: nappyModel.image, name: nappyModel.name)).toList();
+
+    Nappy nappyModel = Nappy(
+      id: nappy.id,
+      nappyTime: updatedTime,
+      napList: newNapList, // Yeni oluşturulan liste
+      text: updatedText,
+    );
+
+    await nappysDatasource.update(nappyModel);
+    await calenderViewModel.refreshNappyList();
+    calenderViewModel.allListItem();
   }
 }

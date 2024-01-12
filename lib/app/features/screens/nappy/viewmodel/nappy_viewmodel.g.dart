@@ -57,19 +57,19 @@ mixin _$NappyViewModel on _NappyViewModelBase, Store {
     });
   }
 
-  late final _$selectedIndicesAtom =
-      Atom(name: '_NappyViewModelBase.selectedIndices', context: context);
+  late final _$selectedIndicessAtom =
+      Atom(name: '_NappyViewModelBase.selectedIndicess', context: context);
 
   @override
-  ObservableList<NappyModel> get selectedIndices {
-    _$selectedIndicesAtom.reportRead();
-    return super.selectedIndices;
+  ObservableList<NappyModel> get selectedIndicess {
+    _$selectedIndicessAtom.reportRead();
+    return super.selectedIndicess;
   }
 
   @override
-  set selectedIndices(ObservableList<NappyModel> value) {
-    _$selectedIndicesAtom.reportWrite(value, super.selectedIndices, () {
-      super.selectedIndices = value;
+  set selectedIndicess(ObservableList<NappyModel> value) {
+    _$selectedIndicessAtom.reportWrite(value, super.selectedIndicess, () {
+      super.selectedIndicess = value;
     });
   }
 
@@ -147,6 +147,14 @@ mixin _$NappyViewModel on _NappyViewModelBase, Store {
     return _$addNappyAsyncAction.run(() => super.addNappy());
   }
 
+  late final _$updateNappyAsyncAction =
+      AsyncAction('_NappyViewModelBase.updateNappy', context: context);
+
+  @override
+  Future<void> updateNappy(Nappy nappy) {
+    return _$updateNappyAsyncAction.run(() => super.updateNappy(nappy));
+  }
+
   late final _$_NappyViewModelBaseActionController =
       ActionController(name: '_NappyViewModelBase', context: context);
 
@@ -167,7 +175,7 @@ mixin _$NappyViewModel on _NappyViewModelBase, Store {
 time4: ${time4},
 noteController: ${noteController},
 isButtonVisible4: ${isButtonVisible4},
-selectedIndices: ${selectedIndices},
+selectedIndicess: ${selectedIndicess},
 nappyStatusList: ${nappyStatusList},
 isBlurred: ${isBlurred}
     ''';

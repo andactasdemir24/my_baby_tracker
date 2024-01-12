@@ -50,26 +50,16 @@ class _NappyPageState extends State<NappyPage> {
                     style: TextStyle(color: cblack, fontSize: 15.5, fontWeight: FontWeight.bold),
                   ),
                 ),
-                GridView.builder(
-                  padding: EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.05),
-                  physics: const NeverScrollableScrollPhysics(),
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 4,
-                    crossAxisSpacing: 5,
-                    mainAxisExtent: displayHeight(context) * 0.15,
-                  ),
-                  shrinkWrap: true,
-                  itemCount: nappyViewmodel.nappyStatusList.length,
-                  itemBuilder: (BuildContext context, index) {
-                    var nappy = nappyViewmodel.nappyStatusList[index];
-                    return Observer(builder: (_) {
-                      return CustomNappyListContainer(
-                        nappyViewmodel: nappyViewmodel,
-                        nappy: nappy,
-                      );
-                    });
-                  },
-                ),
+                CustomNappyList(
+                    text: Text(
+                  nappyViewmodel.selectedIndicess.isEmpty
+                      ? nappyAppbar
+                      : nappyViewmodel.selectedIndicess.map((index) => index.name).join(', '),
+                  style: TextStyle(
+                      fontSize: 15.5,
+                      fontWeight: FontWeight.bold,
+                      color: nappyViewmodel.selectedIndicess.isEmpty ? settingsIndex : cblack),
+                )),
                 SizedBox(height: displayHeight(context) * 0.02),
                 CustomNoteTextfield(
                   controller: nappyViewmodel.noteController,

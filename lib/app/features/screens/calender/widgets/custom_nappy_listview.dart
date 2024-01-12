@@ -1,6 +1,6 @@
-import 'package:baby_tracker_app/app/core/hive/model/symptomps_model.dart';
+import 'package:baby_tracker_app/app/core/hive/model/nappy_model.dart';
 import 'package:baby_tracker_app/app/core/components/custom_widgets/custom_nodata.dart';
-import 'package:baby_tracker_app/app/features/screens/symptomps/view/symptomps_edit_page.dart';
+import 'package:baby_tracker_app/app/features/screens/nappy/view/nappy_edit_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import '../../../../core/constants/color_constants.dart';
@@ -11,26 +11,26 @@ import '../../../../core/getIt/locator.dart';
 import '../../../theme/baby_icons.dart';
 import '../viewmodel/calender_viewmodel.dart';
 
-class CustomSymptompsListView extends StatelessWidget {
-  const CustomSymptompsListView({super.key});
+class CustomNappyListView extends StatelessWidget {
+  const CustomNappyListView({super.key});
 
   @override
   Widget build(BuildContext context) {
     final calenderViewmodel = locator.get<CalenderViewModel>();
     return Observer(builder: (context) {
-      if (calenderViewmodel.symptompsList.isNotEmpty) {
+      if (calenderViewmodel.nappyList.isNotEmpty) {
         return ListView.builder(
-          itemCount: calenderViewmodel.symptompsList.length,
+          itemCount: calenderViewmodel.nappyList.length,
           itemBuilder: (context, index) {
-            var symptomps = calenderViewmodel.symptompsList[index];
+            var nappy = calenderViewmodel.nappyList[index];
             return Padding(
-              padding: const EdgeInsets.symmetric(vertical: 5),
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
               child: Column(
                 children: [
                   Center(child: Observer(
                     builder: (context) {
                       return Dismissible(
-                        key: Key(symptomps.id!),
+                        key: Key(nappy.id!),
                         background: Container(
                           color: cred,
                           alignment: Alignment.centerRight,
@@ -39,36 +39,34 @@ class CustomSymptompsListView extends StatelessWidget {
                         ),
                         direction: DismissDirection.endToStart,
                         onDismissed: (direction) {
-                          calenderViewmodel.deleteSymptomps(symptomps.id!);
+                          calenderViewmodel.deleteNappy(nappy.id!);
                         },
                         child: GestureDetector(
                             onLongPress: () {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => SymptompsPageEdit(
-                                      id: symptomps.id!,
-                                      symTime: symptomps.symTime!,
-                                      sympList: symptomps.sympList!,
-                                      note: symptomps.text!,
-                                    ),
+                                    builder: (context) => NappyPageEdit(
+                                        id: nappy.id!,
+                                        nappyTime: nappy.nappyTime!,
+                                        napList: nappy.napList!,
+                                        note: nappy.text!),
                                   ));
                             },
                             onTap: () {
-                              calenderViewmodel.toogleSelected2(index);
+                              calenderViewmodel.toogleSelected3(index);
                             },
                             child: AnimatedContainer(
                               duration: const Duration(milliseconds: 500),
                               curve: Curves.ease,
                               width: displayWidth(context) * 0.8878,
-                              height:
-                                  symptomps.isSelected ? displayHeight(context) * 0.15 : displayHeight(context) * 0.1,
+                              height: nappy.isSelected ? displayHeight(context) * 0.15 : displayHeight(context) * 0.1,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(25),
                                 color: annualColor,
                               ),
                               alignment: Alignment.center,
-                              child: !symptomps.isSelected ? notpress(symptomps) : whenipress(symptomps),
+                              child: !nappy.isSelected ? notpress(nappy) : whenipress(nappy),
                             )),
                       );
                     },
@@ -84,7 +82,7 @@ class CustomSymptompsListView extends StatelessWidget {
     });
   }
 
-  ListTile notpress(Symptomps symptomps) {
+  ListTile notpress(Nappy nappys) {
     return ListTile(
       leading: const Icon(Baby.symptoms, size: 50, color: mainIconColor),
       trailing: const Icon(Icons.arrow_circle_down_outlined),
@@ -92,17 +90,17 @@ class CustomSymptompsListView extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(symptomps.sympList!.map((e) => e.name).join(', '),
+          Text(nappys.napList!.map((e) => e.name).join(', '),
               style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: mainIconColor)),
           Text(
-              '${symptomps.symTime!.hour.toString().padLeft(2, '0')}:${symptomps.symTime!.minute.toString().padLeft(2, '0')}',
+              '${nappys.nappyTime!.hour.toString().padLeft(2, '0')}:${nappys.nappyTime!.minute.toString().padLeft(2, '0')}',
               style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
         ],
       ),
     );
   }
 
-  SingleChildScrollView whenipress(Symptomps symptomps) {
+  SingleChildScrollView whenipress(Nappy nappys) {
     return SingleChildScrollView(
       child: ListTile(
         leading: const Icon(Baby.symptoms, size: 50, color: mainIconColor),
@@ -111,15 +109,14 @@ class CustomSymptompsListView extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(symptomps.sympList!.map((e) => e.name).join(', '),
+            Text(nappys.napList!.map((e) => e.name).join(', '),
                 style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: mainIconColor)),
             Flexible(
               child: Text(
-                  '${symptomps.symTime!.hour.toString().padLeft(2, '0')}:${symptomps.symTime!.minute.toString().padLeft(2, '0')}',
+                  '${nappys.nappyTime!.hour.toString().padLeft(2, '0')}:${nappys.nappyTime!.minute.toString().padLeft(2, '0')}',
                   style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, overflow: TextOverflow.ellipsis)),
             ),
-            Text('Note: ${symptomps.text.toString()}',
-                style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
+            Text('Note: ${nappys.text.toString()}', style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
           ],
         ),
       ),

@@ -1,57 +1,58 @@
-import 'package:baby_tracker_app/app/features/model/nappy_model_f.dart';
-import 'package:baby_tracker_app/app/features/screens/nappy/viewmodel/nappy_viewmodel.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:baby_tracker_app/app/features/screens/nappy/view/nappy_list_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import '../../../../core/constants/color_constants.dart';
 import '../../../../core/constants/mediaquery_constants.dart';
+import '../../../theme/baby_icons.dart';
 
-class CustomNappyListContainer extends StatefulWidget {
-  const CustomNappyListContainer({
+class CustomNappyList extends StatelessWidget {
+  const CustomNappyList({
     Key? key,
-    required this.nappyViewmodel,
-    required this.nappy,
+    required this.text,
   }) : super(key: key);
 
-  final NappyViewModel nappyViewmodel;
-  final NappyModel nappy;
+  final Text text;
 
-  @override
-  State<CustomNappyListContainer> createState() => _CustomNappyListContainerState();
-}
-
-class _CustomNappyListContainerState extends State<CustomNappyListContainer> {
   @override
   Widget build(BuildContext context) {
-    return Observer(
-      builder: (context) {
-        return GestureDetector(
-          onTap: () {
-            widget.nappyViewmodel.toggleSelectedIndex(widget.nappy);
-            widget.nappyViewmodel.changeVisibleNappy();
-          },
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(25),
-              border: Border.all(
-                color: widget.nappyViewmodel.selectedIndices.contains(widget.nappy) ? sympListShadow : ctransparent,
-                width: 2,
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 15),
+      child: GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const NappyList(),
+            ),
+          );
+        },
+        child: Container(
+          width: displayWidth(context) * 0.8878,
+          height: displayHeight(context) * 0.082,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(25),
+            color: annualColor,
+          ),
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.04),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Observer(
+                    builder: (context) {
+                      return text;
+                    },
+                  ),
+                  const Icon(Baby.left, color: settingsIndex)
+                ],
               ),
             ),
-            child: Column(
-              children: [
-                Image.asset(
-                  widget.nappy.image!,
-                  height: displayHeight(context) * 0.1,
-                ),
-                Text(
-                  widget.nappy.name!,
-                  style: const TextStyle(fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
           ),
-        );
-      },
+        ),
+      ),
     );
   }
 }

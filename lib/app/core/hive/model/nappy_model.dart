@@ -11,7 +11,7 @@ class Nappy extends HiveObject {
   DateTime? nappyTime;
 
   @HiveField(2)
-  List<NappyModel>? nappyList;
+  List<NappyModel>? napList;
 
   @HiveField(3)
   String? text;
@@ -21,7 +21,7 @@ class Nappy extends HiveObject {
   Nappy({
     required this.id,
     required this.nappyTime,
-    required this.nappyList,
+    required this.napList,
     required this.text,
     this.isSelected = false,
   });
@@ -30,7 +30,7 @@ class Nappy extends HiveObject {
     return Nappy(
       id: id,
       nappyTime: nappyTime,
-      nappyList: nappyList,
+      napList: napList,
       text: text,
       isSelected: isSelected ?? this.isSelected,
     );
