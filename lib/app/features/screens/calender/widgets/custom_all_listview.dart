@@ -99,7 +99,7 @@ class CustomAllListview extends StatelessWidget {
                               ),
                               alignment: Alignment.center,
                               child: ListTile(
-                                leading: const Icon(Baby.feed, size: 50, color: mainIconColor),
+                                leading: const Icon(Baby.feed, size: 50, color: feedingTab),
                                 title: Column(
                                   mainAxisSize: MainAxisSize.min,
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -167,7 +167,7 @@ class CustomAllListview extends StatelessWidget {
                               ),
                               alignment: Alignment.center,
                               child: ListTile(
-                                  leading: const Icon(Baby.sleep, size: 50, color: mainIconColor),
+                                  leading: const Icon(Baby.sleep, size: 50, color: sleepTab),
                                   title: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -245,7 +245,7 @@ class CustomAllListview extends StatelessWidget {
                               alignment: Alignment.center,
                               child: SingleChildScrollView(
                                 child: ListTile(
-                                  leading: const Icon(Baby.symptoms, size: 50, color: mainIconColor),
+                                  leading: const Icon(Baby.symptoms, size: 50, color: symptompsTab),
                                   title: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -315,7 +315,7 @@ class CustomAllListview extends StatelessWidget {
                               alignment: Alignment.center,
                               child: SingleChildScrollView(
                                 child: ListTile(
-                                  leading: const Icon(Baby.symptoms, size: 50, color: mainIconColor),
+                                  leading: const Icon(Baby.nappy, size: 50, color: nappyTab),
                                   title: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     crossAxisAlignment: CrossAxisAlignment.start,

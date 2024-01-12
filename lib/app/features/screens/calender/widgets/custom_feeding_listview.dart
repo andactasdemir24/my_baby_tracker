@@ -86,7 +86,7 @@ class CustomFeedigListView extends StatelessWidget {
 
   ListTile notpress(Feeding feeding) {
     return ListTile(
-      leading: const Icon(Baby.feed, size: 50, color: mainIconColor),
+      leading: const Icon(Baby.feed, size: 50, color: feedingTab),
       trailing: const Icon(Icons.arrow_circle_down_outlined),
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -103,7 +103,7 @@ class CustomFeedigListView extends StatelessWidget {
   SingleChildScrollView whenipress(Feeding feeding) {
     return SingleChildScrollView(
       child: ListTile(
-        leading: const Icon(Baby.feed, size: 50, color: mainIconColor),
+        leading: const Icon(Baby.feed, size: 50, color: feedingTab),
         trailing: const Icon(Icons.arrow_circle_up_outlined),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

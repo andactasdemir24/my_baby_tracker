@@ -39,3 +39,9 @@ Color shade200 = Colors.grey.shade200;
 Color shade300 = Colors.grey.shade300;
 Color shade400 = Colors.grey.shade400;
 Color shade500 = Colors.grey.shade500;
+
+//tabbar icon color
+const Color feedingTab = Color(0xff9B64FF);
+const Color nappyTab = Color(0xff69CDDA);
+const Color symptompsTab = Color(0xffFFC664);
+const Color sleepTab = Color(0xff635AFF);

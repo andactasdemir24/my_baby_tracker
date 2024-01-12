@@ -85,7 +85,7 @@ class CustomNappyListView extends StatelessWidget {
 
   ListTile notpress(Nappy nappys) {
     return ListTile(
-      leading: const Icon(Baby.symptoms, size: 50, color: mainIconColor),
+      leading: const Icon(Baby.nappy, size: 50, color: nappyTab),
       trailing: const Icon(Icons.arrow_circle_down_outlined),
       title: Column(
         mainAxisSize: MainAxisSize.min,
@@ -104,7 +104,7 @@ class CustomNappyListView extends StatelessWidget {
   SingleChildScrollView whenipress(Nappy nappys) {
     return SingleChildScrollView(
       child: ListTile(
-        leading: const Icon(Baby.symptoms, size: 50, color: mainIconColor),
+        leading: const Icon(Baby.nappy, size: 50, color: nappyTab),
         trailing: const Icon(Icons.arrow_circle_up_outlined),
         title: Column(
           mainAxisSize: MainAxisSize.min,

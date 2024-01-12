@@ -87,7 +87,7 @@ class CustomSymptompsListView extends StatelessWidget {
 
   ListTile notpress(Symptomps symptomps) {
     return ListTile(
-      leading: const Icon(Baby.symptoms, size: 50, color: mainIconColor),
+      leading: const Icon(Baby.symptoms, size: 50, color: symptompsTab),
       trailing: const Icon(Icons.arrow_circle_down_outlined),
       title: Column(
         mainAxisSize: MainAxisSize.min,
@@ -106,7 +106,7 @@ class CustomSymptompsListView extends StatelessWidget {
   SingleChildScrollView whenipress(Symptomps symptomps) {
     return SingleChildScrollView(
       child: ListTile(
-        leading: const Icon(Baby.symptoms, size: 50, color: mainIconColor),
+        leading: const Icon(Baby.symptoms, size: 50, color: symptompsTab),
         trailing: const Icon(Icons.arrow_circle_up_outlined),
         title: Column(
           mainAxisSize: MainAxisSize.min,

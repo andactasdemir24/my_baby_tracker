@@ -55,10 +55,10 @@ class _CalenderPageState extends State<CalenderPage> with TickerProviderStateMix
               labelColor: buttonColor,
               tabs: const <Widget>[
                 Tab(child: Text('All', style: TextStyle(fontSize: 20))),
-                Tab(icon: Icon(Baby.feed, size: 45)),
-                Tab(icon: Icon(Baby.sleep, size: 45)),
-                Tab(icon: Icon(Baby.symptoms, size: 45)),
-                Tab(icon: Icon(Icons.dialpad_rounded, size: 30)),
+                Tab(icon: Icon(Baby.feed, size: 45, color: feedingTab)),
+                Tab(icon: Icon(Baby.sleep, size: 45, color: sleepTab)),
+                Tab(icon: Icon(Baby.symptoms, size: 45, color: symptompsTab)),
+                Tab(icon: Icon(Baby.nappy, size: 45, color: nappyTab)),
               ],
             ),
             Expanded(

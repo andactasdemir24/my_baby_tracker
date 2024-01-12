@@ -85,7 +85,7 @@ class CustomSleepListView extends StatelessWidget {
 
   ListTile notpress(Sleep sleep) {
     return ListTile(
-        leading: const Icon(Baby.sleep, size: 50, color: mainIconColor),
+        leading: const Icon(Baby.sleep, size: 50, color: sleepTab),
         trailing: const Icon(Icons.arrow_circle_down_outlined),
         title: Column(
           mainAxisSize: MainAxisSize.min,
@@ -117,7 +117,7 @@ class CustomSleepListView extends StatelessWidget {
   SingleChildScrollView whenipress(Sleep sleep) {
     return SingleChildScrollView(
       child: ListTile(
-          leading: const Icon(Baby.sleep, size: 50, color: mainIconColor),
+          leading: const Icon(Baby.sleep, size: 50, color: sleepTab),
           trailing: const Icon(Icons.arrow_circle_up_outlined),
           title: Column(
             mainAxisSize: MainAxisSize.min,

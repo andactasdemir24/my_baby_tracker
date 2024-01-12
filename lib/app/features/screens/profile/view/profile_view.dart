@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'dart:ui';
+import 'package:baby_tracker_app/app/features/theme/baby_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -84,7 +85,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       controller: informationviewmodel.nameController,
                       textInputType: TextInputType.name,
                       hintText: babyFullName,
-                      icon: Icon(Icons.person, color: !informationviewmodel.isEdit ? shade500 : mainIconColor),
+                      icon: Icon(Baby.baby, color: !informationviewmodel.isEdit ? shade500 : mainIconColor, size: 20),
                       readOnly: !informationviewmodel.isEdit,
                       textStyle: TextStyle(
                           fontWeight: FontWeight.bold, color: !informationviewmodel.isEdit ? shade500 : cblack),
@@ -93,7 +94,8 @@ class _ProfilePageState extends State<ProfilePage> {
                         controller: informationviewmodel.birthDateController,
                         hintText: babyBirthDate,
                         textInputType: TextInputType.none,
-                        icon: Icon(Icons.date_range, color: !informationviewmodel.isEdit ? shade500 : mainIconColor),
+                        icon: Icon(Baby.birthdaycake,
+                            color: !informationviewmodel.isEdit ? shade500 : mainIconColor, size: 20),
                         readOnly: !informationviewmodel.isEdit,
                         textStyle: TextStyle(
                             fontWeight: FontWeight.bold, color: !informationviewmodel.isEdit ? shade500 : cblack),
@@ -106,8 +108,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       controller: informationviewmodel.weightController,
                       textInputType: TextInputType.number,
                       hintText: babyWeight,
-                      icon: Icon(Icons.monitor_weight_outlined,
-                          color: !informationviewmodel.isEdit ? shade500 : mainIconColor),
+                      icon: Icon(Baby.weight, color: !informationviewmodel.isEdit ? shade500 : mainIconColor, size: 20),
                       readOnly: !informationviewmodel.isEdit,
                       textStyle: TextStyle(
                           fontWeight: FontWeight.bold, color: !informationviewmodel.isEdit ? shade500 : cblack),
