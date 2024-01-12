@@ -145,7 +145,7 @@ abstract class _NappyViewModelBase with Store {
     Nappy nappyModel = Nappy(
       id: nappy.id,
       nappyTime: updatedTime,
-      napList: newNapList, // Yeni oluşturulan liste
+      napList: newNapList,
       text: updatedText,
     );
 

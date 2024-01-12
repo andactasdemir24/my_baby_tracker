@@ -122,8 +122,6 @@ abstract class _SymptompsViewmodelBase with Store {
           .map((symptopmsModel) => SymptopmsModel(image: symptopmsModel.image, name: symptopmsModel.name))
           .toList();
 
-      print(newSymptmpsList);
-
       Symptomps symptompsModel = Symptomps(
         id: uuid.v4(),
         symTime: symptompsTime,
