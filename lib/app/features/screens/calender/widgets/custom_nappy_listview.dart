@@ -50,7 +50,8 @@ class CustomNappyListView extends StatelessWidget {
                                         id: nappy.id!,
                                         nappyTime: nappy.nappyTime!,
                                         napList: nappy.napList!,
-                                        note: nappy.text!),
+                                        note: nappy.text!,
+                                        createdTime: nappy.createdTime!),
                                   ));
                             },
                             onTap: () {

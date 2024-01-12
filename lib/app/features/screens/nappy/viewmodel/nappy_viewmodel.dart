@@ -118,6 +118,7 @@ abstract class _NappyViewModelBase with Store {
         nappyTime: nappyTime,
         napList: newNapList,
         text: noteController.text,
+        createdTime: DateTime.now(),
       );
 
       await nappysDatasource.add(nappyModel);
@@ -147,6 +148,7 @@ abstract class _NappyViewModelBase with Store {
       nappyTime: updatedTime,
       napList: newNapList,
       text: updatedText,
+      createdTime: nappy.createdTime,
     );
 
     await nappysDatasource.update(nappyModel);

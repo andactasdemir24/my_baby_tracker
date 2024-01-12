@@ -29,6 +29,12 @@ class NappyDatasourceImp extends NappyDatasource {
   Future<DataResult<List<Nappy>>> getAll() async {
     try {
       var list4 = nappyBox.values.toList();
+      list4.sort((a, b) {
+        DateTime aTime = a.createdTime ?? DateTime.now();
+        DateTime bTime = b.createdTime ?? DateTime.now();
+        return bTime.compareTo(aTime);
+      });
+
       return DataResult<List<Nappy>>.success("Success", data: list4);
     } catch (e) {
       return DataResult<List<Nappy>>.fail(e.toString());

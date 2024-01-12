@@ -287,7 +287,11 @@ class CustomAllListview extends StatelessWidget {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => NappyPageEdit(
-                                      id: all.id!, nappyTime: all.nappyTime!, napList: all.napList!, note: all.text!),
+                                      id: all.id!,
+                                      nappyTime: all.nappyTime!,
+                                      napList: all.napList!,
+                                      note: all.text!,
+                                      createdTime: all.createdTime!),
                                 ));
                           },
                           child: Container(

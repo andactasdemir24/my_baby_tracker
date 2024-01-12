@@ -21,13 +21,14 @@ class NappyAdapter extends TypeAdapter<Nappy> {
       nappyTime: fields[1] as DateTime?,
       napList: (fields[2] as List?)?.cast<NappyModel>(),
       text: fields[3] as String?,
+      createdTime: fields[4] as DateTime?,
     );
   }
 
   @override
   void write(BinaryWriter writer, Nappy obj) {
     writer
-      ..writeByte(4)
+      ..writeByte(5)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -35,7 +36,9 @@ class NappyAdapter extends TypeAdapter<Nappy> {
       ..writeByte(2)
       ..write(obj.napList)
       ..writeByte(3)
-      ..write(obj.text);
+      ..write(obj.text)
+      ..writeByte(4)
+      ..write(obj.createdTime);
   }
 
   @override

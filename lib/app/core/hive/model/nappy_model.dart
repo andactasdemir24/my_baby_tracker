@@ -16,6 +16,9 @@ class Nappy extends HiveObject {
   @HiveField(3)
   String? text;
 
+  @HiveField(4)
+  DateTime? createdTime;
+
   bool isSelected;
 
   Nappy({
@@ -23,6 +26,7 @@ class Nappy extends HiveObject {
     required this.nappyTime,
     required this.napList,
     required this.text,
+    required this.createdTime,
     this.isSelected = false,
   });
 
@@ -32,6 +36,7 @@ class Nappy extends HiveObject {
       nappyTime: nappyTime,
       napList: napList,
       text: text,
+      createdTime: createdTime,
       isSelected: isSelected ?? this.isSelected,
     );
   }

@@ -23,12 +23,14 @@ class NappyPageEdit extends StatefulWidget {
     required this.nappyTime,
     required this.napList,
     required this.note,
+    required this.createdTime,
   }) : super(key: key);
 
   final String id;
   final DateTime nappyTime;
   final List<NappyModel> napList;
   final String note;
+  final DateTime createdTime;
 
   @override
   State<NappyPageEdit> createState() => _NappyPageEditState();
@@ -94,12 +96,14 @@ class _NappyPageEditState extends State<NappyPageEdit> {
                     return CustomButton(
                       text: const Text(update, style: TextStyle(color: cwhite)),
                       onPressed: () {
-                        var value = Nappy(
-                            id: widget.id,
-                            nappyTime: widget.nappyTime,
-                            napList: nappyViewmodel.selectedIndicess,
-                            text: noteController.text);
-                        nappyViewmodel.updateNappy(value);
+                        var updatedNappy = Nappy(
+                          id: widget.id,
+                          nappyTime: widget.nappyTime,
+                          napList: nappyViewmodel.selectedIndicess,
+                          text: noteController.text,
+                          createdTime: widget.createdTime, // Bu değeri kullanın
+                        );
+                        nappyViewmodel.updateNappy(updatedNappy);
                         nappyViewmodel.toggleBlur5(context);
                       },
                     );
