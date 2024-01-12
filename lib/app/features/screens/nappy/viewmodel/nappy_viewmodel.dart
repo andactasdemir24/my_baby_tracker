@@ -71,6 +71,7 @@ abstract class _NappyViewModelBase with Store {
   Future<void> clearTime() async {
     time4 = null;
     noteController.clear();
+    selectedIndicess.clear();
     changeVisibleNappy();
   }
 

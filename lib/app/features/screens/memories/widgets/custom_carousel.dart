@@ -33,7 +33,7 @@ class Deneme extends StatelessWidget {
             );
           },
           options: CarouselOptions(
-              enlargeCenterPage: true, aspectRatio: 6 / 9, autoPlay: false, enableInfiniteScroll: false),
+              enlargeCenterPage: true, aspectRatio: 7 / 9, autoPlay: false, enableInfiniteScroll: false),
         ),
       ),
     );

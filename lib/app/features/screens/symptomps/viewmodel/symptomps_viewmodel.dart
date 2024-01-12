@@ -89,6 +89,7 @@ abstract class _SymptompsViewmodelBase with Store {
   Future<void> clearTime() async {
     time3 = null;
     noteController.clear();
+    selectedIndices.clear();
     changeVisible();
   }
 

@@ -38,7 +38,7 @@ class CustomImageContainer extends StatelessWidget {
           decoration: BoxDecoration(
             border: Border.all(color: cwhite, width: 1.w),
             borderRadius: BorderRadius.circular(10.r),
-            image: DecorationImage(image: FileImage(File(memories.image!)), fit: BoxFit.fill),
+            image: DecorationImage(image: FileImage(File(memories.image!)), fit: BoxFit.cover),
           ),
         ),
       ),
