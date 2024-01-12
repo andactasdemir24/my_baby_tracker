@@ -47,10 +47,12 @@ class CustomSleepListView extends StatelessWidget {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => SleepPageEdit(
-                                          id: sleep.id!,
-                                          feelSleep: sleep.fellSleep!,
-                                          wokeUp: sleep.wokeUp!,
-                                          note: sleep.text!)));
+                                            id: sleep.id!,
+                                            feelSleep: sleep.fellSleep!,
+                                            wokeUp: sleep.wokeUp!,
+                                            note: sleep.text!,
+                                            createdTime: sleep.createdTime!,
+                                          )));
                             },
                             onTap: () {
                               calenderViewmodel.toggleSelected1(index);

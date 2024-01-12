@@ -16,6 +16,9 @@ class Sleep extends HiveObject {
   @HiveField(3)
   String? text;
 
+  @HiveField(4)
+  DateTime? createdTime;
+
   bool isSelected;
 
   Sleep({
@@ -23,6 +26,7 @@ class Sleep extends HiveObject {
     required this.fellSleep,
     required this.wokeUp,
     required this.text,
+    required this.createdTime,
     this.isSelected = false,
   });
 
@@ -32,6 +36,7 @@ class Sleep extends HiveObject {
       fellSleep: fellSleep,
       wokeUp: wokeUp,
       text: text,
+      createdTime: createdTime,
       isSelected: isSelected ?? this.isSelected,
     );
   }

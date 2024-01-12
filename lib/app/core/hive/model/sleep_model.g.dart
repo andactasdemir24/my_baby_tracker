@@ -21,13 +21,14 @@ class SleepAdapter extends TypeAdapter<Sleep> {
       fellSleep: fields[1] as DateTime?,
       wokeUp: fields[2] as DateTime?,
       text: fields[3] as String?,
+      createdTime: fields[4] as DateTime?,
     );
   }
 
   @override
   void write(BinaryWriter writer, Sleep obj) {
     writer
-      ..writeByte(4)
+      ..writeByte(5)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -35,7 +36,9 @@ class SleepAdapter extends TypeAdapter<Sleep> {
       ..writeByte(2)
       ..write(obj.wokeUp)
       ..writeByte(3)
-      ..write(obj.text);
+      ..write(obj.text)
+      ..writeByte(4)
+      ..write(obj.createdTime);
   }
 
   @override

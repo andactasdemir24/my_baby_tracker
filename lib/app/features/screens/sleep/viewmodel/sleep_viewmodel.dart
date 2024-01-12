@@ -98,6 +98,7 @@ abstract class _SleepViewModelBase with Store {
         fellSleep: sleepTime,
         wokeUp: wokeUp,
         text: noteController.text,
+        createdTime: DateTime.now(),
       );
       await sleepDatasource.add(sleepModel);
     }
@@ -133,10 +134,11 @@ abstract class _SleepViewModelBase with Store {
       fellSleep: updatedTime,
       wokeUp: updatedTime2,
       text: updatedText,
+      createdTime: sleep.createdTime,
     );
 
     await sleepDatasource.update(updateSleep);
     await calenderViewModel.refreshSleepList();
-     calenderViewModel.allListItem();
+    calenderViewModel.allListItem();
   }
 }

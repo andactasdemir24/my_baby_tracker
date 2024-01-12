@@ -25,12 +25,14 @@ class SleepPageEdit extends StatefulWidget {
     required this.feelSleep,
     required this.wokeUp,
     required this.note,
+    required this.createdTime,
   }) : super(key: key);
 
   final String id;
   final DateTime feelSleep;
   final DateTime wokeUp;
   final String note;
+  final DateTime createdTime;
 
   @override
   State<SleepPageEdit> createState() => _SleepPageEditState();
@@ -99,10 +101,12 @@ class _SleepPageEditState extends State<SleepPageEdit> {
                       text: const Text(update, style: TextStyle(color: cwhite)),
                       onPressed: () {
                         var value = Sleep(
-                            id: widget.id,
-                            fellSleep: widget.feelSleep,
-                            wokeUp: widget.wokeUp,
-                            text: _noteController.text);
+                          id: widget.id,
+                          fellSleep: widget.feelSleep,
+                          wokeUp: widget.wokeUp,
+                          text: _noteController.text,
+                          createdTime: widget.createdTime,
+                        );
                         sleepViewmodel.updateSleep(value);
                         sleepViewmodel.toggleBlur2(context);
                       },
