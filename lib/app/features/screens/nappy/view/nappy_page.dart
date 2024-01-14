@@ -68,6 +68,7 @@ class NappyPage extends StatelessWidget {
                       child: CustomButton(
                         text: const Text(save, style: TextStyle(color: cwhite)),
                         onPressed: () {
+                          nappyViewmodel.onSave();
                           nappyViewmodel.addNappy();
                           nappyViewmodel.toggleBlur5(context);
                         },

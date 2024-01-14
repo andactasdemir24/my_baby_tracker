@@ -25,8 +25,8 @@ class NappyList extends StatelessWidget {
           appbarText: nappyAppbar,
           leading: GestureDetector(
               onTap: () {
+                nappyViewmodel.onBack();
                 Navigator.of(context).pop();
-                nappyViewmodel.clearSelectedSymptoms();
                 nappyViewmodel.changeVisibleNappy();
               },
               child: const Icon(Icons.arrow_back))),

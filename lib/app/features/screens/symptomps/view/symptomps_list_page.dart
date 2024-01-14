@@ -20,13 +20,14 @@ class SymptompsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final symptompsViewmodel = locator.get<SymptompsViewmodel>();
+    symptompsViewmodel.startSelection();
     return Scaffold(
       appBar: CustomAppbar(
           appbarText: symptomos,
           leading: GestureDetector(
               onTap: () {
+                symptompsViewmodel.onBack();
                 Navigator.of(context).pop();
-                symptompsViewmodel.clearSelectedSymptoms();
                 symptompsViewmodel.changeVisible();
               },
               child: const Icon(Icons.arrow_back))),

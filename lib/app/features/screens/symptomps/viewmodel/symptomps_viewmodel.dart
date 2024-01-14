@@ -46,6 +46,10 @@ abstract class _SymptompsViewmodelBase with Store {
   @observable
   bool isBlurred4 = false;
 
+  //edit sayfasında seçmeden geri gelirse değişiklikleri korumak için
+  @observable
+  ObservableList<SymptopmsModel> tempSelectedIndices = ObservableList<SymptopmsModel>();
+
   @action
   void toggleBlur3(BuildContext context) {
     if (!isBlurred3) {
@@ -107,9 +111,25 @@ abstract class _SymptompsViewmodelBase with Store {
     });
   }
 
+  //edit sayfasında seçmeden geri gelirse değişiklikleri korumak için bu 4 fonksiyon
   @action
-  Future<void> clearSelectedSymptoms() async {
-    selectedIndices.clear();
+  void startSelection() {
+    tempSelectedIndices = ObservableList.of(selectedIndices);
+  }
+
+  @action
+  void restoreSelection() {
+    selectedIndices = ObservableList.of(tempSelectedIndices);
+  }
+
+  @action
+  void onBack() {
+    restoreSelection();
+  }
+
+  @action
+  void onSave() {
+    tempSelectedIndices.clear();
   }
 
   @action

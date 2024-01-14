@@ -40,6 +40,11 @@ abstract class _NappyViewModelBase with Store {
   @observable
   bool isBlurred = false;
 
+  //edit sayfasında seçmeden geri gelirse değişiklikleri korumak için
+  //selectedindicesteki veriler geçici olarak buraya atılıyor eğer değişiklik yapılırsa diye yapılmazsa eskisine föndürmek için
+  @observable
+  ObservableList<NappyModel> tempSelectedIndices = ObservableList<NappyModel>();
+
   @action
   void toggleBlur5(BuildContext context) {
     if (!isBlurred) {
@@ -97,9 +102,26 @@ abstract class _NappyViewModelBase with Store {
   //   });
   // }
 
+  //edit sayfasında seçmeden geri gelirse değişiklikleri korumak için bu 4 fonksiyon
+  //selectedindicesteki veriler geçici olarak buraya atılıyor eğer değişiklik yapılırsa diye yapılmazsa eskisine föndürmek için
   @action
-  Future<void> clearSelectedSymptoms() async {
-    selectedIndicess.clear();
+  void startSelection() {
+    tempSelectedIndices = ObservableList.of(selectedIndicess);
+  }
+
+  @action
+  void restoreSelection() {
+    selectedIndicess = ObservableList.of(tempSelectedIndices);
+  }
+
+  @action
+  void onBack() {
+    restoreSelection();
+  }
+
+  @action
+  void onSave() {
+    tempSelectedIndices.clear();
   }
 
   @action

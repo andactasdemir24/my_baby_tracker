@@ -59,6 +59,7 @@ class SymptompsPage extends StatelessWidget {
                       child: CustomButton(
                         text: const Text(save, style: TextStyle(color: cwhite)),
                         onPressed: () {
+                          symptompsViewmodel.onSave();
                           symptompsViewmodel.addSymptomps();
                           symptompsViewmodel.toggleBlur4(context);
                         },
