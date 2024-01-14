@@ -86,11 +86,12 @@ class _NappyPageEditState extends State<NappyPageEdit> {
                       : nappyViewmodel.selectedIndicess.map((index) => index.name).join(', '),
                   style: const TextStyle(fontSize: 15.5, fontWeight: FontWeight.bold, color: cblack),
                 )),
+                SizedBox(height: displayHeight(context) * 0.02),
                 CustomNoteTextfield(
                   controller: noteController,
                   onChanged: (p0) => nappyViewmodel.changeVisibleNappy(),
                 ),
-                SizedBox(height: displayHeight(context) * 0.1),
+                SizedBox(height: displayHeight(context) * 0.15),
                 Observer(
                   builder: (context) {
                     return CustomButton(

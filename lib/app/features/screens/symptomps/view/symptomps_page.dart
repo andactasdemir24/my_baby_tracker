@@ -14,14 +14,9 @@ import '../../../../core/constants/text_constants.dart';
 import '../../../../core/getIt/locator.dart';
 import '../widgets/custom_sypmtomps_container.dart';
 
-class SymptompsPage extends StatefulWidget {
+class SymptompsPage extends StatelessWidget {
   const SymptompsPage({super.key});
 
-  @override
-  State<SymptompsPage> createState() => _SymptompsPageState();
-}
-
-class _SymptompsPageState extends State<SymptompsPage> {
   @override
   Widget build(BuildContext context) {
     final symptompsViewmodel = locator.get<SymptompsViewmodel>();

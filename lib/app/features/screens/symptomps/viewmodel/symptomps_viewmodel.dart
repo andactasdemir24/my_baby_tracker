@@ -103,7 +103,13 @@ abstract class _SymptompsViewmodelBase with Store {
           selectedIndices.add(symptopmsModel);
         }
       }
+      changeVisible();
     });
+  }
+
+  @action
+  Future<void> clearSelectedSymptoms() async {
+    selectedIndices.clear();
   }
 
   @action

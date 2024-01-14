@@ -21,7 +21,15 @@ class SymptompsList extends StatelessWidget {
   Widget build(BuildContext context) {
     final symptompsViewmodel = locator.get<SymptompsViewmodel>();
     return Scaffold(
-      appBar: const CustomAppbar(appbarText: symptomos),
+      appBar: CustomAppbar(
+          appbarText: symptomos,
+          leading: GestureDetector(
+              onTap: () {
+                Navigator.of(context).pop();
+                symptompsViewmodel.clearSelectedSymptoms();
+                symptompsViewmodel.changeVisible();
+              },
+              child: const Icon(Icons.arrow_back))),
       body: Observer(
         builder: (context) {
           return Stack(
@@ -29,9 +37,8 @@ class SymptompsList extends StatelessWidget {
               GridView.builder(
                 padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 20.h),
                 physics: const AlwaysScrollableScrollPhysics(),
-                gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                  maxCrossAxisExtent: 170,
-                  childAspectRatio: 2 / 2,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
                   crossAxisSpacing: displayHeight(context) * 0.02,
                   mainAxisSpacing: displayWidth(context) * 0.03,
                 ),

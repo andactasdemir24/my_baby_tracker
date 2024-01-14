@@ -98,6 +98,11 @@ abstract class _NappyViewModelBase with Store {
   // }
 
   @action
+  Future<void> clearSelectedSymptoms() async {
+    selectedIndicess.clear();
+  }
+
+  @action
   Future<void> addNappy() async {
     var uuid = const Uuid();
     if (time4 != null) {

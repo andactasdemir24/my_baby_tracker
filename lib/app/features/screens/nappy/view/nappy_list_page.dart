@@ -21,7 +21,15 @@ class NappyList extends StatelessWidget {
   Widget build(BuildContext context) {
     final nappyViewmodel = locator.get<NappyViewModel>();
     return Scaffold(
-      appBar: const CustomAppbar(appbarText: nappyAppbar),
+      appBar: CustomAppbar(
+          appbarText: nappyAppbar,
+          leading: GestureDetector(
+              onTap: () {
+                Navigator.of(context).pop();
+                nappyViewmodel.clearSelectedSymptoms();
+                nappyViewmodel.changeVisibleNappy();
+              },
+              child: const Icon(Icons.arrow_back))),
       body: Observer(
         builder: (context) {
           return Stack(

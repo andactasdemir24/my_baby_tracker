@@ -14,14 +14,9 @@ import '../../../../core/constants/text_constants.dart';
 import '../../../../core/getIt/locator.dart';
 import '../widgets/custom_nappy_container.dart';
 
-class NappyPage extends StatefulWidget {
+class NappyPage extends StatelessWidget {
   const NappyPage({super.key});
 
-  @override
-  State<NappyPage> createState() => _NappyPageState();
-}
-
-class _NappyPageState extends State<NappyPage> {
   @override
   Widget build(BuildContext context) {
     final nappyViewmodel = locator.get<NappyViewModel>();
@@ -65,7 +60,7 @@ class _NappyPageState extends State<NappyPage> {
                   controller: nappyViewmodel.noteController,
                   onChanged: (p0) => nappyViewmodel.changeVisibleNappy(),
                 ),
-                SizedBox(height: displayHeight(context) * 0.1),
+                SizedBox(height: displayHeight(context) * 0.15),
                 Observer(
                   builder: (context) {
                     return Visibility(

@@ -2,6 +2,7 @@
 import 'package:baby_tracker_app/app/features/screens/nappy/view/nappy_list_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/constants/color_constants.dart';
 import '../../../../core/constants/mediaquery_constants.dart';
 import '../../../theme/baby_icons.dart';
@@ -17,7 +18,7 @@ class CustomNappyList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 15),
+      padding: EdgeInsets.symmetric(vertical: displayHeight(context) * 0.005),
       child: GestureDetector(
         onTap: () {
           Navigator.push(
@@ -31,7 +32,7 @@ class CustomNappyList extends StatelessWidget {
           width: displayWidth(context) * 0.8878,
           height: displayHeight(context) * 0.082,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(25),
+            borderRadius: BorderRadius.circular(25.r),
             color: annualColor,
           ),
           child: Padding(

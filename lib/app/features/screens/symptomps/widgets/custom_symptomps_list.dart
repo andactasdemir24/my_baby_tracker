@@ -1,6 +1,7 @@
 import 'package:baby_tracker_app/app/features/model/symptomps_model_f.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/constants/color_constants.dart';
 import '../../../../core/constants/mediaquery_constants.dart';
@@ -31,22 +32,19 @@ class _CustomSymptompsListContainerState extends State<CustomSymptompsListContai
           },
           child: Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(25),
+              borderRadius: BorderRadius.circular(25.r),
               color: annualColor,
               border: Border.all(
                 color:
                     widget.symptompsViewmodel.selectedIndices.contains(widget.symptomp) ? sympListShadow : ctransparent,
-                width: 2,
+                width: 2.w,
               ),
             ),
             child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 15),
+              padding: EdgeInsets.symmetric(vertical: displayHeight(context) * 0.02),
               child: Column(
                 children: [
-                  Image.asset(
-                    widget.symptomp.image!,
-                    height: displayHeight(context) * 0.115,
-                  ),
+                  Image.asset(widget.symptomp.image!, height: displayHeight(context) * 0.1),
                   SizedBox(height: displayHeight(context) * 0.02),
                   Text(
                     widget.symptomp.name!,

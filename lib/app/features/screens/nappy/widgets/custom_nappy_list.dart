@@ -2,6 +2,7 @@ import 'package:baby_tracker_app/app/features/model/nappy_model_f.dart';
 import 'package:baby_tracker_app/app/features/screens/nappy/viewmodel/nappy_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/constants/color_constants.dart';
 import '../../../../core/constants/mediaquery_constants.dart';
 
@@ -31,22 +32,22 @@ class _CustomNappyListContainerState extends State<CustomNappyListContainer> {
           },
           child: Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(25),
+              borderRadius: BorderRadius.circular(25.r),
               color: annualColor,
               border: Border.all(
                 color: widget.nappyViewmodel.selectedIndicess.contains(widget.nappy) ? sympListShadow : ctransparent,
-                width: 2,
+                width: 2.w,
               ),
             ),
             child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 15),
+              padding: EdgeInsets.symmetric(vertical: displayHeight(context) * 0.01),
               child: Column(
                 children: [
                   Image.asset(
                     widget.nappy.image!,
-                    height: displayHeight(context) * 0.115,
+                    height: displayHeight(context) * 0.11,
                   ),
-                  SizedBox(height: displayHeight(context) * 0.02),
+                  SizedBox(height: displayHeight(context) * 0.01),
                   Text(
                     widget.nappy.name!,
                     style: const TextStyle(fontWeight: FontWeight.bold),
