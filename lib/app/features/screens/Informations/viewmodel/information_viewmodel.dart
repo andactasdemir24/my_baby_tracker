@@ -161,6 +161,7 @@ abstract class _InformationViewModelBase with Store {
       return;
     }
     selectedImage = File(returnedImage.path);
+    changeVisible();
   }
 
   @action

@@ -9,6 +9,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 
+import '../../../theme/baby_icons.dart';
 import '../widgets/custom_information_textfield.dart';
 import '../../../../core/constants/images_constants.dart';
 import '../../../../core/constants/text_constants.dart';
@@ -80,7 +81,7 @@ class InformationPage extends StatelessWidget {
                       controller: informationviewmodel.nameController,
                       textInputType: TextInputType.name,
                       hintText: babyFullName,
-                      icon: const Icon(Icons.person),
+                      icon: const Icon(Baby.baby),
                       textStyle: const TextStyle(fontWeight: FontWeight.bold),
                     ),
                     CustomInformationTextField(
@@ -88,7 +89,7 @@ class InformationPage extends StatelessWidget {
                       controller: informationviewmodel.birthDateController,
                       hintText: babyBirthDate,
                       textInputType: TextInputType.none,
-                      icon: const Icon(Icons.date_range),
+                      icon: const Icon(Baby.birthdaycake),
                       textStyle: const TextStyle(fontWeight: FontWeight.bold),
                       onTap: () {
                         informationviewmodel.selectDate(context, informationviewmodel.birthDateController);
@@ -99,7 +100,7 @@ class InformationPage extends StatelessWidget {
                       controller: informationviewmodel.weightController,
                       textInputType: TextInputType.number,
                       hintText: babyWeight,
-                      icon: const Icon(Icons.monitor_weight_outlined),
+                      icon: const Icon(Baby.weight),
                       textStyle: const TextStyle(fontWeight: FontWeight.bold),
                     ),
                     CustomInformationTextField(

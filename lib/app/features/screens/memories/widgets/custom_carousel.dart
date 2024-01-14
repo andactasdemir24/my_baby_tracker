@@ -28,12 +28,12 @@ class Deneme extends StatelessWidget {
               decoration: BoxDecoration(
                 border: Border.all(color: cwhite, width: 3.w),
                 borderRadius: BorderRadius.circular(20.r),
-                image: DecorationImage(image: FileImage(File(imageUrl!)), fit: BoxFit.fill),
+                image: DecorationImage(image: FileImage(File(imageUrl!)), fit: BoxFit.cover),
               ),
             );
           },
           options: CarouselOptions(
-              enlargeCenterPage: true, aspectRatio: 7 / 9, autoPlay: false, enableInfiniteScroll: false),
+              enlargeCenterPage: true, aspectRatio: 9 / 9, autoPlay: false, enableInfiniteScroll: false),
         ),
       ),
     );
