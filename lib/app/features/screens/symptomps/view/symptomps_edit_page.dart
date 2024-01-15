@@ -45,6 +45,8 @@ class _SymptompsPageEditState extends State<SymptompsPageEdit> {
   @override
   void initState() {
     noteController.text = widget.note;
+    symptompsViewmodel.selectedIndices.clear();
+    symptompsViewmodel.selectedIndices.addAll(widget.sympList);
     super.initState();
   }
 
@@ -106,7 +108,7 @@ class _SymptompsPageEditState extends State<SymptompsPageEdit> {
                           symTime: widget.symTime,
                           sympList: symptompsViewmodel.selectedIndices,
                           text: noteController.text,
-                          createdTime: widget.createdTime, 
+                          createdTime: widget.createdTime,
                         );
                         symptompsViewmodel.updateSymptomps(value);
                         symptompsViewmodel.toggleBlur4(context);

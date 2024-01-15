@@ -97,19 +97,52 @@ abstract class _SymptompsViewmodelBase with Store {
     changeVisible();
   }
 
+  // @action
+  // Future<void> toggleSelectedIndex(SymptopmsModel symptopmsModel) async {
+  //   runInAction(() {
+  //     if (selectedIndices.contains(symptopmsModel)) {
+  //       selectedIndices.remove(symptopmsModel);
+  //     } else {
+  //       if (selectedIndices.length < 2) {
+  //         selectedIndices.add(symptopmsModel);
+  //       }
+  //     }
+  //     changeVisible();
+  //   });
+  // }
+
   @action
   Future<void> toggleSelectedIndex(SymptopmsModel symptopmsModel) async {
     runInAction(() {
-      if (selectedIndices.contains(symptopmsModel)) {
-        selectedIndices.remove(symptopmsModel);
-      } else {
+      int selectedIndex = selectedIndices.indexWhere((item) => item.name == symptopmsModel.name);
+
+      if (selectedIndex == -1) {
+        // Eğer öğe listede yoksa ve liste zaten iki öğe içermiyorsa, yeni öğeyi ekle
         if (selectedIndices.length < 2) {
           selectedIndices.add(symptopmsModel);
         }
+        // Eğer liste zaten iki öğe içeriyorsa, ilk öğeyi kaldır ve yeni öğeyi ekle
+        else {
+          selectedIndices.removeAt(0);
+          selectedIndices.add(symptopmsModel);
+        }
+      } else {
+        // Eğer öğe zaten listedeyse, öğeyi listeden kaldır
+        selectedIndices.removeAt(selectedIndex);
       }
+
       changeVisible();
     });
   }
+
+  // @action
+  // Future<void> toggleSelectedIndex(SymptopmsModel symptopmsModel) async {
+  //   runInAction(() {
+  //     selectedIndices.clear();
+  //     selectedIndices.add(symptopmsModel);
+  //     changeVisible();
+  //   });
+  // }
 
   //edit sayfasında seçmeden geri gelirse değişiklikleri korumak için bu 4 fonksiyon
   @action

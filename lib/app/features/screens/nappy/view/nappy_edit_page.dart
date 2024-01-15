@@ -44,6 +44,8 @@ class _NappyPageEditState extends State<NappyPageEdit> {
   void initState() {
     super.initState();
     noteController.text = widget.note;
+    nappyViewmodel.selectedIndicess.clear();
+    nappyViewmodel.selectedIndicess.addAll(widget.napList);
   }
 
   @override

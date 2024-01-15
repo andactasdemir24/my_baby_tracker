@@ -80,27 +80,25 @@ abstract class _NappyViewModelBase with Store {
     changeVisibleNappy();
   }
 
+  // @action
+  // Future<void> toggleSelectedIndex(NappyModel nappyModel) async {
+  //   if (selectedIndicess.contains(nappyModel)) {
+  //     selectedIndicess.remove(nappyModel);
+  //   } else {
+  //     if (selectedIndicess.isEmpty) {
+  //       selectedIndicess.clear();
+  //       selectedIndicess.add(nappyModel);
+  //     }
+  //   }
+  // }
+
   @action
-  Future<void> toggleSelectedIndex(NappyModel nappyModel) async {
+  Future<void> toggleSelectedIndex(NappyModel nappy) async {
     runInAction(() {
-      if (selectedIndicess.contains(nappyModel)) {
-        selectedIndicess.remove(nappyModel);
-      } else {
-        if (selectedIndicess.isEmpty) {
-          selectedIndicess.clear();
-          selectedIndicess.add(nappyModel);
-        }
-      }
+      selectedIndicess.clear();
+      selectedIndicess.add(nappy);
     });
   }
-
-  // @action
-  // Future<void> toggleSelectedIndex(NappyModel nappy) async {
-  //   runInAction(() {
-  //     selectedIndicess.clear();
-  //     selectedIndicess.add(nappy);
-  //   });
-  // }
 
   //edit sayfasında seçmeden geri gelirse değişiklikleri korumak için bu 4 fonksiyon
   //selectedindicesteki veriler geçici olarak buraya atılıyor eğer değişiklik yapılırsa diye yapılmazsa eskisine föndürmek için

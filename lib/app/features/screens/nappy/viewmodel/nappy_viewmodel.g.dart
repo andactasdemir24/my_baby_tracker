@@ -150,9 +150,9 @@ mixin _$NappyViewModel on _NappyViewModelBase, Store {
       AsyncAction('_NappyViewModelBase.toggleSelectedIndex', context: context);
 
   @override
-  Future<void> toggleSelectedIndex(NappyModel nappyModel) {
+  Future<void> toggleSelectedIndex(NappyModel nappy) {
     return _$toggleSelectedIndexAsyncAction
-        .run(() => super.toggleSelectedIndex(nappyModel));
+        .run(() => super.toggleSelectedIndex(nappy));
   }
 
   late final _$addNappyAsyncAction =
