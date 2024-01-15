@@ -105,24 +105,25 @@ class CustomFeedigListView extends StatelessWidget {
       child: ListTile(
         leading: const Icon(Baby.feed, size: 50, color: feedingTab),
         trailing: const Icon(Icons.arrow_circle_up_outlined),
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        title: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text('${feeding.amount} (ml)',
                     style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: mainIconColor)),
-                Text('Note: ${feeding.text.toString()}',
-                    style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
+                Text(
+                  '${feeding.time?.hour.toString().padLeft(2, '0')}:${feeding.time?.minute.toString().padLeft(2, '0')}',
+                  style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                  overflow: TextOverflow.ellipsis,
+                ),
               ],
             ),
-            Flexible(
-              child: Text(
-                '${feeding.time?.hour.toString().padLeft(2, '0')}:${feeding.time?.minute.toString().padLeft(2, '0')}',
-                style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, overflow: TextOverflow.ellipsis),
-              ),
+            Text(
+              'Note: ${feeding.text.toString()}',
+              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
             ),
           ],
         ),

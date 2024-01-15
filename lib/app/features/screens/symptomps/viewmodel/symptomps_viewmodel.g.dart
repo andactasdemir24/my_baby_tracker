@@ -121,6 +121,22 @@ mixin _$SymptompsViewmodel on _SymptompsViewmodelBase, Store {
     });
   }
 
+  late final _$tempSelectedIndicesAtom = Atom(
+      name: '_SymptompsViewmodelBase.tempSelectedIndices', context: context);
+
+  @override
+  ObservableList<SymptopmsModel> get tempSelectedIndices {
+    _$tempSelectedIndicesAtom.reportRead();
+    return super.tempSelectedIndices;
+  }
+
+  @override
+  set tempSelectedIndices(ObservableList<SymptopmsModel> value) {
+    _$tempSelectedIndicesAtom.reportWrite(value, super.tempSelectedIndices, () {
+      super.tempSelectedIndices = value;
+    });
+  }
+
   late final _$selectTime3AsyncAction =
       AsyncAction('_SymptompsViewmodelBase.selectTime3', context: context);
 
@@ -198,6 +214,50 @@ mixin _$SymptompsViewmodel on _SymptompsViewmodelBase, Store {
   }
 
   @override
+  void startSelection() {
+    final _$actionInfo = _$_SymptompsViewmodelBaseActionController.startAction(
+        name: '_SymptompsViewmodelBase.startSelection');
+    try {
+      return super.startSelection();
+    } finally {
+      _$_SymptompsViewmodelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void restoreSelection() {
+    final _$actionInfo = _$_SymptompsViewmodelBaseActionController.startAction(
+        name: '_SymptompsViewmodelBase.restoreSelection');
+    try {
+      return super.restoreSelection();
+    } finally {
+      _$_SymptompsViewmodelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void onBack() {
+    final _$actionInfo = _$_SymptompsViewmodelBaseActionController.startAction(
+        name: '_SymptompsViewmodelBase.onBack');
+    try {
+      return super.onBack();
+    } finally {
+      _$_SymptompsViewmodelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void onSave() {
+    final _$actionInfo = _$_SymptompsViewmodelBaseActionController.startAction(
+        name: '_SymptompsViewmodelBase.onSave');
+    try {
+      return super.onSave();
+    } finally {
+      _$_SymptompsViewmodelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 time3: ${time3},
@@ -206,7 +266,8 @@ isButtonVisible3: ${isButtonVisible3},
 selectedIndices: ${selectedIndices},
 symptompsList: ${symptompsList},
 isBlurred3: ${isBlurred3},
-isBlurred4: ${isBlurred4}
+isBlurred4: ${isBlurred4},
+tempSelectedIndices: ${tempSelectedIndices}
     ''';
   }
 }

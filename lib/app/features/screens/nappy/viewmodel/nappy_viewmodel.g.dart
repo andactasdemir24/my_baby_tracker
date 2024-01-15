@@ -105,6 +105,22 @@ mixin _$NappyViewModel on _NappyViewModelBase, Store {
     });
   }
 
+  late final _$tempSelectedIndicesAtom =
+      Atom(name: '_NappyViewModelBase.tempSelectedIndices', context: context);
+
+  @override
+  ObservableList<NappyModel> get tempSelectedIndices {
+    _$tempSelectedIndicesAtom.reportRead();
+    return super.tempSelectedIndices;
+  }
+
+  @override
+  set tempSelectedIndices(ObservableList<NappyModel> value) {
+    _$tempSelectedIndicesAtom.reportWrite(value, super.tempSelectedIndices, () {
+      super.tempSelectedIndices = value;
+    });
+  }
+
   late final _$selectTime4AsyncAction =
       AsyncAction('_NappyViewModelBase.selectTime4', context: context);
 
@@ -170,6 +186,50 @@ mixin _$NappyViewModel on _NappyViewModelBase, Store {
   }
 
   @override
+  void startSelection() {
+    final _$actionInfo = _$_NappyViewModelBaseActionController.startAction(
+        name: '_NappyViewModelBase.startSelection');
+    try {
+      return super.startSelection();
+    } finally {
+      _$_NappyViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void restoreSelection() {
+    final _$actionInfo = _$_NappyViewModelBaseActionController.startAction(
+        name: '_NappyViewModelBase.restoreSelection');
+    try {
+      return super.restoreSelection();
+    } finally {
+      _$_NappyViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void onBack() {
+    final _$actionInfo = _$_NappyViewModelBaseActionController.startAction(
+        name: '_NappyViewModelBase.onBack');
+    try {
+      return super.onBack();
+    } finally {
+      _$_NappyViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void onSave() {
+    final _$actionInfo = _$_NappyViewModelBaseActionController.startAction(
+        name: '_NappyViewModelBase.onSave');
+    try {
+      return super.onSave();
+    } finally {
+      _$_NappyViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 time4: ${time4},
@@ -177,7 +237,8 @@ noteController: ${noteController},
 isButtonVisible4: ${isButtonVisible4},
 selectedIndicess: ${selectedIndicess},
 nappyStatusList: ${nappyStatusList},
-isBlurred: ${isBlurred}
+isBlurred: ${isBlurred},
+tempSelectedIndices: ${tempSelectedIndices}
     ''';
   }
 }
