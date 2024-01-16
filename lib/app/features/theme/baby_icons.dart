@@ -45,5 +45,5 @@ class Baby {
   static const IconData weight = IconData(0xf496, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData baby = IconData(0xf77c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData nappy = IconData(0xe80f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData vaccine = IconData(0xe822, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData vaccine3 = IconData(0xe824, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

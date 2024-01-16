@@ -62,7 +62,7 @@ class _CalenderPageState extends State<CalenderPage> with TickerProviderStateMix
                 Tab(icon: Icon(Baby.sleep, size: 45, color: sleepTab)),
                 Tab(icon: Icon(Baby.symptoms, size: 45, color: symptompsTab)),
                 Tab(icon: Icon(Baby.nappy, size: 45, color: nappyTab)),
-                Tab(icon: Icon(Baby.vaccine, size: 45, color: vaccineTab)),
+                Tab(icon: Icon(Baby.vaccine3, size: 33, color: vaccineTab)),
               ],
             ),
             Expanded(

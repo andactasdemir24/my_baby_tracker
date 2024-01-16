@@ -387,7 +387,7 @@ class CustomAllListview extends StatelessWidget {
                               ),
                               alignment: Alignment.center,
                               child: ListTile(
-                                leading: const Icon(Baby.vaccine, size: 50, color: vaccineTab),
+                                leading: const Icon(Baby.vaccine3, size: 40, color: vaccineTab),
                                 title: Column(
                                   mainAxisSize: MainAxisSize.min,
                                   crossAxisAlignment: CrossAxisAlignment.start,

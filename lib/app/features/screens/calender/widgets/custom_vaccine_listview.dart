@@ -85,7 +85,7 @@ class CustomVaccineListView extends StatelessWidget {
 
   ListTile notpress(Vaccine vaccine) {
     return ListTile(
-      leading: const Icon(Baby.feed, size: 50, color: feedingTab),
+      leading: const Icon(Baby.vaccine3, size: 40, color: vaccineTab),
       trailing: const Icon(Icons.arrow_circle_down_outlined),
       title: Column(
         mainAxisSize: MainAxisSize.min,
@@ -102,7 +102,7 @@ class CustomVaccineListView extends StatelessWidget {
   SingleChildScrollView whenipress(Vaccine vaccine) {
     return SingleChildScrollView(
       child: ListTile(
-        leading: const Icon(Baby.feed, size: 50, color: feedingTab),
+        leading: const Icon(Baby.vaccine3, size: 40, color: vaccineTab),
         trailing: const Icon(Icons.arrow_circle_up_outlined),
         title: Column(
           mainAxisSize: MainAxisSize.min,
