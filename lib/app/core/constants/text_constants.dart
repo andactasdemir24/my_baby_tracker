@@ -112,3 +112,17 @@ const String nappy4Text = "Dry";
 const String nappyAppbar = "Nappy";
 const String nappyTime = "Nappy Time";
 const String nappyStatus = 'Diaper Status';
+
+//vaccine
+const String vaccineAppbar = "Vaccine";
+const String vaccineDate = "Vaccine Date";
+const String vaccine = "Vaccine";
+const String vaccine1 = "Hepatitis B Vaccine";
+const String vaccine2 = "Tuberculosis Vaccine (BCG)";
+const String vaccine3 = "pneumonia vaccine";
+const String vaccine4 = "chickenpox vaccine";
+const String vaccine5 = "measles vaccine";
+const String vaccine6 = "rubella vaccine";
+const String vaccine7 = "mumps vaccine";
+const String vaccine8 = "Hepatitis A vaccine";
+const String vaccine9 = "Tetanus vaccine";

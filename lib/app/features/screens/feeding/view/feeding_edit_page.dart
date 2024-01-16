@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:lottie/lottie.dart';
 
-import '../../../../core/components/custom_widgets/amount_textfield.dart';
+import '../widgets/amount_textfield.dart';
 import '../../../../core/components/custom_widgets/custom_appbar.dart';
 import '../../../../core/components/custom_widgets/note_textfield.dart';
 import '../../../../core/components/custom_widgets/time_picker.dart';

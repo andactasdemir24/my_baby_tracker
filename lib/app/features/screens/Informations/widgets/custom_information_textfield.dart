@@ -11,7 +11,7 @@ class CustomInformationTextField extends StatelessWidget {
   final Function()? onTap;
   final String? hintText;
   final Function(String)? onChanged;
-  final Icon icon;
+  final Icon? icon;
   final bool? readOnly;
   final TextStyle? textStyle;
 
@@ -22,7 +22,7 @@ class CustomInformationTextField extends StatelessWidget {
     this.onTap,
     this.hintText,
     this.onChanged,
-    required this.icon,
+    this.icon,
     this.readOnly,
     this.textStyle,
   }) : super(key: key);

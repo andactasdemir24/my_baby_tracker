@@ -5,11 +5,13 @@ import 'package:baby_tracker_app/app/core/hive/datasource/implementation/memorie
 import 'package:baby_tracker_app/app/core/hive/datasource/implementation/nappy_datasource_imp.dart';
 import 'package:baby_tracker_app/app/core/hive/datasource/implementation/sleep_datasource_imp.dart';
 import 'package:baby_tracker_app/app/core/hive/datasource/implementation/symptomps_datasource_imp.dart';
+import 'package:baby_tracker_app/app/core/hive/datasource/implementation/vaccine_datasource_imp.dart';
 import 'package:baby_tracker_app/app/core/hive/datasource/information_datasource.dart';
 import 'package:baby_tracker_app/app/core/hive/datasource/memories_datasource.dart';
 import 'package:baby_tracker_app/app/core/hive/datasource/nappy_datasource.dart';
 import 'package:baby_tracker_app/app/core/hive/datasource/sleep_datasource.dart';
 import 'package:baby_tracker_app/app/core/hive/datasource/symptomps_datasource.dart';
+import 'package:baby_tracker_app/app/core/hive/datasource/vaccine_datasource.dart';
 import 'package:baby_tracker_app/app/features/screens/feeding/viewmodel/feeding_viewmodel.dart';
 import 'package:baby_tracker_app/app/features/screens/memories/viewmodel/memories_viewmodel.dart';
 import 'package:baby_tracker_app/app/features/screens/nappy/viewmodel/nappy_viewmodel.dart';
@@ -41,4 +43,5 @@ void setupLocator() {
   locator.registerLazySingleton<InformationDatasource>(() => InformationDatasourceImp());
   locator.registerLazySingleton<MemoriesDatasource>(() => MemoriesDatasourceImp());
   locator.registerLazySingleton<NappyDatasource>(() => NappyDatasourceImp());
+  locator.registerLazySingleton<VaccineDatasource>(() => VaccineDatasourceImp());
 }

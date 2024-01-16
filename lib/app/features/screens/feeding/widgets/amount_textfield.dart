@@ -3,9 +3,9 @@ import 'package:baby_tracker_app/app/core/constants/color_constants.dart';
 import 'package:baby_tracker_app/app/core/constants/text_constants.dart';
 import 'package:flutter/material.dart';
 
-import '../../../features/screens/feeding/viewmodel/feeding_viewmodel.dart';
-import '../../constants/mediaquery_constants.dart';
-import '../../getIt/locator.dart';
+import '../viewmodel/feeding_viewmodel.dart';
+import '../../../../core/constants/mediaquery_constants.dart';
+import '../../../../core/getIt/locator.dart';
 
 class AmountTextField extends StatelessWidget {
   final TextEditingController controller;

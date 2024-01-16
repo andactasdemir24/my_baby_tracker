@@ -10,6 +10,7 @@ const String homeImage1 = 'assets/images/Feeding.png';
 const String homeImage2 = 'assets/images/Sleep.png';
 const String homeImage3 = 'assets/images/Symptomps.png';
 const String homeImage4 = 'assets/images/nappy.png';
+const String homeImage5 = 'assets/images/vaccine.png';
 
 //Settings
 const String settingsPremium = 'assets/images/Premium.png';

@@ -6,6 +6,8 @@ import 'package:baby_tracker_app/app/features/screens/nappy/view/nappy_page.dart
 import 'package:baby_tracker_app/app/features/screens/nappy/viewmodel/nappy_viewmodel.dart';
 import 'package:baby_tracker_app/app/features/screens/sleep/view/sleep_page.dart';
 import 'package:baby_tracker_app/app/features/screens/symptomps/view/symptomps_page.dart';
+import 'package:baby_tracker_app/app/features/screens/vaccine/view/vaccine_page.dart';
+import 'package:baby_tracker_app/app/features/screens/vaccine/viewmodel/vaccine_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import '../../../../core/constants/color_constants.dart';
@@ -29,6 +31,7 @@ class _HomePagetate extends State<HomePage> {
   var symptompsViewmodel = locator.get<SymptompsViewmodel>();
   var informationVeiwmodel = locator.get<InformationViewModel>();
   var nappyViewmodel = locator.get<NappyViewModel>();
+  var vaccineViewmodel = locator.get<VaccineViewModel>();
 
   @override
   void initState() {
@@ -72,6 +75,12 @@ class _HomePagetate extends State<HomePage> {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => const NappyPage()));
                   },
                   child: const CustomImageContainer(image: homeImage4)),
+              GestureDetector(
+                  onTap: () {
+                    vaccineViewmodel.clearTime();
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const VaccinePage()));
+                  },
+                  child: const CustomImageContainer(image: homeImage5)),
             ],
           ),
         ));

@@ -11,7 +11,7 @@ import 'package:baby_tracker_app/app/core/constants/images_constants.dart';
 import 'package:baby_tracker_app/app/core/constants/mediaquery_constants.dart';
 import 'package:baby_tracker_app/app/features/screens/feeding/viewmodel/feeding_viewmodel.dart';
 
-import '../../../../core/components/custom_widgets/amount_textfield.dart';
+import '../widgets/amount_textfield.dart';
 import '../../../../core/components/custom_widgets/custom_appbar.dart';
 import '../../../../core/components/custom_widgets/note_textfield.dart';
 import '../../../../core/components/custom_widgets/time_picker.dart';
