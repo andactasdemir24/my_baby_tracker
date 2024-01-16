@@ -16,6 +16,7 @@ import 'package:baby_tracker_app/app/features/screens/nappy/viewmodel/nappy_view
 import 'package:baby_tracker_app/app/features/screens/onboarding/viewmodel/onboarding_viewmodel.dart';
 import 'package:baby_tracker_app/app/features/screens/sleep/viewmodel/sleep_viewmodel.dart';
 import 'package:baby_tracker_app/app/features/screens/symptomps/viewmodel/symptomps_viewmodel.dart';
+import 'package:baby_tracker_app/app/features/screens/vaccine/viewmodel/vaccine_viewmodel.dart';
 import 'package:get_it/get_it.dart';
 import '../../features/screens/Informations/viewmodel/information_viewmodel.dart';
 import '../../features/screens/calender/viewmodel/calender_viewmodel.dart';
@@ -31,6 +32,7 @@ void setupLocator() {
   locator.registerLazySingleton(() => InformationViewModel());
   locator.registerLazySingleton(() => MemoriesViewModel());
   locator.registerLazySingleton(() => NappyViewModel());
+  locator.registerLazySingleton(() => VaccineViewModel());
 
   //data source
   locator.registerLazySingleton<FeedingDatasource>(() => FeedingDatasourceImp());

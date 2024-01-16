@@ -4,6 +4,7 @@ import 'package:baby_tracker_app/app/core/hive/model/memories_model.dart';
 import 'package:baby_tracker_app/app/core/hive/model/nappy_model.dart';
 import 'package:baby_tracker_app/app/core/hive/model/sleep_model.dart';
 import 'package:baby_tracker_app/app/core/hive/model/symptomps_model.dart';
+import 'package:baby_tracker_app/app/core/hive/model/vaccine_model.dart';
 import 'package:baby_tracker_app/app/features/model/information_gender_model_f.dart';
 import 'package:baby_tracker_app/app/features/model/nappy_model_f.dart';
 import 'package:baby_tracker_app/app/features/model/symptomps_model_f.dart';
@@ -15,6 +16,7 @@ late Box<Symptomps> symptompsBox;
 late Box<Information> informationBox;
 late Box<MemoriesModel> memoriesBox;
 late Box<Nappy> nappyBox;
+late Box<Vaccine> vaccineBox;
 
 Future<void> hiveBox() async {
   feedingBox = await Hive.openBox<Feeding>('feeding');
@@ -23,6 +25,7 @@ Future<void> hiveBox() async {
   informationBox = await Hive.openBox<Information>('information');
   memoriesBox = await Hive.openBox<MemoriesModel>('memories');
   nappyBox = await Hive.openBox<Nappy>('nappy');
+  vaccineBox = await Hive.openBox<Vaccine>('vaccine');
 }
 
 void hiveRegisterAdapter() {
@@ -35,4 +38,5 @@ void hiveRegisterAdapter() {
   Hive.registerAdapter<MemoriesModel>(MemoriesModelAdapter());
   Hive.registerAdapter<Nappy>(NappyAdapter());
   Hive.registerAdapter<NappyModel>(NappyModelAdapter());
+  Hive.registerAdapter<Vaccine>(VaccineAdapter());
 }
