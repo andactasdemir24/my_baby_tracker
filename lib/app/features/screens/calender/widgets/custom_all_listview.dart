@@ -5,6 +5,7 @@ import 'package:baby_tracker_app/app/core/hive/model/feeding_model.dart';
 import 'package:baby_tracker_app/app/core/hive/model/nappy_model.dart';
 import 'package:baby_tracker_app/app/core/hive/model/sleep_model.dart';
 import 'package:baby_tracker_app/app/core/hive/model/symptomps_model.dart';
+import 'package:baby_tracker_app/app/core/hive/model/vaccine_model.dart';
 import 'package:baby_tracker_app/app/features/screens/calender/viewmodel/calender_viewmodel.dart';
 import 'package:baby_tracker_app/app/core/components/custom_widgets/custom_nodata.dart';
 import 'package:baby_tracker_app/app/features/screens/nappy/view/nappy_edit_page.dart';
@@ -334,6 +335,68 @@ class CustomAllListview extends StatelessWidget {
                                       Text('Note: ${all.text.toString()}', style: customTextStyle3()),
                                     ],
                                   ),
+                                ),
+                              ))),
+                    );
+                  },
+                )),
+              ],
+            ),
+          );
+        });
+      case Vaccine:
+        return Observer(builder: (context) {
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+            child: Column(
+              children: [
+                Center(child: Observer(
+                  builder: (context) {
+                    return Dismissible(
+                      key: Key(all.id!),
+                      background: Container(
+                        color: cred,
+                        alignment: Alignment.centerRight,
+                        padding: const EdgeInsets.only(right: 20.0),
+                        child: const Icon(Icons.delete, color: cwhite),
+                      ),
+                      direction: DismissDirection.endToStart,
+                      onDismissed: (direction) {
+                        allviewmodel.deleteVaccine(all.id!);
+                      },
+                      child: GestureDetector(
+                          onDoubleTap: () {
+                            // Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //       builder: (context) => FeedingEdit(
+                            //         id: all.id!,
+                            //         time: all.time!,
+                            //         amount: all.amount!,
+                            //         note: all.text!,
+                            //         createdTime: all.createdTime!,
+                            //       ),
+                            //     ));
+                          },
+                          child: Container(
+                              width: displayWidth(context) * 0.8878,
+                              height: displayHeight(context) * 0.14,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(25),
+                                color: annualColor,
+                              ),
+                              alignment: Alignment.center,
+                              child: ListTile(
+                                leading: const Icon(Baby.vaccine, size: 50, color: vaccineTab),
+                                title: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text('${all.vaccine}', style: customTextStyle()),
+                                    Text('${all.date}', style: customTextStyle2()),
+                                    Text('Note: ${all.text.toString()}',
+                                        style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500)),
+                                  ],
                                 ),
                               ))),
                     );

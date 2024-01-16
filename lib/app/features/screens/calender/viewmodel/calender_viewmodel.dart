@@ -3,9 +3,11 @@
 import 'package:baby_tracker_app/app/core/hive/datasource/nappy_datasource.dart';
 import 'package:baby_tracker_app/app/core/hive/datasource/sleep_datasource.dart';
 import 'package:baby_tracker_app/app/core/hive/datasource/symptomps_datasource.dart';
+import 'package:baby_tracker_app/app/core/hive/datasource/vaccine_datasource.dart';
 import 'package:baby_tracker_app/app/core/hive/model/feeding_model.dart';
 import 'package:baby_tracker_app/app/core/hive/model/sleep_model.dart';
 import 'package:baby_tracker_app/app/core/hive/model/symptomps_model.dart';
+import 'package:baby_tracker_app/app/core/hive/model/vaccine_model.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 import '../../../../core/getIt/locator.dart';
@@ -20,6 +22,7 @@ abstract class _CalenderViewModelBase with Store {
   var sleepDatasource = locator.get<SleepDatasource>();
   var symptompsDatasource = locator.get<SymptompsDatasource>();
   var nappyDatasource = locator.get<NappyDatasource>();
+  var vaccineDatasource = locator.get<VaccineDatasource>();
 
   @observable
   DateTime dateTime = DateTime.now();
@@ -35,6 +38,9 @@ abstract class _CalenderViewModelBase with Store {
 
   @observable
   List<Nappy> nappyList = [];
+
+  @observable
+  List<Vaccine> vaccineList = [];
 
   @observable
   ObservableList<dynamic> allList = ObservableList<dynamic>();
@@ -55,6 +61,7 @@ abstract class _CalenderViewModelBase with Store {
     await getSleep();
     await getSymptomps();
     await getNappy();
+    await getVaccine();
     allListItem();
   }
 
@@ -65,6 +72,7 @@ abstract class _CalenderViewModelBase with Store {
     allList.addAll(sleepList);
     allList.addAll(symptompsList);
     allList.addAll(nappyList);
+    allList.addAll(vaccineList);
     groupItemsByType();
   }
 
@@ -206,5 +214,36 @@ abstract class _CalenderViewModelBase with Store {
   Future<void> refreshNappyList() async {
     var nappyData = await nappyDatasource.getAll();
     nappyList = nappyData.data ?? [];
+  }
+
+  //All VACCİNE FUNCTİON
+  @action
+  void toggleSelected4(int index) {
+    var vaccine = vaccineList[index];
+    var updatedVaccine = vaccine.copyWith(isSelected: !vaccine.isSelected);
+    vaccineList = List.from(vaccineList)..[index] = updatedVaccine;
+  }
+
+  @action
+  Future<void> getVaccine() async {
+    vaccineList.clear();
+    var vaccineData = await vaccineDatasource.getAll();
+    vaccineList.addAll(vaccineData.data!);
+    allListItem();
+    groupItemsByType();
+  }
+
+  @action
+  Future<void> deleteVaccine(String id) async {
+    await vaccineDatasource.delete(id);
+    vaccineList.removeWhere((feeding) => feeding.id.toString() == id);
+    allListItem();
+    groupItemsByType();
+  }
+
+  @action
+  Future<void> refreshVaccineList() async {
+    var vaccineData = await vaccineDatasource.getAll();
+    vaccineList = vaccineData.data ?? [];
   }
 }

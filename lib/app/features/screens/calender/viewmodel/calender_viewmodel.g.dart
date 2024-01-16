@@ -89,6 +89,22 @@ mixin _$CalenderViewModel on _CalenderViewModelBase, Store {
     });
   }
 
+  late final _$vaccineListAtom =
+      Atom(name: '_CalenderViewModelBase.vaccineList', context: context);
+
+  @override
+  List<Vaccine> get vaccineList {
+    _$vaccineListAtom.reportRead();
+    return super.vaccineList;
+  }
+
+  @override
+  set vaccineList(List<Vaccine> value) {
+    _$vaccineListAtom.reportWrite(value, super.vaccineList, () {
+      super.vaccineList = value;
+    });
+  }
+
   late final _$allListAtom =
       Atom(name: '_CalenderViewModelBase.allList', context: context);
 
@@ -245,6 +261,32 @@ mixin _$CalenderViewModel on _CalenderViewModelBase, Store {
     return _$refreshNappyListAsyncAction.run(() => super.refreshNappyList());
   }
 
+  late final _$getVaccineAsyncAction =
+      AsyncAction('_CalenderViewModelBase.getVaccine', context: context);
+
+  @override
+  Future<void> getVaccine() {
+    return _$getVaccineAsyncAction.run(() => super.getVaccine());
+  }
+
+  late final _$deleteVaccineAsyncAction =
+      AsyncAction('_CalenderViewModelBase.deleteVaccine', context: context);
+
+  @override
+  Future<void> deleteVaccine(String id) {
+    return _$deleteVaccineAsyncAction.run(() => super.deleteVaccine(id));
+  }
+
+  late final _$refreshVaccineListAsyncAction = AsyncAction(
+      '_CalenderViewModelBase.refreshVaccineList',
+      context: context);
+
+  @override
+  Future<void> refreshVaccineList() {
+    return _$refreshVaccineListAsyncAction
+        .run(() => super.refreshVaccineList());
+  }
+
   late final _$_CalenderViewModelBaseActionController =
       ActionController(name: '_CalenderViewModelBase', context: context);
 
@@ -326,6 +368,17 @@ mixin _$CalenderViewModel on _CalenderViewModelBase, Store {
   }
 
   @override
+  void toggleSelected4(int index) {
+    final _$actionInfo = _$_CalenderViewModelBaseActionController.startAction(
+        name: '_CalenderViewModelBase.toggleSelected4');
+    try {
+      return super.toggleSelected4(index);
+    } finally {
+      _$_CalenderViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 dateTime: ${dateTime},
@@ -333,6 +386,7 @@ feedingList: ${feedingList},
 sleepList: ${sleepList},
 symptompsList: ${symptompsList},
 nappyList: ${nappyList},
+vaccineList: ${vaccineList},
 allList: ${allList},
 isSelected: ${isSelected},
 groupedItems: ${groupedItems}

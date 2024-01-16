@@ -45,3 +45,4 @@ const Color feedingTab = Color(0xff9B64FF);
 const Color nappyTab = Color(0xff69CDDA);
 const Color symptompsTab = Color(0xffFFC664);
 const Color sleepTab = Color(0xff635AFF);
+const Color vaccineTab = Color(0xff006977);

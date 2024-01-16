@@ -4,6 +4,7 @@ import 'package:baby_tracker_app/app/core/constants/text_constants.dart';
 import 'package:baby_tracker_app/app/features/screens/calender/viewmodel/calender_viewmodel.dart';
 import 'package:baby_tracker_app/app/features/screens/calender/widgets/custom_nappy_listview.dart';
 import 'package:baby_tracker_app/app/features/screens/calender/widgets/custom_symptomps_listview.dart';
+import 'package:baby_tracker_app/app/features/screens/calender/widgets/custom_vaccine_listview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import '../../../../core/getIt/locator.dart';
@@ -27,11 +28,12 @@ class _CalenderPageState extends State<CalenderPage> with TickerProviderStateMix
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 5, vsync: this);
+    _tabController = TabController(length: 6, vsync: this);
     calenderViewmodel.getSymptomps();
     calenderViewmodel.getFeeding();
     calenderViewmodel.getSleep();
     calenderViewmodel.getNappy();
+    calenderViewmodel.getVaccine();
   }
 
   @override
@@ -49,6 +51,7 @@ class _CalenderPageState extends State<CalenderPage> with TickerProviderStateMix
           children: [
             DateButton(calenderViewmodel: calenderViewmodel),
             TabBar(
+              labelPadding: EdgeInsets.zero,
               controller: _tabController,
               dividerColor: cwhite,
               indicatorColor: buttonColor,
@@ -59,6 +62,7 @@ class _CalenderPageState extends State<CalenderPage> with TickerProviderStateMix
                 Tab(icon: Icon(Baby.sleep, size: 45, color: sleepTab)),
                 Tab(icon: Icon(Baby.symptoms, size: 45, color: symptompsTab)),
                 Tab(icon: Icon(Baby.nappy, size: 45, color: nappyTab)),
+                Tab(icon: Icon(Baby.vaccine, size: 45, color: vaccineTab)),
               ],
             ),
             Expanded(
@@ -80,6 +84,9 @@ class _CalenderPageState extends State<CalenderPage> with TickerProviderStateMix
                   }),
                   Observer(builder: (_) {
                     return const CustomNappyListView();
+                  }),
+                  Observer(builder: (_) {
+                    return const CustomVaccineListView();
                   }),
                 ],
               ),
