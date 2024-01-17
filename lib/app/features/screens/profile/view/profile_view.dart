@@ -85,6 +85,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       controller: informationviewmodel.nameController,
                       textInputType: TextInputType.name,
                       hintText: babyFullName,
+                      hintStyle: const TextStyle(color: settingsIndex),
                       icon: Icon(Baby.baby, color: !informationviewmodel.isEdit ? shade500 : mainIconColor, size: 20),
                       readOnly: !informationviewmodel.isEdit,
                       textStyle: TextStyle(
@@ -93,6 +94,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     CustomInformationTextField(
                         controller: informationviewmodel.birthDateController,
                         hintText: babyBirthDate,
+                        hintStyle: const TextStyle(color: settingsIndex),
                         textInputType: TextInputType.none,
                         icon: Icon(Baby.birthdaycake,
                             color: !informationviewmodel.isEdit ? shade500 : mainIconColor, size: 20),
@@ -108,6 +110,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       controller: informationviewmodel.weightController,
                       textInputType: TextInputType.number,
                       hintText: babyWeight,
+                      hintStyle: const TextStyle(color: settingsIndex),
                       icon: Icon(Baby.weight, color: !informationviewmodel.isEdit ? shade500 : mainIconColor, size: 20),
                       readOnly: !informationviewmodel.isEdit,
                       textStyle: TextStyle(
@@ -117,6 +120,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       controller: informationviewmodel.heightController,
                       textInputType: TextInputType.number,
                       hintText: babyHeight,
+                      hintStyle: const TextStyle(color: settingsIndex),
                       icon: Icon(Icons.height, color: !informationviewmodel.isEdit ? shade500 : mainIconColor),
                       readOnly: !informationviewmodel.isEdit,
                       textStyle: TextStyle(

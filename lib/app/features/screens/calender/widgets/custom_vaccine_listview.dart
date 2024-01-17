@@ -8,6 +8,7 @@ import '../../../../core/constants/mediaquery_constants.dart';
 import '../../../../core/constants/text_constants.dart';
 import '../../../../core/getIt/locator.dart';
 import '../../../theme/baby_icons.dart';
+import '../../vaccine/view/vaccine_edit_page.dart';
 import '../viewmodel/calender_viewmodel.dart';
 
 class CustomVaccineListView extends StatelessWidget {
@@ -42,17 +43,17 @@ class CustomVaccineListView extends StatelessWidget {
                         },
                         child: GestureDetector(
                             onLongPress: () {
-                              // Navigator.push(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //       builder: (context) => FeedingEdit(
-                              //         id: feeding.id!,
-                              //         time: feeding.time!,
-                              //         amount: feeding.amount!,
-                              //         note: feeding.text!,
-                              //         createdTime: feeding.createdTime!,
-                              //       ),
-                              //     ));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => VaccineEdit(
+                                      id: vaccine.id!,
+                                      date: vaccine.date!,
+                                      vaccine: vaccine.vaccine!,
+                                      note: vaccine.text!,
+                                      createdTime: vaccine.createdTime!,
+                                    ),
+                                  ));
                             },
                             onTap: () {
                               calenderViewmodel.toggleSelected4(index);

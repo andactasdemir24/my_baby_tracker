@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:baby_tracker_app/app/features/screens/vaccine/viewmodel/vaccine_viewmodel.dart';
+import 'package:baby_tracker_app/app/features/screens/vaccine/widgets/custom_dropdown_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:lottie/lottie.dart';
@@ -13,20 +14,14 @@ import '../../../../core/constants/text_constants.dart';
 import '../../../../core/getIt/locator.dart';
 import '../../Informations/widgets/custom_information_textfield.dart';
 
-class VaccinePage extends StatefulWidget {
+class VaccinePage extends StatelessWidget {
   const VaccinePage({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<VaccinePage> createState() => _VaccinePageState();
-}
-
-class _VaccinePageState extends State<VaccinePage> {
-  @override
   Widget build(BuildContext context) {
     var vaccineViewModel = locator.get<VaccineViewModel>();
-    String? dropdownValue;
     return Scaffold(
       appBar: const CustomAppbar(appbarText: vaccineAppbar),
       body: Observer(builder: (context) {
@@ -39,34 +34,14 @@ class _VaccinePageState extends State<VaccinePage> {
                   onChanged: (p0) => vaccineViewModel.changeVisible(),
                   controller: vaccineViewModel.dateController,
                   hintText: vaccineDate,
+                  hintStyle: const TextStyle(color: settingsIndex),
                   textInputType: TextInputType.none,
                   textStyle: const TextStyle(fontWeight: FontWeight.bold),
                   onTap: () {
                     vaccineViewModel.selectDate(context, vaccineViewModel.dateController);
                   },
                 ),
-                DropdownButtonFormField<String>(
-                  decoration: InputDecoration(
-                    prefixIconColor: sympListShadow,
-                    filled: true,
-                    fillColor: annualColor,
-                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(25), borderSide: BorderSide.none),
-                  ),
-                  hint: const Text(vaccine, style: TextStyle(color: settingsIndex)),
-                  value: dropdownValue,
-                  padding: EdgeInsets.symmetric(
-                      horizontal: displayWidth(context) * 0.06, vertical: displayHeight(context) * 0.015),
-                  onChanged: (String? newValue) {
-                    vaccineViewModel.vaccineController.text = newValue!;
-                    vaccineViewModel.changeVisible();
-                  },
-                  items: vaccineViewModel.list.map<DropdownMenuItem<String>>((String value) {
-                    return DropdownMenuItem(
-                      value: value,
-                      child: Text(value),
-                    );
-                  }).toList(),
-                ),
+                CustomDropdownButton(vaccineViewModel: vaccineViewModel, text: vaccine, color: settingsIndex),
                 CustomNoteTextfield(
                   controller: vaccineViewModel.noteController,
                   onChanged: (p0) => vaccineViewModel.changeVisible(),

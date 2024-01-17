@@ -9,6 +9,7 @@ import 'package:baby_tracker_app/app/core/hive/model/vaccine_model.dart';
 import 'package:baby_tracker_app/app/features/screens/calender/viewmodel/calender_viewmodel.dart';
 import 'package:baby_tracker_app/app/core/components/custom_widgets/custom_nodata.dart';
 import 'package:baby_tracker_app/app/features/screens/nappy/view/nappy_edit_page.dart';
+import 'package:baby_tracker_app/app/features/screens/vaccine/view/vaccine_edit_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import '../../../../core/constants/color_constants.dart';
@@ -366,17 +367,17 @@ class CustomAllListview extends StatelessWidget {
                       },
                       child: GestureDetector(
                           onDoubleTap: () {
-                            // Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //       builder: (context) => FeedingEdit(
-                            //         id: all.id!,
-                            //         time: all.time!,
-                            //         amount: all.amount!,
-                            //         note: all.text!,
-                            //         createdTime: all.createdTime!,
-                            //       ),
-                            //     ));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => VaccineEdit(
+                                    id: all.id!,
+                                    date: all.date!,
+                                    vaccine: all.vaccine!,
+                                    note: all.text!,
+                                    createdTime: all.createdTime!,
+                                  ),
+                                ));
                           },
                           child: Container(
                               width: displayWidth(context) * 0.8878,

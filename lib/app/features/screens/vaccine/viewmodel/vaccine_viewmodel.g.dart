@@ -9,6 +9,22 @@ part of 'vaccine_viewmodel.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$VaccineViewModel on _VaccineViewModelBase, Store {
+  late final _$dropdownValueAtom =
+      Atom(name: '_VaccineViewModelBase.dropdownValue', context: context);
+
+  @override
+  String? get dropdownValue {
+    _$dropdownValueAtom.reportRead();
+    return super.dropdownValue;
+  }
+
+  @override
+  set dropdownValue(String? value) {
+    _$dropdownValueAtom.reportWrite(value, super.dropdownValue, () {
+      super.dropdownValue = value;
+    });
+  }
+
   late final _$dateControllerAtom =
       Atom(name: '_VaccineViewModelBase.dateController', context: context);
 
@@ -123,6 +139,14 @@ mixin _$VaccineViewModel on _VaccineViewModelBase, Store {
     return _$addVaccineAsyncAction.run(() => super.addVaccine());
   }
 
+  late final _$updateVaccineAsyncAction =
+      AsyncAction('_VaccineViewModelBase.updateVaccine', context: context);
+
+  @override
+  Future<void> updateVaccine(Vaccine vaccine) {
+    return _$updateVaccineAsyncAction.run(() => super.updateVaccine(vaccine));
+  }
+
   late final _$_VaccineViewModelBaseActionController =
       ActionController(name: '_VaccineViewModelBase', context: context);
 
@@ -162,6 +186,7 @@ mixin _$VaccineViewModel on _VaccineViewModelBase, Store {
   @override
   String toString() {
     return '''
+dropdownValue: ${dropdownValue},
 dateController: ${dateController},
 vaccineController: ${vaccineController},
 noteController: ${noteController},

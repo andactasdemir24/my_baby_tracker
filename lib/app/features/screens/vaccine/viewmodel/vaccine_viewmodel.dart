@@ -17,6 +17,9 @@ abstract class _VaccineViewModelBase with Store {
   var calenderViewModel = locator.get<CalenderViewModel>();
 
   @observable
+  String? dropdownValue;
+
+  @observable
   TextEditingController dateController = TextEditingController();
 
   @observable
@@ -68,6 +71,7 @@ abstract class _VaccineViewModelBase with Store {
       final String formattedDate = formatter.format(picked);
       controller.text = formattedDate;
     }
+    changeVisible();
   }
 
   @action
@@ -96,5 +100,19 @@ abstract class _VaccineViewModelBase with Store {
       createdTime: DateTime.now(),
     );
     await vaccineDatasource.add(vaccineModel);
+  }
+
+  @action
+  Future<void> updateVaccine(Vaccine vaccine) async {
+    Vaccine vaccineModel = Vaccine(
+        id: vaccine.id,
+        date: vaccine.date,
+        vaccine: vaccine.vaccine,
+        text: vaccine.text,
+        createdTime: vaccine.createdTime);
+
+    await vaccineDatasource.update(vaccineModel);
+    await calenderViewModel.refreshVaccineList();
+    calenderViewModel.allListItem();
   }
 }

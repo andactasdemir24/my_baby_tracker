@@ -14,6 +14,7 @@ class CustomInformationTextField extends StatelessWidget {
   final Icon? icon;
   final bool? readOnly;
   final TextStyle? textStyle;
+  final TextStyle? hintStyle;
 
   const CustomInformationTextField({
     Key? key,
@@ -25,6 +26,7 @@ class CustomInformationTextField extends StatelessWidget {
     this.icon,
     this.readOnly,
     this.textStyle,
+    this.hintStyle,
   }) : super(key: key);
 
   @override
@@ -50,9 +52,11 @@ class CustomInformationTextField extends StatelessWidget {
                 borderSide: BorderSide.none,
               ),
               hintText: hintText,
-              hintStyle: const TextStyle(color: settingsIndex)),
+              hintStyle: hintStyle),
         ),
       ),
     );
   }
 }
+
+// const TextStyle(color: settingsIndex)
