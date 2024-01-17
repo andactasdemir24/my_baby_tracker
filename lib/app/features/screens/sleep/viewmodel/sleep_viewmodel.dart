@@ -48,6 +48,7 @@ abstract class _SleepViewModelBase with Store {
     if (newTime != null) {
       time1 = newTime;
     }
+    changeVisible();
   }
 
   @action
@@ -59,6 +60,7 @@ abstract class _SleepViewModelBase with Store {
     if (newTime2 != null) {
       time2 = newTime2;
     }
+    changeVisible();
   }
 
   @action

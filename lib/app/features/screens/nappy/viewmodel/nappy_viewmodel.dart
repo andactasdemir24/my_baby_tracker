@@ -65,6 +65,7 @@ abstract class _NappyViewModelBase with Store {
     if (newTime4 != null) {
       time4 = newTime4;
     }
+    changeVisibleNappy();
   }
 
   @action

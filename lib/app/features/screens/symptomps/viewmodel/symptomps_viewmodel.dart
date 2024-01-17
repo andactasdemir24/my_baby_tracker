@@ -67,7 +67,6 @@ abstract class _SymptompsViewmodelBase with Store {
       isBlurred4 = true;
       Future.delayed(const Duration(milliseconds: 1500), () {
         Navigator.of(context).pop();
-
         isBlurred4 = false;
       });
     }
@@ -82,6 +81,7 @@ abstract class _SymptompsViewmodelBase with Store {
     if (newTime3 != null) {
       time3 = newTime3;
     }
+    changeVisible();
   }
 
   @action

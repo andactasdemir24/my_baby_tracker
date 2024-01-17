@@ -50,6 +50,7 @@ abstract class _FeedingViewModelBase with Store {
     if (newTime != null) {
       time = newTime;
     }
+    changeVisible();
   }
 
   @action
