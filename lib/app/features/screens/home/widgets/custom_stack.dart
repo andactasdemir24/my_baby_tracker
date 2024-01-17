@@ -33,37 +33,46 @@ class CustomStack extends StatelessWidget {
               ),
             ),
             SizedBox(
-              width: displayWidth(context) * 0.7,
               height: displayHeight(context) * 0.15,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  info.image != null
-                      ? Container(
-                          decoration: ShapeDecoration(
-                            shape: OvalBorder(
-                              side: BorderSide(width: 2.w, color: annualColor),
+              child: Padding(
+                padding: EdgeInsets.only(left: displayHeight(context) * 0.025),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    info.image != null
+                        ? Container(
+                            decoration: ShapeDecoration(
+                              shape: OvalBorder(
+                                side: BorderSide(width: 2.w, color: annualColor),
+                              ),
                             ),
+                            child: CircleAvatar(
+                              radius: 40.r,
+                              backgroundImage: FileImage(File(info.image!)),
+                            ),
+                          )
+                        : const CircleAvatar(),
+                    SizedBox(width: displayWidth(context) * 0.05),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            info.fullname!,
+                            style: TextStyle(color: shade200, fontSize: 16, fontWeight: FontWeight.w500),
                           ),
-                          child: CircleAvatar(
-                            radius: 40.r,
-                            backgroundImage: FileImage(File(info.image!)),
+                          Text(
+                            info.selectedGender!,
+                            style: TextStyle(color: shade200, fontSize: 16, fontWeight: FontWeight.w500),
                           ),
-                        )
-                      : const CircleAvatar(),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        '${info.fullname!} / ${info.selectedGender}',
-                        style: TextStyle(color: shade200, fontSize: 15, fontWeight: FontWeight.w500),
+                          Text(info.birthDate!,
+                              style: TextStyle(color: shade200, fontSize: 16, fontWeight: FontWeight.bold))
+                        ],
                       ),
-                      Text(info.birthDate!,
-                          style: TextStyle(color: shade200, fontSize: 20, fontWeight: FontWeight.bold))
-                    ],
-                  )
-                ],
+                    )
+                  ],
+                ),
               ),
             ),
             Positioned(

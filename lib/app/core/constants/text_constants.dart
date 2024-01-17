@@ -85,6 +85,8 @@ const String memories = 'Memories';
 
 //profile
 const String edit = "Edit";
+const String undo = "Undo";
+const String noEmptyText = "Please fill all the blanks!";
 
 //Memories
 const String memoriesAppbarText = "Memories";

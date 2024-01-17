@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:baby_tracker_app/app/core/constants/color_constants.dart';
 
@@ -15,6 +16,7 @@ class CustomInformationTextField extends StatelessWidget {
   final bool? readOnly;
   final TextStyle? textStyle;
   final TextStyle? hintStyle;
+  final List<TextInputFormatter>? inputFormatters;
 
   const CustomInformationTextField({
     Key? key,
@@ -27,6 +29,7 @@ class CustomInformationTextField extends StatelessWidget {
     this.readOnly,
     this.textStyle,
     this.hintStyle,
+    this.inputFormatters,
   }) : super(key: key);
 
   @override
@@ -36,6 +39,7 @@ class CustomInformationTextField extends StatelessWidget {
         padding:
             EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.06, vertical: displayHeight(context) * 0.015),
         child: TextField(
+          inputFormatters: inputFormatters,
           readOnly: readOnly ?? false,
           keyboardType: textInputType,
           onTap: onTap,
@@ -58,5 +62,3 @@ class CustomInformationTextField extends StatelessWidget {
     );
   }
 }
-
-// const TextStyle(color: settingsIndex)

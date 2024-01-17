@@ -1,7 +1,9 @@
 import 'dart:io';
 import 'dart:ui';
+import 'package:baby_tracker_app/app/features/screens/profile/widgets/custom_snackbar.dart';
 import 'package:baby_tracker_app/app/features/theme/baby_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
@@ -90,6 +92,10 @@ class _ProfilePageState extends State<ProfilePage> {
                       readOnly: !informationviewmodel.isEdit,
                       textStyle: TextStyle(
                           fontWeight: FontWeight.bold, color: !informationviewmodel.isEdit ? shade500 : cblack),
+                      inputFormatters: [
+                        LengthLimitingTextInputFormatter(25),
+                        FilteringTextInputFormatter.allow(RegExp(r'^[a-zA-ZçÇşŞöÖüÜıİ\s]*$'))
+                      ],
                     ),
                     CustomInformationTextField(
                         controller: informationviewmodel.birthDateController,
@@ -115,6 +121,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       readOnly: !informationviewmodel.isEdit,
                       textStyle: TextStyle(
                           fontWeight: FontWeight.bold, color: !informationviewmodel.isEdit ? shade500 : cblack),
+                      inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'^\d{1,3}$'))],
                     ),
                     CustomInformationTextField(
                       controller: informationviewmodel.heightController,
@@ -125,6 +132,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       readOnly: !informationviewmodel.isEdit,
                       textStyle: TextStyle(
                           fontWeight: FontWeight.bold, color: !informationviewmodel.isEdit ? shade500 : cblack),
+                      inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'^\d{1,3}$'))],
                     ),
                     AspectRatio(aspectRatio: displayHeight(context) * 0.015),
                     Observer(builder: (context) {
@@ -133,20 +141,24 @@ class _ProfilePageState extends State<ProfilePage> {
                         child: CustomButton(
                           text: const Text(babyUpdate, style: TextStyle(color: cwhite)),
                           onPressed: () {
-                            var value = Information(
-                              id: informationviewmodel.selectedInformation!.id,
-                              image: informationviewmodel.selectedImage?.path,
-                              genderList: informationviewmodel.genderList,
-                              fullname: informationviewmodel.nameController.text,
-                              birthDate: informationviewmodel.birthDateController.text,
-                              weight: int.parse(informationviewmodel.weightController.text),
-                              height: int.parse(informationviewmodel.heightController.text),
-                              selectedGender:
-                                  informationviewmodel.selectedInformation?.selectedGender, // Yeni eklenen alan
-                            );
-                            informationviewmodel.updateInformation(value);
-                            informationviewmodel.toggleBlur(context);
-                            informationviewmodel.isEditControl();
+                            if (informationviewmodel.areFieldsFilled()) {
+                              // Update the information
+                              var value = Information(
+                                id: informationviewmodel.selectedInformation!.id,
+                                image: informationviewmodel.selectedImage?.path,
+                                genderList: informationviewmodel.genderList,
+                                fullname: informationviewmodel.nameController.text,
+                                birthDate: informationviewmodel.birthDateController.text,
+                                weight: int.parse(informationviewmodel.weightController.text),
+                                height: int.parse(informationviewmodel.heightController.text),
+                                selectedGender: informationviewmodel.selectedInformation?.selectedGender,
+                              );
+                              informationviewmodel.updateInformation(value);
+                              informationviewmodel.toggleBlur(context);
+                              informationviewmodel.isEditControl();
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(CustomSnackbar.show(context));
+                            }
                           },
                         ),
                       );
