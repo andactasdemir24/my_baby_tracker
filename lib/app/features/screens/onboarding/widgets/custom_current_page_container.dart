@@ -14,8 +14,8 @@ class CurrentIndexContainer extends StatelessWidget {
     final onbViewmodel = locator.get<OnboardingViewmodel>();
     return Observer(
       builder: (context) {
-        return Padding(
-          padding: EdgeInsets.symmetric(vertical: displayHeight(context) * 0.05),
+        return SizedBox(
+          height: displayHeight(context) * 0.05,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: List.generate(

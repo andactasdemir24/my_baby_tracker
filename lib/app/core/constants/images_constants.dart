@@ -1,6 +1,7 @@
 //onboarding
-const String onboarding1 = 'assets/images/onb1.png';
-const String onboarding2 = 'assets/images/onb2.png';
+const String onboarding1 = 'assets/images/onb1.jpg';
+const String onboarding2 = 'assets/images/onb2.jpg';
+const String onboarding3 = 'assets/images/onb3.jpg';
 
 //InApp
 const String inApp = 'assets/images/pre1.png';

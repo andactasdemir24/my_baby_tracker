@@ -23,54 +23,51 @@ class CustomContainer extends StatelessWidget {
     final onbViewmodel = locator.get<OnboardingViewmodel>();
     return Observer(
       builder: (context) {
-        return Positioned(
-          bottom: 0,
-          left: 0,
-          right: 0,
-          height: displayHeight(context) * 0.5, // Yüzde 50
-          child: Container(
-            decoration: const BoxDecoration(
-                color: cwhite,
-                borderRadius: BorderRadius.only(topLeft: Radius.circular(30.0), topRight: Radius.circular(30.0))),
-            child: Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: displayHeight(context) * 0.05, vertical: displayHeight(context) * 0.03),
+        return Container(
+          decoration: const BoxDecoration(
+              color: cwhite,
+              borderRadius: BorderRadius.only(topLeft: Radius.circular(30.0), topRight: Radius.circular(30.0))),
+          child: Column(
+            children: [
+              SizedBox(height: displayHeight(context) * 0.04),
+              SizedBox(
+                  width: displayWidth(context) * 0.8,
                   child: Text(text,
-                      style: const TextStyle(fontSize: 31, fontWeight: FontWeight.w600), textAlign: TextAlign.center),
-                ),
-                Padding(
-                    padding: EdgeInsets.symmetric(horizontal: displayHeight(context) * 0.01),
-                    child: Text(text2,
-                        style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
-                        textAlign: TextAlign.center)),
-                const CurrentIndexContainer(),
-                Observer(builder: (_) {
-                  return CustomButton(
-                    text: const Text(
-                      buttonText,
-                      style: TextStyle(color: cwhite, fontSize: 20, fontWeight: FontWeight.w600),
-                    ),
-                    onPressed: () {
-                      if (onbViewmodel.currentIndex == onbViewmodel.onbList.length - 1) {
-                        onbViewmodel.saveIsSeen();
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const InformationPage(),
-                          ),
-                        );
-                      }
-                      onbViewmodel.controller.nextPage(
-                        duration: const Duration(milliseconds: 100),
-                        curve: Curves.bounceIn,
+                      style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w600, color: cblack),
+                      textAlign: TextAlign.center)),
+              SizedBox(height: displayHeight(context) * 0.01),
+              SizedBox(
+                  width: displayWidth(context) * 0.8,
+                  child: Text(text2,
+                      style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500, color: cblack),
+                      textAlign: TextAlign.center)),
+              SizedBox(height: displayHeight(context) * 0.01),
+              const CurrentIndexContainer(),
+              SizedBox(height: displayHeight(context) * 0.01),
+              Observer(builder: (_) {
+                return CustomButton(
+                  text: const Text(
+                    buttonText,
+                    style: TextStyle(color: cwhite, fontSize: 20, fontWeight: FontWeight.w600),
+                  ),
+                  onPressed: () {
+                    if (onbViewmodel.currentIndex == onbViewmodel.onbList.length - 1) {
+                      onbViewmodel.saveIsSeen();
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const InformationPage(),
+                        ),
                       );
-                    },
-                  );
-                }),
-              ],
-            ),
+                    }
+                    onbViewmodel.controller.nextPage(
+                      duration: const Duration(milliseconds: 100),
+                      curve: Curves.bounceIn,
+                    );
+                  },
+                );
+              }),
+            ],
           ),
         );
       },

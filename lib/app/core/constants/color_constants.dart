@@ -10,6 +10,7 @@ const Color cred = Colors.red;
 //Onboarding
 const Color buttonColor = Color(0xff4625c3);
 const Color buttonTextColor = Color(0xfffafafa);
+const Color bg = Color(0xfffcfcfc);
 
 const Color sympListShadow = Color(0xff8a3af8);
 
