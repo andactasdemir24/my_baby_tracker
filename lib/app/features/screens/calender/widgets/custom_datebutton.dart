@@ -6,27 +6,32 @@ import 'package:intl/intl.dart';
 import '../viewmodel/calender_viewmodel.dart';
 
 class DateButton extends StatelessWidget {
-  const DateButton({
-    super.key,
-    required this.calenderViewmodel,
-  });
-
   final CalenderViewModel calenderViewmodel;
+
+  const DateButton({Key? key, required this.calenderViewmodel}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Observer(builder: (context) {
-      return Center(
-        child: TextButton(
+    return Observer(
+      builder: (context) {
+        return TextButton(
           onPressed: () async {
-            final date = await calenderViewmodel.pickDate(context);
-            if (date == null) return;
-            calenderViewmodel.dateTime = date;
+            final DateTime? date = await showDatePicker(
+              context: context,
+              initialDate: calenderViewmodel.selectedDate,
+              firstDate: DateTime(2000),
+              lastDate: DateTime(2100),
+            );
+            if (date != null && date != calenderViewmodel.selectedDate) {
+              calenderViewmodel.setSelectedDate(date);
+            }
           },
-          child: Text(DateFormat('EEE, MMM d').format(calenderViewmodel.dateTime),
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500, color: cblack)),
-        ),
-      );
-    });
+          child: Text(
+            DateFormat('EEE, MMM d').format(calenderViewmodel.selectedDate),
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500, color: cblack),
+          ),
+        );
+      },
+    );
   }
 }

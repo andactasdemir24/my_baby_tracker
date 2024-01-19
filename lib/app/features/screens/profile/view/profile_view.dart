@@ -141,7 +141,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         child: CustomButton(
                           text: const Text(babyUpdate, style: TextStyle(color: cwhite)),
                           onPressed: () {
-                            if (informationviewmodel.areFieldsFilled()) {
+                            if (informationviewmodel.areFieldsFilled) {
                               // Update the information
                               var value = Information(
                                 id: informationviewmodel.selectedInformation!.id,

@@ -25,6 +25,22 @@ mixin _$CalenderViewModel on _CalenderViewModelBase, Store {
     });
   }
 
+  late final _$selectedDateAtom =
+      Atom(name: '_CalenderViewModelBase.selectedDate', context: context);
+
+  @override
+  DateTime get selectedDate {
+    _$selectedDateAtom.reportRead();
+    return super.selectedDate;
+  }
+
+  @override
+  set selectedDate(DateTime value) {
+    _$selectedDateAtom.reportWrite(value, super.selectedDate, () {
+      super.selectedDate = value;
+    });
+  }
+
   late final _$feedingListAtom =
       Atom(name: '_CalenderViewModelBase.feedingList', context: context);
 
@@ -161,12 +177,22 @@ mixin _$CalenderViewModel on _CalenderViewModelBase, Store {
     return _$initAsyncAction.run(() => super.init());
   }
 
+  late final _$updateDataForSelectedDateAsyncAction = AsyncAction(
+      '_CalenderViewModelBase.updateDataForSelectedDate',
+      context: context);
+
+  @override
+  Future<void> updateDataForSelectedDate() {
+    return _$updateDataForSelectedDateAsyncAction
+        .run(() => super.updateDataForSelectedDate());
+  }
+
   late final _$getFeedingAsyncAction =
       AsyncAction('_CalenderViewModelBase.getFeeding', context: context);
 
   @override
-  Future<void> getFeeding() {
-    return _$getFeedingAsyncAction.run(() => super.getFeeding());
+  Future<void> getFeeding([DateTime? selectedDate]) {
+    return _$getFeedingAsyncAction.run(() => super.getFeeding(selectedDate));
   }
 
   late final _$deleteFeedingAsyncAction =
@@ -191,8 +217,8 @@ mixin _$CalenderViewModel on _CalenderViewModelBase, Store {
       AsyncAction('_CalenderViewModelBase.getSleep', context: context);
 
   @override
-  Future<void> getSleep() {
-    return _$getSleepAsyncAction.run(() => super.getSleep());
+  Future<void> getSleep([DateTime? selectedDate]) {
+    return _$getSleepAsyncAction.run(() => super.getSleep(selectedDate));
   }
 
   late final _$deleteSleepAsyncAction =
@@ -215,8 +241,9 @@ mixin _$CalenderViewModel on _CalenderViewModelBase, Store {
       AsyncAction('_CalenderViewModelBase.getSymptomps', context: context);
 
   @override
-  Future<void> getSymptomps() {
-    return _$getSymptompsAsyncAction.run(() => super.getSymptomps());
+  Future<void> getSymptomps([DateTime? selectedDate]) {
+    return _$getSymptompsAsyncAction
+        .run(() => super.getSymptomps(selectedDate));
   }
 
   late final _$deleteSymptompsAsyncAction =
@@ -241,8 +268,8 @@ mixin _$CalenderViewModel on _CalenderViewModelBase, Store {
       AsyncAction('_CalenderViewModelBase.getNappy', context: context);
 
   @override
-  Future<void> getNappy() {
-    return _$getNappyAsyncAction.run(() => super.getNappy());
+  Future<void> getNappy([DateTime? selectedDate]) {
+    return _$getNappyAsyncAction.run(() => super.getNappy(selectedDate));
   }
 
   late final _$deleteNappyAsyncAction =
@@ -265,8 +292,8 @@ mixin _$CalenderViewModel on _CalenderViewModelBase, Store {
       AsyncAction('_CalenderViewModelBase.getVaccine', context: context);
 
   @override
-  Future<void> getVaccine() {
-    return _$getVaccineAsyncAction.run(() => super.getVaccine());
+  Future<void> getVaccine([DateTime? selectedDate]) {
+    return _$getVaccineAsyncAction.run(() => super.getVaccine(selectedDate));
   }
 
   late final _$deleteVaccineAsyncAction =
@@ -296,6 +323,17 @@ mixin _$CalenderViewModel on _CalenderViewModelBase, Store {
         name: '_CalenderViewModelBase.allListItem');
     try {
       return super.allListItem();
+    } finally {
+      _$_CalenderViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setSelectedDate(DateTime newDate) {
+    final _$actionInfo = _$_CalenderViewModelBaseActionController.startAction(
+        name: '_CalenderViewModelBase.setSelectedDate');
+    try {
+      return super.setSelectedDate(newDate);
     } finally {
       _$_CalenderViewModelBaseActionController.endAction(_$actionInfo);
     }
@@ -382,6 +420,7 @@ mixin _$CalenderViewModel on _CalenderViewModelBase, Store {
   String toString() {
     return '''
 dateTime: ${dateTime},
+selectedDate: ${selectedDate},
 feedingList: ${feedingList},
 sleepList: ${sleepList},
 symptompsList: ${symptompsList},

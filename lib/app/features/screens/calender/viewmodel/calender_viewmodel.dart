@@ -28,6 +28,9 @@ abstract class _CalenderViewModelBase with Store {
   DateTime dateTime = DateTime.now();
 
   @observable
+  DateTime selectedDate = DateTime.now();
+
+  @observable
   List<Feeding> feedingList = [];
 
   @observable
@@ -55,15 +58,29 @@ abstract class _CalenderViewModelBase with Store {
     init();
   }
 
+
+  //günümüz tarihinde başlaması için
   @action
   Future<void> init() async {
-    await getFeeding();
-    await getSleep();
-    await getSymptomps();
-    await getNappy();
-    await getVaccine();
+    DateTime today = DateTime.now();
+    await getFeeding(today);
+    await getSleep(today);
+    await getSymptomps(today);
+    await getNappy(today);
+    await getVaccine(today);
     allListItem();
   }
+
+  // tarihe göre veri getirmek gerekmezse
+  // @action
+  // Future<void> init() async {
+  //   await getFeeding();
+  //   await getSleep();
+  //   await getSymptomps();
+  //   await getNappy();
+  //   await getVaccine();
+  //   allListItem();
+  // }
 
   @action
   void allListItem() {
@@ -74,6 +91,24 @@ abstract class _CalenderViewModelBase with Store {
     allList.addAll(nappyList);
     allList.addAll(vaccineList);
     groupItemsByType();
+  }
+
+  //seçtiğim tarihe gitmesi için
+  @action
+  void setSelectedDate(DateTime newDate) {
+    selectedDate = newDate;
+    updateDataForSelectedDate();
+  }
+
+  //o tarihteki verileri göstermesi için
+  @action
+  Future<void> updateDataForSelectedDate() async {
+    await getFeeding(selectedDate);
+    await getSleep(selectedDate);
+    await getSymptomps(selectedDate);
+    await getNappy(selectedDate);
+    await getVaccine(selectedDate);
+    allListItem();
   }
 
   //Calender sayfasında her verinin üstünde modelinin isminin yazması için gereken fonksiyon
@@ -101,13 +136,34 @@ abstract class _CalenderViewModelBase with Store {
   }
 
   @action
-  Future<void> getFeeding() async {
+  Future<void> getFeeding([DateTime? selectedDate]) async {
     feedingList.clear();
     var feedingData = await feedingDatasource.getAll();
-    feedingList.addAll(feedingData.data!);
+    DateTime now = DateTime.now();
+    DateTime today = DateTime(now.year, now.month, now.day); // Yalnızca tarihi alın
+
+    if (selectedDate != null) {
+      feedingList.addAll(feedingData.data!.where((feeding) {
+        return isSameDay(feeding.createdTime!, selectedDate);
+      }));
+    } else {
+      feedingList.addAll(feedingData.data!.where((feeding) {
+        return isSameDay(feeding.createdTime!, today);
+      }));
+    }
     allListItem();
     groupItemsByType();
   }
+
+  //basic fonksiyon
+  // @action
+  // Future<void> getFeeding() async {
+  //   feedingList.clear();
+  //   var feedingData = await feedingDatasource.getAll();
+  //   feedingList.addAll(feedingData.data!);
+  //   allListItem();
+  //   groupItemsByType();
+  // }
 
   @action
   Future<void> deleteFeeding(String id) async {
@@ -132,13 +188,33 @@ abstract class _CalenderViewModelBase with Store {
   }
 
   @action
-  Future<void> getSleep() async {
+  Future<void> getSleep([DateTime? selectedDate]) async {
     sleepList.clear();
     var sleepData = await sleepDatasource.getAll();
-    sleepList.addAll(sleepData.data!);
+    DateTime now = DateTime.now();
+    DateTime today = DateTime(now.year, now.month, now.day);
+
+    if (selectedDate != null) {
+      sleepList.addAll(sleepData.data!.where((sleep) {
+        return isSameDay(sleep.createdTime!, selectedDate);
+      }));
+    } else {
+      sleepList.addAll(sleepData.data!.where((sleep) {
+        return isSameDay(sleep.createdTime!, today);
+      }));
+    }
     allListItem();
     groupItemsByType();
   }
+
+  // @action
+  // Future<void> getSleep() async {
+  //   sleepList.clear();
+  //   var sleepData = await sleepDatasource.getAll();
+  //   sleepList.addAll(sleepData.data!);
+  //   allListItem();
+  //   groupItemsByType();
+  // }
 
   @action
   Future<void> deleteSleep(String id) async {
@@ -163,10 +239,21 @@ abstract class _CalenderViewModelBase with Store {
   }
 
   @action
-  Future<void> getSymptomps() async {
+  Future<void> getSymptomps([DateTime? selectedDate]) async {
     symptompsList.clear();
-    var symptompsData = await symptompsDatasource.getAll();
-    symptompsList.addAll(symptompsData.data!);
+    var sympData = await symptompsDatasource.getAll();
+    DateTime now = DateTime.now();
+    DateTime today = DateTime(now.year, now.month, now.day);
+
+    if (selectedDate != null) {
+      symptompsList.addAll(sympData.data!.where((symp) {
+        return isSameDay(symp.createdTime!, selectedDate);
+      }));
+    } else {
+      symptompsList.addAll(sympData.data!.where((symp) {
+        return isSameDay(symp.createdTime!, today);
+      }));
+    }
     allListItem();
     groupItemsByType();
   }
@@ -194,13 +281,32 @@ abstract class _CalenderViewModelBase with Store {
   }
 
   @action
-  Future<void> getNappy() async {
+  Future<void> getNappy([DateTime? selectedDate]) async {
     nappyList.clear();
     var nappyData = await nappyDatasource.getAll();
-    nappyList.addAll(nappyData.data!);
+    DateTime now = DateTime.now();
+    DateTime today = DateTime(now.year, now.month, now.day);
+
+    if (selectedDate != null) {
+      nappyList.addAll(nappyData.data!.where((nappy) {
+        return isSameDay(nappy.createdTime!, selectedDate);
+      }));
+    } else {
+      nappyList.addAll(nappyData.data!.where((nappy) {
+        return isSameDay(nappy.createdTime!, today);
+      }));
+    }
     allListItem();
     groupItemsByType();
   }
+  // @action
+  // Future<void> getNappy() async {
+  //   nappyList.clear();
+  //   var nappyData = await nappyDatasource.getAll();
+  //   nappyList.addAll(nappyData.data!);
+  //   allListItem();
+  //   groupItemsByType();
+  // }
 
   @action
   Future<void> deleteNappy(String id) async {
@@ -225,13 +331,33 @@ abstract class _CalenderViewModelBase with Store {
   }
 
   @action
-  Future<void> getVaccine() async {
+  Future<void> getVaccine([DateTime? selectedDate]) async {
     vaccineList.clear();
     var vaccineData = await vaccineDatasource.getAll();
-    vaccineList.addAll(vaccineData.data!);
+    DateTime now = DateTime.now();
+    DateTime today = DateTime(now.year, now.month, now.day);
+
+    if (selectedDate != null) {
+      vaccineList.addAll(vaccineData.data!.where((vaccine) {
+        return isSameDay(vaccine.createdTime!, selectedDate);
+      }));
+    } else {
+      vaccineList.addAll(vaccineData.data!.where((vaccine) {
+        return isSameDay(vaccine.createdTime!, today);
+      }));
+    }
     allListItem();
     groupItemsByType();
   }
+
+  // @action
+  // Future<void> getVaccine() async {
+  //   vaccineList.clear();
+  //   var vaccineData = await vaccineDatasource.getAll();
+  //   vaccineList.addAll(vaccineData.data!);
+  //   allListItem();
+  //   groupItemsByType();
+  // }
 
   @action
   Future<void> deleteVaccine(String id) async {
@@ -245,5 +371,10 @@ abstract class _CalenderViewModelBase with Store {
   Future<void> refreshVaccineList() async {
     var vaccineData = await vaccineDatasource.getAll();
     vaccineList = vaccineData.data ?? [];
+  }
+
+  // Tarihleri karşılaştırmak için yardımcı fonksiyon
+  bool isSameDay(DateTime date1, DateTime date2) {
+    return date1.year == date2.year && date1.month == date2.month && date1.day == date2.day;
   }
 }

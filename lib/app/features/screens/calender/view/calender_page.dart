@@ -29,11 +29,7 @@ class _CalenderPageState extends State<CalenderPage> with TickerProviderStateMix
   void initState() {
     super.initState();
     _tabController = TabController(length: 6, vsync: this);
-    calenderViewmodel.getSymptomps();
-    calenderViewmodel.getFeeding();
-    calenderViewmodel.getSleep();
-    calenderViewmodel.getNappy();
-    calenderViewmodel.getVaccine();
+    calenderViewmodel.updateDataForSelectedDate();
   }
 
   @override
@@ -67,27 +63,32 @@ class _CalenderPageState extends State<CalenderPage> with TickerProviderStateMix
             ),
             Expanded(
               child: TabBarView(
-                physics: const NeverScrollableScrollPhysics(),
                 controller: _tabController,
                 children: <Widget>[
-                  Observer(builder: (context) {
-                    return const CustomAllListview();
-                  }),
-                  Observer(builder: (_) {
-                    return const CustomFeedigListView();
-                  }),
-                  Observer(builder: (_) {
-                    return const CustomSleepListView();
-                  }),
-                  Observer(builder: (_) {
-                    return const CustomSymptompsListView();
-                  }),
-                  Observer(builder: (_) {
-                    return const CustomNappyListView();
-                  }),
-                  Observer(builder: (_) {
-                    return const CustomVaccineListView();
-                  }),
+                  KeyedSubtree(
+                    key: ValueKey('all-${calenderViewmodel.selectedDate}'),
+                    child: const CustomAllListview(),
+                  ),
+                  KeyedSubtree(
+                    key: ValueKey('feeding-${calenderViewmodel.selectedDate}'),
+                    child: const CustomFeedigListView(),
+                  ),
+                  KeyedSubtree(
+                    key: ValueKey('sleep-${calenderViewmodel.selectedDate}'),
+                    child: const CustomSleepListView(),
+                  ),
+                  KeyedSubtree(
+                    key: ValueKey('symptomps-${calenderViewmodel.selectedDate}'),
+                    child: const CustomSymptompsListView(),
+                  ),
+                  KeyedSubtree(
+                    key: ValueKey('nappy-${calenderViewmodel.selectedDate}'),
+                    child: const CustomNappyListView(),
+                  ),
+                  KeyedSubtree(
+                    key: ValueKey('vaccine-${calenderViewmodel.selectedDate}'),
+                    child: const CustomVaccineListView(),
+                  ),
                 ],
               ),
             ),

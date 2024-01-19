@@ -64,8 +64,8 @@ abstract class _InformationViewModelBase with Store {
   TextEditingController weightController = TextEditingController();
 
   //Profile Alanındaki textfieldlar boş kaldığında snacbar çıkması için değer
-  @observable
-  bool areFieldsFilled() {
+  @computed
+  bool get areFieldsFilled {
     return selectedImage != null &&
         nameController.text.isNotEmpty &&
         birthDateController.text.isNotEmpty &&
@@ -211,7 +211,7 @@ abstract class _InformationViewModelBase with Store {
 
   @action
   Future<void> updateInformation(Information info) async {
-    if (!areFieldsFilled()) {
+    if (!areFieldsFilled) {
       //textfieldlar Boşşa güncelleme
       return;
     }
