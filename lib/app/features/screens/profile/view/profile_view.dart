@@ -1,23 +1,11 @@
 import 'dart:io';
 import 'dart:ui';
-import 'package:baby_tracker_app/app/features/screens/profile/widgets/custom_snackbar.dart';
-import 'package:baby_tracker_app/app/features/theme/baby_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
-import 'package:baby_tracker_app/app/core/components/custom_widgets/custom_button.dart';
-import 'package:baby_tracker_app/app/core/constants/color_constants.dart';
-import 'package:baby_tracker_app/app/core/constants/mediaquery_constants.dart';
-import 'package:baby_tracker_app/app/core/hive/model/information_model.dart';
-import '../../../../core/constants/images_constants.dart';
-import '../../../../core/constants/text_constants.dart';
-import '../../../../core/getIt/locator.dart';
-import '../../Informations/viewmodel/information_viewmodel.dart';
-import '../../Informations/widgets/custom_information_textfield.dart';
-import '../widgets/custom_edit_button.dart';
-import '../widgets/custom_picker.dart';
+import 'package:baby_tracker_app/app/app.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key, this.id, this.image, this.fullname, this.birthDate, this.weight, this.height})

@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import '../../../../core/constants/images_constants.dart';
-import '../../../../core/constants/text_constants.dart';
-import '../model/onboarding_model.dart';
+import 'package:baby_tracker_app/app/app.dart';
 part 'onboarding_viewmodel.g.dart';
 
 class OnboardingViewmodel = _OnboardingViewmodelBase with _$OnboardingViewmodel;

@@ -1,10 +1,7 @@
-import 'package:baby_tracker_app/app/core/constants/text_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../../core/constants/color_constants.dart';
-import '../viewmodel/memories_viewmodel.dart';
+import 'package:baby_tracker_app/app/app.dart';
 
 class CustomDeleteAllButton extends StatelessWidget {
   const CustomDeleteAllButton({

@@ -1,11 +1,6 @@
-import 'package:baby_tracker_app/app/features/screens/onboarding/viewmodel/onboarding_viewmodel.dart';
 import 'package:flutter/material.dart';
-import '../../../../core/constants/color_constants.dart';
-import '../../../../core/constants/mediaquery_constants.dart';
-import '../../../../core/getIt/locator.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import '../widgets/custom_container.dart';
-import '../widgets/custom_onb_image.dart';
+import 'package:baby_tracker_app/app/app.dart';
 
 class OnboardingPage extends StatelessWidget {
   const OnboardingPage({Key? key}) : super(key: key);

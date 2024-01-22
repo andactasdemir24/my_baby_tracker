@@ -1,10 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-
-import 'package:baby_tracker_app/app/features/theme/baby_icons.dart';
-
-import '../../../../core/constants/color_constants.dart';
-import '../../../../core/constants/mediaquery_constants.dart';
+import 'package:baby_tracker_app/app/app.dart';
 
 class CustomSettingsContainer extends StatelessWidget {
   final String text;

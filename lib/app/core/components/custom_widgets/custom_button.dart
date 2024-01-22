@@ -1,7 +1,5 @@
-import 'package:baby_tracker_app/app/core/constants/mediaquery_constants.dart';
 import 'package:flutter/material.dart';
-
-import '../../constants/color_constants.dart';
+import 'package:baby_tracker_app/app/app.dart';
 
 class CustomButton extends StatelessWidget {
   final Text text;

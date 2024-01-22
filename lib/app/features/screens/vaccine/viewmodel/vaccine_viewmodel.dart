@@ -1,13 +1,9 @@
-import 'package:baby_tracker_app/app/core/hive/datasource/vaccine_datasource.dart';
-import 'package:baby_tracker_app/app/core/hive/model/vaccine_model.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:mobx/mobx.dart';
 import 'package:uuid/uuid.dart';
+import 'package:baby_tracker_app/app/app.dart';
 
-import '../../../../core/constants/text_constants.dart';
-import '../../../../core/getIt/locator.dart';
-import '../../calender/viewmodel/calender_viewmodel.dart';
 part 'vaccine_viewmodel.g.dart';
 
 class VaccineViewModel = _VaccineViewModelBase with _$VaccineViewModel;

@@ -1,11 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:baby_tracker_app/app/core/constants/color_constants.dart';
-import 'package:baby_tracker_app/app/core/constants/text_constants.dart';
 import 'package:flutter/material.dart';
-
-import '../viewmodel/feeding_viewmodel.dart';
-import '../../../../core/constants/mediaquery_constants.dart';
-import '../../../../core/getIt/locator.dart';
+import 'package:baby_tracker_app/app/app.dart';
 
 class AmountTextField extends StatelessWidget {
   final TextEditingController controller;

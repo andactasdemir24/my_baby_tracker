@@ -1,8 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:baby_tracker_app/app/core/constants/text_constants.dart';
-import '../../constants/color_constants.dart';
-import '../../constants/mediaquery_constants.dart';
+import 'package:baby_tracker_app/app/app.dart';
 
 class CustomNoteTextfield extends StatelessWidget {
   final TextEditingController controller;

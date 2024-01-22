@@ -1,15 +1,6 @@
-import 'package:baby_tracker_app/app/core/components/custom_widgets/custom_nodata.dart';
-import 'package:baby_tracker_app/app/core/hive/model/vaccine_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import '../../../../core/constants/color_constants.dart';
-import '../../../../core/constants/images_constants.dart';
-import '../../../../core/constants/mediaquery_constants.dart';
-import '../../../../core/constants/text_constants.dart';
-import '../../../../core/getIt/locator.dart';
-import '../../../theme/baby_icons.dart';
-import '../../vaccine/view/vaccine_edit_page.dart';
-import '../viewmodel/calender_viewmodel.dart';
+import 'package:baby_tracker_app/app/app.dart';
 
 class CustomVaccineListView extends StatelessWidget {
   const CustomVaccineListView({super.key});

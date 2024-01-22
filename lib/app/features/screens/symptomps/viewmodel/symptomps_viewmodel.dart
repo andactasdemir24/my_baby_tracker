@@ -1,13 +1,7 @@
-import 'package:baby_tracker_app/app/core/hive/datasource/symptomps_datasource.dart';
-import 'package:baby_tracker_app/app/features/model/symptomps_model_f.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 import 'package:uuid/uuid.dart';
-import '../../../../core/constants/images_constants.dart';
-import '../../../../core/constants/text_constants.dart';
-import '../../../../core/getIt/locator.dart';
-import '../../../../core/hive/model/symptomps_model.dart';
-import '../../calender/viewmodel/calender_viewmodel.dart';
+import 'package:baby_tracker_app/app/app.dart';
 part 'symptomps_viewmodel.g.dart';
 
 class SymptompsViewmodel = _SymptompsViewmodelBase with _$SymptompsViewmodel;

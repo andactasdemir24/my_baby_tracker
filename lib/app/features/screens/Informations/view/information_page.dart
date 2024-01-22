@@ -1,20 +1,9 @@
 import 'dart:ui';
-
-import 'package:baby_tracker_app/app/core/components/custom_widgets/custom_button.dart';
-import 'package:baby_tracker_app/app/core/constants/color_constants.dart';
-import 'package:baby_tracker_app/app/core/constants/mediaquery_constants.dart';
-import 'package:baby_tracker_app/app/features/screens/Informations/widgets/custom_gender_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
-
-import '../../../theme/baby_icons.dart';
-import '../widgets/custom_information_textfield.dart';
-import '../../../../core/constants/images_constants.dart';
-import '../../../../core/constants/text_constants.dart';
-import '../../../../core/getIt/locator.dart';
-import '../viewmodel/information_viewmodel.dart';
+import 'package:baby_tracker_app/app/app.dart';
 
 class InformationPage extends StatelessWidget {
   const InformationPage({super.key});

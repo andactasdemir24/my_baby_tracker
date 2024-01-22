@@ -1,12 +1,6 @@
-import 'package:baby_tracker_app/app/core/constants/color_constants.dart';
-import 'package:baby_tracker_app/app/core/constants/mediaquery_constants.dart';
-import 'package:baby_tracker_app/app/features/screens/calender/view/calender_page.dart';
-import 'package:baby_tracker_app/app/features/screens/memories/view/memories_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import '../../../core/constants/text_constants.dart';
-import '../home/view/home_page.dart';
-import '../profile/view/profile_view.dart';
+import 'package:baby_tracker_app/app/app.dart';
 
 class MainNavBar extends StatefulWidget {
   const MainNavBar({super.key});

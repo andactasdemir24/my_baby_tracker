@@ -1,12 +1,7 @@
-import 'package:baby_tracker_app/app/core/hive/datasource/feeding_datasource.dart';
-import 'package:baby_tracker_app/app/core/hive/model/feeding_model.dart';
-import 'package:baby_tracker_app/app/features/screens/feeding/widgets/feeding_alert.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 import 'package:uuid/uuid.dart';
-
-import '../../../../core/getIt/locator.dart';
-import '../../calender/viewmodel/calender_viewmodel.dart';
+import 'package:baby_tracker_app/app/app.dart';
 part 'feeding_viewmodel.g.dart';
 
 class FeedingViewModel = _FeedingViewModelBase with _$FeedingViewModel;

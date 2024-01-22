@@ -1,7 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import '../../constants/color_constants.dart';
-import '../../constants/mediaquery_constants.dart';
+import 'package:baby_tracker_app/app/app.dart';
 
 class CustomTimePicker extends StatelessWidget {
   final String text;

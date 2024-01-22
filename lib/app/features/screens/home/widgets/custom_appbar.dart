@@ -1,9 +1,6 @@
-import 'package:baby_tracker_app/app/features/screens/settings/view/settings_page.dart';
-import 'package:baby_tracker_app/app/features/theme/baby_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../core/constants/color_constants.dart';
-import '../../../../core/constants/text_constants.dart';
+import 'package:baby_tracker_app/app/app.dart';
 
 class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppbar({super.key});

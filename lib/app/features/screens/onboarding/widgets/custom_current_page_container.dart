@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-
-import '../../../../core/constants/color_constants.dart';
-import '../../../../core/constants/mediaquery_constants.dart';
-import '../../../../core/getIt/locator.dart';
-import '../viewmodel/onboarding_viewmodel.dart';
+import 'package:baby_tracker_app/app/app.dart';
 
 class CurrentIndexContainer extends StatelessWidget {
   const CurrentIndexContainer({super.key});

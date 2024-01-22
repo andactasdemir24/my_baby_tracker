@@ -1,19 +1,11 @@
 import 'dart:io';
-import 'package:baby_tracker_app/app/core/constants/images_constants.dart';
-import 'package:baby_tracker_app/app/core/constants/text_constants.dart';
-import 'package:baby_tracker_app/app/core/hive/datasource/information_datasource.dart';
-import 'package:baby_tracker_app/app/core/hive/model/information_model.dart';
-import 'package:baby_tracker_app/app/features/model/information_gender_model_f.dart';
-import 'package:baby_tracker_app/app/features/screens/main_navbar/main_navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:mobx/mobx.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uuid/uuid.dart';
-
-import '../../../../core/getIt/locator.dart';
-
+import 'package:baby_tracker_app/app/app.dart';
 part 'information_viewmodel.g.dart';
 
 class InformationViewModel = _InformationViewModelBase with _$InformationViewModel;

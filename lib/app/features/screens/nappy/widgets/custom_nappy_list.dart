@@ -1,10 +1,7 @@
-import 'package:baby_tracker_app/app/features/model/nappy_model_f.dart';
-import 'package:baby_tracker_app/app/features/screens/nappy/viewmodel/nappy_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../core/constants/color_constants.dart';
-import '../../../../core/constants/mediaquery_constants.dart';
+import 'package:baby_tracker_app/app/app.dart';
 
 class CustomNappyListContainer extends StatefulWidget {
   const CustomNappyListContainer({

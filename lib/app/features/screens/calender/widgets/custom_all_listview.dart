@@ -1,23 +1,6 @@
-import 'package:baby_tracker_app/app/core/constants/images_constants.dart';
-import 'package:baby_tracker_app/app/core/constants/text_constants.dart';
-import 'package:baby_tracker_app/app/core/getIt/locator.dart';
-import 'package:baby_tracker_app/app/core/hive/model/feeding_model.dart';
-import 'package:baby_tracker_app/app/core/hive/model/nappy_model.dart';
-import 'package:baby_tracker_app/app/core/hive/model/sleep_model.dart';
-import 'package:baby_tracker_app/app/core/hive/model/symptomps_model.dart';
-import 'package:baby_tracker_app/app/core/hive/model/vaccine_model.dart';
-import 'package:baby_tracker_app/app/features/screens/calender/viewmodel/calender_viewmodel.dart';
-import 'package:baby_tracker_app/app/core/components/custom_widgets/custom_nodata.dart';
-import 'package:baby_tracker_app/app/features/screens/nappy/view/nappy_edit_page.dart';
-import 'package:baby_tracker_app/app/features/screens/vaccine/view/vaccine_edit_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import '../../../../core/constants/color_constants.dart';
-import '../../../../core/constants/mediaquery_constants.dart';
-import '../../../theme/baby_icons.dart';
-import '../../feeding/view/feeding_edit_page.dart';
-import '../../sleep/view/sleep_edit_page.dart';
-import '../../symptomps/view/symptomps_edit_page.dart';
+import 'package:baby_tracker_app/app/app.dart';
 
 class CustomAllListview extends StatelessWidget {
   const CustomAllListview({super.key});

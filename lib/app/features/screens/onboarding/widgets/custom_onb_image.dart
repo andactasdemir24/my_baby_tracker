@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../../../core/constants/mediaquery_constants.dart';
-import '../viewmodel/onboarding_viewmodel.dart';
+import 'package:baby_tracker_app/app/app.dart';
 
 class CustomOnbImage extends StatelessWidget {
   const CustomOnbImage({

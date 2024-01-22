@@ -1,14 +1,11 @@
 import 'dart:io';
-import 'package:baby_tracker_app/app/core/getIt/locator.dart';
-import 'package:baby_tracker_app/app/core/hive/datasource/memories_datasource.dart';
-import 'package:baby_tracker_app/app/core/hive/model/memories_model.dart';
-import 'package:baby_tracker_app/app/features/screens/memories/widgets/custom_alert.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:mobx/mobx.dart';
 import 'package:uuid/uuid.dart';
+import 'package:baby_tracker_app/app/app.dart';
 part 'memories_viewmodel.g.dart';
 
 class MemoriesViewModel = _MemoriesViewModelBase with _$MemoriesViewModel;

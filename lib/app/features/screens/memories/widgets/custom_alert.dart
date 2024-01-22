@@ -1,10 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-
-import '../../../../core/constants/text_constants.dart';
-import '../../../../core/getIt/locator.dart';
-import '../viewmodel/memories_viewmodel.dart';
+import 'package:baby_tracker_app/app/app.dart';
 
 class CustomAlert extends StatelessWidget {
   const CustomAlert({Key? key, required this.id}) : super(key: key);

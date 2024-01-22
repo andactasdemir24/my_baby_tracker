@@ -1,18 +1,7 @@
 // ignore_for_file: non_constant_identifier_names, library_private_types_in_public_api
-
-import 'package:baby_tracker_app/app/core/hive/datasource/nappy_datasource.dart';
-import 'package:baby_tracker_app/app/core/hive/datasource/sleep_datasource.dart';
-import 'package:baby_tracker_app/app/core/hive/datasource/symptomps_datasource.dart';
-import 'package:baby_tracker_app/app/core/hive/datasource/vaccine_datasource.dart';
-import 'package:baby_tracker_app/app/core/hive/model/feeding_model.dart';
-import 'package:baby_tracker_app/app/core/hive/model/sleep_model.dart';
-import 'package:baby_tracker_app/app/core/hive/model/symptomps_model.dart';
-import 'package:baby_tracker_app/app/core/hive/model/vaccine_model.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
-import '../../../../core/getIt/locator.dart';
-import '../../../../core/hive/datasource/feeding_datasource.dart';
-import '../../../../core/hive/model/nappy_model.dart';
+import 'package:baby_tracker_app/app/app.dart';
 part 'calender_viewmodel.g.dart';
 
 class CalenderViewModel = _CalenderViewModelBase with _$CalenderViewModel;
@@ -57,7 +46,6 @@ abstract class _CalenderViewModelBase with Store {
   _CalenderViewModelBase() {
     init();
   }
-
 
   //günümüz tarihinde başlaması için
   @action

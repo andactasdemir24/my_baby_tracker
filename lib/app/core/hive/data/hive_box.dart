@@ -1,14 +1,5 @@
-import 'package:baby_tracker_app/app/core/hive/model/feeding_model.dart';
-import 'package:baby_tracker_app/app/core/hive/model/information_model.dart';
-import 'package:baby_tracker_app/app/core/hive/model/memories_model.dart';
-import 'package:baby_tracker_app/app/core/hive/model/nappy_model.dart';
-import 'package:baby_tracker_app/app/core/hive/model/sleep_model.dart';
-import 'package:baby_tracker_app/app/core/hive/model/symptomps_model.dart';
-import 'package:baby_tracker_app/app/core/hive/model/vaccine_model.dart';
-import 'package:baby_tracker_app/app/features/model/information_gender_model_f.dart';
-import 'package:baby_tracker_app/app/features/model/nappy_model_f.dart';
-import 'package:baby_tracker_app/app/features/model/symptomps_model_f.dart';
 import 'package:hive/hive.dart';
+import 'package:baby_tracker_app/app/app.dart';
 
 late Box<Feeding> feedingBox;
 late Box<Sleep> sleepBox;

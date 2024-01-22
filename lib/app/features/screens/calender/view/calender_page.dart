@@ -1,18 +1,6 @@
-import 'package:baby_tracker_app/app/core/components/custom_widgets/custom_appbar.dart';
-import 'package:baby_tracker_app/app/core/constants/color_constants.dart';
-import 'package:baby_tracker_app/app/core/constants/text_constants.dart';
-import 'package:baby_tracker_app/app/features/screens/calender/viewmodel/calender_viewmodel.dart';
-import 'package:baby_tracker_app/app/features/screens/calender/widgets/custom_nappy_listview.dart';
-import 'package:baby_tracker_app/app/features/screens/calender/widgets/custom_symptomps_listview.dart';
-import 'package:baby_tracker_app/app/features/screens/calender/widgets/custom_vaccine_listview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import '../../../../core/getIt/locator.dart';
-import '../../../theme/baby_icons.dart';
-import '../widgets/custom_all_listview.dart';
-import '../widgets/custom_datebutton.dart';
-import '../widgets/custom_feeding_listview.dart';
-import '../widgets/custom_sleep_listview.dart';
+import 'package:baby_tracker_app/app/app.dart';
 
 class CalenderPage extends StatefulWidget {
   const CalenderPage({super.key});

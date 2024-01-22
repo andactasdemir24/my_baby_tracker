@@ -1,11 +1,6 @@
-import 'package:baby_tracker_app/app/core/getIt/locator.dart';
-import 'package:baby_tracker_app/app/features/screens/Informations/view/information_page.dart';
-import 'package:baby_tracker_app/app/features/screens/Informations/viewmodel/information_viewmodel.dart';
-import 'package:baby_tracker_app/app/features/screens/main_navbar/main_navbar.dart';
-import 'package:baby_tracker_app/app/features/screens/onboarding/view/onboarding_page.dart';
-import 'package:baby_tracker_app/app/features/screens/onboarding/viewmodel/onboarding_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:baby_tracker_app/app/app.dart';
 
 class MainView extends StatefulWidget {
   const MainView({super.key});

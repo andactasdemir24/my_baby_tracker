@@ -1,14 +1,7 @@
-import 'package:baby_tracker_app/app/core/constants/images_constants.dart';
-import 'package:baby_tracker_app/app/core/constants/text_constants.dart';
-import 'package:baby_tracker_app/app/core/hive/datasource/nappy_datasource.dart';
-import 'package:baby_tracker_app/app/features/model/nappy_model_f.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 import 'package:uuid/uuid.dart';
-
-import '../../../../core/getIt/locator.dart';
-import '../../../../core/hive/model/nappy_model.dart';
-import '../../calender/viewmodel/calender_viewmodel.dart';
+import 'package:baby_tracker_app/app/app.dart';
 part 'nappy_viewmodel.g.dart';
 
 class NappyViewModel = _NappyViewModelBase with _$NappyViewModel;

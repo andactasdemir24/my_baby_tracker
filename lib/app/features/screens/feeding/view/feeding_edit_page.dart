@@ -1,22 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:ui';
-
-import 'package:baby_tracker_app/app/core/components/custom_widgets/custom_button.dart';
-import 'package:baby_tracker_app/app/core/hive/model/feeding_model.dart';
-import 'package:baby_tracker_app/app/features/screens/feeding/viewmodel/feeding_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:lottie/lottie.dart';
-
-import '../widgets/amount_textfield.dart';
-import '../../../../core/components/custom_widgets/custom_appbar.dart';
-import '../../../../core/components/custom_widgets/note_textfield.dart';
-import '../../../../core/components/custom_widgets/time_picker.dart';
-import '../../../../core/constants/color_constants.dart';
-import '../../../../core/constants/images_constants.dart';
-import '../../../../core/constants/mediaquery_constants.dart';
-import '../../../../core/constants/text_constants.dart';
-import '../../../../core/getIt/locator.dart';
+import 'package:baby_tracker_app/app/app.dart';
 
 class FeedingEdit extends StatefulWidget {
   const FeedingEdit({
