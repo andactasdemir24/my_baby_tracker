@@ -81,6 +81,14 @@ mixin _$OnboardingViewmodel on _OnboardingViewmodelBase, Store {
     return _$saveIsSeenAsyncAction.run(() => super.saveIsSeen());
   }
 
+  late final _$saveIsSeenFalseAsyncAction =
+      AsyncAction('_OnboardingViewmodelBase.saveIsSeenFalse', context: context);
+
+  @override
+  Future<void> saveIsSeenFalse() {
+    return _$saveIsSeenFalseAsyncAction.run(() => super.saveIsSeenFalse());
+  }
+
   late final _$loadIsSeenAsyncAction =
       AsyncAction('_OnboardingViewmodelBase.loadIsSeen', context: context);
 

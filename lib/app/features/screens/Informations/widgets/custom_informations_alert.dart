@@ -10,12 +10,13 @@ class CustomInformationAlert extends StatelessWidget {
     var informationViewmodel = locator.get<InformationViewModel>();
     var calendarViewmodel = locator.get<CalenderViewModel>();
     var memoriesViewmodel = locator.get<MemoriesViewModel>();
+    var onboardingViewmodel = locator.get<OnboardingViewmodel>();
     return Observer(
       builder: (context) {
         return AlertDialog(
-          title: const Text('Desicion!'),
+          title: const Text(desicion),
           content: const SingleChildScrollView(
-            child: ListBody(children: <Widget>[Text("Are you sure you want to delete your baby's information?")]),
+            child: ListBody(children: <Widget>[Text(sure)]),
           ),
           actions: <Widget>[
             TextButton(
@@ -24,9 +25,10 @@ class CustomInformationAlert extends StatelessWidget {
                   Navigator.of(context).pop();
                 }),
             TextButton(
-                child: const Text('Delete'),
+                child: const Text(deleteInf),
                 onPressed: () {
                   informationViewmodel.saveIsSeenInformationFalse();
+                  onboardingViewmodel.saveIsSeenFalse();
                   informationViewmodel.clearBaby();
                   calendarViewmodel.clearFeeding();
                   calendarViewmodel.clearSleep();
@@ -37,7 +39,7 @@ class CustomInformationAlert extends StatelessWidget {
                   Navigator.of(context).pushAndRemoveUntil(
                     MaterialPageRoute(
                       builder: (BuildContext context) {
-                        return const InformationPage();
+                        return const MainView();
                       },
                     ),
                     (Route<dynamic> route) => false,

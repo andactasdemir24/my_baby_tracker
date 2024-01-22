@@ -32,8 +32,7 @@ class RemoveBabyWidget extends StatelessWidget {
               child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('Remove Baby Informations',
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: cred)),
+                  Text(removeInf, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: cred)),
                   Icon(Baby.left, color: settingsIndex),
                 ],
               ),

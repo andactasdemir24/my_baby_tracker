@@ -21,7 +21,7 @@ class SettingsPage extends StatelessWidget {
           const CustomSettingsContainer(text: restore, image: s5),
           const Spacer(),
           const RemoveBabyWidget(),
-          const SizedBox(height: 20),
+          SizedBox(height: displayHeight(context) * 0.03),
         ],
       ),
     );

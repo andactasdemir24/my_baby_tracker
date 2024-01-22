@@ -79,6 +79,11 @@ const String kgs = ' kgs';
 const String cms = ' cms';
 const String boyText = 'Boy';
 const String girlText = 'Girl';
+const String desicion = 'Desicion!';
+const String sure = "Are you sure you want to delete your baby's information?";
+const String deleteInf = 'Delete';
+const String removeInf = 'Remove Baby Informations';
+
 
 //bottom nav var
 const String home = 'Home';
