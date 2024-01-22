@@ -27,14 +27,16 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   void initState() {
     super.initState();
-    informationviewmodel.init();
-    if (widget.image != null) {
-      informationviewmodel.selectedImage = File(widget.image!);
-    }
-    informationviewmodel.nameController.text = widget.fullname ?? '';
-    informationviewmodel.birthDateController.text = widget.birthDate ?? '';
-    informationviewmodel.weightController.text = widget.weight.toString();
-    informationviewmodel.heightController.text = widget.height.toString();
+    Future.microtask(() {
+      informationviewmodel.init();
+      if (widget.image != null) {
+        informationviewmodel.selectedImage = File(widget.image!);
+      }
+      informationviewmodel.nameController.text = widget.fullname ?? '';
+      informationviewmodel.birthDateController.text = widget.birthDate ?? '';
+      informationviewmodel.weightController.text = widget.weight.toString();
+      informationviewmodel.heightController.text = widget.height.toString();
+    });
   }
 
   @override

@@ -11,127 +11,130 @@ class InformationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final informationviewmodel = locator.get<InformationViewModel>();
-    return Scaffold(
-      body: Observer(builder: (context) {
-        return Stack(
-          children: [
-            SingleChildScrollView(
-              child: Center(
-                child: Column(
-                  children: [
-                    AspectRatio(aspectRatio: displayHeight(context) * 0.01),
-                    Observer(
-                      builder: (context) {
-                        return GestureDetector(
-                            onTap: () {
-                              informationviewmodel.pickImageFromGalery();
-                              informationviewmodel.changeVisible();
-                            },
-                            child: ClipRRect(
-                              child: informationviewmodel.selectedImage != null
-                                  ? CircleAvatar(
-                                      maxRadius: 75.r,
-                                      backgroundImage: FileImage(informationviewmodel.selectedImage!),
-                                      child: Container(
-                                        decoration: ShapeDecoration(
-                                          shape: OvalBorder(
-                                            side: BorderSide(width: 2.w, color: annualColor),
+    return PopScope(
+      canPop: false,
+      child: Scaffold(
+        body: Observer(builder: (context) {
+          return Stack(
+            children: [
+              SingleChildScrollView(
+                child: Center(
+                  child: Column(
+                    children: [
+                      AspectRatio(aspectRatio: displayHeight(context) * 0.01),
+                      Observer(
+                        builder: (context) {
+                          return GestureDetector(
+                              onTap: () {
+                                informationviewmodel.pickImageFromGalery();
+                                informationviewmodel.changeVisible();
+                              },
+                              child: ClipRRect(
+                                child: informationviewmodel.selectedImage != null
+                                    ? CircleAvatar(
+                                        maxRadius: 75.r,
+                                        backgroundImage: FileImage(informationviewmodel.selectedImage!),
+                                        child: Container(
+                                          decoration: ShapeDecoration(
+                                            shape: OvalBorder(
+                                              side: BorderSide(width: 2.w, color: annualColor),
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                    )
-                                  : Image.asset(picker, height: displayHeight(context) * 0.2),
-                            ));
-                      },
-                    ),
-                    AspectRatio(aspectRatio: displayHeight(context) * 0.025),
-                    GridView.builder(
-                      padding: EdgeInsets.symmetric(horizontal: 90.w),
-                      physics: const NeverScrollableScrollPhysics(),
-                      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                          maxCrossAxisExtent: displayWidth(context) * 0.2,
-                          crossAxisSpacing: displayHeight(context) * 0.03,
-                          mainAxisExtent: displayHeight(context) * 0.1),
-                      shrinkWrap: true,
-                      itemCount: informationviewmodel.genderList.length,
-                      itemBuilder: (BuildContext context, index) {
-                        var gender = informationviewmodel.genderList[index];
-                        return Observer(builder: (_) {
-                          return CustomGenderListContainer(
-                            informationViewModel: informationviewmodel,
-                            gender: gender,
-                          );
-                        });
-                      },
-                    ),
-                    AspectRatio(aspectRatio: displayHeight(context) * 0.05),
-                    CustomInformationTextField(
-                      onChanged: (p0) => informationviewmodel.changeVisible(),
-                      controller: informationviewmodel.nameController,
-                      textInputType: TextInputType.name,
-                      hintText: babyFullName,
-                      hintStyle: const TextStyle(color: settingsIndex),
-                      icon: const Icon(Baby.baby),
-                      textStyle: const TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    CustomInformationTextField(
-                      onChanged: (p0) => informationviewmodel.changeVisible(),
-                      controller: informationviewmodel.birthDateController,
-                      hintText: babyBirthDate,
-                      hintStyle: const TextStyle(color: settingsIndex),
-                      textInputType: TextInputType.none,
-                      icon: const Icon(Baby.birthdaycake),
-                      textStyle: const TextStyle(fontWeight: FontWeight.bold),
-                      onTap: () {
-                        informationviewmodel.selectDate(context, informationviewmodel.birthDateController);
-                      },
-                    ),
-                    CustomInformationTextField(
-                      onChanged: (p0) => informationviewmodel.changeVisible(),
-                      controller: informationviewmodel.weightController,
-                      textInputType: TextInputType.number,
-                      hintText: babyWeight,
-                      hintStyle: const TextStyle(color: settingsIndex),
-                      icon: const Icon(Baby.weight),
-                      textStyle: const TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    CustomInformationTextField(
-                      onChanged: (p0) => informationviewmodel.changeVisible(),
-                      controller: informationviewmodel.heightController,
-                      textInputType: TextInputType.number,
-                      hintText: babyHeight,
-                      hintStyle: const TextStyle(color: settingsIndex),
-                      icon: const Icon(Icons.height),
-                      textStyle: const TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    AspectRatio(aspectRatio: displayHeight(context) * 0.015),
-                    Observer(builder: (context) {
-                      return Visibility(
-                        visible: informationviewmodel.isButtonVisibleInf,
-                        child: CustomButton(
-                          text: const Text(babyContinue, style: TextStyle(color: cwhite)),
-                          onPressed: () {
-                            informationviewmodel.saveIsSeenInformation();
-                            informationviewmodel.addInformation();
-                            informationviewmodel.toggleBlur(context);
-                          },
-                        ),
-                      );
-                    })
-                  ],
+                                      )
+                                    : Image.asset(picker, height: displayHeight(context) * 0.2),
+                              ));
+                        },
+                      ),
+                      AspectRatio(aspectRatio: displayHeight(context) * 0.025),
+                      GridView.builder(
+                        padding: EdgeInsets.symmetric(horizontal: 90.w),
+                        physics: const NeverScrollableScrollPhysics(),
+                        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                            maxCrossAxisExtent: displayWidth(context) * 0.2,
+                            crossAxisSpacing: displayHeight(context) * 0.03,
+                            mainAxisExtent: displayHeight(context) * 0.1),
+                        shrinkWrap: true,
+                        itemCount: informationviewmodel.genderList.length,
+                        itemBuilder: (BuildContext context, index) {
+                          var gender = informationviewmodel.genderList[index];
+                          return Observer(builder: (_) {
+                            return CustomGenderListContainer(
+                              informationViewModel: informationviewmodel,
+                              gender: gender,
+                            );
+                          });
+                        },
+                      ),
+                      AspectRatio(aspectRatio: displayHeight(context) * 0.05),
+                      CustomInformationTextField(
+                        onChanged: (p0) => informationviewmodel.changeVisible(),
+                        controller: informationviewmodel.nameController,
+                        textInputType: TextInputType.name,
+                        hintText: babyFullName,
+                        hintStyle: const TextStyle(color: settingsIndex),
+                        icon: const Icon(Baby.baby),
+                        textStyle: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      CustomInformationTextField(
+                        onChanged: (p0) => informationviewmodel.changeVisible(),
+                        controller: informationviewmodel.birthDateController,
+                        hintText: babyBirthDate,
+                        hintStyle: const TextStyle(color: settingsIndex),
+                        textInputType: TextInputType.none,
+                        icon: const Icon(Baby.birthdaycake),
+                        textStyle: const TextStyle(fontWeight: FontWeight.bold),
+                        onTap: () {
+                          informationviewmodel.selectDate(context, informationviewmodel.birthDateController);
+                        },
+                      ),
+                      CustomInformationTextField(
+                        onChanged: (p0) => informationviewmodel.changeVisible(),
+                        controller: informationviewmodel.weightController,
+                        textInputType: TextInputType.number,
+                        hintText: babyWeight,
+                        hintStyle: const TextStyle(color: settingsIndex),
+                        icon: const Icon(Baby.weight),
+                        textStyle: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      CustomInformationTextField(
+                        onChanged: (p0) => informationviewmodel.changeVisible(),
+                        controller: informationviewmodel.heightController,
+                        textInputType: TextInputType.number,
+                        hintText: babyHeight,
+                        hintStyle: const TextStyle(color: settingsIndex),
+                        icon: const Icon(Icons.height),
+                        textStyle: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      AspectRatio(aspectRatio: displayHeight(context) * 0.015),
+                      Observer(builder: (context) {
+                        return Visibility(
+                          visible: informationviewmodel.isButtonVisibleInf,
+                          child: CustomButton(
+                            text: const Text(babyContinue, style: TextStyle(color: cwhite)),
+                            onPressed: () {
+                              informationviewmodel.saveIsSeenInformation();
+                              informationviewmodel.addInformation();
+                              informationviewmodel.toggleBlur(context);
+                            },
+                          ),
+                        );
+                      })
+                    ],
+                  ),
                 ),
               ),
-            ),
-            if (informationviewmodel.isBlurred)
-              Positioned.fill(
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                  child: Container(color: cblack.withOpacity(0), child: Center(child: Lottie.asset(lottie))),
+              if (informationviewmodel.isBlurred)
+                Positioned.fill(
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+                    child: Container(color: cblack.withOpacity(0), child: Center(child: Lottie.asset(lottie))),
+                  ),
                 ),
-              ),
-          ],
-        );
-      }),
+            ],
+          );
+        }),
+      ),
     );
   }
 }

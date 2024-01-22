@@ -167,6 +167,12 @@ abstract class _CalenderViewModelBase with Store {
     feedingList = feedingData.data ?? [];
   }
 
+  @action
+  Future<void> clearFeeding() async {
+    await feedingDatasource.clear();
+    await getFeeding();
+  }
+
   //ALL SLEEP FUNCTİON --------
   @action
   void toggleSelected1(int index) {
@@ -218,6 +224,12 @@ abstract class _CalenderViewModelBase with Store {
     sleepList = sleepData.data ?? [];
   }
 
+  @action
+  Future<void> clearSleep() async {
+    await sleepDatasource.clear();
+    await getSleep();
+  }
+
   //ALL SYMPTOMPS FUNCTİON
   @action
   void toogleSelected2(int index) {
@@ -258,6 +270,12 @@ abstract class _CalenderViewModelBase with Store {
   Future<void> refreshSymptompsList() async {
     var sympData = await symptompsDatasource.getAll();
     symptompsList = sympData.data ?? [];
+  }
+
+  @action
+  Future<void> clearSymptomps() async {
+    await symptompsDatasource.clear();
+    await getSymptomps();
   }
 
   //ALL NAPPY FUNCTİON
@@ -310,6 +328,12 @@ abstract class _CalenderViewModelBase with Store {
     nappyList = nappyData.data ?? [];
   }
 
+  @action
+  Future<void> clearNappy() async {
+    await nappyDatasource.clear();
+    await getNappy();
+  }
+
   //All VACCİNE FUNCTİON
   @action
   void toggleSelected4(int index) {
@@ -359,6 +383,12 @@ abstract class _CalenderViewModelBase with Store {
   Future<void> refreshVaccineList() async {
     var vaccineData = await vaccineDatasource.getAll();
     vaccineList = vaccineData.data ?? [];
+  }
+
+  @action
+  Future<void> clearVaccine() async {
+    await vaccineDatasource.clear();
+    await getVaccine();
   }
 
   // Tarihleri karşılaştırmak için yardımcı fonksiyon

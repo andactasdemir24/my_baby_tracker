@@ -19,6 +19,9 @@ class SettingsPage extends StatelessWidget {
           const CustomSettingsContainer(text: privacy, image: s3),
           const CustomSettingsContainer(text: contact, image: s4),
           const CustomSettingsContainer(text: restore, image: s5),
+          const Spacer(),
+          const RemoveBabyWidget(),
+          const SizedBox(height: 20),
         ],
       ),
     );

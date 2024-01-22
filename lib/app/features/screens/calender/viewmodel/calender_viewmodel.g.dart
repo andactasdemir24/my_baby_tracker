@@ -213,6 +213,14 @@ mixin _$CalenderViewModel on _CalenderViewModelBase, Store {
         .run(() => super.refreshFeedingList());
   }
 
+  late final _$clearFeedingAsyncAction =
+      AsyncAction('_CalenderViewModelBase.clearFeeding', context: context);
+
+  @override
+  Future<void> clearFeeding() {
+    return _$clearFeedingAsyncAction.run(() => super.clearFeeding());
+  }
+
   late final _$getSleepAsyncAction =
       AsyncAction('_CalenderViewModelBase.getSleep', context: context);
 
@@ -235,6 +243,14 @@ mixin _$CalenderViewModel on _CalenderViewModelBase, Store {
   @override
   Future<void> refreshSleepList() {
     return _$refreshSleepListAsyncAction.run(() => super.refreshSleepList());
+  }
+
+  late final _$clearSleepAsyncAction =
+      AsyncAction('_CalenderViewModelBase.clearSleep', context: context);
+
+  @override
+  Future<void> clearSleep() {
+    return _$clearSleepAsyncAction.run(() => super.clearSleep());
   }
 
   late final _$getSymptompsAsyncAction =
@@ -264,6 +280,14 @@ mixin _$CalenderViewModel on _CalenderViewModelBase, Store {
         .run(() => super.refreshSymptompsList());
   }
 
+  late final _$clearSymptompsAsyncAction =
+      AsyncAction('_CalenderViewModelBase.clearSymptomps', context: context);
+
+  @override
+  Future<void> clearSymptomps() {
+    return _$clearSymptompsAsyncAction.run(() => super.clearSymptomps());
+  }
+
   late final _$getNappyAsyncAction =
       AsyncAction('_CalenderViewModelBase.getNappy', context: context);
 
@@ -286,6 +310,14 @@ mixin _$CalenderViewModel on _CalenderViewModelBase, Store {
   @override
   Future<void> refreshNappyList() {
     return _$refreshNappyListAsyncAction.run(() => super.refreshNappyList());
+  }
+
+  late final _$clearNappyAsyncAction =
+      AsyncAction('_CalenderViewModelBase.clearNappy', context: context);
+
+  @override
+  Future<void> clearNappy() {
+    return _$clearNappyAsyncAction.run(() => super.clearNappy());
   }
 
   late final _$getVaccineAsyncAction =
@@ -312,6 +344,14 @@ mixin _$CalenderViewModel on _CalenderViewModelBase, Store {
   Future<void> refreshVaccineList() {
     return _$refreshVaccineListAsyncAction
         .run(() => super.refreshVaccineList());
+  }
+
+  late final _$clearVaccineAsyncAction =
+      AsyncAction('_CalenderViewModelBase.clearVaccine', context: context);
+
+  @override
+  Future<void> clearVaccine() {
+    return _$clearVaccineAsyncAction.run(() => super.clearVaccine());
   }
 
   late final _$_CalenderViewModelBaseActionController =

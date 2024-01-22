@@ -243,6 +243,16 @@ mixin _$InformationViewModel on _InformationViewModelBase, Store {
         .run(() => super.saveIsSeenInformation());
   }
 
+  late final _$saveIsSeenInformationFalseAsyncAction = AsyncAction(
+      '_InformationViewModelBase.saveIsSeenInformationFalse',
+      context: context);
+
+  @override
+  Future<void> saveIsSeenInformationFalse() {
+    return _$saveIsSeenInformationFalseAsyncAction
+        .run(() => super.saveIsSeenInformationFalse());
+  }
+
   late final _$loadIsSeenInformationAsyncAction = AsyncAction(
       '_InformationViewModelBase.loadIsSeenInformation',
       context: context);
@@ -251,6 +261,14 @@ mixin _$InformationViewModel on _InformationViewModelBase, Store {
   Future<void> loadIsSeenInformation() {
     return _$loadIsSeenInformationAsyncAction
         .run(() => super.loadIsSeenInformation());
+  }
+
+  late final _$showMyDialogAsyncAction =
+      AsyncAction('_InformationViewModelBase.showMyDialog', context: context);
+
+  @override
+  Future<void> showMyDialog(BuildContext context) {
+    return _$showMyDialogAsyncAction.run(() => super.showMyDialog(context));
   }
 
   late final _$toggleSelectedIndexAsyncAction = AsyncAction(
@@ -319,6 +337,22 @@ mixin _$InformationViewModel on _InformationViewModelBase, Store {
   Future<void> updateInformation(Information info) {
     return _$updateInformationAsyncAction
         .run(() => super.updateInformation(info));
+  }
+
+  late final _$resetStateAsyncAction =
+      AsyncAction('_InformationViewModelBase.resetState', context: context);
+
+  @override
+  Future<void> resetState() {
+    return _$resetStateAsyncAction.run(() => super.resetState());
+  }
+
+  late final _$clearBabyAsyncAction =
+      AsyncAction('_InformationViewModelBase.clearBaby', context: context);
+
+  @override
+  Future<void> clearBaby() {
+    return _$clearBabyAsyncAction.run(() => super.clearBaby());
   }
 
   late final _$_InformationViewModelBaseActionController =

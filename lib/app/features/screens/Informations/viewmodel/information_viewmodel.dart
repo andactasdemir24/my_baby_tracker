@@ -99,6 +99,12 @@ abstract class _InformationViewModelBase with Store {
   }
 
   @action
+  Future<void> saveIsSeenInformationFalse() async {
+    final preferences = await SharedPreferences.getInstance();
+    preferences.setBool('information', false);
+  }
+
+  @action
   Future<void> loadIsSeenInformation() async {
     final preferences = await SharedPreferences.getInstance();
     isSeenInformation = preferences.getBool('information') ?? false;
@@ -118,6 +124,17 @@ abstract class _InformationViewModelBase with Store {
         isBlurred = false;
       });
     }
+  }
+
+  @action
+  Future<void> showMyDialog(BuildContext context) async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return const CustomInformationAlert();
+      },
+    );
   }
 
   //gender listesindeki elemanın herhangi birine tıklayınca algılaması
@@ -220,5 +237,27 @@ abstract class _InformationViewModelBase with Store {
 
     await informationDatasource.update(informationModel);
     await refreshInformationList();
+  }
+
+  @action
+  Future<void> resetState() async {
+    selectedImage = null;
+    isBlurred = false;
+    isButtonVisibleInf = false;
+    infoList.clear();
+    selectedIndices.clear();
+    isSeenInformation = false;
+    isEdit = false;
+    selectedInformation = null;
+    nameController.text = '';
+    birthDateController.text = '';
+    heightController.text = '';
+    weightController.text = '';
+  }
+
+  @action
+  Future<void> clearBaby() async {
+    await informationDatasource.clear();
+    await resetState();
   }
 }
