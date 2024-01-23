@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
@@ -17,11 +18,11 @@ class InformationPage extends StatelessWidget {
         body: Observer(builder: (context) {
           return Stack(
             children: [
-              SingleChildScrollView(
-                child: Center(
+              Center(
+                child: SingleChildScrollView(
+                  physics: const NeverScrollableScrollPhysics(),
                   child: Column(
                     children: [
-                      AspectRatio(aspectRatio: displayHeight(context) * 0.01),
                       Observer(
                         builder: (context) {
                           return GestureDetector(
@@ -37,7 +38,7 @@ class InformationPage extends StatelessWidget {
                                         child: Container(
                                           decoration: ShapeDecoration(
                                             shape: OvalBorder(
-                                              side: BorderSide(width: 2.w, color: annualColor),
+                                              side: BorderSide(width: 2.w, color: feedindIconColor),
                                             ),
                                           ),
                                         ),
@@ -46,7 +47,7 @@ class InformationPage extends StatelessWidget {
                               ));
                         },
                       ),
-                      AspectRatio(aspectRatio: displayHeight(context) * 0.025),
+                      SizedBox(height: displayHeight(context) * 0.02),
                       GridView.builder(
                         padding: EdgeInsets.symmetric(horizontal: 90.w),
                         physics: const NeverScrollableScrollPhysics(),
@@ -66,7 +67,7 @@ class InformationPage extends StatelessWidget {
                           });
                         },
                       ),
-                      AspectRatio(aspectRatio: displayHeight(context) * 0.05),
+                      SizedBox(height: displayHeight(context) * 0.015),
                       CustomInformationTextField(
                         onChanged: (p0) => informationviewmodel.changeVisible(),
                         controller: informationviewmodel.nameController,
@@ -75,6 +76,10 @@ class InformationPage extends StatelessWidget {
                         hintStyle: const TextStyle(color: settingsIndex),
                         icon: const Icon(Baby.baby),
                         textStyle: const TextStyle(fontWeight: FontWeight.bold),
+                        inputFormatters: [
+                          LengthLimitingTextInputFormatter(25),
+                          FilteringTextInputFormatter.allow(RegExp(r'^[a-zA-ZçÇşŞöÖüÜıİ\s]*$'))
+                        ],
                       ),
                       CustomInformationTextField(
                         onChanged: (p0) => informationviewmodel.changeVisible(),
@@ -96,6 +101,7 @@ class InformationPage extends StatelessWidget {
                         hintStyle: const TextStyle(color: settingsIndex),
                         icon: const Icon(Baby.weight),
                         textStyle: const TextStyle(fontWeight: FontWeight.bold),
+                        inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'^\d{1,3}$'))],
                       ),
                       CustomInformationTextField(
                         onChanged: (p0) => informationviewmodel.changeVisible(),
@@ -105,8 +111,9 @@ class InformationPage extends StatelessWidget {
                         hintStyle: const TextStyle(color: settingsIndex),
                         icon: const Icon(Icons.height),
                         textStyle: const TextStyle(fontWeight: FontWeight.bold),
+                        inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'^\d{1,3}$'))],
                       ),
-                      AspectRatio(aspectRatio: displayHeight(context) * 0.015),
+                      SizedBox(height: displayHeight(context) * 0.05),
                       Observer(builder: (context) {
                         return Visibility(
                           visible: informationviewmodel.isButtonVisibleInf,
