@@ -26,7 +26,7 @@ class CustomFloatActionButton extends StatelessWidget {
             child: const Icon(Icons.photo_camera),
             label: camera,
             onTap: () async {
-              memoriesViewmodel.pickImageFromCamera();
+              await memoriesViewmodel.pickImageFromCamera();
               await memoriesViewmodel.addMemories();
             },
           ),

@@ -52,11 +52,18 @@ abstract class _MemoriesViewModelBase with Store {
 
   @action
   Future pickImageFromCamera() async {
-    final returnedImage = await ImagePicker().pickImage(source: ImageSource.camera);
-    if (returnedImage == null) {
-      return;
+    if (isImagePickerActive) return;
+    isImagePickerActive = true;
+    try {
+      final returnedImage = await ImagePicker().pickImage(source: ImageSource.camera);
+      if (returnedImage != null) {
+        selectedImage = File(returnedImage.path);
+      }
+    } on PlatformException catch (e) {
+      Text(e.toString());
+    } finally {
+      isImagePickerActive = false;
     }
-    selectedImage = File(returnedImage.path);
   }
 
   @action
