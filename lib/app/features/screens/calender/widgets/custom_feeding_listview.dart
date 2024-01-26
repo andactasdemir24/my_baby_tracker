@@ -59,7 +59,7 @@ class CustomFeedigListView extends StatelessWidget {
                                 color: annualColor,
                               ),
                               alignment: Alignment.center,
-                              child: !feeding.isSelected ? notpress(feeding) : whenipress(feeding),
+                              child: !feeding.isSelected ? notpress(feeding) : whenipress(feeding, context),
                             )),
                       );
                     },
@@ -70,7 +70,7 @@ class CustomFeedigListView extends StatelessWidget {
           },
         );
       } else {
-        return const CustomNoDataWidget(image: noDataImage, text: noDataText);
+        return CustomNoDataWidget(image: noDataImage, text: AppLocalizations.of(context)!.noDataText);
       }
     });
   }
@@ -91,7 +91,7 @@ class CustomFeedigListView extends StatelessWidget {
     );
   }
 
-  SingleChildScrollView whenipress(Feeding feeding) {
+  SingleChildScrollView whenipress(Feeding feeding, BuildContext context) {
     return SingleChildScrollView(
       child: ListTile(
         leading: const Icon(Baby.feed, size: 50, color: feedingTab),
@@ -113,7 +113,7 @@ class CustomFeedigListView extends StatelessWidget {
               ],
             ),
             Text(
-              'Note: ${feeding.text.toString()}',
+              '${AppLocalizations.of(context)!.note}: ${feeding.text.toString()}',
               style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
             ),
           ],

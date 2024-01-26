@@ -19,9 +19,9 @@ class CustomEditButton extends StatelessWidget {
           onTap: () {
             informationviewmodel.isEditControl();
           },
-          child: const Text(
-            edit,
-            style: TextStyle(color: buttonColor, fontWeight: FontWeight.bold, fontSize: 18),
+          child: Text(
+            AppLocalizations.of(context)!.edit,
+            style: const TextStyle(color: buttonColor, fontWeight: FontWeight.bold, fontSize: 18),
           ),
         ),
       ),

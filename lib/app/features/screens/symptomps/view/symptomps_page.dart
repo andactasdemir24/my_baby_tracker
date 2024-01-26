@@ -11,7 +11,7 @@ class SymptompsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final symptompsViewmodel = locator.get<SymptompsViewmodel>();
     return Scaffold(
-      appBar: const CustomAppbar(appbarText: symptomos),
+      appBar: CustomAppbar(appbarText: AppLocalizations.of(context)!.symptomos),
       body: Observer(builder: (context) {
         return Stack(
           children: [
@@ -24,13 +24,15 @@ class SymptompsPage extends StatelessWidget {
                     symptompsViewmodel.changeVisible();
                   },
                   child: CustomTimePicker(
-                      text: symptompsViewmodel.time3 != null ? symptompsViewmodel.time3!.format(context) : sympAppbar,
+                      text: symptompsViewmodel.time3 != null
+                          ? symptompsViewmodel.time3!.format(context)
+                          : AppLocalizations.of(context)!.sympAppbar,
                       color: symptompsViewmodel.time3 != null ? cblack : settingsIndex),
                 ),
                 CustomSymptompsList(
                     text: Text(
                   symptompsViewmodel.selectedIndices.isEmpty
-                      ? symptomos
+                      ? AppLocalizations.of(context)!.symptomos
                       : symptompsViewmodel.selectedIndices.map((index) => index.name).join(', '),
                   style: TextStyle(
                       fontSize: 15.5,
@@ -47,7 +49,7 @@ class SymptompsPage extends StatelessWidget {
                     return Visibility(
                       visible: symptompsViewmodel.isButtonVisible3,
                       child: CustomButton(
-                        text: const Text(save, style: TextStyle(color: cwhite)),
+                        text: Text(AppLocalizations.of(context)!.save, style: const TextStyle(color: cwhite)),
                         onPressed: () {
                           symptompsViewmodel.onSave();
                           symptompsViewmodel.addSymptomps();

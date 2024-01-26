@@ -1,16 +1,8 @@
-import 'package:baby_tracker_app/app/core/components/custom_widgets/custom_appbar.dart';
-import 'package:baby_tracker_app/app/core/constants/images_constants.dart';
-import 'package:baby_tracker_app/app/features/screens/memories/viewmodel/memories_viewmodel.dart';
-import 'package:baby_tracker_app/app/features/screens/memories/widgets/custom_fab.dart';
+import 'package:baby_tracker_app/app/app.dart';
+import 'package:baby_tracker_app/app/features/screens/memories/widgets/custom_image_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../core/components/custom_widgets/custom_nodata.dart';
-import '../../../../core/constants/color_constants.dart';
-import '../../../../core/constants/text_constants.dart';
-import '../../../../core/getIt/locator.dart';
-import '../widgets/custom_delete_all_button.dart';
-import '../widgets/custom_image_container.dart';
 
 class MemoriesPage extends StatelessWidget {
   const MemoriesPage({super.key});
@@ -20,7 +12,7 @@ class MemoriesPage extends StatelessWidget {
     var memoriesViewmodel = locator.get<MemoriesViewModel>();
     return Scaffold(
         appBar: CustomAppbar(
-          appbarText: memoriesAppbarText,
+          appbarText: AppLocalizations.of(context)!.memoriesAppbarText,
           centerTitle: false,
           actions: [CustomDeleteAllButton(memoriesViewmodel: memoriesViewmodel)],
         ),
@@ -41,12 +33,12 @@ class MemoriesPage extends StatelessWidget {
                 itemCount: memoriesViewmodel.memoriesList.length,
                 itemBuilder: (BuildContext context, index) {
                   var memories = memoriesViewmodel.memoriesList[index];
-                  return CustomImageContainer(memories: memories);
+                  return CustomImageContainerMemories(memories: memories);
                 },
               ),
             );
           } else {
-            return const CustomNoDataWidget(image: noDataImage2, text: noDataText);
+            return CustomNoDataWidget(image: noDataImage2, text: AppLocalizations.of(context)!.noDataText);
           }
         }),
         floatingActionButton: CustomFloatActionButton(memoriesViewmodel: memoriesViewmodel));

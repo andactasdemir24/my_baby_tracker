@@ -29,11 +29,12 @@ class RemoveBabyWidget extends StatelessWidget {
             ),
             child: Padding(
               padding: EdgeInsets.only(left: displayWidth(context) * 0.055, right: displayWidth(context) * 0.04),
-              child: const Row(
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(removeInf, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: cred)),
-                  Icon(Baby.left, color: settingsIndex),
+                  Text(AppLocalizations.of(context)!.removeInf,
+                      style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: cred)),
+                  const Icon(Baby.left, color: settingsIndex),
                 ],
               ),
             ),

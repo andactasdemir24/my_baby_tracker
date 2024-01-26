@@ -24,7 +24,7 @@ class CustomFloatActionButton extends StatelessWidget {
         children: [
           SpeedDialChild(
             child: const Icon(Icons.photo_camera),
-            label: camera,
+            label: AppLocalizations.of(context)!.camera,
             onTap: () async {
               await memoriesViewmodel.pickImageFromCamera();
               await memoriesViewmodel.addMemories();
@@ -32,7 +32,7 @@ class CustomFloatActionButton extends StatelessWidget {
           ),
           SpeedDialChild(
             child: const Icon(Icons.photo_outlined),
-            label: gallery,
+            label: AppLocalizations.of(context)!.gallery,
             onTap: () async {
               await memoriesViewmodel.pickImageFromGallery();
               await memoriesViewmodel.addMemories();

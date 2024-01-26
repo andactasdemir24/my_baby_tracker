@@ -72,7 +72,7 @@ class InformationPage extends StatelessWidget {
                         onChanged: (p0) => informationviewmodel.changeVisible(),
                         controller: informationviewmodel.nameController,
                         textInputType: TextInputType.name,
-                        hintText: babyFullName,
+                        hintText: AppLocalizations.of(context)!.babyFullName,
                         hintStyle: const TextStyle(color: settingsIndex),
                         icon: const Icon(Baby.baby),
                         textStyle: const TextStyle(fontWeight: FontWeight.bold),
@@ -84,7 +84,7 @@ class InformationPage extends StatelessWidget {
                       CustomInformationTextField(
                         onChanged: (p0) => informationviewmodel.changeVisible(),
                         controller: informationviewmodel.birthDateController,
-                        hintText: babyBirthDate,
+                        hintText: AppLocalizations.of(context)!.babyBirthDate,
                         hintStyle: const TextStyle(color: settingsIndex),
                         textInputType: TextInputType.none,
                         icon: const Icon(Baby.birthdaycake),
@@ -97,7 +97,7 @@ class InformationPage extends StatelessWidget {
                         onChanged: (p0) => informationviewmodel.changeVisible(),
                         controller: informationviewmodel.weightController,
                         textInputType: TextInputType.number,
-                        hintText: babyWeight,
+                        hintText: AppLocalizations.of(context)!.babyWeight,
                         hintStyle: const TextStyle(color: settingsIndex),
                         icon: const Icon(Baby.weight),
                         textStyle: const TextStyle(fontWeight: FontWeight.bold),
@@ -107,7 +107,7 @@ class InformationPage extends StatelessWidget {
                         onChanged: (p0) => informationviewmodel.changeVisible(),
                         controller: informationviewmodel.heightController,
                         textInputType: TextInputType.number,
-                        hintText: babyHeight,
+                        hintText: AppLocalizations.of(context)!.babyHeight,
                         hintStyle: const TextStyle(color: settingsIndex),
                         icon: const Icon(Icons.height),
                         textStyle: const TextStyle(fontWeight: FontWeight.bold),
@@ -118,7 +118,8 @@ class InformationPage extends StatelessWidget {
                         return Visibility(
                           visible: informationviewmodel.isButtonVisibleInf,
                           child: CustomButton(
-                            text: const Text(babyContinue, style: TextStyle(color: cwhite)),
+                            text:
+                                Text(AppLocalizations.of(context)!.babyContinue, style: const TextStyle(color: cwhite)),
                             onPressed: () {
                               informationviewmodel.saveIsSeenInformation();
                               informationviewmodel.addInformation();

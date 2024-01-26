@@ -45,7 +45,7 @@ class _NappyPageEditState extends State<NappyPageEdit> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppbar(appbarText: nappyAppbar),
+      appBar: CustomAppbar(appbarText: AppLocalizations.of(context)!.nappyAppbar),
       body: Observer(builder: (context) {
         return Stack(
           children: [
@@ -66,8 +66,8 @@ class _NappyPageEditState extends State<NappyPageEdit> {
                 SizedBox(height: displayHeight(context) * 0.02),
                 SizedBox(
                   width: displayWidth(context) * 0.85,
-                  child: const Text(nappyStatus,
-                      style: TextStyle(color: cblack, fontSize: 15.5, fontWeight: FontWeight.bold)),
+                  child: Text(AppLocalizations.of(context)!.nappyStatus,
+                      style: const TextStyle(color: cblack, fontSize: 15.5, fontWeight: FontWeight.bold)),
                 ),
                 CustomNappyList(
                     text: Text(
@@ -85,7 +85,7 @@ class _NappyPageEditState extends State<NappyPageEdit> {
                 Observer(
                   builder: (context) {
                     return CustomButton(
-                      text: const Text(update, style: TextStyle(color: cwhite)),
+                      text: Text(AppLocalizations.of(context)!.update, style: const TextStyle(color: cwhite)),
                       onPressed: () {
                         var updatedNappy = Nappy(
                           id: widget.id,

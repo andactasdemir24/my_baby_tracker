@@ -13,7 +13,7 @@ class Deneme extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: shade200,
-      appBar: const CustomAppbar(appbarText: galleryText, centerTitle: true),
+      appBar: CustomAppbar(appbarText: AppLocalizations.of(context)!.galleryText, centerTitle: true),
       body: Center(
         child: CarouselSlider.builder(
           itemCount: memoriesViewmodel.memoriesList.length,

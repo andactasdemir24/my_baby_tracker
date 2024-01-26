@@ -20,9 +20,10 @@ class CustomDeleteAllButton extends StatelessWidget {
           },
           child: Padding(
             padding: EdgeInsets.only(right: 15.w),
-            child: const Align(
+            child: Align(
               alignment: Alignment.centerRight,
-              child: Text(deleteAll, style: TextStyle(color: buttonColor, fontWeight: FontWeight.bold, fontSize: 15)),
+              child: Text(AppLocalizations.of(context)!.deleteAll,
+                  style: const TextStyle(color: buttonColor, fontWeight: FontWeight.bold, fontSize: 15)),
             ),
           ));
     });

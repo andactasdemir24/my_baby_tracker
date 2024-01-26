@@ -14,7 +14,7 @@ class SymptompsList extends StatelessWidget {
     symptompsViewmodel.startSelection();
     return Scaffold(
       appBar: CustomAppbar(
-          appbarText: symptomos,
+          appbarText: AppLocalizations.of(context)!.symptomos,
           leading: GestureDetector(
               onTap: () {
                 symptompsViewmodel.onBack();
@@ -61,7 +61,7 @@ class SymptompsList extends StatelessWidget {
         return Visibility(
           visible: symptompsViewmodel.selectedIndices.isNotEmpty,
           child: CustomButton(
-              text: const Text(save, style: TextStyle(color: cwhite)),
+              text: Text(AppLocalizations.of(context)!.save, style: const TextStyle(color: cwhite)),
               onPressed: () => symptompsViewmodel.toggleBlur3(context)),
         );
       }),

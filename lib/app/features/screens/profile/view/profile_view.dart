@@ -76,7 +76,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     CustomInformationTextField(
                       controller: informationviewmodel.nameController,
                       textInputType: TextInputType.name,
-                      hintText: babyFullName,
+                      hintText: AppLocalizations.of(context)!.babyFullName,
                       hintStyle: const TextStyle(color: settingsIndex),
                       icon: Icon(Baby.baby, color: !informationviewmodel.isEdit ? shade500 : mainIconColor, size: 20),
                       readOnly: !informationviewmodel.isEdit,
@@ -89,7 +89,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                     CustomInformationTextField(
                         controller: informationviewmodel.birthDateController,
-                        hintText: babyBirthDate,
+                        hintText: AppLocalizations.of(context)!.babyBirthDate,
                         hintStyle: const TextStyle(color: settingsIndex),
                         textInputType: TextInputType.none,
                         icon: Icon(Baby.birthdaycake,
@@ -105,7 +105,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     CustomInformationTextField(
                       controller: informationviewmodel.weightController,
                       textInputType: TextInputType.number,
-                      hintText: babyWeight,
+                      hintText: AppLocalizations.of(context)!.babyWeight,
                       hintStyle: const TextStyle(color: settingsIndex),
                       icon: Icon(Baby.weight, color: !informationviewmodel.isEdit ? shade500 : mainIconColor, size: 20),
                       readOnly: !informationviewmodel.isEdit,
@@ -116,7 +116,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     CustomInformationTextField(
                       controller: informationviewmodel.heightController,
                       textInputType: TextInputType.number,
-                      hintText: babyHeight,
+                      hintText: AppLocalizations.of(context)!.babyHeight,
                       hintStyle: const TextStyle(color: settingsIndex),
                       icon: Icon(Icons.height, color: !informationviewmodel.isEdit ? shade500 : mainIconColor),
                       readOnly: !informationviewmodel.isEdit,
@@ -129,7 +129,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       return Visibility(
                         visible: informationviewmodel.isEdit,
                         child: CustomButton(
-                          text: const Text(babyUpdate, style: TextStyle(color: cwhite)),
+                          text: Text(AppLocalizations.of(context)!.babyUpdate, style: const TextStyle(color: cwhite)),
                           onPressed: () {
                             if (informationviewmodel.areFieldsFilled) {
                               // Update the information

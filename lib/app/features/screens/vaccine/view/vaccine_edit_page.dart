@@ -5,7 +5,6 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:lottie/lottie.dart';
 import 'package:baby_tracker_app/app/app.dart';
 
-
 class VaccineEdit extends StatefulWidget {
   const VaccineEdit({
     Key? key,
@@ -54,7 +53,7 @@ class _VaccineEditState extends State<VaccineEdit> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppbar(appbarText: vaccineAppbar),
+      appBar: CustomAppbar(appbarText: AppLocalizations.of(context)!.vaccineAppbar),
       body: Observer(builder: (context) {
         return Stack(
           children: [
@@ -81,7 +80,7 @@ class _VaccineEditState extends State<VaccineEdit> {
                 Observer(
                   builder: (context) {
                     return CustomButton(
-                        text: const Text(update, style: TextStyle(color: cwhite)),
+                        text: Text(AppLocalizations.of(context)!.update, style: const TextStyle(color: cwhite)),
                         onPressed: () {
                           var value = Vaccine(
                               id: widget.id,

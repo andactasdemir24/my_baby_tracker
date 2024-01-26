@@ -40,22 +40,22 @@ class _MainNavBarState extends State<MainNavBar> {
           tabBackgroundColor: shade200,
           selectedIndex: _selectedIndex,
           gap: 8,
-          tabs: const [
+          tabs: [
             GButton(
               icon: Icons.home,
-              text: home,
+              text: AppLocalizations.of(context)!.home,
             ),
             GButton(
               icon: Icons.calendar_month_outlined,
-              text: calendar,
+              text: AppLocalizations.of(context)!.calendar,
             ),
             GButton(
               icon: Icons.photo_library,
-              text: memories,
+              text: AppLocalizations.of(context)!.memories,
             ),
             GButton(
               icon: Icons.person,
-              text: profile,
+              text: AppLocalizations.of(context)!.profile,
             ),
           ]),
     );

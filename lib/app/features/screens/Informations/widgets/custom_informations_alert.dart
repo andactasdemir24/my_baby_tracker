@@ -14,18 +14,18 @@ class CustomInformationAlert extends StatelessWidget {
     return Observer(
       builder: (context) {
         return AlertDialog(
-          title: const Text(desicion),
-          content: const SingleChildScrollView(
-            child: ListBody(children: <Widget>[Text(sure)]),
+          title: Text(AppLocalizations.of(context)!.desicion),
+          content: SingleChildScrollView(
+            child: ListBody(children: <Widget>[Text(AppLocalizations.of(context)!.sure)]),
           ),
           actions: <Widget>[
             TextButton(
-                child: const Text(cancelText),
+                child: Text(AppLocalizations.of(context)!.cancelText),
                 onPressed: () {
                   Navigator.of(context).pop();
                 }),
             TextButton(
-                child: const Text(deleteInf),
+                child: Text(AppLocalizations.of(context)!.deleteInf),
                 onPressed: () {
                   informationViewmodel.saveIsSeenInformationFalse();
                   onboardingViewmodel.saveIsSeenFalse();

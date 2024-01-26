@@ -4,7 +4,6 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:lottie/lottie.dart';
 import 'package:baby_tracker_app/app/app.dart';
 
-
 class VaccinePage extends StatelessWidget {
   const VaccinePage({
     Key? key,
@@ -14,7 +13,7 @@ class VaccinePage extends StatelessWidget {
   Widget build(BuildContext context) {
     var vaccineViewModel = locator.get<VaccineViewModel>();
     return Scaffold(
-      appBar: const CustomAppbar(appbarText: vaccineAppbar),
+      appBar: CustomAppbar(appbarText: AppLocalizations.of(context)!.vaccineAppbar),
       body: Observer(builder: (context) {
         return Stack(
           children: [
@@ -24,7 +23,7 @@ class VaccinePage extends StatelessWidget {
                 CustomInformationTextField(
                   onChanged: (p0) => vaccineViewModel.changeVisible(),
                   controller: vaccineViewModel.dateController,
-                  hintText: vaccineDate,
+                  hintText: AppLocalizations.of(context)!.vaccineDate,
                   hintStyle: const TextStyle(color: settingsIndex),
                   textInputType: TextInputType.none,
                   textStyle: const TextStyle(fontWeight: FontWeight.bold),
@@ -32,7 +31,10 @@ class VaccinePage extends StatelessWidget {
                     vaccineViewModel.selectDate(context, vaccineViewModel.dateController);
                   },
                 ),
-                CustomDropdownButton(vaccineViewModel: vaccineViewModel, text: vaccine, color: settingsIndex),
+                CustomDropdownButton(
+                    vaccineViewModel: vaccineViewModel,
+                    text: AppLocalizations.of(context)!.vaccine,
+                    color: settingsIndex),
                 CustomNoteTextfield(
                   controller: vaccineViewModel.noteController,
                   onChanged: (p0) => vaccineViewModel.changeVisible(),
@@ -43,7 +45,7 @@ class VaccinePage extends StatelessWidget {
                     return Visibility(
                       visible: vaccineViewModel.isButtonVisible,
                       child: CustomButton(
-                          text: const Text(save, style: TextStyle(color: cwhite)),
+                          text: Text(AppLocalizations.of(context)!.save, style: const TextStyle(color: cwhite)),
                           onPressed: () {
                             vaccineViewModel.addVaccine();
                             vaccineViewModel.toggleBlur(context);

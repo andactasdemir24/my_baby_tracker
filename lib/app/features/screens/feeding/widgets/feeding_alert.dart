@@ -1,6 +1,6 @@
+import 'package:baby_tracker_app/app/app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import '../../../../core/constants/text_constants.dart';
 
 class FeedingAlert extends StatelessWidget {
   const FeedingAlert({super.key});
@@ -9,17 +9,17 @@ class FeedingAlert extends StatelessWidget {
   Widget build(BuildContext context) {
     return Observer(builder: (context) {
       return AlertDialog(
-        title: const Text(warningText),
-        content: const SingleChildScrollView(
+        title: Text(AppLocalizations.of(context)!.warningText),
+        content: SingleChildScrollView(
           child: ListBody(
             children: <Widget>[
-              Text(feedingAlertText),
+              Text(AppLocalizations.of(context)!.feedingAlertText),
             ],
           ),
         ),
         actions: <Widget>[
           TextButton(
-            child: const Text(okey),
+            child: Text(AppLocalizations.of(context)!.okey),
             onPressed: () {
               Navigator.of(context).pop();
             },

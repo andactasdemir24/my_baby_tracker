@@ -47,7 +47,7 @@ class _FeedingEditState extends State<FeedingEdit> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppbar(appbarText: feedingAppbar),
+      appBar: CustomAppbar(appbarText: AppLocalizations.of(context)!.feedingAppbar),
       body: Observer(builder: (context) {
         return Stack(
           children: [
@@ -74,7 +74,7 @@ class _FeedingEditState extends State<FeedingEdit> {
                     SizedBox(height: displayHeight(context) * 0.2),
                     Observer(builder: (context) {
                       return CustomButton(
-                        text: const Text(update, style: TextStyle(color: cwhite)),
+                        text: Text(AppLocalizations.of(context)!.update, style: const TextStyle(color: cwhite)),
                         onPressed: () {
                           try {
                             int.parse(_amountController.text);

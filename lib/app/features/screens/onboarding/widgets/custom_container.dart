@@ -39,9 +39,9 @@ class CustomContainer extends StatelessWidget {
               SizedBox(height: displayHeight(context) * 0.01),
               Observer(builder: (_) {
                 return CustomButton(
-                  text: const Text(
-                    buttonText,
-                    style: TextStyle(color: cwhite, fontSize: 20, fontWeight: FontWeight.w600),
+                  text: Text(
+                    AppLocalizations.of(context)!.buttonText,
+                    style: const TextStyle(color: cwhite, fontSize: 20, fontWeight: FontWeight.w600),
                   ),
                   onPressed: () {
                     if (onbViewmodel.currentIndex == onbViewmodel.onbList.length - 1) {

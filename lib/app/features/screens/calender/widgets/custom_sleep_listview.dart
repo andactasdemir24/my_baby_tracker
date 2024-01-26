@@ -58,7 +58,7 @@ class CustomSleepListView extends StatelessWidget {
                                 color: annualColor,
                               ),
                               alignment: Alignment.center,
-                              child: !sleep.isSelected ? notpress(sleep) : whenipress(sleep),
+                              child: !sleep.isSelected ? notpress(sleep) : whenipress(sleep, context),
                             )),
                       );
                     },
@@ -69,7 +69,7 @@ class CustomSleepListView extends StatelessWidget {
           },
         );
       } else {
-        return const CustomNoDataWidget(image: noDataImage, text: noDataText);
+        return CustomNoDataWidget(image: noDataImage, text: AppLocalizations.of(context)!.noDataText);
       }
     });
   }
@@ -105,7 +105,7 @@ class CustomSleepListView extends StatelessWidget {
         ));
   }
 
-  SingleChildScrollView whenipress(Sleep sleep) {
+  SingleChildScrollView whenipress(Sleep sleep, BuildContext context) {
     return SingleChildScrollView(
       child: ListTile(
           leading: const Icon(Baby.sleep, size: 50, color: sleepTab),
@@ -140,7 +140,8 @@ class CustomSleepListView extends StatelessWidget {
                   ),
                 ],
               ),
-              Text('Note: ${sleep.text.toString()}', style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
+              Text('${AppLocalizations.of(context)!.note}: ${sleep.text.toString()}',
+                  style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
             ],
           )),
     );

@@ -32,7 +32,7 @@ class CustomAllListview extends StatelessWidget {
               }).toList(),
             );
           } else {
-            return const CustomNoDataWidget(image: noDataImage, text: noDataText);
+            return CustomNoDataWidget(image: noDataImage, text: AppLocalizations.of(context)!.noDataText);
           }
         },
       ),
@@ -99,7 +99,7 @@ class CustomAllListview extends StatelessWidget {
                                                 style: customTextStyle2()))
                                       ],
                                     ),
-                                    Text('Note: ${all.text.toString()}',
+                                    Text('${AppLocalizations.of(context)!.note}: ${all.text.toString()}',
                                         style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500)),
                                   ],
                                 ),
@@ -178,7 +178,8 @@ class CustomAllListview extends StatelessWidget {
                                           ),
                                         ],
                                       ),
-                                      Text('Note: ${all.text.toString()}', style: customTextStyle3()),
+                                      Text('${AppLocalizations.of(context)!.note}: ${all.text.toString()}',
+                                          style: customTextStyle3()),
                                     ],
                                   )))),
                     );
@@ -246,7 +247,8 @@ class CustomAllListview extends StatelessWidget {
                                           ),
                                         ],
                                       ),
-                                      Text('Note: ${all.text.toString()}', style: customTextStyle3()),
+                                      Text('${AppLocalizations.of(context)!.note}: ${all.text.toString()}',
+                                          style: customTextStyle3()),
                                     ],
                                   ),
                                 ),
@@ -316,7 +318,8 @@ class CustomAllListview extends StatelessWidget {
                                           ),
                                         ],
                                       ),
-                                      Text('Note: ${all.text.toString()}', style: customTextStyle3()),
+                                      Text('${AppLocalizations.of(context)!.note}: ${all.text.toString()}',
+                                          style: customTextStyle3()),
                                     ],
                                   ),
                                 ),
@@ -378,7 +381,7 @@ class CustomAllListview extends StatelessWidget {
                                   children: [
                                     Text('${all.vaccine}', style: customTextStyle()),
                                     Text('${all.date}', style: customTextStyle2()),
-                                    Text('Note: ${all.text.toString()}',
+                                    Text('${AppLocalizations.of(context)!.note}: ${all.text.toString()}',
                                         style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500)),
                                   ],
                                 ),
@@ -391,7 +394,7 @@ class CustomAllListview extends StatelessWidget {
           );
         });
       default:
-        return const Text('You dont have any data');
+        return Text(AppLocalizations.of(context)!.anyData);
     }
   }
 

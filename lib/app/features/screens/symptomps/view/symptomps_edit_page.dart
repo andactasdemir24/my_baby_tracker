@@ -48,9 +48,8 @@ class _SymptompsPageEditState extends State<SymptompsPageEdit> {
     return Scaffold(
       appBar: AppBar(
           centerTitle: true,
-          title: const Text(symptomos,
-              style: TextStyle(
-                  color: getPremiumTextColor, fontSize: 27, fontFamily: 'Poppins', fontWeight: FontWeight.w600)),
+          title: Text(AppLocalizations.of(context)!.symptomos,
+              style: const TextStyle(color: getPremiumTextColor, fontSize: 27, fontWeight: FontWeight.w600)),
           leading: IconButton(
               onPressed: () {
                 Navigator.pop(context);
@@ -88,7 +87,7 @@ class _SymptompsPageEditState extends State<SymptompsPageEdit> {
                 Observer(
                   builder: (context) {
                     return CustomButton(
-                      text: const Text(update, style: TextStyle(color: cwhite)),
+                      text: Text(AppLocalizations.of(context)!.update, style: const TextStyle(color: cwhite)),
                       onPressed: () {
                         var value = Symptomps(
                           id: widget.id,

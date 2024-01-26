@@ -15,7 +15,7 @@ class FeedingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final FeedingViewModel feedingViewModel = locator.get<FeedingViewModel>();
     return Scaffold(
-      appBar: const CustomAppbar(appbarText: feedingAppbar),
+      appBar: CustomAppbar(appbarText: AppLocalizations.of(context)!.feedingAppbar),
       body: Observer(builder: (context) {
         return Stack(
           children: [
@@ -28,7 +28,9 @@ class FeedingPage extends StatelessWidget {
                     feedingViewModel.changeVisible();
                   },
                   child: CustomTimePicker(
-                    text: feedingViewModel.time != null ? feedingViewModel.time!.format(context) : time,
+                    text: feedingViewModel.time != null
+                        ? feedingViewModel.time!.format(context)
+                        : AppLocalizations.of(context)!.time,
                     color: feedingViewModel.time != null ? cblack : settingsIndex,
                   ),
                 ),
@@ -43,7 +45,7 @@ class FeedingPage extends StatelessWidget {
                     return Visibility(
                       visible: feedingViewModel.isButtonVisible,
                       child: CustomButton(
-                          text: const Text(save, style: TextStyle(color: cwhite)),
+                          text: Text(AppLocalizations.of(context)!.save, style: const TextStyle(color: cwhite)),
                           onPressed: () {
                             feedingViewModel.addFeeding();
                             feedingViewModel.toggleBlur(context);

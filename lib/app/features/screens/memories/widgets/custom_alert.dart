@@ -11,18 +11,18 @@ class CustomAlert extends StatelessWidget {
     var memoriesViewmodel = locator.get<MemoriesViewModel>();
     return Observer(builder: (context) {
       return AlertDialog(
-        title: const Text(deleteText),
-        content: const SingleChildScrollView(
-          child: ListBody(children: <Widget>[Text(listBodyText)]),
+        title: Text(AppLocalizations.of(context)!.deleteText),
+        content: SingleChildScrollView(
+          child: ListBody(children: <Widget>[Text(AppLocalizations.of(context)!.listBodyText)]),
         ),
         actions: <Widget>[
           TextButton(
-              child: const Text(cancelText),
+              child: Text(AppLocalizations.of(context)!.cancelText),
               onPressed: () {
                 Navigator.of(context).pop();
               }),
           TextButton(
-              child: const Text(okeyText),
+              child: Text(AppLocalizations.of(context)!.okeyText),
               onPressed: () {
                 memoriesViewmodel.deleteMemories(id);
                 Navigator.of(context).pop();

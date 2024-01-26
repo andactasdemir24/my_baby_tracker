@@ -60,7 +60,7 @@ class CustomSymptompsListView extends StatelessWidget {
                                 color: annualColor,
                               ),
                               alignment: Alignment.center,
-                              child: !symptomps.isSelected ? notpress(symptomps) : whenipress(symptomps),
+                              child: !symptomps.isSelected ? notpress(symptomps) : whenipress(symptomps, context),
                             )),
                       );
                     },
@@ -71,7 +71,7 @@ class CustomSymptompsListView extends StatelessWidget {
           },
         );
       } else {
-        return const CustomNoDataWidget(image: noDataImage, text: noDataText);
+        return CustomNoDataWidget(image: noDataImage, text: AppLocalizations.of(context)!.noDataText);
       }
     });
   }
@@ -94,7 +94,7 @@ class CustomSymptompsListView extends StatelessWidget {
     );
   }
 
-  SingleChildScrollView whenipress(Symptomps symptomps) {
+  SingleChildScrollView whenipress(Symptomps symptomps, BuildContext context) {
     return SingleChildScrollView(
       child: ListTile(
         leading: const Icon(Baby.symptoms, size: 50, color: symptompsTab),
@@ -110,7 +110,7 @@ class CustomSymptompsListView extends StatelessWidget {
                   '${symptomps.symTime!.hour.toString().padLeft(2, '0')}:${symptomps.symTime!.minute.toString().padLeft(2, '0')}',
                   style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, overflow: TextOverflow.ellipsis)),
             ),
-            Text('Note: ${symptomps.text.toString()}',
+            Text('${AppLocalizations.of(context)!.note}: ${symptomps.text.toString()}',
                 style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
           ],
         ),

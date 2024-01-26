@@ -32,7 +32,7 @@ class AmountTextField extends StatelessWidget {
                 borderRadius: BorderRadius.circular(25),
                 borderSide: BorderSide.none,
               ),
-              hintText: amount,
+              hintText: AppLocalizations.of(context)!.amount,
               hintStyle: const TextStyle(color: settingsIndex)),
         ),
       ),

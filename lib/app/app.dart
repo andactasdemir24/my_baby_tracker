@@ -105,3 +105,4 @@ export 'features/screens/vaccine/view/vaccine_page.dart';
 export 'features/screens/vaccine/viewmodel/vaccine_viewmodel.dart';
 export 'features/screens/vaccine/widgets/custom_dropdown_button.dart';
 export 'features/theme/baby_icons.dart';
+export 'package:flutter_gen/gen_l10n/app_localizations.dart';

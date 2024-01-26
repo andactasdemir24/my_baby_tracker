@@ -29,7 +29,7 @@ class _CalenderPageState extends State<CalenderPage> with TickerProviderStateMix
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppbar(appbarText: calenderAppbar, centerTitle: true),
+      appBar: CustomAppbar(appbarText: AppLocalizations.of(context)!.calenderAppbar, centerTitle: true),
       body: Observer(builder: (context) {
         return Column(
           children: [
@@ -40,13 +40,13 @@ class _CalenderPageState extends State<CalenderPage> with TickerProviderStateMix
               dividerColor: cwhite,
               indicatorColor: buttonColor,
               labelColor: buttonColor,
-              tabs: const <Widget>[
-                Tab(child: Text('All', style: TextStyle(fontSize: 20))),
-                Tab(icon: Icon(Baby.feed, size: 45, color: feedingTab)),
-                Tab(icon: Icon(Baby.sleep, size: 45, color: sleepTab)),
-                Tab(icon: Icon(Baby.symptoms, size: 45, color: symptompsTab)),
-                Tab(icon: Icon(Baby.nappy, size: 45, color: nappyTab)),
-                Tab(icon: Icon(Baby.vaccine3, size: 33, color: vaccineTab)),
+              tabs: <Widget>[
+                Tab(child: Text(AppLocalizations.of(context)!.all, style: const TextStyle(fontSize: 20))),
+                const Tab(icon: Icon(Baby.feed, size: 45, color: feedingTab)),
+                const Tab(icon: Icon(Baby.sleep, size: 45, color: sleepTab)),
+                const Tab(icon: Icon(Baby.symptoms, size: 45, color: symptompsTab)),
+                const Tab(icon: Icon(Baby.nappy, size: 45, color: nappyTab)),
+                const Tab(icon: Icon(Baby.vaccine3, size: 33, color: vaccineTab)),
               ],
             ),
             Expanded(

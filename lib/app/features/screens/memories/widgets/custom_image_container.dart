@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:baby_tracker_app/app/app.dart';
 
-class CustomImageContainer extends StatelessWidget {
-  const CustomImageContainer({
+class CustomImageContainerMemories extends StatelessWidget {
+  const CustomImageContainerMemories({
     super.key,
     required this.memories,
   });

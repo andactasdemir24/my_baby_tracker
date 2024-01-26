@@ -58,7 +58,7 @@ class CustomNappyListView extends StatelessWidget {
                                 color: annualColor,
                               ),
                               alignment: Alignment.center,
-                              child: !nappy.isSelected ? notpress(nappy) : whenipress(nappy),
+                              child: !nappy.isSelected ? notpress(nappy) : whenipress(nappy, context),
                             )),
                       );
                     },
@@ -69,7 +69,7 @@ class CustomNappyListView extends StatelessWidget {
           },
         );
       } else {
-        return const CustomNoDataWidget(image: noDataImage, text: noDataText);
+        return CustomNoDataWidget(image: noDataImage, text: AppLocalizations.of(context)!.noDataText);
       }
     });
   }
@@ -92,7 +92,7 @@ class CustomNappyListView extends StatelessWidget {
     );
   }
 
-  SingleChildScrollView whenipress(Nappy nappys) {
+  SingleChildScrollView whenipress(Nappy nappys, BuildContext context) {
     return SingleChildScrollView(
       child: ListTile(
         leading: const Icon(Baby.nappy, size: 50, color: nappyTab),
@@ -108,7 +108,8 @@ class CustomNappyListView extends StatelessWidget {
                   '${nappys.nappyTime!.hour.toString().padLeft(2, '0')}:${nappys.nappyTime!.minute.toString().padLeft(2, '0')}',
                   style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, overflow: TextOverflow.ellipsis)),
             ),
-            Text('Note: ${nappys.text.toString()}', style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
+            Text('${AppLocalizations.of(context)!.note}: ${nappys.text.toString()}',
+                style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
           ],
         ),
       ),

@@ -44,7 +44,7 @@ class _SleepPageEditState extends State<SleepPageEdit> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: const CustomAppbar(appbarText: sleepAppbar),
+        appBar: CustomAppbar(appbarText: AppLocalizations.of(context)!.sleepAppbar),
         body: Observer(builder: (context) {
           return Stack(children: [
             SingleChildScrollView(
@@ -85,7 +85,7 @@ class _SleepPageEditState extends State<SleepPageEdit> {
                 Observer(
                   builder: (context) {
                     return CustomButton(
-                      text: const Text(update, style: TextStyle(color: cwhite)),
+                      text: Text(AppLocalizations.of(context)!.update, style: const TextStyle(color: cwhite)),
                       onPressed: () {
                         var value = Sleep(
                           id: widget.id,

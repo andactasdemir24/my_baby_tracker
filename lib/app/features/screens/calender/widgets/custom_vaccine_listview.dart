@@ -59,7 +59,7 @@ class CustomVaccineListView extends StatelessWidget {
                                 color: annualColor,
                               ),
                               alignment: Alignment.center,
-                              child: !vaccine.isSelected ? notpress(vaccine) : whenipress(vaccine),
+                              child: !vaccine.isSelected ? notpress(vaccine) : whenipress(vaccine, context),
                             )),
                       );
                     },
@@ -70,7 +70,7 @@ class CustomVaccineListView extends StatelessWidget {
           },
         );
       } else {
-        return const CustomNoDataWidget(image: noDataImage, text: noDataText);
+        return CustomNoDataWidget(image: noDataImage, text: AppLocalizations.of(context)!.noDataText);
       }
     });
   }
@@ -91,7 +91,7 @@ class CustomVaccineListView extends StatelessWidget {
     );
   }
 
-  SingleChildScrollView whenipress(Vaccine vaccine) {
+  SingleChildScrollView whenipress(Vaccine vaccine, BuildContext context) {
     return SingleChildScrollView(
       child: ListTile(
         leading: const Icon(Baby.vaccine3, size: 40, color: vaccineTab),
@@ -104,7 +104,7 @@ class CustomVaccineListView extends StatelessWidget {
                 style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: mainIconColor)),
             Text('${vaccine.date}', style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
             Text(
-              'Note: ${vaccine.text.toString()}',
+              '${AppLocalizations.of(context)!.note}: ${vaccine.text.toString()}',
               style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
             ),
           ],

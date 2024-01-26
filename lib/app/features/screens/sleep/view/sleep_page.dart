@@ -12,7 +12,7 @@ class SleepPage extends StatelessWidget {
     final sleepViewmodel = locator.get<SleepViewModel>();
 
     return Scaffold(
-        appBar: const CustomAppbar(appbarText: sleepAppbar),
+        appBar: CustomAppbar(appbarText: AppLocalizations.of(context)!.sleepAppbar),
         body: Observer(builder: (context) {
           return Stack(children: [
             SingleChildScrollView(
@@ -24,7 +24,9 @@ class SleepPage extends StatelessWidget {
                     sleepViewmodel.changeVisible();
                   },
                   child: CustomTimePicker(
-                    text: sleepViewmodel.time1 != null ? sleepViewmodel.time1!.format(context) : feelSleep,
+                    text: sleepViewmodel.time1 != null
+                        ? sleepViewmodel.time1!.format(context)
+                        : AppLocalizations.of(context)!.feelSleep,
                     color: sleepViewmodel.time1 != null ? cblack : settingsIndex,
                   ),
                 ),
@@ -36,7 +38,9 @@ class SleepPage extends StatelessWidget {
                       sleepViewmodel.changeVisible();
                     },
                     child: CustomTimePicker(
-                      text: sleepViewmodel.time2 != null ? sleepViewmodel.time2!.format(context) : wokeUp,
+                      text: sleepViewmodel.time2 != null
+                          ? sleepViewmodel.time2!.format(context)
+                          : AppLocalizations.of(context)!.wokeUp,
                       color: sleepViewmodel.time2 != null ? cblack : settingsIndex,
                     ),
                   ),
@@ -51,7 +55,7 @@ class SleepPage extends StatelessWidget {
                     return Visibility(
                       visible: sleepViewmodel.isButtonVisible2,
                       child: CustomButton(
-                        text: const Text(save, style: TextStyle(color: cwhite)),
+                        text: Text(AppLocalizations.of(context)!.save, style: const TextStyle(color: cwhite)),
                         onPressed: () {
                           sleepViewmodel.addSleep();
                           sleepViewmodel.toggleBlur2(context);

@@ -11,7 +11,7 @@ class NappyPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final nappyViewmodel = locator.get<NappyViewModel>();
     return Scaffold(
-      appBar: const CustomAppbar(appbarText: nappyAppbar),
+      appBar: CustomAppbar(appbarText: AppLocalizations.of(context)!.nappyAppbar),
       body: Observer(builder: (context) {
         return Stack(
           children: [
@@ -24,21 +24,23 @@ class NappyPage extends StatelessWidget {
                     nappyViewmodel.changeVisibleNappy();
                   },
                   child: CustomTimePicker(
-                      text: nappyViewmodel.time4 != null ? nappyViewmodel.time4!.format(context) : nappyTime,
+                      text: nappyViewmodel.time4 != null
+                          ? nappyViewmodel.time4!.format(context)
+                          : AppLocalizations.of(context)!.nappyTime,
                       color: nappyViewmodel.time4 != null ? cblack : settingsIndex),
                 ),
                 SizedBox(height: displayHeight(context) * 0.03),
                 SizedBox(
                   width: displayWidth(context) * 0.85,
-                  child: const Text(
-                    nappyStatus,
-                    style: TextStyle(color: cblack, fontSize: 15.5, fontWeight: FontWeight.bold),
+                  child: Text(
+                    AppLocalizations.of(context)!.nappyStatus,
+                    style: const TextStyle(color: cblack, fontSize: 15.5, fontWeight: FontWeight.bold),
                   ),
                 ),
                 CustomNappyList(
                     text: Text(
                   nappyViewmodel.selectedIndicess.isEmpty
-                      ? nappyAppbar
+                      ? AppLocalizations.of(context)!.nappyAppbar
                       : nappyViewmodel.selectedIndicess.map((index) => index.name).join(', '),
                   style: TextStyle(
                       fontSize: 15.5,
@@ -56,7 +58,7 @@ class NappyPage extends StatelessWidget {
                     return Visibility(
                       visible: nappyViewmodel.isButtonVisible4,
                       child: CustomButton(
-                        text: const Text(save, style: TextStyle(color: cwhite)),
+                        text: Text(AppLocalizations.of(context)!.save, style: const TextStyle(color: cwhite)),
                         onPressed: () {
                           nappyViewmodel.onSave();
                           nappyViewmodel.addNappy();

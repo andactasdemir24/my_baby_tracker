@@ -88,7 +88,8 @@ class CustomStack extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Text(weightText, style: TextStyle(color: cgrey, fontSize: 12)),
+                        Text(AppLocalizations.of(context)!.weightText,
+                            style: const TextStyle(color: cgrey, fontSize: 12)),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
@@ -99,7 +100,7 @@ class CustomStack extends StatelessWidget {
                               child: Text(info.weight.toString(),
                                   style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
                             ),
-                            const Text(kgs, style: TextStyle(color: cgrey))
+                            Text(AppLocalizations.of(context)!.kgs, style: const TextStyle(color: cgrey))
                           ],
                         )
                       ],
@@ -109,7 +110,8 @@ class CustomStack extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Text(heightText, style: TextStyle(color: cgrey, fontSize: 12)),
+                        Text(AppLocalizations.of(context)!.heightText,
+                            style: const TextStyle(color: cgrey, fontSize: 12)),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
@@ -120,7 +122,7 @@ class CustomStack extends StatelessWidget {
                               child: Text(info.height.toString(),
                                   style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
                             ),
-                            const Text(cms, style: TextStyle(color: cgrey))
+                            Text(AppLocalizations.of(context)!.cms, style: const TextStyle(color: cgrey))
                           ],
                         )
                       ],

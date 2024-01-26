@@ -29,7 +29,7 @@ class CustomNoteTextfield extends StatelessWidget {
                 borderRadius: BorderRadius.circular(25),
                 borderSide: BorderSide.none,
               ),
-              hintText: note,
+              hintText: AppLocalizations.of(context)!.note,
               hintStyle: const TextStyle(color: settingsIndex)),
         ),
       ),

@@ -13,7 +13,7 @@ class NappyList extends StatelessWidget {
     final nappyViewmodel = locator.get<NappyViewModel>();
     return Scaffold(
       appBar: CustomAppbar(
-          appbarText: nappyAppbar,
+          appbarText: AppLocalizations.of(context)!.nappyAppbar,
           leading: GestureDetector(
               onTap: () {
                 nappyViewmodel.onBack();
@@ -61,7 +61,7 @@ class NappyList extends StatelessWidget {
         return Visibility(
           visible: nappyViewmodel.selectedIndicess.isNotEmpty,
           child: CustomButton(
-              text: const Text(save, style: TextStyle(color: cwhite)),
+              text: Text(AppLocalizations.of(context)!.save, style: const TextStyle(color: cwhite)),
               onPressed: () => nappyViewmodel.toggleBlur5(context)),
         );
       }),
