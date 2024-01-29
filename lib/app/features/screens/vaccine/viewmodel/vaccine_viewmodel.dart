@@ -108,7 +108,8 @@ abstract class _VaccineViewModelBase with Store {
         createdTime: vaccine.createdTime);
 
     await vaccineDatasource.update(vaccineModel);
-    await calenderViewModel.refreshVaccineList();
-    calenderViewModel.allListItem();
+    await calenderViewModel.getVaccine(calenderViewModel.selectedDate);
+    // await calenderViewModel.refreshVaccineList();
+    // calenderViewModel.allListItem();
   }
 }

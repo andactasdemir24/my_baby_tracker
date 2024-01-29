@@ -137,7 +137,8 @@ abstract class _SleepViewModelBase with Store {
     );
 
     await sleepDatasource.update(updateSleep);
-    await calenderViewModel.refreshSleepList();
-    calenderViewModel.allListItem();
+    await calenderViewModel.getSleep(calenderViewModel.selectedDate);
+    // await calenderViewModel.refreshSleepList();
+    // calenderViewModel.allListItem();
   }
 }

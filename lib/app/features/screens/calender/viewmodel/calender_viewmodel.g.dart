@@ -45,13 +45,13 @@ mixin _$CalenderViewModel on _CalenderViewModelBase, Store {
       Atom(name: '_CalenderViewModelBase.feedingList', context: context);
 
   @override
-  List<Feeding> get feedingList {
+  ObservableList<Feeding> get feedingList {
     _$feedingListAtom.reportRead();
     return super.feedingList;
   }
 
   @override
-  set feedingList(List<Feeding> value) {
+  set feedingList(ObservableList<Feeding> value) {
     _$feedingListAtom.reportWrite(value, super.feedingList, () {
       super.feedingList = value;
     });
@@ -61,13 +61,13 @@ mixin _$CalenderViewModel on _CalenderViewModelBase, Store {
       Atom(name: '_CalenderViewModelBase.sleepList', context: context);
 
   @override
-  List<Sleep> get sleepList {
+  ObservableList<Sleep> get sleepList {
     _$sleepListAtom.reportRead();
     return super.sleepList;
   }
 
   @override
-  set sleepList(List<Sleep> value) {
+  set sleepList(ObservableList<Sleep> value) {
     _$sleepListAtom.reportWrite(value, super.sleepList, () {
       super.sleepList = value;
     });
@@ -77,13 +77,13 @@ mixin _$CalenderViewModel on _CalenderViewModelBase, Store {
       Atom(name: '_CalenderViewModelBase.symptompsList', context: context);
 
   @override
-  List<Symptomps> get symptompsList {
+  ObservableList<Symptomps> get symptompsList {
     _$symptompsListAtom.reportRead();
     return super.symptompsList;
   }
 
   @override
-  set symptompsList(List<Symptomps> value) {
+  set symptompsList(ObservableList<Symptomps> value) {
     _$symptompsListAtom.reportWrite(value, super.symptompsList, () {
       super.symptompsList = value;
     });
@@ -93,13 +93,13 @@ mixin _$CalenderViewModel on _CalenderViewModelBase, Store {
       Atom(name: '_CalenderViewModelBase.nappyList', context: context);
 
   @override
-  List<Nappy> get nappyList {
+  ObservableList<Nappy> get nappyList {
     _$nappyListAtom.reportRead();
     return super.nappyList;
   }
 
   @override
-  set nappyList(List<Nappy> value) {
+  set nappyList(ObservableList<Nappy> value) {
     _$nappyListAtom.reportWrite(value, super.nappyList, () {
       super.nappyList = value;
     });
@@ -109,13 +109,13 @@ mixin _$CalenderViewModel on _CalenderViewModelBase, Store {
       Atom(name: '_CalenderViewModelBase.vaccineList', context: context);
 
   @override
-  List<Vaccine> get vaccineList {
+  ObservableList<Vaccine> get vaccineList {
     _$vaccineListAtom.reportRead();
     return super.vaccineList;
   }
 
   @override
-  set vaccineList(List<Vaccine> value) {
+  set vaccineList(ObservableList<Vaccine> value) {
     _$vaccineListAtom.reportWrite(value, super.vaccineList, () {
       super.vaccineList = value;
     });
@@ -203,16 +203,6 @@ mixin _$CalenderViewModel on _CalenderViewModelBase, Store {
     return _$deleteFeedingAsyncAction.run(() => super.deleteFeeding(id));
   }
 
-  late final _$refreshFeedingListAsyncAction = AsyncAction(
-      '_CalenderViewModelBase.refreshFeedingList',
-      context: context);
-
-  @override
-  Future<void> refreshFeedingList() {
-    return _$refreshFeedingListAsyncAction
-        .run(() => super.refreshFeedingList());
-  }
-
   late final _$clearFeedingAsyncAction =
       AsyncAction('_CalenderViewModelBase.clearFeeding', context: context);
 
@@ -235,14 +225,6 @@ mixin _$CalenderViewModel on _CalenderViewModelBase, Store {
   @override
   Future<void> deleteSleep(String id) {
     return _$deleteSleepAsyncAction.run(() => super.deleteSleep(id));
-  }
-
-  late final _$refreshSleepListAsyncAction =
-      AsyncAction('_CalenderViewModelBase.refreshSleepList', context: context);
-
-  @override
-  Future<void> refreshSleepList() {
-    return _$refreshSleepListAsyncAction.run(() => super.refreshSleepList());
   }
 
   late final _$clearSleepAsyncAction =
@@ -270,16 +252,6 @@ mixin _$CalenderViewModel on _CalenderViewModelBase, Store {
     return _$deleteSymptompsAsyncAction.run(() => super.deleteSymptomps(id));
   }
 
-  late final _$refreshSymptompsListAsyncAction = AsyncAction(
-      '_CalenderViewModelBase.refreshSymptompsList',
-      context: context);
-
-  @override
-  Future<void> refreshSymptompsList() {
-    return _$refreshSymptompsListAsyncAction
-        .run(() => super.refreshSymptompsList());
-  }
-
   late final _$clearSymptompsAsyncAction =
       AsyncAction('_CalenderViewModelBase.clearSymptomps', context: context);
 
@@ -304,14 +276,6 @@ mixin _$CalenderViewModel on _CalenderViewModelBase, Store {
     return _$deleteNappyAsyncAction.run(() => super.deleteNappy(id));
   }
 
-  late final _$refreshNappyListAsyncAction =
-      AsyncAction('_CalenderViewModelBase.refreshNappyList', context: context);
-
-  @override
-  Future<void> refreshNappyList() {
-    return _$refreshNappyListAsyncAction.run(() => super.refreshNappyList());
-  }
-
   late final _$clearNappyAsyncAction =
       AsyncAction('_CalenderViewModelBase.clearNappy', context: context);
 
@@ -334,16 +298,6 @@ mixin _$CalenderViewModel on _CalenderViewModelBase, Store {
   @override
   Future<void> deleteVaccine(String id) {
     return _$deleteVaccineAsyncAction.run(() => super.deleteVaccine(id));
-  }
-
-  late final _$refreshVaccineListAsyncAction = AsyncAction(
-      '_CalenderViewModelBase.refreshVaccineList',
-      context: context);
-
-  @override
-  Future<void> refreshVaccineList() {
-    return _$refreshVaccineListAsyncAction
-        .run(() => super.refreshVaccineList());
   }
 
   late final _$clearVaccineAsyncAction =

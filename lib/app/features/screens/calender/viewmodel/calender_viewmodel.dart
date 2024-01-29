@@ -20,19 +20,19 @@ abstract class _CalenderViewModelBase with Store {
   DateTime selectedDate = DateTime.now();
 
   @observable
-  List<Feeding> feedingList = [];
+  ObservableList<Feeding> feedingList = ObservableList<Feeding>();
 
   @observable
-  List<Sleep> sleepList = [];
+  ObservableList<Sleep> sleepList = ObservableList<Sleep>();
 
   @observable
-  List<Symptomps> symptompsList = [];
+  ObservableList<Symptomps> symptompsList = ObservableList<Symptomps>();
 
   @observable
-  List<Nappy> nappyList = [];
+  ObservableList<Nappy> nappyList = ObservableList<Nappy>();
 
   @observable
-  List<Vaccine> vaccineList = [];
+  ObservableList<Vaccine> vaccineList = ObservableList<Vaccine>();
 
   @observable
   ObservableList<dynamic> allList = ObservableList<dynamic>();
@@ -120,7 +120,7 @@ abstract class _CalenderViewModelBase with Store {
   void toggleSelected(int index) {
     var feeding = feedingList[index];
     var updatedFeeding = feeding.copyWith(isSelected: !feeding.isSelected);
-    feedingList = List.from(feedingList)..[index] = updatedFeeding;
+    feedingList[index] = updatedFeeding;
   }
 
   @action
@@ -161,11 +161,11 @@ abstract class _CalenderViewModelBase with Store {
     groupItemsByType();
   }
 
-  @action
-  Future<void> refreshFeedingList() async {
-    var feedingData = await feedingDatasource.getAll();
-    feedingList = feedingData.data ?? [];
-  }
+  // @action
+  // Future<void> refreshFeedingList() async {
+  //   var feedingData = await feedingDatasource.getAll();
+  //   feedingList = feedingData.data ?? [];
+  // }
 
   @action
   Future<void> clearFeeding() async {
@@ -178,7 +178,7 @@ abstract class _CalenderViewModelBase with Store {
   void toggleSelected1(int index) {
     var sleep = sleepList[index];
     var updatedSleep = sleep.copyWith(isSelected: !sleep.isSelected);
-    sleepList = List.from(sleepList)..[index] = updatedSleep;
+    sleepList[index] = updatedSleep;
   }
 
   @action
@@ -218,11 +218,11 @@ abstract class _CalenderViewModelBase with Store {
     groupItemsByType();
   }
 
-  @action
-  Future<void> refreshSleepList() async {
-    var sleepData = await sleepDatasource.getAll();
-    sleepList = sleepData.data ?? [];
-  }
+  // @action
+  // Future<void> refreshSleepList() async {
+  //   var sleepData = await sleepDatasource.getAll();
+  //   sleepList = sleepData.data ?? [];
+  // }
 
   @action
   Future<void> clearSleep() async {
@@ -235,7 +235,7 @@ abstract class _CalenderViewModelBase with Store {
   void toogleSelected2(int index) {
     var symptomps = symptompsList[index];
     var updatedSymptomps = symptomps.copyWith(isSelected: !symptomps.isSelected);
-    symptompsList = List.from(symptompsList)..[index] = updatedSymptomps;
+    symptompsList[index] = updatedSymptomps;
   }
 
   @action
@@ -266,11 +266,11 @@ abstract class _CalenderViewModelBase with Store {
     groupItemsByType();
   }
 
-  @action
-  Future<void> refreshSymptompsList() async {
-    var sympData = await symptompsDatasource.getAll();
-    symptompsList = sympData.data ?? [];
-  }
+  // @action
+  // Future<void> refreshSymptompsList() async {
+  //   var sympData = await symptompsDatasource.getAll();
+  //   symptompsList = sympData.data ?? [];
+  // }
 
   @action
   Future<void> clearSymptomps() async {
@@ -283,7 +283,7 @@ abstract class _CalenderViewModelBase with Store {
   void toogleSelected3(int index) {
     var nappy = nappyList[index];
     var updatedNappy = nappy.copyWith(isSelected: !nappy.isSelected);
-    nappyList = List.from(nappyList)..[index] = updatedNappy;
+    nappyList[index] = updatedNappy;
   }
 
   @action
@@ -322,11 +322,11 @@ abstract class _CalenderViewModelBase with Store {
     groupItemsByType();
   }
 
-  @action
-  Future<void> refreshNappyList() async {
-    var nappyData = await nappyDatasource.getAll();
-    nappyList = nappyData.data ?? [];
-  }
+  // @action
+  // Future<void> refreshNappyList() async {
+  //   var nappyData = await nappyDatasource.getAll();
+  //   nappyList = nappyData.data ?? [];
+  // }
 
   @action
   Future<void> clearNappy() async {
@@ -339,7 +339,7 @@ abstract class _CalenderViewModelBase with Store {
   void toggleSelected4(int index) {
     var vaccine = vaccineList[index];
     var updatedVaccine = vaccine.copyWith(isSelected: !vaccine.isSelected);
-    vaccineList = List.from(vaccineList)..[index] = updatedVaccine;
+    vaccineList[index] = updatedVaccine;
   }
 
   @action
@@ -379,11 +379,11 @@ abstract class _CalenderViewModelBase with Store {
     groupItemsByType();
   }
 
-  @action
-  Future<void> refreshVaccineList() async {
-    var vaccineData = await vaccineDatasource.getAll();
-    vaccineList = vaccineData.data ?? [];
-  }
+  // @action
+  // Future<void> refreshVaccineList() async {
+  //   var vaccineData = await vaccineDatasource.getAll();
+  //   vaccineList = vaccineData.data ?? [];
+  // }
 
   @action
   Future<void> clearVaccine() async {

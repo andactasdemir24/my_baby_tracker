@@ -120,7 +120,8 @@ abstract class _FeedingViewModelBase with Store {
     );
 
     await feedingDatasource.update(updatedFeeding);
-    await calenderViewModel.refreshFeedingList();
-    calenderViewModel.allListItem();
+    await calenderViewModel.getFeeding(calenderViewModel.selectedDate);
+    // await calenderViewModel.refreshFeedingList();
+    // calenderViewModel.allListItem();
   }
 }

@@ -172,7 +172,8 @@ abstract class _NappyViewModelBase with Store {
     );
 
     await nappysDatasource.update(nappyModel);
-    await calenderViewModel.refreshNappyList();
-    calenderViewModel.allListItem();
+    await calenderViewModel.getNappy(calenderViewModel.selectedDate);
+    // await calenderViewModel.refreshNappyList();
+    // calenderViewModel.allListItem();
   }
 }
