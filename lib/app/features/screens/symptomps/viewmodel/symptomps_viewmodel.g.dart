@@ -192,6 +192,17 @@ mixin _$SymptompsViewmodel on _SymptompsViewmodelBase, Store {
       ActionController(name: '_SymptompsViewmodelBase', context: context);
 
   @override
+  void fillList(BuildContext context) {
+    final _$actionInfo = _$_SymptompsViewmodelBaseActionController.startAction(
+        name: '_SymptompsViewmodelBase.fillList');
+    try {
+      return super.fillList(context);
+    } finally {
+      _$_SymptompsViewmodelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void toggleBlur3(BuildContext context) {
     final _$actionInfo = _$_SymptompsViewmodelBaseActionController.startAction(
         name: '_SymptompsViewmodelBase.toggleBlur3');

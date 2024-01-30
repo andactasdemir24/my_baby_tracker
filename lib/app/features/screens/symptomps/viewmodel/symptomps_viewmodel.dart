@@ -23,16 +23,23 @@ abstract class _SymptompsViewmodelBase with Store {
   ObservableList<SymptopmsModel> selectedIndices = ObservableList<SymptopmsModel>();
 
   @observable
-  List<SymptopmsModel> symptompsList = [
-    SymptopmsModel(image: ImagesConst.runnyNose, name: runnyNoseT),
-    SymptopmsModel(image: ImagesConst.heartburn, name: heartburnT),
-    SymptopmsModel(image: ImagesConst.noAppetite, name: noAppetiteT),
-    SymptopmsModel(image: ImagesConst.rush, name: rushT),
-    SymptopmsModel(image: ImagesConst.lowEnergy, name: lowEnergyT),
-    SymptopmsModel(image: ImagesConst.nausea, name: nauseaT),
-    SymptopmsModel(image: ImagesConst.cough, name: coughT),
-    SymptopmsModel(image: ImagesConst.fever, name: feverT),
-  ];
+  List<SymptopmsModel> symptompsList = [];
+  //bu fonksiyon ve üstteki bağlantılıdır. Bağlantı işse şudur: normalde alttaki listenin içinde yazanlar yukarıda yazılı oldup normal bir şekilde kullanılabilirdi.
+  //fakat localizations işlemi yaptığımda bir context istediği için bende mecbur fonk içine aynı listeyi açıp elemanları yazdım.
+  //ve bu fonksiyonu viewda çağırdım. üstttekine gitti veriler
+  @action
+  void fillList(BuildContext context) {
+    symptompsList = [
+      SymptopmsModel(image: ImagesConst.runnyNose, name: AppLocalizations.of(context)!.runnyNoseT),
+      SymptopmsModel(image: ImagesConst.heartburn, name: AppLocalizations.of(context)!.heartburnT),
+      SymptopmsModel(image: ImagesConst.noAppetite, name: AppLocalizations.of(context)!.noAppetiteT),
+      SymptopmsModel(image: ImagesConst.rush, name: AppLocalizations.of(context)!.rushT),
+      SymptopmsModel(image: ImagesConst.lowEnergy, name: AppLocalizations.of(context)!.lowEnergyT),
+      SymptopmsModel(image: ImagesConst.nausea, name: AppLocalizations.of(context)!.nauseaT),
+      SymptopmsModel(image: ImagesConst.cough, name: AppLocalizations.of(context)!.coughT),
+      SymptopmsModel(image: ImagesConst.fever, name: AppLocalizations.of(context)!.feverT),
+    ];
+  }
 
   @observable
   bool isBlurred3 = false;

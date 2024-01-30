@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:baby_tracker_app/app/app.dart';
 
+// ... (imports)
+
 class CustomDropdownButton extends StatelessWidget {
   const CustomDropdownButton({
     Key? key,
@@ -17,6 +19,7 @@ class CustomDropdownButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    vaccineViewModel.fillList(context);
     return Observer(
       builder: (context) {
         return DropdownButtonFormField<String>(

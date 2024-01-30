@@ -8,6 +8,7 @@ class OnboardingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final onbViewmodel = locator.get<OnboardingViewmodel>();
+    onbViewmodel.fillList(context);
     return Scaffold(
         appBar: AppBar(toolbarHeight: 0, backgroundColor: ColorConst.bg),
         backgroundColor: ColorConst.bg,

@@ -5,7 +5,7 @@ class CustomSnackbar {
   static SnackBar show(BuildContext context) {
     return SnackBar(
       action: SnackBarAction(
-        label: undo,
+        label: AppLocalizations.of(context)!.undo,
         onPressed: () {},
       ),
       content: Text(AppLocalizations.of(context)!.deleteText),

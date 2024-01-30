@@ -12,6 +12,7 @@ class InformationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final informationviewmodel = locator.get<InformationViewModel>();
+    informationviewmodel.fillList(context);
     return PopScope(
       canPop: false,
       child: Scaffold(
@@ -136,8 +137,9 @@ class InformationPage extends StatelessWidget {
                 Positioned.fill(
                   child: BackdropFilter(
                     filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                    child:
-                        Container(color: ColorConst.cblack.withOpacity(0), child: Center(child: Lottie.asset(ImagesConst.lottie))),
+                    child: Container(
+                        color: ColorConst.cblack.withOpacity(0),
+                        child: Center(child: Lottie.asset(ImagesConst.lottie))),
                   ),
                 ),
             ],

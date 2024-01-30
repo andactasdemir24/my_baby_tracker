@@ -23,12 +23,19 @@ abstract class _NappyViewModelBase with Store {
   ObservableList<NappyModel> selectedIndicess = ObservableList<NappyModel>();
 
   @observable
-  List<NappyModel> nappyStatusList = [
-    NappyModel(image: ImagesConst.nappy1, name: nappy1Text),
-    NappyModel(image: ImagesConst.nappy2, name: nappy2Text),
-    NappyModel(image: ImagesConst.nappy3, name: nappy3Text),
-    NappyModel(image: ImagesConst.nappy4, name: nappy4Text),
-  ];
+  List<NappyModel> nappyStatusList = [];
+  //bu fonksiyon ve üstteki bağlantılıdır. Bağlantı işse şudur: normalde alttaki listenin içinde yazanlar yukarıda yazılı oldup normal bir şekilde kullanılabilirdi.
+  //fakat localizations işlemi yaptığımda bir context istediği için bende mecbur fonk içine aynı listeyi açıp elemanları yazdım.
+  //ve bu fonksiyonu viewda çağırdım. üstttekine gitti veriler
+  @action
+  void fillList(BuildContext context) {
+    nappyStatusList = [
+      NappyModel(image: ImagesConst.nappy1, name: AppLocalizations.of(context)!.nappy1Text),
+      NappyModel(image: ImagesConst.nappy2, name: AppLocalizations.of(context)!.nappy2Text),
+      NappyModel(image: ImagesConst.nappy3, name: AppLocalizations.of(context)!.nappy3Text),
+      NappyModel(image: ImagesConst.nappy4, name: AppLocalizations.of(context)!.nappy4Text),
+    ];
+  }
 
   @observable
   bool isBlurred = false;

@@ -11,6 +11,7 @@ class NappyList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final nappyViewmodel = locator.get<NappyViewModel>();
+    nappyViewmodel.fillList(context);
     return Scaffold(
       appBar: CustomAppbar(
           appbarText: AppLocalizations.of(context)!.nappyAppbar,
@@ -50,8 +51,9 @@ class NappyList extends StatelessWidget {
                 Positioned.fill(
                   child: BackdropFilter(
                     filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                    child:
-                        Container(color: ColorConst.cblack.withOpacity(0), child: Center(child: Lottie.asset(ImagesConst.lottie))),
+                    child: Container(
+                        color: ColorConst.cblack.withOpacity(0),
+                        child: Center(child: Lottie.asset(ImagesConst.lottie))),
                   ),
                 ),
             ],

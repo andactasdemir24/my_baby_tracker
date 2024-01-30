@@ -1,139 +1,141 @@
-//onboarding
-const String onb1Title = "Track Your Baby's Activities with Ease";
-const String onb2Title = "Stay Connected with Caregivers";
-const String onb3Title = "Stay Connected with Caregivers";
-const String onb1Description =
-    "Get started with tracking your baby's feedings, diaper changes, sleep patterns, and more...";
-const String onb2Description =
-    "Share access to your baby's tracker with family members, babysitters, or healthcare providers ";
-const String onb3Description =
-    "Share access to your baby's tracker with family members, babysitters, or healthcare providers ";
+class TextConst {
+  //onboarding
+  static String onb1Title = "Track Your Baby's Activities with Ease";
+  static String onb2Title = "Stay Connected with Caregivers";
+  static String onb3Title = "Stay Connected with Caregivers";
+  static String onb1Description =
+      "Get started with tracking your baby's feedings, diaper changes, sleep patterns, and more...";
+  static String onb2Description =
+      "Share access to your baby's tracker with family members, babysitters, or healthcare providers ";
+  static String onb3Description =
+      "Share access to your baby's tracker with family members, babysitters, or healthcare providers ";
 
-const String buttonText = 'Next';
-const String save = 'Save';
-const String update = 'Update';
+  static String buttonText = 'Next';
+  static String save = 'Save';
+  static String update = 'Update';
 
 //inapp
-const String getPremium = 'Get Premium!';
-const String preDesc1 = 'Share the care';
-const String preDesc2 = 'All-in-one baby tracker';
-const String preDesc3 = 'Watch your babys growth';
-const String priceContainerText = 'Annual';
-const String priceContainerCost = '\$30';
-const String inappCustomButtonText = 'Start';
-const String vebViewT1 = 'Privacy Policy';
-const String vebViewT2 = 'Restore Purchase';
-const String vebViewT3 = 'Terms of Use';
+  static String getPremium = 'Get Premium!';
+  static String preDesc1 = 'Share the care';
+  static String preDesc2 = 'All-in-one baby tracker';
+  static String preDesc3 = 'Watch your babys growth';
+  static String priceContainerText = 'Annual';
+  static String priceContainerCost = '\$30';
+  static String inappCustomButtonText = 'Start';
+  static String vebViewT1 = 'Privacy Policy';
+  static String vebViewT2 = 'Restore Purchase';
+  static String vebViewT3 = 'Terms of Use';
 
 //home
-const String appbarText = 'Home';
+  static String appbarText = 'Home';
 
 //Settings
-const String customAppbarText = 'Settings';
-const String rateUs = 'Rate us';
-const String termsofuse = 'Terms of Use';
-const String privacy = 'Privacy Policy';
-const String contact = 'Contact Us';
-const String restore = 'Restore Purchase';
-const String mailtoPath = 'andac_05@hotmail.com';
-const String scheme = 'mailto';
+  static String customAppbarText = 'Settings';
+  static String rateUs = 'Rate us';
+  static String termsofuse = 'Terms of Use';
+  static String privacy = 'Privacy Policy';
+  static String contact = 'Contact Us';
+  static String restore = 'Restore Purchase';
+  static String mailtoPath = 'andac_05@hotmail.com';
+  static String scheme = 'mailto';
 
 //feeding
-const String feedingAppbar = 'Feeding';
-const String time = 'Time';
-const String amount = 'Amount (ml)';
-const String note = 'Note';
+  static String feedingAppbar = 'Feeding';
+  static String time = 'Time';
+  static String amount = 'Amount (ml)';
+  static String note = 'Note';
 
 //sleep
-const String sleepAppbar = 'Sleep';
-const String feelSleep = 'Feel Sleep';
-const String wokeUp = 'Woke Up';
+  static String sleepAppbar = 'Sleep';
+  static String feelSleep = 'Feel Sleep';
+  static String wokeUp = 'Woke Up';
 
 //symptomps
-const String sympAppbar = 'Symptomps Time';
-const String symptomos = 'Symptomps';
+  static String sympAppbar = 'Symptomps Time';
+  static String symptomos = 'Symptomps';
 
 //Calender
-const String calenderAppbar = 'Calender';
-const String noDataText = 'No data about the baby has been\nentered yet.Please enter data.';
+  static String calenderAppbar = 'Calender';
+  static String noDataText = 'No data about the baby has been\nentered yet.Please enter data.';
 
 //SymptompsList names
-const String runnyNoseT = 'Runny Nose';
-const String heartburnT = 'Heartburn';
-const String noAppetiteT = 'No Appetite';
-const String rushT = 'Rush';
-const String lowEnergyT = 'Low Energy';
-const String nauseaT = 'Nausea';
-const String coughT = 'Cough';
-const String feverT = 'Fever';
+  static String runnyNoseT = 'Runny Nose';
+  static String heartburnT = 'Heartburn';
+  static String noAppetiteT = 'No Appetite';
+  static String rushT = 'Rush';
+  static String lowEnergyT = 'Low Energy';
+  static String nauseaT = 'Nausea';
+  static String coughT = 'Cough';
+  static String feverT = 'Fever';
 
 //Information
-const String babyFullName = 'Baby Full Name';
-const String babyBirthDate = 'Baby Birth Date';
-const String babyWeight = 'Baby Weight';
-const String babyHeight = 'Baby Height';
-const String babyContinue = 'Continue';
-const String babyUpdate = 'Update';
-const String babyAppbartext = 'Baby Tracker';
-const String weightText = 'Weight';
-const String heightText = 'Height';
-const String kgs = ' kgs';
-const String cms = ' cms';
-const String boyText = 'Boy';
-const String girlText = 'Girl';
-const String desicion = 'Desicion!';
-const String sure = "Are you sure you want to delete your baby's information?";
-const String deleteInf = 'Delete';
-const String removeInf = 'Remove Baby Informations';
+  static String babyFullName = 'Baby Full Name';
+  static String babyBirthDate = 'Baby Birth Date';
+  static String babyWeight = 'Baby Weight';
+  static String babyHeight = 'Baby Height';
+  static String babyContinue = 'Continue';
+  static String babyUpdate = 'Update';
+  static String babyAppbartext = 'Baby Tracker';
+  static String weightText = 'Weight';
+  static String heightText = 'Height';
+  static String kgs = ' kgs';
+  static String cms = ' cms';
+  static String boyText = 'Boy';
+  static String girlText = 'Girl';
+  static String desicion = 'Desicion!';
+  static String sure = "Are you sure you want to delete your baby's information?";
+  static String deleteInf = 'Delete';
+  static String removeInf = 'Remove Baby Informations';
 
 //bottom nav var
-const String home = 'Home';
-const String calendar = 'Calendar';
-const String profile = 'Profile';
-const String memories = 'Memories';
+  static String home = 'Home';
+  static String calendar = 'Calendar';
+  static String profile = 'Profile';
+  static String memories = 'Memories';
 
 //profile
-const String edit = "Edit";
-const String undo = "Undo";
-const String noEmptyText = "Please fill all the blanks!";
+  static String edit = "Edit";
+  static String undo = "Undo";
+  static String noEmptyText = "Please fill all the blanks!";
 
 //Memories
-const String memoriesAppbarText = "Memories";
-const String galleryText = "Gallery";
+  static String memoriesAppbarText = "Memories";
+  static String galleryText = "Gallery";
 
 //showdialog texts
-const String listBodyText = 'Are you sure you want to delete.';
-const String deleteText = 'Delete';
-const String cancelText = 'Cancel';
-const String okeyText = 'Delete';
-const String feedingAlertText = 'Please fill in the blank fields!';
-const String warningText = 'Warning!';
-const String okey = 'Okey';
+  static String listBodyText = 'Are you sure you want to delete.';
+  static String deleteText = 'Delete';
+  static String cancelText = 'Cancel';
+  static String okeyText = 'Delete';
+  static String feedingAlertText = 'Please fill in the blank fields!';
+  static String warningText = 'Warning!';
+  static String okey = 'Okey';
 
 //fab
-const String camera = 'Camera';
-const String gallery = 'Gallery';
-const String deleteAll = "Delete All";
+  static String camera = 'Camera';
+  static String gallery = 'Gallery';
+  static String deleteAll = "Delete All";
 
 //nappy
-const String nappy1Text = "Wet";
-const String nappy2Text = "Dirty";
-const String nappy3Text = "Mixed";
-const String nappy4Text = "Dry";
-const String nappyAppbar = "Nappy";
-const String nappyTime = "Nappy Time";
-const String nappyStatus = 'Diaper Status';
+  static String nappy1Text = "Wet";
+  static String nappy2Text = "Dirty";
+  static String nappy3Text = "Mixed";
+  static String nappy4Text = "Dry";
+  static String nappyAppbar = "Nappy";
+  static String nappyTime = "Nappy Time";
+  static String nappyStatus = 'Diaper Status';
 
 //vaccine
-const String vaccineAppbar = "Vaccine";
-const String vaccineDate = "Vaccine Date";
-const String vaccine = "Vaccine";
-const String vaccine1 = "Hepatitis B Vaccine";
-const String vaccine2 = "Tuberculosis Vaccine";
-const String vaccine3 = "pneumonia vaccine";
-const String vaccine4 = "chickenpox vaccine";
-const String vaccine5 = "measles vaccine";
-const String vaccine6 = "rubella vaccine";
-const String vaccine7 = "mumps vaccine";
-const String vaccine8 = "Hepatitis A vaccine";
-const String vaccine9 = "Tetanus vaccine";
+  static String vaccineAppbar = "Vaccine";
+  static String vaccineDate = "Vaccine Date";
+  static String vaccine = "Vaccine";
+  static String vaccine1 = "Hepatitis B Vaccine";
+  static String vaccine2 = "Tuberculosis Vaccine";
+  static String vaccine3 = "pneumonia vaccine";
+  static String vaccine4 = "chickenpox vaccine";
+  static String vaccine5 = "measles vaccine";
+  static String vaccine6 = "rubella vaccine";
+  static String vaccine7 = "mumps vaccine";
+  static String vaccine8 = "Hepatitis A vaccine";
+  static String vaccine9 = "Tetanus vaccine";
+}

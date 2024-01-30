@@ -12,6 +12,7 @@ class SymptompsList extends StatelessWidget {
   Widget build(BuildContext context) {
     final symptompsViewmodel = locator.get<SymptompsViewmodel>();
     symptompsViewmodel.startSelection();
+    symptompsViewmodel.fillList(context);
     return Scaffold(
       appBar: CustomAppbar(
           appbarText: AppLocalizations.of(context)!.symptomos,

@@ -29,10 +29,17 @@ abstract class _InformationViewModelBase with Store {
   ObservableList<InformationGender> selectedIndices = ObservableList<InformationGender>();
 
   @observable
-  List<InformationGender> genderList = [
-    InformationGender(image: ImagesConst.girl, name: girlText),
-    InformationGender(image: ImagesConst.boy, name: boyText),
-  ];
+  List<InformationGender> genderList = [];
+  //bu fonksiyon ve üstteki bağlantılıdır. Bağlantı işse şudur: normalde alttaki listenin içinde yazanlar yukarıda yazılı oldup normal bir şekilde kullanılabilirdi.
+  //fakat localizations işlemi yaptığımda bir context istediği için bende mecbur fonk içine aynı listeyi açıp elemanları yazdım.
+  //ve bu fonksiyonu viewda çağırdım. üstttekine gitti veriler
+  @action
+  void fillList(BuildContext context) {
+    genderList = [
+      InformationGender(image: ImagesConst.girl, name: AppLocalizations.of(context)!.girlText),
+      InformationGender(image: ImagesConst.boy, name: AppLocalizations.of(context)!.boyText),
+    ];
+  }
 
   @observable
   bool isSeenInformation = false;

@@ -14,11 +14,21 @@ abstract class _OnboardingViewmodelBase with Store {
   PageController controller = PageController();
 
   @observable
-  List<OnboardingModel> onbList = [
-    OnboardingModel(ImagesConst.onboarding1, onb1Title, onb1Description),
-    OnboardingModel(ImagesConst.onboarding2, onb2Title, onb2Description),
-    OnboardingModel(ImagesConst.onboarding3, onb3Title, onb3Description),
-  ];
+  List<OnboardingModel> onbList = [];
+  //bu fonksiyon ve üstteki bağlantılıdır. Bağlantı işse şudur: normalde alttaki listenin içinde yazanlar yukarıda yazılı oldup normal bir şekilde kullanılabilirdi.
+  //fakat localizations işlemi yaptığımda bir context istediği için bende mecbur fonk içine aynı listeyi açıp elemanları yazdım.
+  //ve bu fonksiyonu viewda çağırdım. üstttekine gitti veriler
+  @action
+  void fillList(BuildContext context) {
+    onbList = [
+      OnboardingModel(ImagesConst.onboarding1, AppLocalizations.of(context)!.onb1Title,
+          AppLocalizations.of(context)!.onb1Description),
+      OnboardingModel(ImagesConst.onboarding2, AppLocalizations.of(context)!.onb2Title,
+          AppLocalizations.of(context)!.onb2Description),
+      OnboardingModel(ImagesConst.onboarding3, AppLocalizations.of(context)!.onb3Title,
+          AppLocalizations.of(context)!.onb3Description)
+    ];
+  }
 
   @observable
   int currentIndex = 0;

@@ -123,5 +123,11 @@
     "privacy17" : "The Baby Tracker application may use cookies and similar tracking technologies to enhance user experience and improve service quality. However, this information is solely used to enhance in-app usage.",
     "privacy18" : "8. Change Notifications:",
     "privacy19" : "Our privacy policy may be updated from time to time. In the event of any changes, appropriate communication methods will be used to notify users of the updated policy.",
-    "privacy20" : "This privacy policy aims to protect user privacy for the Baby Tracker application. For more information or any questions, you can send an email to andac_05@hotmail.com."
+    "privacy20" : "This privacy policy aims to protect user privacy for the Baby Tracker application. For more information or any questions, you can send an email to andac_05@hotmail.com.",
+    "onb1Title" : "Track Your Baby's Activities with Ease",
+    "onb2Title" : "Stay Connected with Caregivers",
+    "onb3Title" : "Stay Connected with Caregivers",
+    "onb1Description" : "Get started with tracking your baby's feedings, diaper changes, sleep patterns, and more...",
+    "onb2Description" : "Share access to your baby's tracker with family members, babysitters, or healthcare providers",
+    "onb3Description" : "Share access to your baby's tracker with family members, babysitters, or healthcare providers"
     }

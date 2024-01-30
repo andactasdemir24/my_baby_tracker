@@ -31,17 +31,25 @@ abstract class _VaccineViewModelBase with Store {
   bool isBlurred = false;
 
   @observable
-  List<String> list = [
-    vaccine1,
-    vaccine2,
-    vaccine3,
-    vaccine4,
-    vaccine5,
-    vaccine6,
-    vaccine7,
-    vaccine8,
-    vaccine9,
-  ];
+  List<String> list = [];
+
+  //bu fonksiyon ve üstteki bağlantılıdır. Bağlantı işse şudur: normalde alttaki listenin içinde yazanlar yukarıda yazılı oldup normal bir şekilde kullanılabilirdi.
+  //fakat localizations işlemi yaptığımda bir context istediği için bende mecbur fonk içine aynı listeyi açıp elemanları yazdım.
+  //ve bu fonksiyonu viewda çağırdım. üstttekine gitti veriler
+  @action
+  void fillList(BuildContext context) {
+    list = [
+      AppLocalizations.of(context)!.vaccine1,
+      AppLocalizations.of(context)!.vaccine2,
+      AppLocalizations.of(context)!.vaccine3,
+      AppLocalizations.of(context)!.vaccine4,
+      AppLocalizations.of(context)!.vaccine5,
+      AppLocalizations.of(context)!.vaccine6,
+      AppLocalizations.of(context)!.vaccine7,
+      AppLocalizations.of(context)!.vaccine8,
+      AppLocalizations.of(context)!.vaccine9,
+    ];
+  }
 
   @action
   void toggleBlur(BuildContext context) {

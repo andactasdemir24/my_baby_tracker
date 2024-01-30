@@ -17,22 +17,22 @@ class CustomContainer extends StatelessWidget {
     return Observer(
       builder: (context) {
         return Container(
-          decoration:  BoxDecoration(
+          decoration: BoxDecoration(
               color: ColorConst.cwhite,
               borderRadius: const BorderRadius.only(topLeft: Radius.circular(30.0), topRight: Radius.circular(30.0))),
           child: Column(
             children: [
               SizedBox(height: displayHeight(context) * 0.04),
               SizedBox(
-                  width: displayWidth(context) * 0.8,
+                  width: displayWidth(context) * 0.9,
                   child: Text(text,
-                      style:  TextStyle(fontSize: 30, fontWeight: FontWeight.w600, color: ColorConst.cblack),
+                      style: TextStyle(fontSize: 28, fontWeight: FontWeight.w600, color: ColorConst.cblack),
                       textAlign: TextAlign.center)),
               SizedBox(height: displayHeight(context) * 0.01),
               SizedBox(
-                  width: displayWidth(context) * 0.8,
+                  width: displayWidth(context) * 0.9,
                   child: Text(text2,
-                      style:  TextStyle(fontSize: 15, fontWeight: FontWeight.w500, color: ColorConst.cblack),
+                      style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500, color: ColorConst.cblack),
                       textAlign: TextAlign.center)),
               SizedBox(height: displayHeight(context) * 0.01),
               const CurrentIndexContainer(),
@@ -41,7 +41,7 @@ class CustomContainer extends StatelessWidget {
                 return CustomButton(
                   text: Text(
                     AppLocalizations.of(context)!.buttonText,
-                    style:  TextStyle(color: ColorConst.cwhite, fontSize: 20, fontWeight: FontWeight.w600),
+                    style: TextStyle(color: ColorConst.cwhite, fontSize: 20, fontWeight: FontWeight.w600),
                   ),
                   onPressed: () {
                     if (onbViewmodel.currentIndex == onbViewmodel.onbList.length - 1) {

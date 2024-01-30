@@ -101,6 +101,17 @@ mixin _$OnboardingViewmodel on _OnboardingViewmodelBase, Store {
       ActionController(name: '_OnboardingViewmodelBase', context: context);
 
   @override
+  void fillList(BuildContext context) {
+    final _$actionInfo = _$_OnboardingViewmodelBaseActionController.startAction(
+        name: '_OnboardingViewmodelBase.fillList');
+    try {
+      return super.fillList(context);
+    } finally {
+      _$_OnboardingViewmodelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void changeIndex(int index) {
     final _$actionInfo = _$_OnboardingViewmodelBaseActionController.startAction(
         name: '_OnboardingViewmodelBase.changeIndex');

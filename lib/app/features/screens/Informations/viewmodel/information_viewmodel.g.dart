@@ -359,6 +359,17 @@ mixin _$InformationViewModel on _InformationViewModelBase, Store {
       ActionController(name: '_InformationViewModelBase', context: context);
 
   @override
+  void fillList(BuildContext context) {
+    final _$actionInfo = _$_InformationViewModelBaseActionController
+        .startAction(name: '_InformationViewModelBase.fillList');
+    try {
+      return super.fillList(context);
+    } finally {
+      _$_InformationViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void holdTextFieldsData() {
     final _$actionInfo = _$_InformationViewModelBaseActionController
         .startAction(name: '_InformationViewModelBase.holdTextFieldsData');

@@ -175,6 +175,17 @@ mixin _$NappyViewModel on _NappyViewModelBase, Store {
       ActionController(name: '_NappyViewModelBase', context: context);
 
   @override
+  void fillList(BuildContext context) {
+    final _$actionInfo = _$_NappyViewModelBaseActionController.startAction(
+        name: '_NappyViewModelBase.fillList');
+    try {
+      return super.fillList(context);
+    } finally {
+      _$_NappyViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void toggleBlur5(BuildContext context) {
     final _$actionInfo = _$_NappyViewModelBaseActionController.startAction(
         name: '_NappyViewModelBase.toggleBlur5');

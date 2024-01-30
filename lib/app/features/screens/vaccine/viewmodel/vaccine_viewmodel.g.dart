@@ -151,6 +151,17 @@ mixin _$VaccineViewModel on _VaccineViewModelBase, Store {
       ActionController(name: '_VaccineViewModelBase', context: context);
 
   @override
+  void fillList(BuildContext context) {
+    final _$actionInfo = _$_VaccineViewModelBaseActionController.startAction(
+        name: '_VaccineViewModelBase.fillList');
+    try {
+      return super.fillList(context);
+    } finally {
+      _$_VaccineViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void toggleBlur(BuildContext context) {
     final _$actionInfo = _$_VaccineViewModelBaseActionController.startAction(
         name: '_VaccineViewModelBase.toggleBlur');
