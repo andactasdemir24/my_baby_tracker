@@ -20,7 +20,7 @@ class CustomSettingsContainer extends StatelessWidget {
         vertical: displayHeight(context) * 0.01,
       ),
       child: Material(
-        elevation: 5,
+        elevation: 2,
         borderRadius: BorderRadius.circular(20),
         child: Container(
           height: displayHeight(context) * 0.075,

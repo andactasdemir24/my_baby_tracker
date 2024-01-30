@@ -19,7 +19,7 @@ class RemoveBabyWidget extends StatelessWidget {
           padding:
               EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.055, vertical: displayHeight(context) * 0.01),
           child: Material(
-            elevation: 5,
+            elevation: 2,
             borderRadius: BorderRadius.circular(20),
             child: Container(
               height: displayHeight(context) * 0.075,

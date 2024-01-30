@@ -35,6 +35,8 @@ const String termsofuse = 'Terms of Use';
 const String privacy = 'Privacy Policy';
 const String contact = 'Contact Us';
 const String restore = 'Restore Purchase';
+const String mailtoPath = 'andac_05@hotmail.com';
+const String scheme = 'mailto';
 
 //feeding
 const String feedingAppbar = 'Feeding';
@@ -83,7 +85,6 @@ const String desicion = 'Desicion!';
 const String sure = "Are you sure you want to delete your baby's information?";
 const String deleteInf = 'Delete';
 const String removeInf = 'Remove Baby Informations';
-
 
 //bottom nav var
 const String home = 'Home';

@@ -23,8 +23,8 @@ class SettingsPage extends StatelessWidget {
           GestureDetector(
               onTap: () {
                 final Uri emailLaunchUri = Uri(
-                    scheme: 'mailto',
-                    path: 'andac_05@hotmail.com',
+                    scheme: scheme,
+                    path: mailtoPath,
                     query: informationViewmodel
                         .encodeQueryParameters(<String, String>{'subject': AppLocalizations.of(context)!.subject}));
                 launchUrl(emailLaunchUri);
