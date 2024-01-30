@@ -85,5 +85,6 @@
     "vaccine8" : "Hepatitis A vaccine",
     "vaccine9" : "Tetanus vaccine",
     "all" : "All",
-    "anyData" : "You don't have any data."
+    "anyData" : "You don't have any data.",
+    "subject" : "Please share your criticisms and suggestions with us."
 }

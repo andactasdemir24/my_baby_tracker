@@ -381,6 +381,17 @@ mixin _$InformationViewModel on _InformationViewModelBase, Store {
   }
 
   @override
+  String? encodeQueryParameters(Map<String, String> params) {
+    final _$actionInfo = _$_InformationViewModelBaseActionController
+        .startAction(name: '_InformationViewModelBase.encodeQueryParameters');
+    try {
+      return super.encodeQueryParameters(params);
+    } finally {
+      _$_InformationViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   void toggleBlur(BuildContext context) {
     final _$actionInfo = _$_InformationViewModelBaseActionController
         .startAction(name: '_InformationViewModelBase.toggleBlur');

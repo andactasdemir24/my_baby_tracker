@@ -110,6 +110,14 @@ abstract class _InformationViewModelBase with Store {
     isSeenInformation = preferences.getBool('information') ?? false;
   }
 
+  //mail göndermek için
+  @action
+  String? encodeQueryParameters(Map<String, String> params) {
+    return params.entries
+        .map((MapEntry<String, String> e) => '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
+        .join('&');
+  }
+
   //butona basınca blur lottiesinin gelmesi
   @action
   void toggleBlur(BuildContext context) {
