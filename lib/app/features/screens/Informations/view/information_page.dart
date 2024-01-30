@@ -38,7 +38,7 @@ class InformationPage extends StatelessWidget {
                                         child: Container(
                                           decoration: ShapeDecoration(
                                             shape: OvalBorder(
-                                              side: BorderSide(width: 2.w, color: feedindIconColor),
+                                              side: BorderSide(width: 2.w, color: ColorConst.feedindIconColor),
                                             ),
                                           ),
                                         ),
@@ -73,7 +73,7 @@ class InformationPage extends StatelessWidget {
                         controller: informationviewmodel.nameController,
                         textInputType: TextInputType.name,
                         hintText: AppLocalizations.of(context)!.babyFullName,
-                        hintStyle: const TextStyle(color: settingsIndex),
+                        hintStyle: TextStyle(color: ColorConst.settingsIndex),
                         icon: const Icon(Baby.baby),
                         textStyle: const TextStyle(fontWeight: FontWeight.bold),
                         inputFormatters: [
@@ -85,7 +85,7 @@ class InformationPage extends StatelessWidget {
                         onChanged: (p0) => informationviewmodel.changeVisible(),
                         controller: informationviewmodel.birthDateController,
                         hintText: AppLocalizations.of(context)!.babyBirthDate,
-                        hintStyle: const TextStyle(color: settingsIndex),
+                        hintStyle: TextStyle(color: ColorConst.settingsIndex),
                         textInputType: TextInputType.none,
                         icon: const Icon(Baby.birthdaycake),
                         textStyle: const TextStyle(fontWeight: FontWeight.bold),
@@ -98,7 +98,7 @@ class InformationPage extends StatelessWidget {
                         controller: informationviewmodel.weightController,
                         textInputType: TextInputType.number,
                         hintText: AppLocalizations.of(context)!.babyWeight,
-                        hintStyle: const TextStyle(color: settingsIndex),
+                        hintStyle: TextStyle(color: ColorConst.settingsIndex),
                         icon: const Icon(Baby.weight),
                         textStyle: const TextStyle(fontWeight: FontWeight.bold),
                         inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'^\d{1,3}$'))],
@@ -108,7 +108,7 @@ class InformationPage extends StatelessWidget {
                         controller: informationviewmodel.heightController,
                         textInputType: TextInputType.number,
                         hintText: AppLocalizations.of(context)!.babyHeight,
-                        hintStyle: const TextStyle(color: settingsIndex),
+                        hintStyle: TextStyle(color: ColorConst.settingsIndex),
                         icon: const Icon(Icons.height),
                         textStyle: const TextStyle(fontWeight: FontWeight.bold),
                         inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'^\d{1,3}$'))],
@@ -118,8 +118,8 @@ class InformationPage extends StatelessWidget {
                         return Visibility(
                           visible: informationviewmodel.isButtonVisibleInf,
                           child: CustomButton(
-                            text:
-                                Text(AppLocalizations.of(context)!.babyContinue, style: const TextStyle(color: cwhite)),
+                            text: Text(AppLocalizations.of(context)!.babyContinue,
+                                style: TextStyle(color: ColorConst.cwhite)),
                             onPressed: () {
                               informationviewmodel.saveIsSeenInformation();
                               informationviewmodel.addInformation();
@@ -136,7 +136,8 @@ class InformationPage extends StatelessWidget {
                 Positioned.fill(
                   child: BackdropFilter(
                     filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                    child: Container(color: cblack.withOpacity(0), child: Center(child: Lottie.asset(lottie))),
+                    child:
+                        Container(color: ColorConst.cblack.withOpacity(0), child: Center(child: Lottie.asset(lottie))),
                   ),
                 ),
             ],

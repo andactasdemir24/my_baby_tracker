@@ -59,7 +59,7 @@ class _SleepPageEditState extends State<SleepPageEdit> {
                     text: sleepViewmodel.time1 != null
                         ? sleepViewmodel.time1!.format(context)
                         : '${widget.feelSleep.hour.toString()}:${widget.feelSleep.minute.toString()}',
-                    color: cblack,
+                    color: ColorConst.cblack,
                   ),
                 ),
                 Padding(
@@ -73,7 +73,7 @@ class _SleepPageEditState extends State<SleepPageEdit> {
                       text: sleepViewmodel.time2 != null
                           ? sleepViewmodel.time2!.format(context)
                           : '${widget.wokeUp.hour.toString()}:${widget.wokeUp.minute.toString()}',
-                      color: cblack,
+                      color: ColorConst.cblack,
                     ),
                   ),
                 ),
@@ -85,7 +85,8 @@ class _SleepPageEditState extends State<SleepPageEdit> {
                 Observer(
                   builder: (context) {
                     return CustomButton(
-                      text: Text(AppLocalizations.of(context)!.update, style: const TextStyle(color: cwhite)),
+                      text:
+                          Text(AppLocalizations.of(context)!.update, style:  TextStyle(color: ColorConst.cwhite)),
                       onPressed: () {
                         var value = Sleep(
                           id: widget.id,
@@ -106,7 +107,7 @@ class _SleepPageEditState extends State<SleepPageEdit> {
               Positioned.fill(
                 child: BackdropFilter(
                   filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                  child: Container(color: cblack.withOpacity(0), child: Center(child: Lottie.asset(lottie))),
+                  child: Container(color: ColorConst.cblack.withOpacity(0), child: Center(child: Lottie.asset(lottie))),
                 ),
               ),
           ]);

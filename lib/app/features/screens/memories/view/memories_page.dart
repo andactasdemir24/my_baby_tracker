@@ -16,7 +16,7 @@ class MemoriesPage extends StatelessWidget {
           centerTitle: false,
           actions: [CustomDeleteAllButton(memoriesViewmodel: memoriesViewmodel)],
         ),
-        backgroundColor: shade100,
+        backgroundColor: ColorConst.shade100,
         body: Observer(builder: (context) {
           if (memoriesViewmodel.memoriesList.isNotEmpty) {
             return SingleChildScrollView(

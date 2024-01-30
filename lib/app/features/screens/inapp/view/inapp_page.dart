@@ -39,7 +39,7 @@
 //           AspectRatio(aspectRatio: displayHeight(context) * 0.007),
 //           CustomButton(
 //             text: const Text(inappCustomButtonText,
-//                 style: TextStyle(color: buttonTextColor, fontSize: 20, fontWeight: FontWeight.w600)),
+//                 style: TextStyle(color: ColorConst.buttonTextColor, fontSize: 20, fontWeight: FontWeight.w600)),
 //             onPressed: () {},
 //           ),
 //           Padding(
@@ -50,9 +50,9 @@
 //                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 //                 children: [
 //                   WebViews(text: 'https://www.google.com/', text2: vebViewT1),
-//                   const VerticalDivider(color: annualPriceText, thickness: 2),
+//                   const VerticalDivider(color: ColorConst.annualPriceText, thickness: 2),
 //                   WebViews(text: 'https://www.google.com/', text2: vebViewT1),
-//                   const VerticalDivider(color: annualPriceText, thickness: 2),
+//                   const VerticalDivider(color: ColorConst.annualPriceText, thickness: 2),
 //                   WebViews(text: 'https://www.google.com/', text2: vebViewT1),
 //                 ],
 //               ),

@@ -29,10 +29,11 @@ class _CustomSymptompsListContainerState extends State<CustomSymptompsListContai
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(25.r),
-              color: annualColor,
+              color: ColorConst.annualColor,
               border: Border.all(
-                color:
-                    widget.symptompsViewmodel.selectedIndices.contains(widget.symptomp) ? sympListShadow : ctransparent,
+                color: widget.symptompsViewmodel.selectedIndices.contains(widget.symptomp)
+                    ? ColorConst.sympListShadow
+                    : ColorConst.ctransparent,
                 width: 2.w,
               ),
             ),

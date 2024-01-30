@@ -31,7 +31,7 @@ class CustomSettingsContainer extends StatelessWidget {
             height: displayHeight(context) * 0.075,
             width: displayWidth(context) * 0.8878,
             decoration: ShapeDecoration(
-              color: annualColor,
+              color: ColorConst.annualColor,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
               ),
@@ -47,7 +47,7 @@ class CustomSettingsContainer extends StatelessWidget {
                       Text(text, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14))
                     ],
                   ),
-                  const Icon(Baby.left, color: settingsIndex),
+                   Icon(Baby.left, color: ColorConst.settingsIndex),
                 ],
               ),
             ),

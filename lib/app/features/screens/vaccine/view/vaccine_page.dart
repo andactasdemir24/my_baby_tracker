@@ -24,7 +24,7 @@ class VaccinePage extends StatelessWidget {
                   onChanged: (p0) => vaccineViewModel.changeVisible(),
                   controller: vaccineViewModel.dateController,
                   hintText: AppLocalizations.of(context)!.vaccineDate,
-                  hintStyle: const TextStyle(color: settingsIndex),
+                  hintStyle: TextStyle(color: ColorConst.settingsIndex),
                   textInputType: TextInputType.none,
                   textStyle: const TextStyle(fontWeight: FontWeight.bold),
                   onTap: () {
@@ -34,7 +34,7 @@ class VaccinePage extends StatelessWidget {
                 CustomDropdownButton(
                     vaccineViewModel: vaccineViewModel,
                     text: AppLocalizations.of(context)!.vaccine,
-                    color: settingsIndex),
+                    color: ColorConst.settingsIndex),
                 CustomNoteTextfield(
                   controller: vaccineViewModel.noteController,
                   onChanged: (p0) => vaccineViewModel.changeVisible(),
@@ -45,7 +45,7 @@ class VaccinePage extends StatelessWidget {
                     return Visibility(
                       visible: vaccineViewModel.isButtonVisible,
                       child: CustomButton(
-                          text: Text(AppLocalizations.of(context)!.save, style: const TextStyle(color: cwhite)),
+                          text: Text(AppLocalizations.of(context)!.save, style: TextStyle(color: ColorConst.cwhite)),
                           onPressed: () {
                             vaccineViewModel.addVaccine();
                             vaccineViewModel.toggleBlur(context);
@@ -59,7 +59,7 @@ class VaccinePage extends StatelessWidget {
               Positioned.fill(
                 child: BackdropFilter(
                   filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                  child: Container(color: cblack.withOpacity(0), child: Center(child: Lottie.asset(lottie))),
+                  child: Container(color: ColorConst.cblack.withOpacity(0), child: Center(child: Lottie.asset(lottie))),
                 ),
               ),
           ],

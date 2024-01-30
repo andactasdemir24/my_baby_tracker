@@ -30,7 +30,7 @@ class CustomNappyList extends StatelessWidget {
           height: displayHeight(context) * 0.082,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(25.r),
-            color: annualColor,
+            color: ColorConst.annualColor,
           ),
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.04),
@@ -44,7 +44,7 @@ class CustomNappyList extends StatelessWidget {
                       return text;
                     },
                   ),
-                  const Icon(Baby.left, color: settingsIndex)
+                   Icon(Baby.left, color: ColorConst.settingsIndex)
                 ],
               ),
             ),

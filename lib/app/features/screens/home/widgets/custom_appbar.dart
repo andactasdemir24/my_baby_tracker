@@ -10,15 +10,15 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       title: Text(
         AppLocalizations.of(context)!.babyAppbartext,
-        style: const TextStyle(color: cwhite, fontWeight: FontWeight.bold),
+        style: TextStyle(color: ColorConst.cwhite, fontWeight: FontWeight.bold),
       ),
-      backgroundColor: homeAppbar,
+      backgroundColor: ColorConst.homeAppbar,
       actions: [
         GestureDetector(
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) => const SettingsPage()));
             },
-            child: Icon(Baby.settings, size: 50.h, color: cwhite)),
+            child: Icon(Baby.settings, size: 50.h, color: ColorConst.cwhite)),
       ],
     );
   }

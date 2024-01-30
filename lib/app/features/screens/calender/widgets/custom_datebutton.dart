@@ -28,7 +28,7 @@ class DateButton extends StatelessWidget {
           },
           child: Text(
             DateFormat('EEE, MMM d', locale).format(calenderViewmodel.selectedDate),
-            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500, color: cblack),
+            style:  TextStyle(fontSize: 20, fontWeight: FontWeight.w500, color: ColorConst.cblack),
           ),
         );
       },

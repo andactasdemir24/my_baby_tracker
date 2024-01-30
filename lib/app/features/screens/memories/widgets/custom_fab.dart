@@ -15,11 +15,12 @@ class CustomFloatActionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Observer(builder: (context) {
       return SpeedDial(
-        backgroundColor: shade300,
+        backgroundColor: ColorConst.buttonColor,
+        iconTheme: IconThemeData(color: ColorConst.cwhite),
         elevation: 5,
         activeIcon: Icons.clear,
         icon: Icons.add,
-        overlayColor: cblack,
+        overlayColor: ColorConst.shade500,
         spacing: 10,
         children: [
           SpeedDialChild(

@@ -63,7 +63,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                         child: Container(
                                           decoration: ShapeDecoration(
                                             shape: OvalBorder(
-                                              side: BorderSide(width: 2.w, color: annualColor),
+                                              side: BorderSide(width: 2.w, color: ColorConst.annualColor),
                                             ),
                                           ),
                                         ),
@@ -77,11 +77,14 @@ class _ProfilePageState extends State<ProfilePage> {
                       controller: informationviewmodel.nameController,
                       textInputType: TextInputType.name,
                       hintText: AppLocalizations.of(context)!.babyFullName,
-                      hintStyle: const TextStyle(color: settingsIndex),
-                      icon: Icon(Baby.baby, color: !informationviewmodel.isEdit ? shade500 : mainIconColor, size: 20),
+                      hintStyle:  TextStyle(color: ColorConst.settingsIndex),
+                      icon: Icon(Baby.baby,
+                          color: !informationviewmodel.isEdit ? ColorConst.shade500 : ColorConst.mainIconColor,
+                          size: 20),
                       readOnly: !informationviewmodel.isEdit,
                       textStyle: TextStyle(
-                          fontWeight: FontWeight.bold, color: !informationviewmodel.isEdit ? shade500 : cblack),
+                          fontWeight: FontWeight.bold,
+                          color: !informationviewmodel.isEdit ? ColorConst.shade500 : ColorConst.cblack),
                       inputFormatters: [
                         LengthLimitingTextInputFormatter(25),
                         FilteringTextInputFormatter.allow(RegExp(r'^[a-zA-ZçÇşŞöÖüÜıİ\s]*$'))
@@ -90,13 +93,15 @@ class _ProfilePageState extends State<ProfilePage> {
                     CustomInformationTextField(
                         controller: informationviewmodel.birthDateController,
                         hintText: AppLocalizations.of(context)!.babyBirthDate,
-                        hintStyle: const TextStyle(color: settingsIndex),
+                        hintStyle:  TextStyle(color: ColorConst.settingsIndex),
                         textInputType: TextInputType.none,
                         icon: Icon(Baby.birthdaycake,
-                            color: !informationviewmodel.isEdit ? shade500 : mainIconColor, size: 20),
+                            color: !informationviewmodel.isEdit ? ColorConst.shade500 : ColorConst.mainIconColor,
+                            size: 20),
                         readOnly: !informationviewmodel.isEdit,
                         textStyle: TextStyle(
-                            fontWeight: FontWeight.bold, color: !informationviewmodel.isEdit ? shade500 : cblack),
+                            fontWeight: FontWeight.bold,
+                            color: !informationviewmodel.isEdit ? ColorConst.shade500 : ColorConst.cblack),
                         onTap: informationviewmodel.isEdit
                             ? () {
                                 informationviewmodel.selectDate(context, informationviewmodel.birthDateController);
@@ -106,22 +111,27 @@ class _ProfilePageState extends State<ProfilePage> {
                       controller: informationviewmodel.weightController,
                       textInputType: TextInputType.number,
                       hintText: AppLocalizations.of(context)!.babyWeight,
-                      hintStyle: const TextStyle(color: settingsIndex),
-                      icon: Icon(Baby.weight, color: !informationviewmodel.isEdit ? shade500 : mainIconColor, size: 20),
+                      hintStyle:  TextStyle(color: ColorConst.settingsIndex),
+                      icon: Icon(Baby.weight,
+                          color: !informationviewmodel.isEdit ? ColorConst.shade500 : ColorConst.mainIconColor,
+                          size: 20),
                       readOnly: !informationviewmodel.isEdit,
                       textStyle: TextStyle(
-                          fontWeight: FontWeight.bold, color: !informationviewmodel.isEdit ? shade500 : cblack),
+                          fontWeight: FontWeight.bold,
+                          color: !informationviewmodel.isEdit ? ColorConst.shade500 : ColorConst.cblack),
                       inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'^\d{1,3}$'))],
                     ),
                     CustomInformationTextField(
                       controller: informationviewmodel.heightController,
                       textInputType: TextInputType.number,
                       hintText: AppLocalizations.of(context)!.babyHeight,
-                      hintStyle: const TextStyle(color: settingsIndex),
-                      icon: Icon(Icons.height, color: !informationviewmodel.isEdit ? shade500 : mainIconColor),
+                      hintStyle:  TextStyle(color: ColorConst.settingsIndex),
+                      icon: Icon(Icons.height,
+                          color: !informationviewmodel.isEdit ? ColorConst.shade500 : ColorConst.mainIconColor),
                       readOnly: !informationviewmodel.isEdit,
                       textStyle: TextStyle(
-                          fontWeight: FontWeight.bold, color: !informationviewmodel.isEdit ? shade500 : cblack),
+                          fontWeight: FontWeight.bold,
+                          color: !informationviewmodel.isEdit ? ColorConst.shade500 : ColorConst.cblack),
                       inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'^\d{1,3}$'))],
                     ),
                     AspectRatio(aspectRatio: displayHeight(context) * 0.015),
@@ -129,7 +139,8 @@ class _ProfilePageState extends State<ProfilePage> {
                       return Visibility(
                         visible: informationviewmodel.isEdit,
                         child: CustomButton(
-                          text: Text(AppLocalizations.of(context)!.babyUpdate, style: const TextStyle(color: cwhite)),
+                          text: Text(AppLocalizations.of(context)!.babyUpdate,
+                              style:  TextStyle(color: ColorConst.cwhite)),
                           onPressed: () {
                             if (informationviewmodel.areFieldsFilled) {
                               // Update the information
@@ -161,7 +172,7 @@ class _ProfilePageState extends State<ProfilePage> {
               Positioned.fill(
                 child: BackdropFilter(
                   filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                  child: Container(color: cblack.withOpacity(0), child: Center(child: Lottie.asset(lottie))),
+                  child: Container(color: ColorConst.cblack.withOpacity(0), child: Center(child: Lottie.asset(lottie))),
                 ),
               ),
           ],

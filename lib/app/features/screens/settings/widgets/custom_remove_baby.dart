@@ -25,7 +25,7 @@ class RemoveBabyWidget extends StatelessWidget {
               height: displayHeight(context) * 0.075,
               width: displayWidth(context) * 0.8878,
               decoration: ShapeDecoration(
-                color: annualColor,
+                color: ColorConst.annualColor,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),
@@ -36,8 +36,8 @@ class RemoveBabyWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(AppLocalizations.of(context)!.removeInf,
-                        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: cred)),
-                    const Icon(Icons.logout_outlined, color: settingsIndex),
+                        style:  TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: ColorConst.cred)),
+                     Icon(Icons.logout_outlined, color: ColorConst.settingsIndex),
                   ],
                 ),
               ),

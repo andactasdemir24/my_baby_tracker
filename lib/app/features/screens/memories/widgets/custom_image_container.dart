@@ -32,7 +32,7 @@ class CustomImageContainerMemories extends StatelessWidget {
         borderRadius: BorderRadius.circular(10.r),
         child: Container(
           decoration: BoxDecoration(
-            border: Border.all(color: cwhite, width: 1.w),
+            border: Border.all(color: ColorConst.cwhite, width: 1.w),
             borderRadius: BorderRadius.circular(10.r),
             image: DecorationImage(image: FileImage(File(memories.image!)), fit: BoxFit.cover),
           ),

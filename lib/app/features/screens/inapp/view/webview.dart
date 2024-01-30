@@ -26,6 +26,6 @@
 //         },
 //         child: Text(text2,
 //             style: const TextStyle(
-//                 color: vebviewText, fontSize: 10, fontWeight: FontWeight.w400, decoration: TextDecoration.underline)));
+//                 color: ColorConst.vebviewText, fontSize: 10, fontWeight: FontWeight.w400, decoration: TextDecoration.underline)));
 //   }
 // }

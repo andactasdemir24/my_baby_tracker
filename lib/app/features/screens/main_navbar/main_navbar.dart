@@ -34,10 +34,10 @@ class _MainNavBarState extends State<MainNavBar> {
           padding:
               EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.03, vertical: displayWidth(context) * 0.03),
           mainAxisAlignment: MainAxisAlignment.spaceAround,
-          color: shade500,
-          activeColor: mainIconColor,
-          backgroundColor: cwhite,
-          tabBackgroundColor: shade200,
+          color: ColorConst.shade500,
+          activeColor: ColorConst.mainIconColor,
+          backgroundColor: ColorConst.cwhite,
+          tabBackgroundColor: ColorConst.shade200,
           selectedIndex: _selectedIndex,
           gap: 8,
           tabs: [

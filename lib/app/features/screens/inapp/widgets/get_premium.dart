@@ -12,7 +12,7 @@
 //         child: Text(getPremium,
 //             style: TextStyle(
 //               fontSize: 27,
-//               color: buttonColor,
+//               color: ColorConst.ColorConst.buttonColor,
 //               fontWeight: FontWeight.w600,
 //             )));
 //   }

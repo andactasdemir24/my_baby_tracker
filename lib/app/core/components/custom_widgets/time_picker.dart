@@ -20,7 +20,7 @@ class CustomTimePicker extends StatelessWidget {
         height: displayHeight(context) * 0.082,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(25),
-          color: annualColor,
+          color: ColorConst.annualColor,
         ),
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.04),

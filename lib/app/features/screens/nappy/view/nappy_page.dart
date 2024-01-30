@@ -27,14 +27,14 @@ class NappyPage extends StatelessWidget {
                       text: nappyViewmodel.time4 != null
                           ? nappyViewmodel.time4!.format(context)
                           : AppLocalizations.of(context)!.nappyTime,
-                      color: nappyViewmodel.time4 != null ? cblack : settingsIndex),
+                      color: nappyViewmodel.time4 != null ? ColorConst.cblack : ColorConst.settingsIndex),
                 ),
                 SizedBox(height: displayHeight(context) * 0.03),
                 SizedBox(
                   width: displayWidth(context) * 0.85,
                   child: Text(
                     AppLocalizations.of(context)!.nappyStatus,
-                    style: const TextStyle(color: cblack, fontSize: 15.5, fontWeight: FontWeight.bold),
+                    style:  TextStyle(color: ColorConst.cblack, fontSize: 15.5, fontWeight: FontWeight.bold),
                   ),
                 ),
                 CustomNappyList(
@@ -45,7 +45,7 @@ class NappyPage extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 15.5,
                       fontWeight: FontWeight.bold,
-                      color: nappyViewmodel.selectedIndicess.isEmpty ? settingsIndex : cblack),
+                      color: nappyViewmodel.selectedIndicess.isEmpty ? ColorConst.settingsIndex : ColorConst.cblack),
                 )),
                 SizedBox(height: displayHeight(context) * 0.02),
                 CustomNoteTextfield(
@@ -58,7 +58,8 @@ class NappyPage extends StatelessWidget {
                     return Visibility(
                       visible: nappyViewmodel.isButtonVisible4,
                       child: CustomButton(
-                        text: Text(AppLocalizations.of(context)!.save, style: const TextStyle(color: cwhite)),
+                        text:
+                            Text(AppLocalizations.of(context)!.save, style:  TextStyle(color: ColorConst.cwhite)),
                         onPressed: () {
                           nappyViewmodel.onSave();
                           nappyViewmodel.addNappy();
@@ -74,7 +75,7 @@ class NappyPage extends StatelessWidget {
               Positioned.fill(
                 child: BackdropFilter(
                   filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                  child: Container(color: cblack.withOpacity(0), child: Center(child: Lottie.asset(lottie))),
+                  child: Container(color: ColorConst.cblack.withOpacity(0), child: Center(child: Lottie.asset(lottie))),
                 ),
               ),
           ],

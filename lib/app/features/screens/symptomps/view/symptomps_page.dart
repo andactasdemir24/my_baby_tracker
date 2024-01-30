@@ -27,7 +27,7 @@ class SymptompsPage extends StatelessWidget {
                       text: symptompsViewmodel.time3 != null
                           ? symptompsViewmodel.time3!.format(context)
                           : AppLocalizations.of(context)!.sympAppbar,
-                      color: symptompsViewmodel.time3 != null ? cblack : settingsIndex),
+                      color: symptompsViewmodel.time3 != null ? ColorConst.cblack : ColorConst.settingsIndex),
                 ),
                 CustomSymptompsList(
                     text: Text(
@@ -37,7 +37,7 @@ class SymptompsPage extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 15.5,
                       fontWeight: FontWeight.bold,
-                      color: symptompsViewmodel.selectedIndices.isEmpty ? settingsIndex : cblack),
+                      color: symptompsViewmodel.selectedIndices.isEmpty ? ColorConst.settingsIndex : ColorConst.cblack),
                 )),
                 CustomNoteTextfield(
                   controller: symptompsViewmodel.noteController,
@@ -49,7 +49,8 @@ class SymptompsPage extends StatelessWidget {
                     return Visibility(
                       visible: symptompsViewmodel.isButtonVisible3,
                       child: CustomButton(
-                        text: Text(AppLocalizations.of(context)!.save, style: const TextStyle(color: cwhite)),
+                        text:
+                            Text(AppLocalizations.of(context)!.save, style:  TextStyle(color: ColorConst.cwhite)),
                         onPressed: () {
                           symptompsViewmodel.onSave();
                           symptompsViewmodel.addSymptomps();
@@ -65,7 +66,7 @@ class SymptompsPage extends StatelessWidget {
               Positioned.fill(
                 child: BackdropFilter(
                   filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                  child: Container(color: cblack.withOpacity(0), child: Center(child: Lottie.asset(lottie))),
+                  child: Container(color: ColorConst.cblack.withOpacity(0), child: Center(child: Lottie.asset(lottie))),
                 ),
               ),
           ],

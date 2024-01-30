@@ -15,7 +15,7 @@
 //         height: displayHeight(context) * 0.08,
 //         width: double.infinity,
 //         decoration: ShapeDecoration(
-//             color: annualColor, shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))),
+//             color: ColorConst.annualColor, shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))),
 //         child: Padding(
 //           padding: EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.05),
 //           child: const Row(
@@ -23,11 +23,11 @@
 //             children: [
 //               Text(
 //                 priceContainerText,
-//                 style: TextStyle(color: annualPriceText, fontSize: 18, fontWeight: FontWeight.w600),
+//                 style: TextStyle(color: ColorConst.annualPriceText, fontSize: 18, fontWeight: FontWeight.w600),
 //               ),
 //               Text(
 //                 priceContainerCost,
-//                 style: TextStyle(color: annualPriceText, fontSize: 18, fontWeight: FontWeight.w600),
+//                 style: TextStyle(color: ColorConst.annualPriceText, fontSize: 18, fontWeight: FontWeight.w600),
 //               )
 //             ],
 //           ),

@@ -22,7 +22,7 @@ class CurrentIndexContainer extends StatelessWidget {
                 margin: const EdgeInsets.only(right: 5),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  color: onbViewmodel.currentIndex == index ? buttonColor : cgrey,
+                  color: onbViewmodel.currentIndex == index ? ColorConst.buttonColor : ColorConst.cgrey,
                 ),
               ),
             ),

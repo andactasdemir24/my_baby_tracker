@@ -21,7 +21,7 @@ class CustomEditButton extends StatelessWidget {
           },
           child: Text(
             AppLocalizations.of(context)!.edit,
-            style: const TextStyle(color: buttonColor, fontWeight: FontWeight.bold, fontSize: 18),
+            style: TextStyle(color: ColorConst.buttonColor, fontWeight: FontWeight.bold, fontSize: 18),
           ),
         ),
       ),

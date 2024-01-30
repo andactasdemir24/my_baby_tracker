@@ -50,7 +50,8 @@ class NappyList extends StatelessWidget {
                 Positioned.fill(
                   child: BackdropFilter(
                     filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                    child: Container(color: cblack.withOpacity(0), child: Center(child: Lottie.asset(lottie))),
+                    child:
+                        Container(color: ColorConst.cblack.withOpacity(0), child: Center(child: Lottie.asset(lottie))),
                   ),
                 ),
             ],
@@ -61,7 +62,7 @@ class NappyList extends StatelessWidget {
         return Visibility(
           visible: nappyViewmodel.selectedIndicess.isNotEmpty,
           child: CustomButton(
-              text: Text(AppLocalizations.of(context)!.save, style: const TextStyle(color: cwhite)),
+              text: Text(AppLocalizations.of(context)!.save, style: TextStyle(color: ColorConst.cwhite)),
               onPressed: () => nappyViewmodel.toggleBlur5(context)),
         );
       }),

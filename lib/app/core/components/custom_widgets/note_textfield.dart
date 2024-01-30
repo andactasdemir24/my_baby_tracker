@@ -24,13 +24,13 @@ class CustomNoteTextfield extends StatelessWidget {
           controller: controller,
           decoration: InputDecoration(
               filled: true,
-              fillColor: annualColor,
+              fillColor: ColorConst.annualColor,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(25),
                 borderSide: BorderSide.none,
               ),
               hintText: AppLocalizations.of(context)!.note,
-              hintStyle: const TextStyle(color: settingsIndex)),
+              hintStyle: TextStyle(color: ColorConst.settingsIndex)),
         ),
       ),
     );

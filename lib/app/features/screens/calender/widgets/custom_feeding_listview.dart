@@ -23,10 +23,10 @@ class CustomFeedigListView extends StatelessWidget {
                       return Dismissible(
                         key: Key(feeding.id!),
                         background: Container(
-                          color: cred,
+                          color: ColorConst.cred,
                           alignment: Alignment.centerRight,
                           padding: const EdgeInsets.only(right: 20.0),
-                          child: const Icon(Icons.delete, color: cwhite),
+                          child: Icon(Icons.delete, color: ColorConst.cwhite),
                         ),
                         direction: DismissDirection.endToStart,
                         onDismissed: (direction) {
@@ -56,7 +56,7 @@ class CustomFeedigListView extends StatelessWidget {
                               height: feeding.isSelected ? displayHeight(context) * 0.15 : displayHeight(context) * 0.1,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(25),
-                                color: annualColor,
+                                color: ColorConst.annualColor,
                               ),
                               alignment: Alignment.center,
                               child: !feeding.isSelected ? notpress(feeding) : whenipress(feeding, context),
@@ -77,13 +77,13 @@ class CustomFeedigListView extends StatelessWidget {
 
   ListTile notpress(Feeding feeding) {
     return ListTile(
-      leading: const Icon(Baby.feed, size: 50, color: feedingTab),
+      leading: Icon(Baby.feed, size: 50, color: ColorConst.feedingTab),
       trailing: const Icon(Icons.arrow_circle_down_outlined),
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text('${feeding.amount} (ml)',
-              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: mainIconColor)),
+              style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor)),
           Text('${feeding.time?.hour.toString().padLeft(2, '0')}:${feeding.time?.minute.toString().padLeft(2, '0')}',
               style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
         ],
@@ -94,7 +94,7 @@ class CustomFeedigListView extends StatelessWidget {
   SingleChildScrollView whenipress(Feeding feeding, BuildContext context) {
     return SingleChildScrollView(
       child: ListTile(
-        leading: const Icon(Baby.feed, size: 50, color: feedingTab),
+        leading: Icon(Baby.feed, size: 50, color: ColorConst.feedingTab),
         trailing: const Icon(Icons.arrow_circle_up_outlined),
         title: Column(
           mainAxisSize: MainAxisSize.min,
@@ -104,7 +104,7 @@ class CustomFeedigListView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text('${feeding.amount} (ml)',
-                    style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: mainIconColor)),
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor)),
                 Text(
                   '${feeding.time?.hour.toString().padLeft(2, '0')}:${feeding.time?.minute.toString().padLeft(2, '0')}',
                   style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),

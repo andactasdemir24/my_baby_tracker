@@ -26,7 +26,7 @@ class CustomPicker extends StatelessWidget {
                     child: Container(
                       decoration: ShapeDecoration(
                         shape: OvalBorder(
-                          side: BorderSide(width: 2.w, color: mainIconColor),
+                          side: BorderSide(width: 2.w, color: ColorConst.mainIconColor),
                         ),
                       ),
                     ),

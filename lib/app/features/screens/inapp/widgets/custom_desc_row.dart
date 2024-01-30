@@ -18,7 +18,7 @@
 //       child: Row(
 //         children: [
 //           const Icon(Baby.tick),
-//           Text(text, style: const TextStyle(color: annualPriceText, fontSize: 16, fontWeight: FontWeight.w500)),
+//           Text(text, style: const TextStyle(color: ColorConst.annualPriceText, fontSize: 16, fontWeight: FontWeight.w500)),
 //         ],
 //       ),
 //     );

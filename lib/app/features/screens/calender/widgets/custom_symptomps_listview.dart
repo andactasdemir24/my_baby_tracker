@@ -23,10 +23,10 @@ class CustomSymptompsListView extends StatelessWidget {
                       return Dismissible(
                         key: Key(symptomps.id!),
                         background: Container(
-                          color: cred,
+                          color: ColorConst.cred,
                           alignment: Alignment.centerRight,
                           padding: const EdgeInsets.only(right: 20.0),
-                          child: const Icon(Icons.delete, color: cwhite),
+                          child: Icon(Icons.delete, color: ColorConst.cwhite),
                         ),
                         direction: DismissDirection.endToStart,
                         onDismissed: (direction) {
@@ -57,7 +57,7 @@ class CustomSymptompsListView extends StatelessWidget {
                                   symptomps.isSelected ? displayHeight(context) * 0.15 : displayHeight(context) * 0.1,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(25),
-                                color: annualColor,
+                                color: ColorConst.annualColor,
                               ),
                               alignment: Alignment.center,
                               child: !symptomps.isSelected ? notpress(symptomps) : whenipress(symptomps, context),
@@ -78,14 +78,14 @@ class CustomSymptompsListView extends StatelessWidget {
 
   ListTile notpress(Symptomps symptomps) {
     return ListTile(
-      leading: const Icon(Baby.symptoms, size: 50, color: symptompsTab),
+      leading: Icon(Baby.symptoms, size: 50, color: ColorConst.symptompsTab),
       trailing: const Icon(Icons.arrow_circle_down_outlined),
       title: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(symptomps.sympList!.map((e) => e.name).join(', '),
-              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: mainIconColor)),
+              style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor)),
           Text(
               '${symptomps.symTime!.hour.toString().padLeft(2, '0')}:${symptomps.symTime!.minute.toString().padLeft(2, '0')}',
               style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
@@ -97,14 +97,14 @@ class CustomSymptompsListView extends StatelessWidget {
   SingleChildScrollView whenipress(Symptomps symptomps, BuildContext context) {
     return SingleChildScrollView(
       child: ListTile(
-        leading: const Icon(Baby.symptoms, size: 50, color: symptompsTab),
+        leading: Icon(Baby.symptoms, size: 50, color: ColorConst.symptompsTab),
         trailing: const Icon(Icons.arrow_circle_up_outlined),
         title: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(symptomps.sympList!.map((e) => e.name).join(', '),
-                style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: mainIconColor)),
+                style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor)),
             Flexible(
               child: Text(
                   '${symptomps.symTime!.hour.toString().padLeft(2, '0')}:${symptomps.symTime!.minute.toString().padLeft(2, '0')}',

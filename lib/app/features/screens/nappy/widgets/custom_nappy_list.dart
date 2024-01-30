@@ -30,9 +30,11 @@ class _CustomNappyListContainerState extends State<CustomNappyListContainer> {
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(25.r),
-              color: annualColor,
+              color: ColorConst.annualColor,
               border: Border.all(
-                color: widget.nappyViewmodel.selectedIndicess.contains(widget.nappy) ? sympListShadow : ctransparent,
+                color: widget.nappyViewmodel.selectedIndicess.contains(widget.nappy)
+                    ? ColorConst.sympListShadow
+                    : ColorConst.ctransparent,
                 width: 2.w,
               ),
             ),

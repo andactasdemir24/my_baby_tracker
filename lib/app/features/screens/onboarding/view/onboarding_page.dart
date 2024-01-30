@@ -9,8 +9,8 @@ class OnboardingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final onbViewmodel = locator.get<OnboardingViewmodel>();
     return Scaffold(
-        appBar: AppBar(toolbarHeight: 0, backgroundColor: bg),
-        backgroundColor: bg,
+        appBar: AppBar(toolbarHeight: 0, backgroundColor: ColorConst.bg),
+        backgroundColor: ColorConst.bg,
         body: Observer(builder: (_) {
           return PageView.builder(
             physics: const NeverScrollableScrollPhysics(),

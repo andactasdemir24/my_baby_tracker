@@ -30,10 +30,11 @@ class _CustomGenderListContainerState extends State<CustomGenderListContainer> {
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(25.r),
-              color: annualColor,
+              color: ColorConst.annualColor,
               border: Border.all(
-                color:
-                    widget.informationViewModel.selectedIndices.contains(widget.gender) ? sympListShadow : ctransparent,
+                color: widget.informationViewModel.selectedIndices.contains(widget.gender)
+                    ? ColorConst.sympListShadow
+                    : ColorConst.ctransparent,
                 width: 2.w,
               ),
             ),

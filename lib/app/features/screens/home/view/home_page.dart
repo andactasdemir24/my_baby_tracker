@@ -42,7 +42,7 @@ class _HomePagetate extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: shade100,
+        backgroundColor: ColorConst.shade100,
         appBar: const CustomAppbar(),
         body: SingleChildScrollView(
           child: Column(

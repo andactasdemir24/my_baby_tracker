@@ -31,7 +31,7 @@ class FeedingPage extends StatelessWidget {
                     text: feedingViewModel.time != null
                         ? feedingViewModel.time!.format(context)
                         : AppLocalizations.of(context)!.time,
-                    color: feedingViewModel.time != null ? cblack : settingsIndex,
+                    color: feedingViewModel.time != null ? ColorConst.cblack : ColorConst.settingsIndex,
                   ),
                 ),
                 AmountTextField(controller: feedingViewModel.amountController),
@@ -45,7 +45,7 @@ class FeedingPage extends StatelessWidget {
                     return Visibility(
                       visible: feedingViewModel.isButtonVisible,
                       child: CustomButton(
-                          text: Text(AppLocalizations.of(context)!.save, style: const TextStyle(color: cwhite)),
+                          text: Text(AppLocalizations.of(context)!.save, style: TextStyle(color: ColorConst.cwhite)),
                           onPressed: () {
                             feedingViewModel.addFeeding();
                             feedingViewModel.toggleBlur(context);
@@ -59,7 +59,7 @@ class FeedingPage extends StatelessWidget {
               Positioned.fill(
                 child: BackdropFilter(
                   filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                  child: Container(color: cblack.withOpacity(0), child: Center(child: Lottie.asset(lottie))),
+                  child: Container(color: ColorConst.cblack.withOpacity(0), child: Center(child: Lottie.asset(lottie))),
                 ),
               ),
           ],

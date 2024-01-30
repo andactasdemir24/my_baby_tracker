@@ -27,7 +27,7 @@ class SleepPage extends StatelessWidget {
                     text: sleepViewmodel.time1 != null
                         ? sleepViewmodel.time1!.format(context)
                         : AppLocalizations.of(context)!.feelSleep,
-                    color: sleepViewmodel.time1 != null ? cblack : settingsIndex,
+                    color: sleepViewmodel.time1 != null ? ColorConst.cblack : ColorConst.settingsIndex,
                   ),
                 ),
                 Padding(
@@ -41,7 +41,7 @@ class SleepPage extends StatelessWidget {
                       text: sleepViewmodel.time2 != null
                           ? sleepViewmodel.time2!.format(context)
                           : AppLocalizations.of(context)!.wokeUp,
-                      color: sleepViewmodel.time2 != null ? cblack : settingsIndex,
+                      color: sleepViewmodel.time2 != null ? ColorConst.cblack : ColorConst.settingsIndex,
                     ),
                   ),
                 ),
@@ -55,7 +55,8 @@ class SleepPage extends StatelessWidget {
                     return Visibility(
                       visible: sleepViewmodel.isButtonVisible2,
                       child: CustomButton(
-                        text: Text(AppLocalizations.of(context)!.save, style: const TextStyle(color: cwhite)),
+                        text:
+                            Text(AppLocalizations.of(context)!.save, style:  TextStyle(color: ColorConst.cwhite)),
                         onPressed: () {
                           sleepViewmodel.addSleep();
                           sleepViewmodel.toggleBlur2(context);
@@ -70,7 +71,7 @@ class SleepPage extends StatelessWidget {
               Positioned.fill(
                 child: BackdropFilter(
                   filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                  child: Container(color: cblack.withOpacity(0), child: Center(child: Lottie.asset(lottie))),
+                  child: Container(color: ColorConst.cblack.withOpacity(0), child: Center(child: Lottie.asset(lottie))),
                 ),
               ),
           ]);

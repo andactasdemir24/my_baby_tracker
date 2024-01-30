@@ -12,7 +12,7 @@ class Deneme extends StatelessWidget {
     var memoriesViewmodel = locator.get<MemoriesViewModel>();
 
     return Scaffold(
-      backgroundColor: shade200,
+      backgroundColor: ColorConst.shade200,
       appBar: CustomAppbar(appbarText: AppLocalizations.of(context)!.galleryText, centerTitle: true),
       body: Center(
         child: CarouselSlider.builder(
@@ -22,7 +22,7 @@ class Deneme extends StatelessWidget {
             final imageUrl = memoriesViewmodel.memoriesList[itemIndex].image;
             return Container(
               decoration: BoxDecoration(
-                border: Border.all(color: cwhite, width: 3.w),
+                border: Border.all(color: ColorConst.cwhite, width: 3.w),
                 borderRadius: BorderRadius.circular(20.r),
                 image: DecorationImage(image: FileImage(File(imageUrl!)), fit: BoxFit.cover),
               ),

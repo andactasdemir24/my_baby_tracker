@@ -23,7 +23,7 @@ class CustomAllListview extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
                       child: Text(
                         entry.key,
-                        style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: mainIconColor),
+                        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor),
                       ),
                     ),
                     ...entry.value.map((all) => _buildItem(context, all, allviewmodel)).toList(),
@@ -52,10 +52,10 @@ class CustomAllListview extends StatelessWidget {
                     return Dismissible(
                       key: Key(all.id!),
                       background: Container(
-                        color: cred,
+                        color: ColorConst.cred,
                         alignment: Alignment.centerRight,
                         padding: const EdgeInsets.only(right: 20.0),
-                        child: const Icon(Icons.delete, color: cwhite),
+                        child: Icon(Icons.delete, color: ColorConst.cwhite),
                       ),
                       direction: DismissDirection.endToStart,
                       onDismissed: (direction) {
@@ -80,11 +80,11 @@ class CustomAllListview extends StatelessWidget {
                               height: displayHeight(context) * 0.14,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(25),
-                                color: annualColor,
+                                color: ColorConst.annualColor,
                               ),
                               alignment: Alignment.center,
                               child: ListTile(
-                                leading: const Icon(Baby.feed, size: 50, color: feedingTab),
+                                leading: Icon(Baby.feed, size: 50, color: ColorConst.feedingTab),
                                 title: Column(
                                   mainAxisSize: MainAxisSize.min,
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -122,10 +122,10 @@ class CustomAllListview extends StatelessWidget {
                     return Dismissible(
                       key: Key(all.id!),
                       background: Container(
-                          color: cred,
+                          color: ColorConst.cred,
                           alignment: Alignment.centerRight,
                           padding: const EdgeInsets.only(right: 20.0),
-                          child: const Icon(Icons.delete, color: cwhite)),
+                          child: Icon(Icons.delete, color: ColorConst.cwhite)),
                       direction: DismissDirection.endToStart,
                       onDismissed: (direction) {
                         allviewmodel.deleteSleep(all.id!);
@@ -148,11 +148,11 @@ class CustomAllListview extends StatelessWidget {
                               height: displayHeight(context) * 0.14,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(25),
-                                color: annualColor,
+                                color: ColorConst.annualColor,
                               ),
                               alignment: Alignment.center,
                               child: ListTile(
-                                  leading: const Icon(Baby.sleep, size: 50, color: sleepTab),
+                                  leading: Icon(Baby.sleep, size: 50, color: ColorConst.sleepTab),
                                   title: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -200,10 +200,10 @@ class CustomAllListview extends StatelessWidget {
                     return Dismissible(
                       key: Key(all.id!),
                       background: Container(
-                          color: cred,
+                          color: ColorConst.cred,
                           alignment: Alignment.centerRight,
                           padding: const EdgeInsets.only(right: 20.0),
-                          child: const Icon(Icons.delete, color: cwhite)),
+                          child: Icon(Icons.delete, color: ColorConst.cwhite)),
                       direction: DismissDirection.endToStart,
                       onDismissed: (direction) {
                         allviewmodel.deleteSymptomps(all.id!);
@@ -226,12 +226,12 @@ class CustomAllListview extends StatelessWidget {
                               height: displayHeight(context) * 0.14,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(25),
-                                color: annualColor,
+                                color: ColorConst.annualColor,
                               ),
                               alignment: Alignment.center,
                               child: SingleChildScrollView(
                                 child: ListTile(
-                                  leading: const Icon(Baby.symptoms, size: 50, color: symptompsTab),
+                                  leading: Icon(Baby.symptoms, size: 50, color: ColorConst.symptompsTab),
                                   title: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -271,10 +271,10 @@ class CustomAllListview extends StatelessWidget {
                     return Dismissible(
                       key: Key(all.id!),
                       background: Container(
-                          color: cred,
+                          color: ColorConst.cred,
                           alignment: Alignment.centerRight,
                           padding: const EdgeInsets.only(right: 20.0),
-                          child: const Icon(Icons.delete, color: cwhite)),
+                          child: Icon(Icons.delete, color: ColorConst.cwhite)),
                       direction: DismissDirection.endToStart,
                       onDismissed: (direction) {
                         allviewmodel.deleteNappy(all.id!);
@@ -297,12 +297,12 @@ class CustomAllListview extends StatelessWidget {
                               height: displayHeight(context) * 0.14,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(25),
-                                color: annualColor,
+                                color: ColorConst.annualColor,
                               ),
                               alignment: Alignment.center,
                               child: SingleChildScrollView(
                                 child: ListTile(
-                                  leading: const Icon(Baby.nappy, size: 50, color: nappyTab),
+                                  leading: Icon(Baby.nappy, size: 50, color: ColorConst.nappyTab),
                                   title: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -342,10 +342,10 @@ class CustomAllListview extends StatelessWidget {
                     return Dismissible(
                       key: Key(all.id!),
                       background: Container(
-                        color: cred,
+                        color: ColorConst.cred,
                         alignment: Alignment.centerRight,
                         padding: const EdgeInsets.only(right: 20.0),
-                        child: const Icon(Icons.delete, color: cwhite),
+                        child: Icon(Icons.delete, color: ColorConst.cwhite),
                       ),
                       direction: DismissDirection.endToStart,
                       onDismissed: (direction) {
@@ -370,11 +370,11 @@ class CustomAllListview extends StatelessWidget {
                               height: displayHeight(context) * 0.14,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(25),
-                                color: annualColor,
+                                color: ColorConst.annualColor,
                               ),
                               alignment: Alignment.center,
                               child: ListTile(
-                                leading: const Icon(Baby.vaccine3, size: 40, color: vaccineTab),
+                                leading: Icon(Baby.vaccine3, size: 40, color: ColorConst.vaccineTab),
                                 title: Column(
                                   mainAxisSize: MainAxisSize.min,
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -407,6 +407,6 @@ class CustomAllListview extends StatelessWidget {
   }
 
   TextStyle customTextStyle() {
-    return const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: mainIconColor);
+    return TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor);
   }
 }

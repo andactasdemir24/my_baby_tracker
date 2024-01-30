@@ -45,9 +45,9 @@ class CustomInformationTextField extends StatelessWidget {
           controller: controller,
           decoration: InputDecoration(
               prefixIcon: icon,
-              prefixIconColor: sympListShadow,
+              prefixIconColor: ColorConst.sympListShadow,
               filled: true,
-              fillColor: annualColor,
+              fillColor: ColorConst.annualColor,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(25),
                 borderSide: BorderSide.none,

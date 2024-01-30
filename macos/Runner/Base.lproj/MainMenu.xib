@@ -154,7 +154,7 @@
                             </menuItem>
                             <menuItem title="Spelling and Grammar" id="Dv1-io-Yv7">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Spelling" id="3IN-sU-3Bg">
+                                <menu key="submenu" title="Spelling" id="3IN-sU-3ColorConst.bg">
                                     <items>
                                         <menuItem title="Show Spelling and Grammar" keyEquivalent=":" id="HFo-cy-zxI">
                                             <connections>

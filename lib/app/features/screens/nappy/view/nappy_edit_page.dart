@@ -61,20 +61,20 @@ class _NappyPageEditState extends State<NappyPageEdit> {
                       text: nappyViewmodel.time4 != null
                           ? nappyViewmodel.time4!.format(context)
                           : '${widget.nappyTime.hour.toString()}:${widget.nappyTime.minute.toString().padLeft(2, '0')}',
-                      color: cblack,
+                      color: ColorConst.cblack,
                     )),
                 SizedBox(height: displayHeight(context) * 0.02),
                 SizedBox(
                   width: displayWidth(context) * 0.85,
                   child: Text(AppLocalizations.of(context)!.nappyStatus,
-                      style: const TextStyle(color: cblack, fontSize: 15.5, fontWeight: FontWeight.bold)),
+                      style: TextStyle(color: ColorConst.cblack, fontSize: 15.5, fontWeight: FontWeight.bold)),
                 ),
                 CustomNappyList(
                     text: Text(
                   nappyViewmodel.selectedIndicess.isEmpty
                       ? widget.napList.map((e) => e.name).join(', ')
                       : nappyViewmodel.selectedIndicess.map((index) => index.name).join(', '),
-                  style: const TextStyle(fontSize: 15.5, fontWeight: FontWeight.bold, color: cblack),
+                  style: TextStyle(fontSize: 15.5, fontWeight: FontWeight.bold, color: ColorConst.cblack),
                 )),
                 SizedBox(height: displayHeight(context) * 0.02),
                 CustomNoteTextfield(
@@ -85,7 +85,7 @@ class _NappyPageEditState extends State<NappyPageEdit> {
                 Observer(
                   builder: (context) {
                     return CustomButton(
-                      text: Text(AppLocalizations.of(context)!.update, style: const TextStyle(color: cwhite)),
+                      text: Text(AppLocalizations.of(context)!.update, style: TextStyle(color: ColorConst.cwhite)),
                       onPressed: () {
                         var updatedNappy = Nappy(
                           id: widget.id,
@@ -106,7 +106,7 @@ class _NappyPageEditState extends State<NappyPageEdit> {
               Positioned.fill(
                 child: BackdropFilter(
                   filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                  child: Container(color: cblack.withOpacity(0), child: Center(child: Lottie.asset(lottie))),
+                  child: Container(color: ColorConst.cblack.withOpacity(0), child: Center(child: Lottie.asset(lottie))),
                 ),
               ),
           ],

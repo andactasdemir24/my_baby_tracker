@@ -49,7 +49,7 @@ class _SymptompsPageEditState extends State<SymptompsPageEdit> {
       appBar: AppBar(
           centerTitle: true,
           title: Text(AppLocalizations.of(context)!.symptomos,
-              style: const TextStyle(color: getPremiumTextColor, fontSize: 27, fontWeight: FontWeight.w600)),
+              style:  TextStyle(color: ColorConst.getPremiumTextColor, fontSize: 27, fontWeight: FontWeight.w600)),
           leading: IconButton(
               onPressed: () {
                 Navigator.pop(context);
@@ -70,14 +70,14 @@ class _SymptompsPageEditState extends State<SymptompsPageEdit> {
                       text: symptompsViewmodel.time3 != null
                           ? symptompsViewmodel.time3!.format(context)
                           : '${widget.symTime.hour.toString()}:${widget.symTime.minute.toString().padLeft(2, '0')}',
-                      color: cblack,
+                      color: ColorConst.cblack,
                     )),
                 CustomSymptompsList(
                     text: Text(
                   symptompsViewmodel.selectedIndices.isEmpty
                       ? widget.sympList.map((e) => e.name).join(', ')
                       : symptompsViewmodel.selectedIndices.map((index) => index.name).join(', '),
-                  style: const TextStyle(fontSize: 15.5, fontWeight: FontWeight.bold, color: cblack),
+                  style:  TextStyle(fontSize: 15.5, fontWeight: FontWeight.bold, color: ColorConst.cblack),
                 )),
                 CustomNoteTextfield(
                   controller: noteController,
@@ -87,7 +87,8 @@ class _SymptompsPageEditState extends State<SymptompsPageEdit> {
                 Observer(
                   builder: (context) {
                     return CustomButton(
-                      text: Text(AppLocalizations.of(context)!.update, style: const TextStyle(color: cwhite)),
+                      text:
+                          Text(AppLocalizations.of(context)!.update, style:  TextStyle(color: ColorConst.cwhite)),
                       onPressed: () {
                         var value = Symptomps(
                           id: widget.id,
@@ -108,7 +109,7 @@ class _SymptompsPageEditState extends State<SymptompsPageEdit> {
               Positioned.fill(
                 child: BackdropFilter(
                   filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                  child: Container(color: cblack.withOpacity(0), child: Center(child: Lottie.asset(lottie))),
+                  child: Container(color: ColorConst.cblack.withOpacity(0), child: Center(child: Lottie.asset(lottie))),
                 ),
               ),
           ],

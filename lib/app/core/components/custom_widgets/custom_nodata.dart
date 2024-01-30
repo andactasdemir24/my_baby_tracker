@@ -25,7 +25,7 @@ class CustomNoDataWidget extends StatelessWidget {
           width: displayWidth(context) * 0.7,
           child: Text(
             text,
-            style: TextStyle(color: shade500, fontWeight: FontWeight.bold),
+            style: TextStyle(color: ColorConst.shade500, fontWeight: FontWeight.bold),
             textAlign: TextAlign.center,
           ),
         )

@@ -23,10 +23,10 @@ class CustomVaccineListView extends StatelessWidget {
                       return Dismissible(
                         key: Key(vaccine.id!),
                         background: Container(
-                          color: cred,
+                          color: ColorConst.cred,
                           alignment: Alignment.centerRight,
                           padding: const EdgeInsets.only(right: 20.0),
-                          child: const Icon(Icons.delete, color: cwhite),
+                          child: Icon(Icons.delete, color: ColorConst.cwhite),
                         ),
                         direction: DismissDirection.endToStart,
                         onDismissed: (direction) {
@@ -56,7 +56,7 @@ class CustomVaccineListView extends StatelessWidget {
                               height: vaccine.isSelected ? displayHeight(context) * 0.15 : displayHeight(context) * 0.1,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(25),
-                                color: annualColor,
+                                color: ColorConst.annualColor,
                               ),
                               alignment: Alignment.center,
                               child: !vaccine.isSelected ? notpress(vaccine) : whenipress(vaccine, context),
@@ -77,14 +77,14 @@ class CustomVaccineListView extends StatelessWidget {
 
   ListTile notpress(Vaccine vaccine) {
     return ListTile(
-      leading: const Icon(Baby.vaccine3, size: 40, color: vaccineTab),
+      leading: Icon(Baby.vaccine3, size: 40, color: ColorConst.vaccineTab),
       trailing: const Icon(Icons.arrow_circle_down_outlined),
       title: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text('${vaccine.vaccine}',
-              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: mainIconColor)),
+              style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor)),
           Text('${vaccine.date}', style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
         ],
       ),
@@ -94,14 +94,14 @@ class CustomVaccineListView extends StatelessWidget {
   SingleChildScrollView whenipress(Vaccine vaccine, BuildContext context) {
     return SingleChildScrollView(
       child: ListTile(
-        leading: const Icon(Baby.vaccine3, size: 40, color: vaccineTab),
+        leading: Icon(Baby.vaccine3, size: 40, color: ColorConst.vaccineTab),
         trailing: const Icon(Icons.arrow_circle_up_outlined),
         title: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text('${vaccine.vaccine}',
-                style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: mainIconColor)),
+                style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor)),
             Text('${vaccine.date}', style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
             Text(
               '${AppLocalizations.of(context)!.note}: ${vaccine.text.toString()}',
