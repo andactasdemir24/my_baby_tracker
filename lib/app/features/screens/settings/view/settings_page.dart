@@ -1,3 +1,5 @@
+import 'package:baby_tracker_app/app/features/screens/settings/view/privacypolicy_page.dart';
+import 'package:baby_tracker_app/app/features/screens/settings/view/termsofuse_page.dart';
 import 'package:flutter/material.dart';
 import 'package:baby_tracker_app/app/app.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -18,8 +20,18 @@ class SettingsPage extends StatelessWidget {
           //   child: Image.asset(settingsPremium, height: displayHeight(context) * 0.09),
           // ),
           CustomSettingsContainer(text: AppLocalizations.of(context)!.rateUs, image: s1),
-          CustomSettingsContainer(text: AppLocalizations.of(context)!.termsofuse, image: s2),
-          CustomSettingsContainer(text: AppLocalizations.of(context)!.privacy, image: s3),
+          CustomSettingsContainer(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const TermsOfUse()));
+              },
+              text: AppLocalizations.of(context)!.termsofuse,
+              image: s2),
+          CustomSettingsContainer(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const PrivacyPolicy()));
+              },
+              text: AppLocalizations.of(context)!.privacy,
+              image: s3),
           GestureDetector(
               onTap: () {
                 final Uri emailLaunchUri = Uri(
