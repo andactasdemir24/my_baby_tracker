@@ -51,7 +51,7 @@ class NappyList extends StatelessWidget {
                   child: BackdropFilter(
                     filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
                     child:
-                        Container(color: ColorConst.cblack.withOpacity(0), child: Center(child: Lottie.asset(lottie))),
+                        Container(color: ColorConst.cblack.withOpacity(0), child: Center(child: Lottie.asset(ImagesConst.lottie))),
                   ),
                 ),
             ],

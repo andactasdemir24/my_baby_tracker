@@ -30,8 +30,8 @@ abstract class _InformationViewModelBase with Store {
 
   @observable
   List<InformationGender> genderList = [
-    InformationGender(image: girl, name: girlText),
-    InformationGender(image: boy, name: boyText),
+    InformationGender(image: ImagesConst.girl, name: girlText),
+    InformationGender(image: ImagesConst.boy, name: boyText),
   ];
 
   @observable

@@ -68,7 +68,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                           ),
                                         ),
                                       )
-                                    : Image.asset(picker, height: displayHeight(context) * 0.2),
+                                    : Image.asset(ImagesConst.picker, height: displayHeight(context) * 0.2),
                               );
                       },
                     ),
@@ -172,7 +172,7 @@ class _ProfilePageState extends State<ProfilePage> {
               Positioned.fill(
                 child: BackdropFilter(
                   filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                  child: Container(color: ColorConst.cblack.withOpacity(0), child: Center(child: Lottie.asset(lottie))),
+                  child: Container(color: ColorConst.cblack.withOpacity(0), child: Center(child: Lottie.asset(ImagesConst.lottie))),
                 ),
               ),
           ],

@@ -96,18 +96,18 @@ class CustomStack extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(AppLocalizations.of(context)!.weightText,
-                                style: TextStyle(color: ColorConst.cgrey, fontSize: 12)),
+                                style:  TextStyle(color: ColorConst.cgrey, fontSize: 12)),
                             Row(
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
-                                Image.asset(weight, height: displayHeight(context) * 0.035),
+                                Image.asset(ImagesConst.weight, height: displayHeight(context) * 0.035),
                                 SizedBox(width: displayWidth(context) * 0.025),
                                 SizedBox(
                                   height: displayHeight(context) * 0.045,
                                   child: Text(info.weight.toString(),
                                       style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
                                 ),
-                                Text(AppLocalizations.of(context)!.kgs, style: TextStyle(color: ColorConst.cgrey))
+                                Text(AppLocalizations.of(context)!.kgs, style:  TextStyle(color: ColorConst.cgrey))
                               ],
                             )
                           ],
@@ -118,18 +118,18 @@ class CustomStack extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(AppLocalizations.of(context)!.heightText,
-                                style: TextStyle(color: ColorConst.cgrey, fontSize: 12)),
+                                style:  TextStyle(color: ColorConst.cgrey, fontSize: 12)),
                             Row(
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
-                                Image.asset(height, height: displayHeight(context) * 0.035),
+                                Image.asset(ImagesConst.height, height: displayHeight(context) * 0.035),
                                 SizedBox(width: displayWidth(context) * 0.025),
                                 SizedBox(
                                   height: displayHeight(context) * 0.045,
                                   child: Text(info.height.toString(),
                                       style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
                                 ),
-                                Text(AppLocalizations.of(context)!.cms, style: TextStyle(color: ColorConst.cgrey))
+                                Text(AppLocalizations.of(context)!.cms, style:  TextStyle(color: ColorConst.cgrey))
                               ],
                             )
                           ],

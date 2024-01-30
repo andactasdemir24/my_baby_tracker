@@ -31,7 +31,7 @@ class CustomPicker extends StatelessWidget {
                       ),
                     ),
                   )
-                : Image.asset(picker, height: displayHeight(context) * 0.2),
+                : Image.asset(ImagesConst.picker, height: displayHeight(context) * 0.2),
           ));
     });
   }

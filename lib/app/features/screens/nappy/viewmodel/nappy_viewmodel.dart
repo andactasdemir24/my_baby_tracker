@@ -24,10 +24,10 @@ abstract class _NappyViewModelBase with Store {
 
   @observable
   List<NappyModel> nappyStatusList = [
-    NappyModel(image: nappy1, name: nappy1Text),
-    NappyModel(image: nappy2, name: nappy2Text),
-    NappyModel(image: nappy3, name: nappy3Text),
-    NappyModel(image: nappy4, name: nappy4Text),
+    NappyModel(image: ImagesConst.nappy1, name: nappy1Text),
+    NappyModel(image: ImagesConst.nappy2, name: nappy2Text),
+    NappyModel(image: ImagesConst.nappy3, name: nappy3Text),
+    NappyModel(image: ImagesConst.nappy4, name: nappy4Text),
   ];
 
   @observable

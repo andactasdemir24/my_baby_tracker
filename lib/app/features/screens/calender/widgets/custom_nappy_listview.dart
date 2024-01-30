@@ -26,7 +26,7 @@ class CustomNappyListView extends StatelessWidget {
                           color: ColorConst.cred,
                           alignment: Alignment.centerRight,
                           padding: const EdgeInsets.only(right: 20.0),
-                          child:  Icon(Icons.delete, color: ColorConst.cwhite),
+                          child: Icon(Icons.delete, color: ColorConst.cwhite),
                         ),
                         direction: DismissDirection.endToStart,
                         onDismissed: (direction) {
@@ -69,21 +69,21 @@ class CustomNappyListView extends StatelessWidget {
           },
         );
       } else {
-        return CustomNoDataWidget(image: noDataImage, text: AppLocalizations.of(context)!.noDataText);
+        return CustomNoDataWidget(image: ImagesConst.noDataImage, text: AppLocalizations.of(context)!.noDataText);
       }
     });
   }
 
   ListTile notpress(Nappy nappys) {
     return ListTile(
-      leading:  Icon(Baby.nappy, size: 50, color: ColorConst.nappyTab),
+      leading: Icon(Baby.nappy, size: 50, color: ColorConst.nappyTab),
       trailing: const Icon(Icons.arrow_circle_down_outlined),
       title: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(nappys.napList!.map((e) => e.name).join(', '),
-              style:  TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor)),
+              style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor)),
           Text(
               '${nappys.nappyTime!.hour.toString().padLeft(2, '0')}:${nappys.nappyTime!.minute.toString().padLeft(2, '0')}',
               style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
@@ -95,14 +95,14 @@ class CustomNappyListView extends StatelessWidget {
   SingleChildScrollView whenipress(Nappy nappys, BuildContext context) {
     return SingleChildScrollView(
       child: ListTile(
-        leading:  Icon(Baby.nappy, size: 50, color: ColorConst.nappyTab),
+        leading: Icon(Baby.nappy, size: 50, color: ColorConst.nappyTab),
         trailing: const Icon(Icons.arrow_circle_up_outlined),
         title: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(nappys.napList!.map((e) => e.name).join(', '),
-                style:  TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor)),
+                style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor)),
             Flexible(
               child: Text(
                   '${nappys.nappyTime!.hour.toString().padLeft(2, '0')}:${nappys.nappyTime!.minute.toString().padLeft(2, '0')}',

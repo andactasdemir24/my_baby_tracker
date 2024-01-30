@@ -74,8 +74,7 @@ class _FeedingEditState extends State<FeedingEdit> {
                     SizedBox(height: displayHeight(context) * 0.2),
                     Observer(builder: (context) {
                       return CustomButton(
-                        text: Text(AppLocalizations.of(context)!.update,
-                            style:  TextStyle(color: ColorConst.cwhite)),
+                        text: Text(AppLocalizations.of(context)!.update, style: TextStyle(color: ColorConst.cwhite)),
                         onPressed: () {
                           try {
                             int.parse(_amountController.text);
@@ -103,7 +102,8 @@ class _FeedingEditState extends State<FeedingEdit> {
               Positioned.fill(
                 child: BackdropFilter(
                   filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                  child: Container(color: ColorConst.cblack.withOpacity(0), child: Center(child: Lottie.asset(lottie))),
+                  child: Container(
+                      color: ColorConst.cblack.withOpacity(0), child: Center(child: Lottie.asset(ImagesConst.lottie))),
                 ),
               ),
           ],

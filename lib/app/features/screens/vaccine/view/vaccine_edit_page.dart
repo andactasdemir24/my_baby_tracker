@@ -64,7 +64,7 @@ class _VaccineEditState extends State<VaccineEdit> {
                   onChanged: (p0) => vaccineViewModel.changeVisible(),
                   controller: vaccineViewModel.dateController,
                   hintText: widget.date,
-                  hintStyle:  TextStyle(color: ColorConst.cblack),
+                  hintStyle: TextStyle(color: ColorConst.cblack),
                   textInputType: TextInputType.none,
                   textStyle: const TextStyle(fontWeight: FontWeight.bold),
                   onTap: () {
@@ -81,8 +81,7 @@ class _VaccineEditState extends State<VaccineEdit> {
                 Observer(
                   builder: (context) {
                     return CustomButton(
-                        text: Text(AppLocalizations.of(context)!.update,
-                            style:  TextStyle(color: ColorConst.cwhite)),
+                        text: Text(AppLocalizations.of(context)!.update, style: TextStyle(color: ColorConst.cwhite)),
                         onPressed: () {
                           var value = Vaccine(
                               id: widget.id,
@@ -101,7 +100,8 @@ class _VaccineEditState extends State<VaccineEdit> {
               Positioned.fill(
                 child: BackdropFilter(
                   filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                  child: Container(color: ColorConst.cblack.withOpacity(0), child: Center(child: Lottie.asset(lottie))),
+                  child: Container(
+                      color: ColorConst.cblack.withOpacity(0), child: Center(child: Lottie.asset(ImagesConst.lottie))),
                 ),
               ),
           ],

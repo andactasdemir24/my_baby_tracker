@@ -24,14 +24,14 @@ abstract class _SymptompsViewmodelBase with Store {
 
   @observable
   List<SymptopmsModel> symptompsList = [
-    SymptopmsModel(image: runnyNose, name: runnyNoseT),
-    SymptopmsModel(image: heartburn, name: heartburnT),
-    SymptopmsModel(image: noAppetite, name: noAppetiteT),
-    SymptopmsModel(image: rush, name: rushT),
-    SymptopmsModel(image: lowEnergy, name: lowEnergyT),
-    SymptopmsModel(image: nausea, name: nauseaT),
-    SymptopmsModel(image: cough, name: coughT),
-    SymptopmsModel(image: fever, name: feverT),
+    SymptopmsModel(image: ImagesConst.runnyNose, name: runnyNoseT),
+    SymptopmsModel(image: ImagesConst.heartburn, name: heartburnT),
+    SymptopmsModel(image: ImagesConst.noAppetite, name: noAppetiteT),
+    SymptopmsModel(image: ImagesConst.rush, name: rushT),
+    SymptopmsModel(image: ImagesConst.lowEnergy, name: lowEnergyT),
+    SymptopmsModel(image: ImagesConst.nausea, name: nauseaT),
+    SymptopmsModel(image: ImagesConst.cough, name: coughT),
+    SymptopmsModel(image: ImagesConst.fever, name: feverT),
   ];
 
   @observable

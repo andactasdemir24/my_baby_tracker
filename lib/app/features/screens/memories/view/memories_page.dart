@@ -38,7 +38,8 @@ class MemoriesPage extends StatelessWidget {
               ),
             );
           } else {
-            return CustomNoDataWidget(image: noDataImage2, text: AppLocalizations.of(context)!.noDataText);
+            return CustomNoDataWidget(
+                image: ImagesConst.noDataImage2, text: AppLocalizations.of(context)!.noDataText);
           }
         }),
         floatingActionButton: CustomFloatActionButton(memoriesViewmodel: memoriesViewmodel));

@@ -70,7 +70,7 @@ class CustomFeedigListView extends StatelessWidget {
           },
         );
       } else {
-        return CustomNoDataWidget(image: noDataImage, text: AppLocalizations.of(context)!.noDataText);
+        return CustomNoDataWidget(image: ImagesConst.noDataImage, text: AppLocalizations.of(context)!.noDataText);
       }
     });
   }

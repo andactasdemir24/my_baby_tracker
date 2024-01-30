@@ -1,52 +1,54 @@
-//onboarding
-const String onboarding1 = 'assets/images/onb1.jpg';
-const String onboarding2 = 'assets/images/onb2.jpg';
-const String onboarding3 = 'assets/images/onb3.jpg';
+class ImagesConst {
+  //onboarding
+  static String onboarding1 = 'assets/images/onb1.jpg';
+  static String onboarding2 = 'assets/images/onb2.jpg';
+  static String onboarding3 = 'assets/images/onb3.jpg';
 
 //InApp
-const String inApp = 'assets/images/pre1.png';
+  static String inApp = 'assets/images/pre1.png';
 
 //home
-const String homeImage1 = 'assets/images/Feeding.png';
-const String homeImage2 = 'assets/images/Sleep.png';
-const String homeImage3 = 'assets/images/Symptomps.png';
-const String homeImage4 = 'assets/images/nappy.png';
-const String homeImage5 = 'assets/images/vaccine.png';
+  static String homeImage1 = 'assets/images/Feeding.png';
+  static String homeImage2 = 'assets/images/Sleep.png';
+  static String homeImage3 = 'assets/images/Symptomps.png';
+  static String homeImage4 = 'assets/images/nappy.png';
+  static String homeImage5 = 'assets/images/vaccine.png';
 
 //Settings
-const String settingsPremium = 'assets/images/Premium.png';
-const String s1 = 'assets/images/s1.png';
-const String s2 = 'assets/images/s2.png';
-const String s3 = 'assets/images/s3.png';
-const String s4 = 'assets/images/s4.png';
-const String s5 = 'assets/images/s5.png';
+  static String settingsPremium = 'assets/images/Premium.png';
+  static String s1 = 'assets/images/s1.png';
+  static String s2 = 'assets/images/s2.png';
+  static String s3 = 'assets/images/s3.png';
+  static String s4 = 'assets/images/s4.png';
+  static String s5 = 'assets/images/s5.png';
 
 //Lottie
-const String lottie = 'assets/lottie/saved.json';
+  static String lottie = 'assets/lottie/saved.json';
 
 //symptompsList Images
-const String runnyNose = 'assets/images/RunnyNose.png';
-const String heartburn = 'assets/images/Heartburn.png';
-const String noAppetite = 'assets/images/Noappetive.png';
-const String rush = 'assets/images/rush.png';
-const String lowEnergy = 'assets/images/lowEnergy.png';
-const String nausea = 'assets/images/Nussea.png';
-const String cough = 'assets/images/Cough.png';
-const String fever = 'assets/images/Fever.png';
+  static String runnyNose = 'assets/images/RunnyNose.png';
+  static String heartburn = 'assets/images/Heartburn.png';
+  static String noAppetite = 'assets/images/Noappetive.png';
+  static String rush = 'assets/images/rush.png';
+  static String lowEnergy = 'assets/images/lowEnergy.png';
+  static String nausea = 'assets/images/Nussea.png';
+  static String cough = 'assets/images/Cough.png';
+  static String fever = 'assets/images/Fever.png';
 
 //informations
-const String girl = 'assets/images/girl.png';
-const String boy = 'assets/images/boy.png';
-const String picker = 'assets/images/picker.png';
-const String weight = 'assets/images/weight.png';
-const String height = 'assets/images/heights.png';
+  static String girl = 'assets/images/girl.png';
+  static String boy = 'assets/images/boy.png';
+  static String picker = 'assets/images/picker.png';
+  static String weight = 'assets/images/weight.png';
+  static String height = 'assets/images/heights.png';
 
 //calender
-const String noDataImage = 'assets/images/sleep-baby.png';
-const String noDataImage2 = 'assets/images/family.png';
+  static String noDataImage = 'assets/images/sleep-baby.png';
+  static String noDataImage2 = 'assets/images/family.png';
 
 //nappy
-const String nappy1 = 'assets/images/diaper1.png';
-const String nappy2 = 'assets/images/diaper2.png';
-const String nappy3 = 'assets/images/diaper3.png';
-const String nappy4 = 'assets/images/diaper4.png';
+  static String nappy1 = 'assets/images/diaper1.png';
+  static String nappy2 = 'assets/images/diaper2.png';
+  static String nappy3 = 'assets/images/diaper3.png';
+  static String nappy4 = 'assets/images/diaper4.png';
+}

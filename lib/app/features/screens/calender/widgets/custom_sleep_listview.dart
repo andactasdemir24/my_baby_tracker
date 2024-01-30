@@ -26,7 +26,7 @@ class CustomSleepListView extends StatelessWidget {
                           color: ColorConst.cred,
                           alignment: Alignment.centerRight,
                           padding: const EdgeInsets.only(right: 20.0),
-                          child:  Icon(Icons.delete, color: ColorConst.cwhite),
+                          child: Icon(Icons.delete, color: ColorConst.cwhite),
                         ),
                         direction: DismissDirection.endToStart,
                         onDismissed: (direction) {
@@ -69,14 +69,14 @@ class CustomSleepListView extends StatelessWidget {
           },
         );
       } else {
-        return CustomNoDataWidget(image: noDataImage, text: AppLocalizations.of(context)!.noDataText);
+        return CustomNoDataWidget(image: ImagesConst.noDataImage, text: AppLocalizations.of(context)!.noDataText);
       }
     });
   }
 
   ListTile notpress(Sleep sleep) {
     return ListTile(
-        leading:  Icon(Baby.sleep, size: 50, color: ColorConst.sleepTab),
+        leading: Icon(Baby.sleep, size: 50, color: ColorConst.sleepTab),
         trailing: const Icon(Icons.arrow_circle_down_outlined),
         title: Column(
           mainAxisSize: MainAxisSize.min,
@@ -84,7 +84,7 @@ class CustomSleepListView extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                 Text('Feel sleep:',
+                Text('Feel sleep:',
                     style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor)),
                 Text(
                     '${sleep.fellSleep!.hour.toString().padLeft(2, '0')}:${sleep.fellSleep!.minute.toString().padLeft(2, '0')}',
@@ -94,7 +94,7 @@ class CustomSleepListView extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                 Text('Woke up:',
+                Text('Woke up:',
                     style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor)),
                 Text(
                     '${sleep.wokeUp?.hour.toString().padLeft(2, '0')}:${sleep.wokeUp?.minute.toString().padLeft(2, '0')}',
@@ -108,7 +108,7 @@ class CustomSleepListView extends StatelessWidget {
   SingleChildScrollView whenipress(Sleep sleep, BuildContext context) {
     return SingleChildScrollView(
       child: ListTile(
-          leading:  Icon(Baby.sleep, size: 50, color: ColorConst.sleepTab),
+          leading: Icon(Baby.sleep, size: 50, color: ColorConst.sleepTab),
           trailing: const Icon(Icons.arrow_circle_up_outlined),
           title: Column(
             mainAxisSize: MainAxisSize.min,
@@ -117,7 +117,7 @@ class CustomSleepListView extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                   Text('Feel sleep:',
+                  Text('Feel sleep:',
                       style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor)),
                   Flexible(
                     child: Text(
@@ -130,7 +130,7 @@ class CustomSleepListView extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                   Text('Woke up:',
+                  Text('Woke up:',
                       style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor)),
                   Flexible(
                     child: Text(

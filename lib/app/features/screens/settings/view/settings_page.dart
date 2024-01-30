@@ -17,21 +17,21 @@ class SettingsPage extends StatelessWidget {
         children: [
           // GestureDetector(
           //   onTap: () {},
-          //   child: Image.asset(settingsPremium, height: displayHeight(context) * 0.09),
+          //   child: Image.asset(ImagesConst.settingsPremium, height: displayHeight(context) * 0.09),
           // ),
-          CustomSettingsContainer(text: AppLocalizations.of(context)!.rateUs, image: s1),
+          CustomSettingsContainer(text: AppLocalizations.of(context)!.rateUs, image: ImagesConst.s1),
           CustomSettingsContainer(
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const TermsOfUse()));
               },
               text: AppLocalizations.of(context)!.termsofuse,
-              image: s2),
+              image: ImagesConst.s2),
           CustomSettingsContainer(
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const PrivacyPolicy()));
               },
               text: AppLocalizations.of(context)!.privacy,
-              image: s3),
+              image: ImagesConst.s3),
           GestureDetector(
               onTap: () {
                 final Uri emailLaunchUri = Uri(
@@ -41,7 +41,8 @@ class SettingsPage extends StatelessWidget {
                         .encodeQueryParameters(<String, String>{'subject': AppLocalizations.of(context)!.subject}));
                 launchUrl(emailLaunchUri);
               },
-              child: CustomSettingsContainer(text: AppLocalizations.of(context)!.contact, image: s4)),
+              child: CustomSettingsContainer(
+                  text: AppLocalizations.of(context)!.contact, image: ImagesConst.s4)),
           const Spacer(),
           const RemoveBabyWidget(),
           SizedBox(height: displayHeight(context) * 0.03),

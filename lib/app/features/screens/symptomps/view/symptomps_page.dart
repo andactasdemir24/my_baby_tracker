@@ -49,8 +49,7 @@ class SymptompsPage extends StatelessWidget {
                     return Visibility(
                       visible: symptompsViewmodel.isButtonVisible3,
                       child: CustomButton(
-                        text:
-                            Text(AppLocalizations.of(context)!.save, style:  TextStyle(color: ColorConst.cwhite)),
+                        text: Text(AppLocalizations.of(context)!.save, style: TextStyle(color: ColorConst.cwhite)),
                         onPressed: () {
                           symptompsViewmodel.onSave();
                           symptompsViewmodel.addSymptomps();
@@ -66,7 +65,8 @@ class SymptompsPage extends StatelessWidget {
               Positioned.fill(
                 child: BackdropFilter(
                   filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                  child: Container(color: ColorConst.cblack.withOpacity(0), child: Center(child: Lottie.asset(lottie))),
+                  child: Container(
+                      color: ColorConst.cblack.withOpacity(0), child: Center(child: Lottie.asset(ImagesConst.lottie))),
                 ),
               ),
           ],
