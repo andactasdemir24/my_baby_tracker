@@ -13,9 +13,12 @@ class CustomImageContainer extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(
         horizontal: displayWidth(context) * 0.05,
-        vertical: displayHeight(context) * 0.005,
+        vertical: displayHeight(context) * 0.007,
       ),
-      child: SizedBox(width: double.infinity, child: Image.asset(image, fit: BoxFit.cover)),
+      child: Material(
+          elevation: 5,
+          borderRadius: BorderRadius.circular(25),
+          child: SizedBox(width: double.infinity, child: Image.asset(image, fit: BoxFit.cover))),
     );
   }
 }

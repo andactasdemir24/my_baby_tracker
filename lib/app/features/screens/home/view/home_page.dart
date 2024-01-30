@@ -50,7 +50,7 @@ class _HomePagetate extends State<HomePage> {
               Observer(builder: (context) {
                 return CustomStack(informationVeiwmodel: informationVeiwmodel);
               }),
-              const AspectRatio(aspectRatio: 5 / 1),
+              const AspectRatio(aspectRatio: 4.5 / 1),
               GestureDetector(
                   onTap: () {
                     feedingViewmodel.clearTime();
