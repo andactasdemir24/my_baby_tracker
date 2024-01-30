@@ -10,12 +10,14 @@ class DateButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var locale = Localizations.localeOf(context).toString();
     return Observer(
       builder: (context) {
         return TextButton(
           onPressed: () async {
             final DateTime? date = await showDatePicker(
               context: context,
+              locale: Localizations.localeOf(context),
               initialDate: calenderViewmodel.selectedDate,
               firstDate: DateTime(2000),
               lastDate: DateTime(2100),
@@ -25,7 +27,7 @@ class DateButton extends StatelessWidget {
             }
           },
           child: Text(
-            DateFormat('EEE, MMM d').format(calenderViewmodel.selectedDate),
+            DateFormat('EEE, MMM d', locale).format(calenderViewmodel.selectedDate),
             style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500, color: cblack),
           ),
         );

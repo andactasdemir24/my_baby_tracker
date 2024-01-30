@@ -2,6 +2,7 @@ import 'package:baby_tracker_app/app/core/getIt/locator.dart';
 import 'package:baby_tracker_app/app/features/screens/mainview/mainview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'app/core/hive/data/hive_box.dart';
@@ -31,8 +32,16 @@ class MyApp extends StatelessWidget {
       builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
-        localizationsDelegates: AppLocalizations.localizationsDelegates,
-        supportedLocales: AppLocalizations.supportedLocales,
+        localizationsDelegates: const [
+          AppLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate
+        ],
+        supportedLocales: const [
+          Locale("en", ""),
+          Locale("tr", ""),
+        ],
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
