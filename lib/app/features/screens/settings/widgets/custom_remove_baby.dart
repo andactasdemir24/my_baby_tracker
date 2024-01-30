@@ -18,24 +18,28 @@ class RemoveBabyWidget extends StatelessWidget {
         child: Padding(
           padding:
               EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.055, vertical: displayHeight(context) * 0.01),
-          child: Container(
-            height: displayHeight(context) * 0.075,
-            width: displayWidth(context) * 0.8878,
-            decoration: ShapeDecoration(
-              color: annualColor,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
+          child: Material(
+            elevation: 5,
+            borderRadius: BorderRadius.circular(20),
+            child: Container(
+              height: displayHeight(context) * 0.075,
+              width: displayWidth(context) * 0.8878,
+              decoration: ShapeDecoration(
+                color: annualColor,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
               ),
-            ),
-            child: Padding(
-              padding: EdgeInsets.only(left: displayWidth(context) * 0.055, right: displayWidth(context) * 0.04),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(AppLocalizations.of(context)!.removeInf,
-                      style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: cred)),
-                  const Icon(Baby.left, color: settingsIndex),
-                ],
+              child: Padding(
+                padding: EdgeInsets.only(left: displayWidth(context) * 0.055, right: displayWidth(context) * 0.04),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(AppLocalizations.of(context)!.removeInf,
+                        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: cred)),
+                    const Icon(Icons.logout_outlined, color: settingsIndex),
+                  ],
+                ),
               ),
             ),
           ),
