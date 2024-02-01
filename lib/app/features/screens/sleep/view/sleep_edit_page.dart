@@ -31,8 +31,10 @@ class _SleepPageEditState extends State<SleepPageEdit> {
 
   @override
   void initState() {
-    _noteController.text = widget.note;
     super.initState();
+    _noteController.text = widget.note;
+    sleepViewmodel.time1 = TimeOfDay(hour: widget.feelSleep.hour, minute: widget.feelSleep.minute);
+    sleepViewmodel.time2 = TimeOfDay(hour: widget.wokeUp.hour, minute: widget.wokeUp.minute);
   }
 
   @override
@@ -85,8 +87,7 @@ class _SleepPageEditState extends State<SleepPageEdit> {
                 Observer(
                   builder: (context) {
                     return CustomButton(
-                      text:
-                          Text(AppLocalizations.of(context)!.update, style:  TextStyle(color: ColorConst.cwhite)),
+                      text: Text(AppLocalizations.of(context)!.update, style: TextStyle(color: ColorConst.cwhite)),
                       onPressed: () {
                         var value = Sleep(
                           id: widget.id,
@@ -107,7 +108,8 @@ class _SleepPageEditState extends State<SleepPageEdit> {
               Positioned.fill(
                 child: BackdropFilter(
                   filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                  child: Container(color: ColorConst.cblack.withOpacity(0), child: Center(child: Lottie.asset(ImagesConst.lottie))),
+                  child: Container(
+                      color: ColorConst.cblack.withOpacity(0), child: Center(child: Lottie.asset(ImagesConst.lottie))),
                 ),
               ),
           ]);

@@ -32,9 +32,10 @@ class _FeedingEditState extends State<FeedingEdit> {
 
   @override
   void initState() {
+    super.initState();
     _amountController.text = widget.amount.toString();
     _noteController.text = widget.note;
-    super.initState();
+    viewmodel.time = TimeOfDay(hour: widget.time.hour, minute: widget.time.minute);
   }
 
   @override

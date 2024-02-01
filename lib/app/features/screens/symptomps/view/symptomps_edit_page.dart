@@ -31,10 +31,11 @@ class _SymptompsPageEditState extends State<SymptompsPageEdit> {
 
   @override
   void initState() {
+    super.initState();
     noteController.text = widget.note;
     symptompsViewmodel.selectedIndices.clear();
     symptompsViewmodel.selectedIndices.addAll(widget.sympList);
-    super.initState();
+    symptompsViewmodel.time3 = TimeOfDay(hour: widget.symTime.hour, minute: widget.symTime.minute);
   }
 
   @override

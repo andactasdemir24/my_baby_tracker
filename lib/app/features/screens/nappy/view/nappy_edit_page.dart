@@ -34,6 +34,7 @@ class _NappyPageEditState extends State<NappyPageEdit> {
     noteController.text = widget.note;
     nappyViewmodel.selectedIndicess.clear();
     nappyViewmodel.selectedIndicess.addAll(widget.napList);
+    nappyViewmodel.time4 = TimeOfDay(hour: widget.nappyTime.hour, minute: widget.nappyTime.minute);
   }
 
   @override
@@ -106,7 +107,8 @@ class _NappyPageEditState extends State<NappyPageEdit> {
               Positioned.fill(
                 child: BackdropFilter(
                   filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                  child: Container(color: ColorConst.cblack.withOpacity(0), child: Center(child: Lottie.asset(ImagesConst.lottie))),
+                  child: Container(
+                      color: ColorConst.cblack.withOpacity(0), child: Center(child: Lottie.asset(ImagesConst.lottie))),
                 ),
               ),
           ],
