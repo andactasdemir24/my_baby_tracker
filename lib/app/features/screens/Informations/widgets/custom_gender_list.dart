@@ -44,10 +44,11 @@ class _CustomGenderListContainerState extends State<CustomGenderListContainer> {
                 Image.asset(
                   widget.gender.image!,
                   height: displayHeight(context) * 0.05,
+                  width: displayWidth(context) * 0.08,
                 ),
                 Text(
                   widget.gender.name!,
-                  style: const TextStyle(fontWeight: FontWeight.bold),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14.dg),
                 ),
               ],
             ),

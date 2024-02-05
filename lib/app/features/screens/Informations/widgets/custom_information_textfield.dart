@@ -31,30 +31,27 @@ class CustomInformationTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Padding(
-        padding:
-            EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.06, vertical: displayHeight(context) * 0.015),
-        child: TextField(
-          inputFormatters: inputFormatters,
-          readOnly: readOnly ?? false,
-          keyboardType: textInputType,
-          onTap: onTap,
-          onChanged: onChanged,
-          style: textStyle,
-          controller: controller,
-          decoration: InputDecoration(
-              prefixIcon: icon,
-              prefixIconColor: ColorConst.sympListShadow,
-              filled: true,
-              fillColor: ColorConst.annualColor,
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(25),
-                borderSide: BorderSide.none,
-              ),
-              hintText: hintText,
-              hintStyle: hintStyle),
-        ),
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.06, vertical: displayHeight(context) * 0.01),
+      child: TextField(
+        inputFormatters: inputFormatters,
+        readOnly: readOnly ?? false,
+        keyboardType: textInputType,
+        onTap: onTap,
+        onChanged: onChanged,
+        style: textStyle,
+        controller: controller,
+        decoration: InputDecoration(
+            prefixIcon: icon,
+            prefixIconColor: ColorConst.sympListShadow,
+            filled: true,
+            fillColor: ColorConst.annualColor,
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(25),
+              borderSide: BorderSide.none,
+            ),
+            hintText: hintText,
+            hintStyle: hintStyle),
       ),
     );
   }

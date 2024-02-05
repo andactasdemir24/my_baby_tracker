@@ -16,46 +16,49 @@ class InformationPage extends StatelessWidget {
     return PopScope(
       canPop: false,
       child: Scaffold(
-        body: Observer(builder: (context) {
-          return Stack(
-            children: [
-              Center(
-                child: SingleChildScrollView(
-                  physics: const NeverScrollableScrollPhysics(),
+        appBar: AppBar(toolbarHeight: 0, backgroundColor: ColorConst.bg),
+        body: Observer(
+          builder: (context) {
+            return Stack(
+              children: [
+                SingleChildScrollView(
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Observer(
                         builder: (context) {
                           return GestureDetector(
-                              onTap: () {
-                                informationviewmodel.pickImageFromGalery();
-                                informationviewmodel.changeVisible();
-                              },
-                              child: ClipRRect(
-                                child: informationviewmodel.selectedImage != null
-                                    ? CircleAvatar(
-                                        maxRadius: 75.r,
-                                        backgroundImage: FileImage(informationviewmodel.selectedImage!),
-                                        child: Container(
-                                          decoration: ShapeDecoration(
-                                            shape: OvalBorder(
-                                              side: BorderSide(width: 2.w, color: ColorConst.feedindIconColor),
-                                            ),
+                            onTap: () {
+                              informationviewmodel.pickImageFromGalery();
+                              informationviewmodel.changeVisible();
+                            },
+                            child: ClipRRect(
+                              child: informationviewmodel.selectedImage != null
+                                  ? CircleAvatar(
+                                      maxRadius: 70.r,
+                                      backgroundImage: FileImage(informationviewmodel.selectedImage!),
+                                      child: Container(
+                                        decoration: ShapeDecoration(
+                                          shape: OvalBorder(
+                                            side: BorderSide(width: 2.w, color: ColorConst.feedindIconColor),
                                           ),
                                         ),
-                                      )
-                                    : Image.asset(ImagesConst.picker, height: displayHeight(context) * 0.2),
-                              ));
+                                      ),
+                                    )
+                                  : Image.asset(ImagesConst.picker, height: displayHeight(context) * 0.2),
+                            ),
+                          );
                         },
                       ),
                       SizedBox(height: displayHeight(context) * 0.02),
                       GridView.builder(
-                        padding: EdgeInsets.symmetric(horizontal: 90.w),
+                        padding: EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.2),
                         physics: const NeverScrollableScrollPhysics(),
-                        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                            maxCrossAxisExtent: displayWidth(context) * 0.2,
-                            crossAxisSpacing: displayHeight(context) * 0.03,
-                            mainAxisExtent: displayHeight(context) * 0.1),
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          crossAxisSpacing: displayWidth(context) * 0.05,
+                          mainAxisExtent: displayHeight(context) * 0.12,
+                        ),
                         shrinkWrap: true,
                         itemCount: informationviewmodel.genderList.length,
                         itemBuilder: (BuildContext context, index) {
@@ -68,27 +71,27 @@ class InformationPage extends StatelessWidget {
                           });
                         },
                       ),
-                      SizedBox(height: displayHeight(context) * 0.015),
+                      SizedBox(height: displayHeight(context) * 0.02),
                       CustomInformationTextField(
                         onChanged: (p0) => informationviewmodel.changeVisible(),
                         controller: informationviewmodel.nameController,
                         textInputType: TextInputType.name,
                         hintText: AppLocalizations.of(context)!.babyFullName,
-                        hintStyle: TextStyle(color: ColorConst.settingsIndex),
-                        icon: const Icon(Baby.baby),
+                        hintStyle: TextStyle(color: ColorConst.settingsIndex, fontSize: 18.dg),
+                        icon: Icon(Baby.baby, size: 22.dg),
                         textStyle: const TextStyle(fontWeight: FontWeight.bold),
                         inputFormatters: [
                           LengthLimitingTextInputFormatter(25),
-                          FilteringTextInputFormatter.allow(RegExp(r'^[a-zA-ZçÇşŞöÖüÜıİ\s]*$'))
+                          FilteringTextInputFormatter.allow(RegExp(r'^[a-zA-ZçÇşŞöÖüÜıİ\s]*$')),
                         ],
                       ),
                       CustomInformationTextField(
                         onChanged: (p0) => informationviewmodel.changeVisible(),
                         controller: informationviewmodel.birthDateController,
                         hintText: AppLocalizations.of(context)!.babyBirthDate,
-                        hintStyle: TextStyle(color: ColorConst.settingsIndex),
+                        hintStyle: TextStyle(color: ColorConst.settingsIndex, fontSize: 18.dg),
                         textInputType: TextInputType.none,
-                        icon: const Icon(Baby.birthdaycake),
+                        icon: Icon(Baby.birthdaycake, size: 22.dg),
                         textStyle: const TextStyle(fontWeight: FontWeight.bold),
                         onTap: () {
                           informationviewmodel.selectDate(context, informationviewmodel.birthDateController);
@@ -99,8 +102,8 @@ class InformationPage extends StatelessWidget {
                         controller: informationviewmodel.weightController,
                         textInputType: TextInputType.number,
                         hintText: AppLocalizations.of(context)!.babyWeight,
-                        hintStyle: TextStyle(color: ColorConst.settingsIndex),
-                        icon: const Icon(Baby.weight),
+                        hintStyle: TextStyle(color: ColorConst.settingsIndex, fontSize: 18.dg),
+                        icon: Icon(Baby.weight, size: 22.dg),
                         textStyle: const TextStyle(fontWeight: FontWeight.bold),
                         inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'^\d{1,3}$'))],
                       ),
@@ -109,8 +112,8 @@ class InformationPage extends StatelessWidget {
                         controller: informationviewmodel.heightController,
                         textInputType: TextInputType.number,
                         hintText: AppLocalizations.of(context)!.babyHeight,
-                        hintStyle: TextStyle(color: ColorConst.settingsIndex),
-                        icon: const Icon(Icons.height),
+                        hintStyle: TextStyle(color: ColorConst.settingsIndex, fontSize: 18.dg),
+                        icon: Icon(Icons.height, size: 22.dg),
                         textStyle: const TextStyle(fontWeight: FontWeight.bold),
                         inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'^\d{1,3}$'))],
                       ),
@@ -132,19 +135,20 @@ class InformationPage extends StatelessWidget {
                     ],
                   ),
                 ),
-              ),
-              if (informationviewmodel.isBlurred)
-                Positioned.fill(
-                  child: BackdropFilter(
-                    filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                    child: Container(
+                if (informationviewmodel.isBlurred)
+                  Positioned.fill(
+                    child: BackdropFilter(
+                      filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+                      child: Container(
                         color: ColorConst.cblack.withOpacity(0),
-                        child: Center(child: Lottie.asset(ImagesConst.lottie))),
+                        child: Center(child: Lottie.asset(ImagesConst.lottie)),
+                      ),
+                    ),
                   ),
-                ),
-            ],
-          );
-        }),
+              ],
+            );
+          },
+        ),
       ),
     );
   }
