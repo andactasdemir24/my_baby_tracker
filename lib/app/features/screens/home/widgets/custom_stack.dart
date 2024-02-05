@@ -57,16 +57,29 @@ class CustomStack extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(
-                              info.fullname!,
-                              style: TextStyle(color: ColorConst.shade200, fontSize: 16, fontWeight: FontWeight.w500),
+                            SizedBox(
+                              width: displayWidth(context),
+                              height: displayHeight(context) * 0.03,
+                              child: Text(
+                                info.fullname!,
+                                style: TextStyle(color: ColorConst.shade200, fontSize: 16, fontWeight: FontWeight.w500),
+                              ),
                             ),
-                            Text(
-                              info.selectedGender!,
-                              style: TextStyle(color: ColorConst.shade200, fontSize: 16, fontWeight: FontWeight.w500),
+                            SizedBox(
+                              width: displayWidth(context),
+                              height: displayHeight(context) * 0.03,
+                              child: Text(
+                                info.selectedGender!,
+                                style: TextStyle(color: ColorConst.shade200, fontSize: 16, fontWeight: FontWeight.w500),
+                              ),
                             ),
-                            Text(info.birthDate!,
-                                style: TextStyle(color: ColorConst.shade200, fontSize: 16, fontWeight: FontWeight.bold))
+                            SizedBox(
+                              width: displayWidth(context),
+                              height: displayHeight(context) * 0.03,
+                              child: Text(info.birthDate!,
+                                  style:
+                                      TextStyle(color: ColorConst.shade200, fontSize: 16, fontWeight: FontWeight.bold)),
+                            )
                           ],
                         ),
                       )
@@ -95,19 +108,33 @@ class CustomStack extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(AppLocalizations.of(context)!.weightText,
-                                style:  TextStyle(color: ColorConst.cgrey, fontSize: 12)),
+                            SizedBox(
+                              width: displayWidth(context) * 0.2,
+                              height: displayHeight(context) * 0.025,
+                              child: Text(AppLocalizations.of(context)!.weightText,
+                                  style: TextStyle(color: ColorConst.cgrey, fontSize: 12)),
+                            ),
                             Row(
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
-                                Image.asset(ImagesConst.weight, height: displayHeight(context) * 0.035),
+                                Image.asset(
+                                  ImagesConst.weight,
+                                  width: displayWidth(context) * 0.075,
+                                  height: displayHeight(context) * 0.035,
+                                  fit: BoxFit.cover,
+                                ),
                                 SizedBox(width: displayWidth(context) * 0.025),
                                 SizedBox(
+                                  width: displayWidth(context) * 0.1,
                                   height: displayHeight(context) * 0.045,
                                   child: Text(info.weight.toString(),
                                       style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
                                 ),
-                                Text(AppLocalizations.of(context)!.kgs, style:  TextStyle(color: ColorConst.cgrey))
+                                SizedBox(
+                                    width: displayWidth(context) * 0.1,
+                                    height: displayHeight(context) * 0.03,
+                                    child: Text(AppLocalizations.of(context)!.kgs,
+                                        style: TextStyle(color: ColorConst.cgrey)))
                               ],
                             )
                           ],
@@ -117,19 +144,33 @@ class CustomStack extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(AppLocalizations.of(context)!.heightText,
-                                style:  TextStyle(color: ColorConst.cgrey, fontSize: 12)),
+                            SizedBox(
+                              width: displayWidth(context) * 0.2,
+                              height: displayHeight(context) * 0.025,
+                              child: Text(AppLocalizations.of(context)!.heightText,
+                                  style: TextStyle(color: ColorConst.cgrey, fontSize: 12)),
+                            ),
                             Row(
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
-                                Image.asset(ImagesConst.height, height: displayHeight(context) * 0.035),
+                                Image.asset(
+                                  ImagesConst.height,
+                                  height: displayHeight(context) * 0.035,
+                                  width: displayWidth(context) * 0.075,
+                                  fit: BoxFit.cover,
+                                ),
                                 SizedBox(width: displayWidth(context) * 0.025),
                                 SizedBox(
+                                  width: displayWidth(context) * 0.1,
                                   height: displayHeight(context) * 0.045,
                                   child: Text(info.height.toString(),
                                       style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
                                 ),
-                                Text(AppLocalizations.of(context)!.cms, style:  TextStyle(color: ColorConst.cgrey))
+                                SizedBox(
+                                    width: displayWidth(context) * 0.1,
+                                    height: displayHeight(context) * 0.03,
+                                    child: Text(AppLocalizations.of(context)!.cms,
+                                        style: TextStyle(color: ColorConst.cgrey)))
                               ],
                             )
                           ],

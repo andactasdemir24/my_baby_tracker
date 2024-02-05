@@ -39,7 +39,7 @@ class _MainNavBarState extends State<MainNavBar> {
           backgroundColor: ColorConst.cwhite,
           tabBackgroundColor: ColorConst.shade200,
           selectedIndex: _selectedIndex,
-          gap: 8,
+          gap: displayWidth(context) * 0.02,
           tabs: [
             GButton(
               icon: Icons.home,

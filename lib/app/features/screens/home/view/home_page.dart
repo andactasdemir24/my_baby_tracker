@@ -1,4 +1,5 @@
 import 'package:baby_tracker_app/app/core/constants/images_constants.dart';
+import 'package:baby_tracker_app/app/core/constants/mediaquery_constants.dart';
 import 'package:baby_tracker_app/app/features/screens/Informations/viewmodel/information_viewmodel.dart';
 import 'package:baby_tracker_app/app/features/screens/feeding/view/feeding_page.dart';
 import 'package:baby_tracker_app/app/features/screens/home/widgets/custom_appbar.dart';
@@ -50,37 +51,37 @@ class _HomePagetate extends State<HomePage> {
               Observer(builder: (context) {
                 return CustomStack(informationVeiwmodel: informationVeiwmodel);
               }),
-              const AspectRatio(aspectRatio: 4.5 / 1),
+              SizedBox(height: displayHeight(context) * 0.1),
               GestureDetector(
                   onTap: () {
                     feedingViewmodel.clearTime();
                     Navigator.push(context, MaterialPageRoute(builder: (context) => const FeedingPage()));
                   },
-                  child:  CustomImageContainer(image: ImagesConst.homeImage1)),
+                  child: CustomImageContainer(image: ImagesConst.homeImage1)),
               GestureDetector(
                   onTap: () {
                     sleepViewmodel.clearTime();
                     Navigator.push(context, MaterialPageRoute(builder: (context) => const SleepPage()));
                   },
-                  child:  CustomImageContainer(image: ImagesConst.homeImage2)),
+                  child: CustomImageContainer(image: ImagesConst.homeImage2)),
               GestureDetector(
                   onTap: () {
                     symptompsViewmodel.clearTime();
                     Navigator.push(context, MaterialPageRoute(builder: (context) => const SymptompsPage()));
                   },
-                  child:  CustomImageContainer(image: ImagesConst.homeImage3)),
+                  child: CustomImageContainer(image: ImagesConst.homeImage3)),
               GestureDetector(
                   onTap: () {
                     nappyViewmodel.clearTime();
                     Navigator.push(context, MaterialPageRoute(builder: (context) => const NappyPage()));
                   },
-                  child:  CustomImageContainer(image: ImagesConst.homeImage4)),
+                  child: CustomImageContainer(image: ImagesConst.homeImage4)),
               GestureDetector(
                   onTap: () {
                     vaccineViewmodel.clearTime();
                     Navigator.push(context, MaterialPageRoute(builder: (context) => const VaccinePage()));
                   },
-                  child:  CustomImageContainer(image: ImagesConst.homeImage5)),
+                  child: CustomImageContainer(image: ImagesConst.homeImage5)),
             ],
           ),
         ));
