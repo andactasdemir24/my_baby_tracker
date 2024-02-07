@@ -35,7 +35,7 @@ class _CustomGenderListContainerState extends State<CustomGenderListContainer> {
                 color: widget.informationViewModel.selectedIndices.contains(widget.gender)
                     ? ColorConst.sympListShadow
                     : ColorConst.ctransparent,
-                width: 2.w,
+                width: 2,
               ),
             ),
             child: Column(
@@ -48,7 +48,7 @@ class _CustomGenderListContainerState extends State<CustomGenderListContainer> {
                 ),
                 Text(
                   widget.gender.name!,
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14.dg),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14.spMin),
                 ),
               ],
             ),

@@ -11,14 +11,14 @@ class CustomImageContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: displayWidth(context) * 0.05,
-        vertical: displayHeight(context) * 0.007,
-      ),
-      child: Material(
-          elevation: 5,
-          borderRadius: BorderRadius.circular(25),
-          child: SizedBox(width: double.infinity, child: Image.asset(image, fit: BoxFit.cover))),
+      padding: EdgeInsets.symmetric(vertical: displayHeight(context) * 0.007, horizontal: 20),
+      child: SizedBox(
+          width: displayWidth(context),
+          child: Image.asset(
+            image,
+            fit: BoxFit.fill,
+            height: displayHeight(context) * 0.07,
+          )),
     );
   }
 }

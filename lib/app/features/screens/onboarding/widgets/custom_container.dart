@@ -18,13 +18,14 @@ class CustomContainer extends StatelessWidget {
     return Observer(
       builder: (context) {
         return Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             SizedBox(height: displayHeight(context) * 0.04, width: displayWidth(context)),
             SizedBox(
               width: displayWidth(context) * 0.9,
               child: Text(
                 text,
-                style: TextStyle(fontSize: 25.dg, fontWeight: FontWeight.w600, color: ColorConst.cblack),
+                style: TextStyle(fontSize: 24.spMin, fontWeight: FontWeight.w600, color: ColorConst.cblack),
                 textAlign: TextAlign.center,
               ),
             ),
@@ -33,11 +34,11 @@ class CustomContainer extends StatelessWidget {
               width: displayWidth(context) * 0.9,
               child: Text(
                 text2,
-                style: TextStyle(fontSize: 15.dg, fontWeight: FontWeight.w500, color: ColorConst.cblack),
+                style: TextStyle(fontSize: 16.spMin, fontWeight: FontWeight.w500, color: ColorConst.cblack),
                 textAlign: TextAlign.center,
               ),
             ),
-            SizedBox(height: displayHeight(context) * 0.05),
+            const Spacer(),
             const CurrentIndexContainer(),
             SizedBox(height: displayHeight(context) * 0.02),
             CustomButton(

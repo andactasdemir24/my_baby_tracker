@@ -21,17 +21,18 @@ class OnboardingPage extends StatelessWidget {
               onbViewmodel.changeIndex(value);
             },
             itemBuilder: (context, index) {
-              return SingleChildScrollView(
-                child: Column(
-                  children: [
-                    SizedBox(height: displayHeight(context) * 0.02),
-                    CustomOnbImage(
-                        onbViewmodel: onbViewmodel,
-                        image: DecorationImage(image: AssetImage(onbViewmodel.onbList[index].image), fit: BoxFit.fill)),
-                    CustomContainer(
+              return Column(
+                children: [
+                  SizedBox(height: displayHeight(context) * 0.02),
+                  CustomOnbImage(
+                      onbViewmodel: onbViewmodel,
+                      image: DecorationImage(image: AssetImage(onbViewmodel.onbList[index].image), fit: BoxFit.fill)),
+                  Flexible(
+                    child: CustomContainer(
                         text: onbViewmodel.onbList[index].title, text2: onbViewmodel.onbList[index].description),
-                  ],
-                ),
+                  ),
+                  SizedBox(height: displayHeight(context) * 0.02),
+                ],
               );
             },
           );
