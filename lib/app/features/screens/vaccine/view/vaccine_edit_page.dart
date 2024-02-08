@@ -57,45 +57,55 @@ class _VaccineEditState extends State<VaccineEdit> {
       body: Observer(builder: (context) {
         return Stack(
           children: [
-            SingleChildScrollView(
-                child: Column(
-              children: [
-                CustomInformationTextField(
-                  onChanged: (p0) => vaccineViewModel.changeVisible(),
-                  controller: vaccineViewModel.dateController,
-                  hintText: widget.date,
-                  hintStyle: TextStyle(color: ColorConst.cblack),
-                  textInputType: TextInputType.none,
-                  textStyle: const TextStyle(fontWeight: FontWeight.bold),
-                  onTap: () {
-                    vaccineViewModel.selectDate(context, vaccineViewModel.dateController);
-                  },
-                ),
-                CustomDropdownButton(
-                    vaccineViewModel: vaccineViewModel, text: _vaccineController.text, color: ColorConst.cblack),
-                CustomNoteTextfield(
-                  controller: _noteController,
-                  onChanged: (p0) => vaccineViewModel.changeVisible(),
-                ),
-                SizedBox(height: displayHeight(context) * 0.2),
-                Observer(
-                  builder: (context) {
-                    return CustomButton(
-                        text: Text(AppLocalizations.of(context)!.update, style: TextStyle(color: ColorConst.cwhite)),
-                        onPressed: () {
-                          var value = Vaccine(
-                              id: widget.id,
-                              date: vaccineViewModel.dateController.text,
-                              vaccine: vaccineViewModel.vaccineController.text,
-                              text: _noteController.text,
-                              createdTime: widget.createdTime);
-                          vaccineViewModel.updateVaccine(value);
-                          vaccineViewModel.toggleBlur(context);
-                        });
-                  },
+            CustomScrollView(
+              slivers: [
+                SliverFillRemaining(
+                  hasScrollBody: false,
+                  child: Column(
+                    children: [
+                      CustomVaccineTextField(
+                        onChanged: (p0) => vaccineViewModel.changeVisible(),
+                        controller: vaccineViewModel.dateController,
+                        hintText: widget.date,
+                        hintStyle: TextStyle(color: ColorConst.cblack),
+                        textInputType: TextInputType.none,
+                        textStyle: const TextStyle(fontWeight: FontWeight.bold),
+                        onTap: () {
+                          vaccineViewModel.selectDate(context, vaccineViewModel.dateController);
+                        },
+                      ),
+                      SizedBox(height: displayHeight(context) * 0.01),
+                      CustomDropdownButton(
+                          vaccineViewModel: vaccineViewModel, text: _vaccineController.text, color: ColorConst.cblack),
+                      SizedBox(height: displayHeight(context) * 0.01),
+                      CustomNoteTextfield(
+                        controller: _noteController,
+                        onChanged: (p0) => vaccineViewModel.changeVisible(),
+                      ),
+                      const Spacer(),
+                      Observer(
+                        builder: (context) {
+                          return CustomButton(
+                              text: Text(AppLocalizations.of(context)!.update,
+                                  style: TextStyle(color: ColorConst.cwhite)),
+                              onPressed: () {
+                                var value = Vaccine(
+                                    id: widget.id,
+                                    date: vaccineViewModel.dateController.text,
+                                    vaccine: vaccineViewModel.vaccineController.text,
+                                    text: _noteController.text,
+                                    createdTime: widget.createdTime);
+                                vaccineViewModel.updateVaccine(value);
+                                vaccineViewModel.toggleBlur(context);
+                              });
+                        },
+                      ),
+                      SizedBox(height: displayHeight(context) * 0.035),
+                    ],
+                  ),
                 )
               ],
-            )),
+            ),
             if (vaccineViewModel.isBlurred)
               Positioned.fill(
                 child: BackdropFilter(
