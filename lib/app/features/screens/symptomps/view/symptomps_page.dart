@@ -15,52 +15,64 @@ class SymptompsPage extends StatelessWidget {
       body: Observer(builder: (context) {
         return Stack(
           children: [
-            SingleChildScrollView(
-                child: Column(
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    symptompsViewmodel.selectTime3(context);
-                    symptompsViewmodel.changeVisible();
-                  },
-                  child: CustomTimePicker(
-                      text: symptompsViewmodel.time3 != null
-                          ? symptompsViewmodel.time3!.format(context)
-                          : AppLocalizations.of(context)!.sympAppbar,
-                      color: symptompsViewmodel.time3 != null ? ColorConst.cblack : ColorConst.settingsIndex),
-                ),
-                CustomSymptompsList(
-                    text: Text(
-                  symptompsViewmodel.selectedIndices.isEmpty
-                      ? AppLocalizations.of(context)!.symptomos
-                      : symptompsViewmodel.selectedIndices.map((index) => index.name).join(', '),
-                  style: TextStyle(
-                      fontSize: 15.5,
-                      fontWeight: FontWeight.bold,
-                      color: symptompsViewmodel.selectedIndices.isEmpty ? ColorConst.settingsIndex : ColorConst.cblack),
-                )),
-                CustomNoteTextfield(
-                  controller: symptompsViewmodel.noteController,
-                  onChanged: (p0) => symptompsViewmodel.changeVisible(),
-                ),
-                SizedBox(height: displayHeight(context) * 0.2),
-                Observer(
-                  builder: (context) {
-                    return Visibility(
-                      visible: symptompsViewmodel.isButtonVisible3,
-                      child: CustomButton(
-                        text: Text(AppLocalizations.of(context)!.save, style: TextStyle(color: ColorConst.cwhite)),
-                        onPressed: () {
-                          symptompsViewmodel.onSave();
-                          symptompsViewmodel.addSymptomps();
-                          symptompsViewmodel.toggleBlur4(context);
+            CustomScrollView(
+              slivers: [
+                SliverFillRemaining(
+                  hasScrollBody: false,
+                  child: Column(
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          symptompsViewmodel.selectTime3(context);
+                          symptompsViewmodel.changeVisible();
+                        },
+                        child: CustomTimePicker(
+                            text: symptompsViewmodel.time3 != null
+                                ? symptompsViewmodel.time3!.format(context)
+                                : AppLocalizations.of(context)!.sympAppbar,
+                            color: symptompsViewmodel.time3 != null ? ColorConst.cblack : ColorConst.settingsIndex),
+                      ),
+                      SizedBox(height: displayHeight(context) * 0.01),
+                      CustomSymptompsList(
+                          text: Text(
+                        symptompsViewmodel.selectedIndices.isEmpty
+                            ? AppLocalizations.of(context)!.symptomos
+                            : symptompsViewmodel.selectedIndices.map((index) => index.name).join(', '),
+                        style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: symptompsViewmodel.selectedIndices.isEmpty
+                                ? ColorConst.settingsIndex
+                                : ColorConst.cblack),
+                      )),
+                      SizedBox(height: displayHeight(context) * 0.01),
+                      CustomNoteTextfield(
+                        controller: symptompsViewmodel.noteController,
+                        onChanged: (p0) => symptompsViewmodel.changeVisible(),
+                      ),
+                      const Spacer(),
+                      Observer(
+                        builder: (context) {
+                          return Visibility(
+                            visible: symptompsViewmodel.isButtonVisible3,
+                            child: CustomButton(
+                              text:
+                                  Text(AppLocalizations.of(context)!.save, style: TextStyle(color: ColorConst.cwhite)),
+                              onPressed: () {
+                                symptompsViewmodel.onSave();
+                                symptompsViewmodel.addSymptomps();
+                                symptompsViewmodel.toggleBlur4(context);
+                              },
+                            ),
+                          );
                         },
                       ),
-                    );
-                  },
+                      SizedBox(height: displayHeight(context) * 0.035),
+                    ],
+                  ),
                 )
               ],
-            )),
+            ),
             if (symptompsViewmodel.isBlurred4)
               Positioned.fill(
                 child: BackdropFilter(

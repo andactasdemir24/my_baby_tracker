@@ -28,27 +28,25 @@ class _CustomSymptompsListContainerState extends State<CustomSymptompsListContai
           },
           child: Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(25.r),
+              borderRadius: BorderRadius.circular(25),
               color: ColorConst.annualColor,
               border: Border.all(
                 color: widget.symptompsViewmodel.selectedIndices.contains(widget.symptomp)
                     ? ColorConst.sympListShadow
                     : ColorConst.ctransparent,
-                width: 2.w,
+                width: 2,
               ),
             ),
-            child: Padding(
-              padding: EdgeInsets.symmetric(vertical: displayHeight(context) * 0.02),
-              child: Column(
-                children: [
-                  Image.asset(widget.symptomp.image!, height: displayHeight(context) * 0.1),
-                  SizedBox(height: displayHeight(context) * 0.02),
-                  Text(
-                    widget.symptomp.name!,
-                    style: const TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(widget.symptomp.image!, height: 75.spMin),
+                SizedBox(height: displayHeight(context) * 0.02),
+                Text(
+                  widget.symptomp.name!,
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.spMin),
+                ),
+              ],
             ),
           ),
         );

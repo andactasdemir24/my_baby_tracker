@@ -1,7 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:baby_tracker_app/app/app.dart';
 
@@ -28,7 +27,7 @@ class SymptompsList extends StatelessWidget {
           return Stack(
             children: [
               GridView.builder(
-                padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 20.h),
+                padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                 physics: const AlwaysScrollableScrollPhysics(),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,

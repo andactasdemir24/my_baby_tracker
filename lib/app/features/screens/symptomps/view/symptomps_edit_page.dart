@@ -59,52 +59,62 @@ class _SymptompsPageEditState extends State<SymptompsPageEdit> {
       body: Observer(builder: (context) {
         return Stack(
           children: [
-            SingleChildScrollView(
-                child: Column(
-              children: [
-                GestureDetector(
-                    onTap: () {
-                      symptompsViewmodel.selectTime3(context);
-                      symptompsViewmodel.changeVisible();
-                    },
-                    child: CustomTimePicker(
-                      text: symptompsViewmodel.time3 != null
-                          ? symptompsViewmodel.time3!.format(context)
-                          : '${widget.symTime.hour.toString()}:${widget.symTime.minute.toString().padLeft(2, '0')}',
-                      color: ColorConst.cblack,
-                    )),
-                CustomSymptompsList(
-                    text: Text(
-                  symptompsViewmodel.selectedIndices.isEmpty
-                      ? widget.sympList.map((e) => e.name).join(', ')
-                      : symptompsViewmodel.selectedIndices.map((index) => index.name).join(', '),
-                  style: TextStyle(fontSize: 15.5, fontWeight: FontWeight.bold, color: ColorConst.cblack),
-                )),
-                CustomNoteTextfield(
-                  controller: noteController,
-                  onChanged: (p0) => symptompsViewmodel.changeVisible(),
-                ),
-                SizedBox(height: displayHeight(context) * 0.2),
-                Observer(
-                  builder: (context) {
-                    return CustomButton(
-                      text: Text(AppLocalizations.of(context)!.update, style: TextStyle(color: ColorConst.cwhite)),
-                      onPressed: () {
-                        var value = Symptomps(
-                          id: widget.id,
-                          symTime: widget.symTime,
-                          sympList: symptompsViewmodel.selectedIndices,
-                          text: noteController.text,
-                          createdTime: widget.createdTime,
-                        );
-                        symptompsViewmodel.updateSymptomps(value);
-                        symptompsViewmodel.toggleBlur4(context);
-                      },
-                    );
-                  },
+            CustomScrollView(
+              slivers: [
+                SliverFillRemaining(
+                  hasScrollBody: false,
+                  child: Column(
+                    children: [
+                      GestureDetector(
+                          onTap: () {
+                            symptompsViewmodel.selectTime3(context);
+                            symptompsViewmodel.changeVisible();
+                          },
+                          child: CustomTimePicker(
+                            text: symptompsViewmodel.time3 != null
+                                ? symptompsViewmodel.time3!.format(context)
+                                : '${widget.symTime.hour.toString()}:${widget.symTime.minute.toString().padLeft(2, '0')}',
+                            color: ColorConst.cblack,
+                          )),
+                      SizedBox(height: displayHeight(context) * 0.01),
+                      CustomSymptompsList(
+                          text: Text(
+                        symptompsViewmodel.selectedIndices.isEmpty
+                            ? widget.sympList.map((e) => e.name).join(', ')
+                            : symptompsViewmodel.selectedIndices.map((index) => index.name).join(', '),
+                        style: TextStyle(fontSize: 15.5, fontWeight: FontWeight.bold, color: ColorConst.cblack),
+                      )),
+                      SizedBox(height: displayHeight(context) * 0.01),
+                      CustomNoteTextfield(
+                        controller: noteController,
+                        onChanged: (p0) => symptompsViewmodel.changeVisible(),
+                      ),
+                      const Spacer(),
+                      Observer(
+                        builder: (context) {
+                          return CustomButton(
+                            text:
+                                Text(AppLocalizations.of(context)!.update, style: TextStyle(color: ColorConst.cwhite)),
+                            onPressed: () {
+                              var value = Symptomps(
+                                id: widget.id,
+                                symTime: widget.symTime,
+                                sympList: symptompsViewmodel.selectedIndices,
+                                text: noteController.text,
+                                createdTime: widget.createdTime,
+                              );
+                              symptompsViewmodel.updateSymptomps(value);
+                              symptompsViewmodel.toggleBlur4(context);
+                            },
+                          );
+                        },
+                      ),
+                      SizedBox(height: displayHeight(context) * 0.035),
+                    ],
+                  ),
                 )
               ],
-            )),
+            ),
             if (symptompsViewmodel.isBlurred4)
               Positioned.fill(
                 child: BackdropFilter(
