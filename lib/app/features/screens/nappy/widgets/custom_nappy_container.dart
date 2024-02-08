@@ -1,7 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:baby_tracker_app/app/app.dart';
 
 class CustomNappyList extends StatelessWidget {
@@ -14,39 +13,36 @@ class CustomNappyList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: displayHeight(context) * 0.005),
-      child: GestureDetector(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const NappyList(),
-            ),
-          );
-        },
-        child: Container(
-          width: displayWidth(context) * 0.8878,
-          height: displayHeight(context) * 0.082,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(25.r),
-            color: ColorConst.annualColor,
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const NappyList(),
           ),
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.04),
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Observer(
-                    builder: (context) {
-                      return text;
-                    },
-                  ),
-                   Icon(Baby.left, color: ColorConst.settingsIndex)
-                ],
-              ),
+        );
+      },
+      child: Container(
+        width: displayWidth(context) * 0.88,
+        height: displayHeight(context) * 0.08,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(25),
+          color: ColorConst.annualColor,
+        ),
+        child: Padding(
+          padding: const EdgeInsets.only(left: 10, right: 10),
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Observer(
+                  builder: (context) {
+                    return text;
+                  },
+                ),
+                Icon(Baby.left, color: ColorConst.settingsIndex)
+              ],
             ),
           ),
         ),

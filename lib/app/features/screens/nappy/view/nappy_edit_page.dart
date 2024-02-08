@@ -50,59 +50,62 @@ class _NappyPageEditState extends State<NappyPageEdit> {
       body: Observer(builder: (context) {
         return Stack(
           children: [
-            SingleChildScrollView(
-                child: Column(
-              children: [
-                GestureDetector(
-                    onTap: () {
-                      nappyViewmodel.selectTime4(context);
-                      nappyViewmodel.changeVisibleNappy();
-                    },
-                    child: CustomTimePicker(
-                      text: nappyViewmodel.time4 != null
-                          ? nappyViewmodel.time4!.format(context)
-                          : '${widget.nappyTime.hour.toString()}:${widget.nappyTime.minute.toString().padLeft(2, '0')}',
-                      color: ColorConst.cblack,
-                    )),
-                SizedBox(height: displayHeight(context) * 0.02),
-                SizedBox(
-                  width: displayWidth(context) * 0.85,
-                  child: Text(AppLocalizations.of(context)!.nappyStatus,
-                      style: TextStyle(color: ColorConst.cblack, fontSize: 15.5, fontWeight: FontWeight.bold)),
-                ),
-                CustomNappyList(
-                    text: Text(
-                  nappyViewmodel.selectedIndicess.isEmpty
-                      ? widget.napList.map((e) => e.name).join(', ')
-                      : nappyViewmodel.selectedIndicess.map((index) => index.name).join(', '),
-                  style: TextStyle(fontSize: 15.5, fontWeight: FontWeight.bold, color: ColorConst.cblack),
-                )),
-                SizedBox(height: displayHeight(context) * 0.02),
-                CustomNoteTextfield(
-                  controller: noteController,
-                  onChanged: (p0) => nappyViewmodel.changeVisibleNappy(),
-                ),
-                SizedBox(height: displayHeight(context) * 0.15),
-                Observer(
-                  builder: (context) {
-                    return CustomButton(
-                      text: Text(AppLocalizations.of(context)!.update, style: TextStyle(color: ColorConst.cwhite)),
-                      onPressed: () {
-                        var updatedNappy = Nappy(
-                          id: widget.id,
-                          nappyTime: widget.nappyTime,
-                          napList: nappyViewmodel.selectedIndicess,
-                          text: noteController.text,
-                          createdTime: widget.createdTime,
-                        );
-                        nappyViewmodel.updateNappy(updatedNappy);
-                        nappyViewmodel.toggleBlur5(context);
-                      },
-                    );
-                  },
+            CustomScrollView(
+              slivers: [
+                SliverFillRemaining(
+                  hasScrollBody: false,
+                  child: Column(
+                    children: [
+                      GestureDetector(
+                          onTap: () {
+                            nappyViewmodel.selectTime4(context);
+                            nappyViewmodel.changeVisibleNappy();
+                          },
+                          child: CustomTimePicker(
+                            text: nappyViewmodel.time4 != null
+                                ? nappyViewmodel.time4!.format(context)
+                                : '${widget.nappyTime.hour.toString()}:${widget.nappyTime.minute.toString().padLeft(2, '0')}',
+                            color: ColorConst.cblack,
+                          )),
+                      SizedBox(height: displayHeight(context) * 0.01),
+                      CustomNappyList(
+                          text: Text(
+                        nappyViewmodel.selectedIndicess.isEmpty
+                            ? widget.napList.map((e) => e.name).join(', ')
+                            : nappyViewmodel.selectedIndicess.map((index) => index.name).join(', '),
+                        style: TextStyle(fontSize: 15.5, fontWeight: FontWeight.bold, color: ColorConst.cblack),
+                      )),
+                      SizedBox(height: displayHeight(context) * 0.01),
+                      CustomNoteTextfield(
+                        controller: noteController,
+                        onChanged: (p0) => nappyViewmodel.changeVisibleNappy(),
+                      ),
+                      const Spacer(),
+                      Observer(
+                        builder: (context) {
+                          return CustomButton(
+                            text:
+                                Text(AppLocalizations.of(context)!.update, style: TextStyle(color: ColorConst.cwhite)),
+                            onPressed: () {
+                              var updatedNappy = Nappy(
+                                id: widget.id,
+                                nappyTime: widget.nappyTime,
+                                napList: nappyViewmodel.selectedIndicess,
+                                text: noteController.text,
+                                createdTime: widget.createdTime,
+                              );
+                              nappyViewmodel.updateNappy(updatedNappy);
+                              nappyViewmodel.toggleBlur5(context);
+                            },
+                          );
+                        },
+                      ),
+                      SizedBox(height: displayHeight(context) * 0.035),
+                    ],
+                  ),
                 )
               ],
-            )),
+            ),
             if (nappyViewmodel.isBlurred)
               Positioned.fill(
                 child: BackdropFilter(

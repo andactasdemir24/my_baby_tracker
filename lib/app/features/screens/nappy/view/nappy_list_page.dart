@@ -1,7 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:baby_tracker_app/app/app.dart';
 
@@ -27,11 +26,10 @@ class NappyList extends StatelessWidget {
           return Stack(
             children: [
               GridView.builder(
-                padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 20.h),
+                padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
                 physics: const AlwaysScrollableScrollPhysics(),
-                gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                  maxCrossAxisExtent: 170,
-                  childAspectRatio: 2 / 2,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
                   crossAxisSpacing: displayHeight(context) * 0.02,
                   mainAxisSpacing: displayWidth(context) * 0.03,
                 ),
@@ -60,6 +58,7 @@ class NappyList extends StatelessWidget {
           );
         },
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: Observer(builder: (_) {
         return Visibility(
           visible: nappyViewmodel.selectedIndicess.isNotEmpty,

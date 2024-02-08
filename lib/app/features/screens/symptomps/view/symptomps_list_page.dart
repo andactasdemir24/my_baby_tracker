@@ -59,6 +59,7 @@ class SymptompsList extends StatelessWidget {
           );
         },
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: Observer(builder: (_) {
         return Visibility(
           visible: symptompsViewmodel.selectedIndices.isNotEmpty,

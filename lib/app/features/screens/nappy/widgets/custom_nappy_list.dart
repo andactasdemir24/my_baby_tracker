@@ -29,30 +29,25 @@ class _CustomNappyListContainerState extends State<CustomNappyListContainer> {
           },
           child: Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(25.r),
+              borderRadius: BorderRadius.circular(25),
               color: ColorConst.annualColor,
               border: Border.all(
                 color: widget.nappyViewmodel.selectedIndicess.contains(widget.nappy)
                     ? ColorConst.sympListShadow
                     : ColorConst.ctransparent,
-                width: 2.w,
+                width: 2,
               ),
             ),
-            child: Padding(
-              padding: EdgeInsets.symmetric(vertical: displayHeight(context) * 0.01),
-              child: Column(
-                children: [
-                  Image.asset(
-                    widget.nappy.image!,
-                    height: displayHeight(context) * 0.11,
-                  ),
-                  SizedBox(height: displayHeight(context) * 0.01),
-                  Text(
-                    widget.nappy.name!,
-                    style: const TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(widget.nappy.image!, height: 75.spMin),
+                SizedBox(height: displayHeight(context) * 0.02),
+                Text(
+                  widget.nappy.name!,
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.spMin),
+                ),
+              ],
             ),
           ),
         );
