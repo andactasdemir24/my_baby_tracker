@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:baby_tracker_app/app/app.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomEditButton extends StatelessWidget {
   const CustomEditButton({
@@ -21,7 +22,7 @@ class CustomEditButton extends StatelessWidget {
           },
           child: Text(
             AppLocalizations.of(context)!.edit,
-            style: TextStyle(color: ColorConst.buttonColor, fontWeight: FontWeight.bold, fontSize: 18),
+            style: TextStyle(color: ColorConst.buttonColor, fontWeight: FontWeight.bold, fontSize: 18.spMin),
           ),
         ),
       ),
