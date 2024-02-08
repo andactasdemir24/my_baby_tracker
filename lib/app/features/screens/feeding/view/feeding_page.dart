@@ -19,47 +19,58 @@ class FeedingPage extends StatelessWidget {
       body: Observer(builder: (context) {
         return Stack(
           children: [
-            SingleChildScrollView(
-                child: Column(
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    feedingViewModel.selectTime(context);
-                    feedingViewModel.changeVisible();
-                  },
-                  child: CustomTimePicker(
-                    text: feedingViewModel.time != null
-                        ? feedingViewModel.time!.format(context)
-                        : AppLocalizations.of(context)!.time,
-                    color: feedingViewModel.time != null ? ColorConst.cblack : ColorConst.settingsIndex,
+            CustomScrollView(
+              slivers: [
+                SliverFillRemaining(
+                  hasScrollBody: false,
+                  child: Column(
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          feedingViewModel.selectTime(context);
+                          feedingViewModel.changeVisible();
+                        },
+                        child: CustomTimePicker(
+                          text: feedingViewModel.time != null
+                              ? feedingViewModel.time!.format(context)
+                              : AppLocalizations.of(context)!.time,
+                          color: feedingViewModel.time != null ? ColorConst.cblack : ColorConst.settingsIndex,
+                        ),
+                      ),
+                      SizedBox(height: displayHeight(context) * 0.01),
+                      AmountTextField(controller: feedingViewModel.amountController),
+                      SizedBox(height: displayHeight(context) * 0.01),
+                      CustomNoteTextfield(
+                        controller: feedingViewModel.noteController,
+                        onChanged: (p0) => feedingViewModel.changeVisible(),
+                      ),
+                      const Spacer(),
+                      Observer(
+                        builder: (context) {
+                          return Visibility(
+                            visible: feedingViewModel.isButtonVisible,
+                            child: CustomButton(
+                                text: Text(AppLocalizations.of(context)!.save,
+                                    style: TextStyle(color: ColorConst.cwhite)),
+                                onPressed: () {
+                                  feedingViewModel.addFeeding();
+                                  feedingViewModel.toggleBlur(context);
+                                }),
+                          );
+                        },
+                      ),
+                      SizedBox(height: displayHeight(context) * 0.03),
+                    ],
                   ),
-                ),
-                AmountTextField(controller: feedingViewModel.amountController),
-                CustomNoteTextfield(
-                  controller: feedingViewModel.noteController,
-                  onChanged: (p0) => feedingViewModel.changeVisible(),
-                ),
-                SizedBox(height: displayHeight(context) * 0.2),
-                Observer(
-                  builder: (context) {
-                    return Visibility(
-                      visible: feedingViewModel.isButtonVisible,
-                      child: CustomButton(
-                          text: Text(AppLocalizations.of(context)!.save, style: TextStyle(color: ColorConst.cwhite)),
-                          onPressed: () {
-                            feedingViewModel.addFeeding();
-                            feedingViewModel.toggleBlur(context);
-                          }),
-                    );
-                  },
                 )
               ],
-            )),
+            ),
             if (feedingViewModel.isBlurred)
               Positioned.fill(
                 child: BackdropFilter(
                   filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                  child: Container(color: ColorConst.cblack.withOpacity(0), child: Center(child: Lottie.asset(ImagesConst.lottie))),
+                  child: Container(
+                      color: ColorConst.cblack.withOpacity(0), child: Center(child: Lottie.asset(ImagesConst.lottie))),
                 ),
               ),
           ],

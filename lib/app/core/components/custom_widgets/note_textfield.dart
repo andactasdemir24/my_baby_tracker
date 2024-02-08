@@ -13,9 +13,10 @@ class CustomNoteTextfield extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.06),
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.06),
+      child: ConstrainedBox(
+        constraints: BoxConstraints.tightFor(height: displayHeight(context) * 0.5),
         child: TextField(
           onChanged: onChanged,
           style: const TextStyle(fontWeight: FontWeight.bold),
