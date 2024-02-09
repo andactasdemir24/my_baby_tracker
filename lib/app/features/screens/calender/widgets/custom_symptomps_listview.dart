@@ -15,7 +15,7 @@ class CustomSymptompsListView extends StatelessWidget {
           itemBuilder: (context, index) {
             var symptomps = calenderViewmodel.symptompsList[index];
             return Padding(
-              padding: const EdgeInsets.symmetric(vertical: 5),
+              padding: EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.01, vertical: 5),
               child: Column(
                 children: [
                   Center(child: Observer(
@@ -52,11 +52,11 @@ class CustomSymptompsListView extends StatelessWidget {
                             child: AnimatedContainer(
                               duration: const Duration(milliseconds: 500),
                               curve: Curves.ease,
-                              width: displayWidth(context) * 0.8878,
+                              width: displayWidth(context) * 0.9,
                               height:
                                   symptomps.isSelected ? displayHeight(context) * 0.15 : displayHeight(context) * 0.1,
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(25),
+                                borderRadius: BorderRadius.circular(20),
                                 color: ColorConst.annualColor,
                               ),
                               alignment: Alignment.center,
@@ -78,17 +78,17 @@ class CustomSymptompsListView extends StatelessWidget {
 
   ListTile notpress(Symptomps symptomps) {
     return ListTile(
-      leading: Icon(Baby.symptoms, size: 50, color: ColorConst.symptompsTab),
+      leading: Icon(Baby.symptoms, size: 50.spMin, color: ColorConst.symptompsTab),
       trailing: const Icon(Icons.arrow_circle_down_outlined),
       title: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(symptomps.sympList!.map((e) => e.name).join(', '),
-              style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor)),
+              style: TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor)),
           Text(
               '${symptomps.symTime!.hour.toString().padLeft(2, '0')}:${symptomps.symTime!.minute.toString().padLeft(2, '0')}',
-              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
+              style: TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.bold)),
         ],
       ),
     );
@@ -97,21 +97,21 @@ class CustomSymptompsListView extends StatelessWidget {
   SingleChildScrollView whenipress(Symptomps symptomps, BuildContext context) {
     return SingleChildScrollView(
       child: ListTile(
-        leading: Icon(Baby.symptoms, size: 50, color: ColorConst.symptompsTab),
+        leading: Icon(Baby.symptoms, size: 50.spMin, color: ColorConst.symptompsTab),
         trailing: const Icon(Icons.arrow_circle_up_outlined),
         title: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(symptomps.sympList!.map((e) => e.name).join(', '),
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor)),
+                style: TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor)),
             Flexible(
               child: Text(
                   '${symptomps.symTime!.hour.toString().padLeft(2, '0')}:${symptomps.symTime!.minute.toString().padLeft(2, '0')}',
-                  style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, overflow: TextOverflow.ellipsis)),
+                  style: TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.bold, overflow: TextOverflow.ellipsis)),
             ),
             Text('${AppLocalizations.of(context)!.note}: ${symptomps.text.toString()}',
-                style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
+                style: TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.w500)),
           ],
         ),
       ),

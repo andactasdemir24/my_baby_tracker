@@ -107,3 +107,4 @@ export 'features/screens/vaccine/widgets/custom_dropdown_button.dart';
 export 'features/screens/vaccine/widgets/custom_vaccine_texfield.dart';
 export 'features/theme/baby_icons.dart';
 export 'package:flutter_gen/gen_l10n/app_localizations.dart';
+export 'package:flutter_screenutil/flutter_screenutil.dart';

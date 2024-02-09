@@ -15,7 +15,7 @@ class CustomNappyListView extends StatelessWidget {
           itemBuilder: (context, index) {
             var nappy = calenderViewmodel.nappyList[index];
             return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+              padding: EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.01, vertical: 5),
               child: Column(
                 children: [
                   Center(child: Observer(
@@ -51,10 +51,10 @@ class CustomNappyListView extends StatelessWidget {
                             child: AnimatedContainer(
                               duration: const Duration(milliseconds: 500),
                               curve: Curves.ease,
-                              width: displayWidth(context) * 0.8878,
+                              width: displayWidth(context) * 0.9,
                               height: nappy.isSelected ? displayHeight(context) * 0.15 : displayHeight(context) * 0.1,
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(25),
+                                borderRadius: BorderRadius.circular(20),
                                 color: ColorConst.annualColor,
                               ),
                               alignment: Alignment.center,
@@ -76,17 +76,17 @@ class CustomNappyListView extends StatelessWidget {
 
   ListTile notpress(Nappy nappys) {
     return ListTile(
-      leading: Icon(Baby.nappy, size: 50, color: ColorConst.nappyTab),
+      leading: Icon(Baby.nappy, size: 50.spMin, color: ColorConst.nappyTab),
       trailing: const Icon(Icons.arrow_circle_down_outlined),
       title: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(nappys.napList!.map((e) => e.name).join(', '),
-              style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor)),
+              style: TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor)),
           Text(
               '${nappys.nappyTime!.hour.toString().padLeft(2, '0')}:${nappys.nappyTime!.minute.toString().padLeft(2, '0')}',
-              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
+              style: TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.bold)),
         ],
       ),
     );
@@ -95,21 +95,21 @@ class CustomNappyListView extends StatelessWidget {
   SingleChildScrollView whenipress(Nappy nappys, BuildContext context) {
     return SingleChildScrollView(
       child: ListTile(
-        leading: Icon(Baby.nappy, size: 50, color: ColorConst.nappyTab),
+        leading: Icon(Baby.nappy, size: 50.spMin, color: ColorConst.nappyTab),
         trailing: const Icon(Icons.arrow_circle_up_outlined),
         title: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(nappys.napList!.map((e) => e.name).join(', '),
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor)),
+                style: TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor)),
             Flexible(
               child: Text(
                   '${nappys.nappyTime!.hour.toString().padLeft(2, '0')}:${nappys.nappyTime!.minute.toString().padLeft(2, '0')}',
-                  style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, overflow: TextOverflow.ellipsis)),
+                  style: TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.bold, overflow: TextOverflow.ellipsis)),
             ),
             Text('${AppLocalizations.of(context)!.note}: ${nappys.text.toString()}',
-                style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
+                style: TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.w500)),
           ],
         ),
       ),

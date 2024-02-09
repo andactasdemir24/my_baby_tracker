@@ -15,7 +15,7 @@ class CustomFeedigListView extends StatelessWidget {
           itemBuilder: (context, index) {
             var feeding = calenderViewmodel.feedingList[index];
             return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+              padding: EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.01, vertical: 5),
               child: Column(
                 children: [
                   Center(child: Observer(
@@ -52,10 +52,10 @@ class CustomFeedigListView extends StatelessWidget {
                             child: AnimatedContainer(
                               duration: const Duration(milliseconds: 500),
                               curve: Curves.ease,
-                              width: displayWidth(context) * 0.8878,
+                              width: displayWidth(context) * 0.9,
                               height: feeding.isSelected ? displayHeight(context) * 0.15 : displayHeight(context) * 0.1,
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(25),
+                                borderRadius: BorderRadius.circular(20),
                                 color: ColorConst.annualColor,
                               ),
                               alignment: Alignment.center,
@@ -77,15 +77,15 @@ class CustomFeedigListView extends StatelessWidget {
 
   ListTile notpress(Feeding feeding) {
     return ListTile(
-      leading: Icon(Baby.feed, size: 50, color: ColorConst.feedingTab),
+      leading: Icon(Baby.feed, size: 50.spMin, color: ColorConst.feedingTab),
       trailing: const Icon(Icons.arrow_circle_down_outlined),
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text('${feeding.amount} (ml)',
-              style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor)),
+              style: TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor)),
           Text('${feeding.time?.hour.toString().padLeft(2, '0')}:${feeding.time?.minute.toString().padLeft(2, '0')}',
-              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
+              style: TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.bold)),
         ],
       ),
     );
@@ -94,7 +94,7 @@ class CustomFeedigListView extends StatelessWidget {
   SingleChildScrollView whenipress(Feeding feeding, BuildContext context) {
     return SingleChildScrollView(
       child: ListTile(
-        leading: Icon(Baby.feed, size: 50, color: ColorConst.feedingTab),
+        leading: Icon(Baby.feed, size: 50.spMin, color: ColorConst.feedingTab),
         trailing: const Icon(Icons.arrow_circle_up_outlined),
         title: Column(
           mainAxisSize: MainAxisSize.min,
@@ -104,17 +104,17 @@ class CustomFeedigListView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text('${feeding.amount} (ml)',
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor)),
+                    style: TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor)),
                 Text(
                   '${feeding.time?.hour.toString().padLeft(2, '0')}:${feeding.time?.minute.toString().padLeft(2, '0')}',
-                  style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.bold),
                   overflow: TextOverflow.ellipsis,
                 ),
               ],
             ),
             Text(
               '${AppLocalizations.of(context)!.note}: ${feeding.text.toString()}',
-              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+              style: TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.w500),
             ),
           ],
         ),

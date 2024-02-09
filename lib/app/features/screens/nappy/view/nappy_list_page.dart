@@ -67,6 +67,7 @@ class NappyList extends StatelessWidget {
               onPressed: () => nappyViewmodel.toggleBlur5(context)),
         );
       }),
+      bottomNavigationBar: SizedBox(height: displayHeight(context) * 0.05),
     );
   }
 }

@@ -68,6 +68,7 @@ class SymptompsList extends StatelessWidget {
               onPressed: () => symptompsViewmodel.toggleBlur3(context)),
         );
       }),
+      bottomNavigationBar: SizedBox(height: displayHeight(context) * 0.05),
     );
   }
 }

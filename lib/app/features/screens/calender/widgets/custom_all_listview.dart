@@ -20,10 +20,11 @@ class CustomAllListview extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
+                      padding: EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.06, vertical: 5),
                       child: Text(
                         entry.key,
-                        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor),
+                        style:
+                            TextStyle(fontSize: 20.spMin, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor),
                       ),
                     ),
                     ...entry.value.map((all) => _buildItem(context, all, allviewmodel)).toList(),
@@ -44,7 +45,7 @@ class CustomAllListview extends StatelessWidget {
       case Feeding:
         return Observer(builder: (context) {
           return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+            padding: EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.01, vertical: 5),
             child: Column(
               children: [
                 Center(child: Observer(
@@ -76,15 +77,15 @@ class CustomAllListview extends StatelessWidget {
                                 ));
                           },
                           child: Container(
-                              width: displayWidth(context) * 0.8878,
-                              height: displayHeight(context) * 0.14,
+                              width: displayWidth(context) * 0.9,
+                              height: displayHeight(context) * 0.13,
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(25),
+                                borderRadius: BorderRadius.circular(20),
                                 color: ColorConst.annualColor,
                               ),
                               alignment: Alignment.center,
                               child: ListTile(
-                                leading: Icon(Baby.feed, size: 50, color: ColorConst.feedingTab),
+                                leading: Icon(Baby.feed, size: 50.spMin, color: ColorConst.feedingTab),
                                 title: Column(
                                   mainAxisSize: MainAxisSize.min,
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -100,7 +101,7 @@ class CustomAllListview extends StatelessWidget {
                                       ],
                                     ),
                                     Text('${AppLocalizations.of(context)!.note}: ${all.text.toString()}',
-                                        style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500)),
+                                        style: TextStyle(fontSize: 15.spMin, fontWeight: FontWeight.w500)),
                                   ],
                                 ),
                               ))),
@@ -114,7 +115,7 @@ class CustomAllListview extends StatelessWidget {
       case Sleep:
         return Observer(builder: (context) {
           return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+            padding: EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.01, vertical: 5),
             child: Column(
               children: [
                 Center(child: Observer(
@@ -144,15 +145,15 @@ class CustomAllListview extends StatelessWidget {
                                         )));
                           },
                           child: Container(
-                              width: displayWidth(context) * 0.8878,
-                              height: displayHeight(context) * 0.14,
+                              width: displayWidth(context) * 0.9,
+                              height: displayHeight(context) * 0.13,
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(25),
+                                borderRadius: BorderRadius.circular(20),
                                 color: ColorConst.annualColor,
                               ),
                               alignment: Alignment.center,
                               child: ListTile(
-                                  leading: Icon(Baby.sleep, size: 50, color: ColorConst.sleepTab),
+                                  leading: Icon(Baby.sleep, size: 50.spMin, color: ColorConst.sleepTab),
                                   title: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -192,7 +193,7 @@ class CustomAllListview extends StatelessWidget {
       case Symptomps:
         return Observer(builder: (context) {
           return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+            padding: EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.01, vertical: 5),
             child: Column(
               children: [
                 Center(child: Observer(
@@ -222,16 +223,16 @@ class CustomAllListview extends StatelessWidget {
                                         )));
                           },
                           child: Container(
-                              width: displayWidth(context) * 0.8878,
-                              height: displayHeight(context) * 0.14,
+                              width: displayWidth(context) * 0.9,
+                              height: displayHeight(context) * 0.13,
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(25),
+                                borderRadius: BorderRadius.circular(20),
                                 color: ColorConst.annualColor,
                               ),
                               alignment: Alignment.center,
                               child: SingleChildScrollView(
                                 child: ListTile(
-                                  leading: Icon(Baby.symptoms, size: 50, color: ColorConst.symptompsTab),
+                                  leading: Icon(Baby.symptoms, size: 50.spMin, color: ColorConst.symptompsTab),
                                   title: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -263,7 +264,7 @@ class CustomAllListview extends StatelessWidget {
       case Nappy:
         return Observer(builder: (context) {
           return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+            padding: EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.01, vertical: 5),
             child: Column(
               children: [
                 Center(child: Observer(
@@ -293,16 +294,16 @@ class CustomAllListview extends StatelessWidget {
                                 ));
                           },
                           child: Container(
-                              width: displayWidth(context) * 0.8878,
-                              height: displayHeight(context) * 0.14,
+                              width: displayWidth(context) * 0.9,
+                              height: displayHeight(context) * 0.13,
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(25),
+                                borderRadius: BorderRadius.circular(20),
                                 color: ColorConst.annualColor,
                               ),
                               alignment: Alignment.center,
                               child: SingleChildScrollView(
                                 child: ListTile(
-                                  leading: Icon(Baby.nappy, size: 50, color: ColorConst.nappyTab),
+                                  leading: Icon(Baby.nappy, size: 50.spMin, color: ColorConst.nappyTab),
                                   title: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -334,7 +335,7 @@ class CustomAllListview extends StatelessWidget {
       case Vaccine:
         return Observer(builder: (context) {
           return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+            padding: EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.01, vertical: 5),
             child: Column(
               children: [
                 Center(child: Observer(
@@ -366,15 +367,15 @@ class CustomAllListview extends StatelessWidget {
                                 ));
                           },
                           child: Container(
-                              width: displayWidth(context) * 0.8878,
-                              height: displayHeight(context) * 0.14,
+                              width: displayWidth(context) * 0.9,
+                              height: displayHeight(context) * 0.13,
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(25),
+                                borderRadius: BorderRadius.circular(20),
                                 color: ColorConst.annualColor,
                               ),
                               alignment: Alignment.center,
                               child: ListTile(
-                                leading: Icon(Baby.vaccine3, size: 40, color: ColorConst.vaccineTab),
+                                leading: Icon(Baby.vaccine3, size: 40.spMin, color: ColorConst.vaccineTab),
                                 title: Column(
                                   mainAxisSize: MainAxisSize.min,
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -382,7 +383,7 @@ class CustomAllListview extends StatelessWidget {
                                     Text('${all.vaccine}', style: customTextStyle()),
                                     Text('${all.date}', style: customTextStyle2()),
                                     Text('${AppLocalizations.of(context)!.note}: ${all.text.toString()}',
-                                        style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500)),
+                                        style: TextStyle(fontSize: 15.spMin, fontWeight: FontWeight.w500)),
                                   ],
                                 ),
                               ))),
@@ -399,14 +400,14 @@ class CustomAllListview extends StatelessWidget {
   }
 
   TextStyle customTextStyle3() {
-    return const TextStyle(fontSize: 14, fontWeight: FontWeight.w500);
+    return TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.w500);
   }
 
   TextStyle customTextStyle2() {
-    return const TextStyle(fontSize: 14, fontWeight: FontWeight.bold, overflow: TextOverflow.ellipsis);
+    return TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.bold, overflow: TextOverflow.ellipsis);
   }
 
   TextStyle customTextStyle() {
-    return TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor);
+    return TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor);
   }
 }

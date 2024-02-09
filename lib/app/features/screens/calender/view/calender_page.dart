@@ -41,12 +41,12 @@ class _CalenderPageState extends State<CalenderPage> with TickerProviderStateMix
               indicatorColor: ColorConst.buttonColor,
               labelColor: ColorConst.buttonColor,
               tabs: <Widget>[
-                Tab(child: Text(AppLocalizations.of(context)!.all, style: const TextStyle(fontSize: 20))),
-                Tab(icon: Icon(Baby.feed, size: 45, color: ColorConst.feedingTab)),
-                Tab(icon: Icon(Baby.sleep, size: 45, color: ColorConst.sleepTab)),
-                Tab(icon: Icon(Baby.symptoms, size: 45, color: ColorConst.symptompsTab)),
-                Tab(icon: Icon(Baby.nappy, size: 45, color: ColorConst.nappyTab)),
-                Tab(icon: Icon(Baby.vaccine3, size: 33, color: ColorConst.vaccineTab)),
+                Tab(child: Text(AppLocalizations.of(context)!.all, style: TextStyle(fontSize: 20.spMin))),
+                Tab(icon: Icon(Baby.feed, size: 46.spMin, color: ColorConst.feedingTab)),
+                Tab(icon: Icon(Baby.sleep, size: 46.spMin, color: ColorConst.sleepTab)),
+                Tab(icon: Icon(Baby.symptoms, size: 46.spMin, color: ColorConst.symptompsTab)),
+                Tab(icon: Icon(Baby.nappy, size: 46.spMin, color: ColorConst.nappyTab)),
+                Tab(icon: Icon(Baby.vaccine3, size: 34.spMin, color: ColorConst.vaccineTab)),
               ],
             ),
             Expanded(

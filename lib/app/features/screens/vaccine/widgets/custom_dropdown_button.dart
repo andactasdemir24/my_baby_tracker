@@ -30,10 +30,10 @@ class CustomDropdownButton extends StatelessWidget {
             isExpanded: true,
             decoration: InputDecoration(
               contentPadding: EdgeInsets.only(
-                  bottom: displayHeight(context) * 0.03, top: displayHeight(context) * 0.02, left: 10.0, right: 10),
+                  bottom: displayHeight(context) * 0.03, top: displayHeight(context) * 0.025, left: 10.0, right: 10),
               filled: true,
               fillColor: ColorConst.annualColor,
-              border: OutlineInputBorder(borderRadius: BorderRadius.circular(25), borderSide: BorderSide.none),
+              border: OutlineInputBorder(borderRadius: BorderRadius.circular(20), borderSide: BorderSide.none),
             ),
             hint: Text(text, style: TextStyle(color: color, fontWeight: FontWeight.bold)),
             value: vaccineViewModel.dropdownValue,
