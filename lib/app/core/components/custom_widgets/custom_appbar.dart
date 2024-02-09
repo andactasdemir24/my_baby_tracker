@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:baby_tracker_app/app/app.dart';
 import 'package:flutter/material.dart';
 import '../../constants/color_constants.dart';
 
@@ -21,10 +22,9 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: centerTitle,
       title: Text(
         appbarText,
-        style:  TextStyle(
+        style: TextStyle(
           color: ColorConst.getPremiumTextColor,
-          fontSize: 27,
-          fontFamily: 'Poppins',
+          fontSize: 27.spMin,
           fontWeight: FontWeight.w600,
         ),
       ),
