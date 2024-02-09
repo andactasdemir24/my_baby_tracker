@@ -22,8 +22,8 @@ class RemoveBabyWidget extends StatelessWidget {
             elevation: 2,
             borderRadius: BorderRadius.circular(20),
             child: Container(
-              height: displayHeight(context) * 0.075,
-              width: displayWidth(context) * 0.8878,
+              height: displayHeight(context) * 0.08,
+              width: displayWidth(context) * 0.9,
               decoration: ShapeDecoration(
                 color: ColorConst.annualColor,
                 shape: RoundedRectangleBorder(
@@ -31,13 +31,17 @@ class RemoveBabyWidget extends StatelessWidget {
                 ),
               ),
               child: Padding(
-                padding: EdgeInsets.only(left: displayWidth(context) * 0.055, right: displayWidth(context) * 0.04),
+                padding: const EdgeInsets.only(left: 15, right: 15),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(AppLocalizations.of(context)!.removeInf,
-                        style:  TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: ColorConst.cred)),
-                     Icon(Icons.logout_outlined, color: ColorConst.settingsIndex),
+                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15.spMin, color: ColorConst.cred)),
+                    Icon(
+                      Icons.logout_outlined,
+                      color: ColorConst.settingsIndex,
+                      size: 25.spMin,
+                    ),
                   ],
                 ),
               ),

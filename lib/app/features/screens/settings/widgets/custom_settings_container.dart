@@ -28,8 +28,8 @@ class CustomSettingsContainer extends StatelessWidget {
         child: GestureDetector(
           onTap: onTap,
           child: Container(
-            height: displayHeight(context) * 0.075,
-            width: displayWidth(context) * 0.8878,
+            height: displayHeight(context) * 0.08,
+            width: displayWidth(context) * 0.9,
             decoration: ShapeDecoration(
               color: ColorConst.annualColor,
               shape: RoundedRectangleBorder(
@@ -43,11 +43,18 @@ class CustomSettingsContainer extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Image.asset(image),
-                      Text(text, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14))
+                      Image.asset(
+                        image,
+                        height: displayHeight(context) * 0.1.spMin,
+                      ),
+                      Text(text, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14.spMin))
                     ],
                   ),
-                   Icon(Baby.left, color: ColorConst.settingsIndex),
+                  Icon(
+                    Baby.left,
+                    color: ColorConst.settingsIndex,
+                    size: 25.spMin,
+                  ),
                 ],
               ),
             ),

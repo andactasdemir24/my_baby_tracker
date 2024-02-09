@@ -24,8 +24,8 @@ class TermsOfUse extends StatelessWidget {
                   children: [
                     Text(
                       AppLocalizations.of(context)!.term1,
-                      style: const TextStyle(
-                        fontSize: 20.0,
+                      style:  TextStyle(
+                        fontSize: 20.0.spMin,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
