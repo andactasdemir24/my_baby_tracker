@@ -1,7 +1,6 @@
 import 'package:baby_tracker_app/app/app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomDeleteAllButton extends StatelessWidget {
   const CustomDeleteAllButton({
@@ -19,11 +18,11 @@ class CustomDeleteAllButton extends StatelessWidget {
             memoriesViewmodel.clearAllMemories();
           },
           child: Padding(
-            padding: EdgeInsets.only(right: 15.w),
+            padding: const EdgeInsets.only(right: 15),
             child: Align(
               alignment: Alignment.centerRight,
               child: Text(AppLocalizations.of(context)!.deleteAll,
-                  style: TextStyle(color: ColorConst.buttonColor, fontWeight: FontWeight.bold, fontSize: 15)),
+                  style: TextStyle(color: ColorConst.buttonColor, fontWeight: FontWeight.bold, fontSize: 15.spMin)),
             ),
           ));
     });

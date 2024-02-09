@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:baby_tracker_app/app/app.dart';
 
 class Deneme extends StatelessWidget {
@@ -22,8 +21,8 @@ class Deneme extends StatelessWidget {
             final imageUrl = memoriesViewmodel.memoriesList[itemIndex].image;
             return Container(
               decoration: BoxDecoration(
-                border: Border.all(color: ColorConst.cwhite, width: 3.w),
-                borderRadius: BorderRadius.circular(20.r),
+                border: Border.all(color: ColorConst.cwhite, width: 3),
+                borderRadius: BorderRadius.circular(20),
                 image: DecorationImage(image: FileImage(File(imageUrl!)), fit: BoxFit.cover),
               ),
             );

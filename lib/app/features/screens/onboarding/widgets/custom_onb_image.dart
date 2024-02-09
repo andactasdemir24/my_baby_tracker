@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:baby_tracker_app/app/app.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomOnbImage extends StatelessWidget {
   const CustomOnbImage({

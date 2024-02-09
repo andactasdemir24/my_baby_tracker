@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:baby_tracker_app/app/app.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomContainer extends StatelessWidget {
   final String text;

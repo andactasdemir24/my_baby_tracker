@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:baby_tracker_app/app/app.dart';
 
 class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {

@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:baby_tracker_app/app/app.dart';
 
 class CustomImageContainerMemories extends StatelessWidget {
@@ -32,8 +31,8 @@ class CustomImageContainerMemories extends StatelessWidget {
         borderRadius: BorderRadius.circular(10.r),
         child: Container(
           decoration: BoxDecoration(
-            border: Border.all(color: ColorConst.cwhite, width: 1.w),
-            borderRadius: BorderRadius.circular(10.r),
+            border: Border.all(color: ColorConst.cwhite, width: 1),
+            borderRadius: BorderRadius.circular(10),
             image: DecorationImage(image: FileImage(File(memories.image!)), fit: BoxFit.cover),
           ),
         ),

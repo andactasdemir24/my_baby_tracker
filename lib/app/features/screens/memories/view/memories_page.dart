@@ -2,7 +2,6 @@ import 'package:baby_tracker_app/app/app.dart';
 import 'package:baby_tracker_app/app/features/screens/memories/widgets/custom_image_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MemoriesPage extends StatelessWidget {
   const MemoriesPage({super.key});
@@ -21,7 +20,7 @@ class MemoriesPage extends StatelessWidget {
           if (memoriesViewmodel.memoriesList.isNotEmpty) {
             return SingleChildScrollView(
               child: GridView.builder(
-                padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 physics: const NeverScrollableScrollPhysics(),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
@@ -38,8 +37,7 @@ class MemoriesPage extends StatelessWidget {
               ),
             );
           } else {
-            return CustomNoDataWidget(
-                image: ImagesConst.noDataImage2, text: AppLocalizations.of(context)!.noDataText);
+            return CustomNoDataWidget(image: ImagesConst.noDataImage2, text: AppLocalizations.of(context)!.noDataText);
           }
         }),
         floatingActionButton: CustomFloatActionButton(memoriesViewmodel: memoriesViewmodel));
