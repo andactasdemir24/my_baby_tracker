@@ -1,23 +1,6 @@
-import 'package:baby_tracker_app/app/core/constants/images_constants.dart';
-import 'package:baby_tracker_app/app/core/constants/mediaquery_constants.dart';
-import 'package:baby_tracker_app/app/features/screens/Informations/viewmodel/information_viewmodel.dart';
-import 'package:baby_tracker_app/app/features/screens/feeding/view/feeding_page.dart';
-import 'package:baby_tracker_app/app/features/screens/home/widgets/custom_appbar.dart';
-import 'package:baby_tracker_app/app/features/screens/nappy/view/nappy_page.dart';
-import 'package:baby_tracker_app/app/features/screens/nappy/viewmodel/nappy_viewmodel.dart';
-import 'package:baby_tracker_app/app/features/screens/sleep/view/sleep_page.dart';
-import 'package:baby_tracker_app/app/features/screens/symptomps/view/symptomps_page.dart';
-import 'package:baby_tracker_app/app/features/screens/vaccine/view/vaccine_page.dart';
-import 'package:baby_tracker_app/app/features/screens/vaccine/viewmodel/vaccine_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import '../../../../core/constants/color_constants.dart';
-import '../../../../core/getIt/locator.dart';
-import '../../feeding/viewmodel/feeding_viewmodel.dart';
-import '../../sleep/viewmodel/sleep_viewmodel.dart';
-import '../../symptomps/viewmodel/symptomps_viewmodel.dart';
-import '../widgets/custom_container.dart';
-import '../widgets/custom_stack.dart';
+import 'package:baby_tracker_app/app/app.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -44,44 +27,59 @@ class _HomePagetate extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: ColorConst.shade100,
-        appBar: const CustomAppbar(),
+        appBar: const CustomHomeAppbar(),
         body: SingleChildScrollView(
           child: Column(
             children: [
               Observer(builder: (context) {
                 return CustomStack(informationVeiwmodel: informationVeiwmodel);
               }),
-              SizedBox(height: displayHeight(context) * 0.1),
+              SizedBox(height: displayHeight(context) * 0.08),
               GestureDetector(
                   onTap: () {
                     feedingViewmodel.clearTime();
                     Navigator.push(context, MaterialPageRoute(builder: (context) => const FeedingPage()));
                   },
-                  child: CustomImageContainer(image: ImagesConst.homeImage1)),
+                  child: CustomImageContainer(
+                      icons: Baby.feed,
+                      containerColor: ColorConst.containerFeeding,
+                      text: AppLocalizations.of(context)!.feedingAppbar)),
               GestureDetector(
                   onTap: () {
                     sleepViewmodel.clearTime();
                     Navigator.push(context, MaterialPageRoute(builder: (context) => const SleepPage()));
                   },
-                  child: CustomImageContainer(image: ImagesConst.homeImage2)),
+                  child: CustomImageContainer(
+                      icons: Baby.sleep,
+                      containerColor: ColorConst.containerSleep,
+                      text: AppLocalizations.of(context)!.sleepAppbar)),
               GestureDetector(
                   onTap: () {
                     symptompsViewmodel.clearTime();
                     Navigator.push(context, MaterialPageRoute(builder: (context) => const SymptompsPage()));
                   },
-                  child: CustomImageContainer(image: ImagesConst.homeImage3)),
+                  child: CustomImageContainer(
+                      icons: Baby.symptoms,
+                      containerColor: ColorConst.containerSymptopms,
+                      text: AppLocalizations.of(context)!.symptomos)),
               GestureDetector(
                   onTap: () {
                     nappyViewmodel.clearTime();
                     Navigator.push(context, MaterialPageRoute(builder: (context) => const NappyPage()));
                   },
-                  child: CustomImageContainer(image: ImagesConst.homeImage4)),
+                  child: CustomImageContainer(
+                      icons: Baby.nappy,
+                      containerColor: ColorConst.containerNappy,
+                      text: AppLocalizations.of(context)!.nappyAppbar)),
               GestureDetector(
                   onTap: () {
                     vaccineViewmodel.clearTime();
                     Navigator.push(context, MaterialPageRoute(builder: (context) => const VaccinePage()));
                   },
-                  child: CustomImageContainer(image: ImagesConst.homeImage5)),
+                  child: CustomImageContainer(
+                      icons: Baby.syringe2,
+                      containerColor: ColorConst.containerVaccine,
+                      text: AppLocalizations.of(context)!.vaccineAppbar)),
             ],
           ),
         ));

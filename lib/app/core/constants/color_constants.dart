@@ -48,4 +48,11 @@ class ColorConst {
   static Color symptompsTab = const Color(0xffFFC664);
   static Color sleepTab = const Color(0xff635AFF);
   static Color vaccineTab = const Color(0xff006977);
+
+//home model container
+  static Color containerFeeding = const Color(0xff9b64ff);
+  static Color containerSleep = const Color(0xff635aff);
+  static Color containerSymptopms = const Color(0xffffc664);
+  static Color containerNappy = const Color(0xff69cdda);
+  static Color containerVaccine = const Color(0xff006977);
 }

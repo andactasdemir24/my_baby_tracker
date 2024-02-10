@@ -77,7 +77,7 @@ class CustomVaccineListView extends StatelessWidget {
 
   ListTile notpress(Vaccine vaccine) {
     return ListTile(
-      leading: Icon(Baby.vaccine3, size: 40.spMin, color: ColorConst.vaccineTab),
+      leading: Icon(Baby.syringe2, size: 50.spMin, color: ColorConst.vaccineTab),
       trailing: const Icon(Icons.arrow_circle_down_outlined),
       title: Column(
         mainAxisSize: MainAxisSize.min,
@@ -94,7 +94,7 @@ class CustomVaccineListView extends StatelessWidget {
   SingleChildScrollView whenipress(Vaccine vaccine, BuildContext context) {
     return SingleChildScrollView(
       child: ListTile(
-        leading: Icon(Baby.vaccine3, size: 40.spMin, color: ColorConst.vaccineTab),
+        leading: Icon(Baby.syringe2, size: 50.spMin, color: ColorConst.vaccineTab),
         trailing: const Icon(Icons.arrow_circle_up_outlined),
         title: Column(
           mainAxisSize: MainAxisSize.min,
@@ -102,7 +102,7 @@ class CustomVaccineListView extends StatelessWidget {
           children: [
             Text('${vaccine.vaccine}',
                 style: TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor)),
-            Text('${vaccine.date}', style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
+            Text('${vaccine.date}', style: TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.bold)),
             Text(
               '${AppLocalizations.of(context)!.note}: ${vaccine.text.toString()}',
               style: TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.w500),

@@ -63,7 +63,7 @@ class CustomAllListview extends StatelessWidget {
                         allviewmodel.deleteFeeding(all.id!);
                       },
                       child: GestureDetector(
-                          onDoubleTap: () {
+                          onLongPress: () {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -101,7 +101,7 @@ class CustomAllListview extends StatelessWidget {
                                       ],
                                     ),
                                     Text('${AppLocalizations.of(context)!.note}: ${all.text.toString()}',
-                                        style: TextStyle(fontSize: 15.spMin, fontWeight: FontWeight.w500)),
+                                        style: customTextStyle3()),
                                   ],
                                 ),
                               ))),
@@ -132,7 +132,7 @@ class CustomAllListview extends StatelessWidget {
                         allviewmodel.deleteSleep(all.id!);
                       },
                       child: GestureDetector(
-                          onDoubleTap: () {
+                          onLongPress: () {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -210,7 +210,7 @@ class CustomAllListview extends StatelessWidget {
                         allviewmodel.deleteSymptomps(all.id!);
                       },
                       child: GestureDetector(
-                          onDoubleTap: () {
+                          onLongPress: () {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -281,7 +281,7 @@ class CustomAllListview extends StatelessWidget {
                         allviewmodel.deleteNappy(all.id!);
                       },
                       child: GestureDetector(
-                          onDoubleTap: () {
+                          onLongPress: () {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -353,7 +353,7 @@ class CustomAllListview extends StatelessWidget {
                         allviewmodel.deleteVaccine(all.id!);
                       },
                       child: GestureDetector(
-                          onDoubleTap: () {
+                          onLongPress: () {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -375,7 +375,7 @@ class CustomAllListview extends StatelessWidget {
                               ),
                               alignment: Alignment.center,
                               child: ListTile(
-                                leading: Icon(Baby.vaccine3, size: 40.spMin, color: ColorConst.vaccineTab),
+                                leading: Icon(Baby.syringe2, size: 50.spMin, color: ColorConst.vaccineTab),
                                 title: Column(
                                   mainAxisSize: MainAxisSize.min,
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -383,7 +383,7 @@ class CustomAllListview extends StatelessWidget {
                                     Text('${all.vaccine}', style: customTextStyle()),
                                     Text('${all.date}', style: customTextStyle2()),
                                     Text('${AppLocalizations.of(context)!.note}: ${all.text.toString()}',
-                                        style: TextStyle(fontSize: 15.spMin, fontWeight: FontWeight.w500)),
+                                        style: customTextStyle3()),
                                   ],
                                 ),
                               ))),

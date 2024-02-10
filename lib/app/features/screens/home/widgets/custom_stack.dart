@@ -18,7 +18,7 @@ class CustomStack extends StatelessWidget {
         var info = informationVeiwmodel.selectedInformation!;
         return Material(
           elevation: 5,
-          borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10.r), bottomRight: Radius.circular(10.r)),
+          borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(10), bottomRight: Radius.circular(10)),
           child: Stack(
             clipBehavior: Clip.none,
             children: <Widget>[
@@ -27,11 +27,11 @@ class CustomStack extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: ColorConst.homeAppbar,
                   borderRadius:
-                      BorderRadius.only(bottomLeft: Radius.circular(10.r), bottomRight: Radius.circular(10.r)),
+                      const BorderRadius.only(bottomLeft: Radius.circular(10), bottomRight: Radius.circular(10)),
                 ),
               ),
               SizedBox(
-                height: displayHeight(context) * 0.15,
+                height: displayHeight(context) * 0.135,
                 child: Padding(
                   padding: EdgeInsets.only(left: displayHeight(context) * 0.025),
                   child: Row(
@@ -86,18 +86,18 @@ class CustomStack extends StatelessWidget {
                 ),
               ),
               Positioned(
-                top: displayHeight(context) * 0.15,
+                top: displayHeight(context) * 0.135,
                 left: displayHeight(context) * 0.025,
                 right: displayHeight(context) * 0.025,
                 child: Material(
                   elevation: 5,
-                  borderRadius: BorderRadius.circular(10.r),
+                  borderRadius: BorderRadius.circular(10),
                   child: Container(
                     width: displayWidth(context),
-                    height: displayHeight(context) * 0.15,
+                    height: displayHeight(context) * 0.145,
                     decoration: BoxDecoration(
                       color: ColorConst.cwhite,
-                      borderRadius: BorderRadius.circular(10.r),
+                      borderRadius: BorderRadius.circular(10),
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,

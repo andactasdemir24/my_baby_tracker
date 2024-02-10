@@ -57,6 +57,7 @@ export 'features/screens/feeding/widgets/amount_textfield.dart';
 export 'features/screens/feeding/widgets/feeding_alert.dart';
 export 'features/screens/home/view/home_page.dart';
 export 'features/screens/home/widgets/custom_container.dart';
+export 'features/screens/home/widgets/custom_home_appbar.dart';
 export 'features/screens/home/widgets/custom_stack.dart';
 export 'features/screens/inapp/view/inapp_page.dart';
 export 'features/screens/inapp/view/webview.dart';

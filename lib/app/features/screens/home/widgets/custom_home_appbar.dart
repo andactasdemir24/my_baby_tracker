@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:baby_tracker_app/app/app.dart';
 
-class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppbar({super.key});
+class CustomHomeAppbar extends StatelessWidget implements PreferredSizeWidget {
+  const CustomHomeAppbar({super.key});
 
   @override
   Widget build(BuildContext context) {
