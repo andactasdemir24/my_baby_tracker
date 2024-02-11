@@ -44,7 +44,7 @@ class _ProfilePageState extends State<ProfilePage> {
       body: Observer(builder: (context) {
         return Stack(
           children: [
-            Center(
+            SingleChildScrollView(
               child: Column(
                 children: [
                   SizedBox(height: displayHeight(context) * 0.05),
@@ -133,7 +133,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         color: !informationviewmodel.isEdit ? ColorConst.shade500 : ColorConst.cblack),
                     inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'^\d{1,3}$'))],
                   ),
-                  const Spacer(),
+                  SizedBox(height: displayHeight(context) * 0.1),
                   Observer(builder: (context) {
                     return Visibility(
                       visible: informationviewmodel.isEdit,
