@@ -45,81 +45,85 @@ class _SleepPageEditState extends State<SleepPageEdit> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: CustomAppbar(appbarText: AppLocalizations.of(context)!.sleepAppbar),
-        body: Observer(builder: (context) {
-          return Stack(children: [
-            CustomScrollView(
-              slivers: [
-                SliverFillRemaining(
-                  hasScrollBody: false,
-                  child: Column(
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          sleepViewmodel.selectTime1(context);
-                          sleepViewmodel.changeVisible();
-                        },
-                        child: CustomTimePicker(
-                          text: sleepViewmodel.time1 != null
-                              ? sleepViewmodel.time1!.format(context)
-                              : '${widget.feelSleep.hour.toString()}:${widget.feelSleep.minute.toString()}',
-                          color: ColorConst.cblack,
+    return GestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: Scaffold(
+          appBar: CustomAppbar(appbarText: AppLocalizations.of(context)!.sleepAppbar),
+          body: Observer(builder: (context) {
+            return Stack(children: [
+              CustomScrollView(
+                slivers: [
+                  SliverFillRemaining(
+                    hasScrollBody: false,
+                    child: Column(
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            sleepViewmodel.selectTime1(context);
+                            sleepViewmodel.changeVisible();
+                          },
+                          child: CustomTimePicker(
+                            text: sleepViewmodel.time1 != null
+                                ? sleepViewmodel.time1!.format(context)
+                                : '${widget.feelSleep.hour.toString()}:${widget.feelSleep.minute.toString()}',
+                            color: ColorConst.cblack,
+                          ),
                         ),
-                      ),
-                      SizedBox(height: displayHeight(context) * 0.01),
-                      GestureDetector(
-                        onTap: () {
-                          sleepViewmodel.selectTime2(context);
-                          sleepViewmodel.changeVisible();
-                        },
-                        child: CustomTimePicker(
-                          text: sleepViewmodel.time2 != null
-                              ? sleepViewmodel.time2!.format(context)
-                              : '${widget.wokeUp.hour.toString()}:${widget.wokeUp.minute.toString()}',
-                          color: ColorConst.cblack,
+                        SizedBox(height: displayHeight(context) * 0.01),
+                        GestureDetector(
+                          onTap: () {
+                            sleepViewmodel.selectTime2(context);
+                            sleepViewmodel.changeVisible();
+                          },
+                          child: CustomTimePicker(
+                            text: sleepViewmodel.time2 != null
+                                ? sleepViewmodel.time2!.format(context)
+                                : '${widget.wokeUp.hour.toString()}:${widget.wokeUp.minute.toString()}',
+                            color: ColorConst.cblack,
+                          ),
                         ),
-                      ),
-                      SizedBox(height: displayHeight(context) * 0.01),
-                      CustomNoteTextfield(
-                        controller: _noteController,
-                        onChanged: (p0) => sleepViewmodel.changeVisible(),
-                      ),
-                      const Spacer(),
-                      Observer(
-                        builder: (context) {
-                          return CustomButton(
-                            text:
-                                Text(AppLocalizations.of(context)!.update, style: TextStyle(color: ColorConst.cwhite)),
-                            onPressed: () {
-                              var value = Sleep(
-                                id: widget.id,
-                                fellSleep: widget.feelSleep,
-                                wokeUp: widget.wokeUp,
-                                text: _noteController.text,
-                                createdTime: widget.createdTime,
-                              );
-                              sleepViewmodel.updateSleep(value);
-                              sleepViewmodel.toggleBlur2(context);
-                            },
-                          );
-                        },
-                      ),
-                      SizedBox(height: displayHeight(context) * 0.035),
-                    ],
-                  ),
-                )
-              ],
-            ),
-            if (sleepViewmodel.isBlurred2)
-              Positioned.fill(
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                  child: Container(
-                      color: ColorConst.cblack.withOpacity(0), child: Center(child: Lottie.asset(ImagesConst.lottie))),
-                ),
+                        SizedBox(height: displayHeight(context) * 0.01),
+                        CustomNoteTextfield(
+                          controller: _noteController,
+                          onChanged: (p0) => sleepViewmodel.changeVisible(),
+                        ),
+                        const Spacer(),
+                        Observer(
+                          builder: (context) {
+                            return CustomButton(
+                              text: Text(AppLocalizations.of(context)!.update,
+                                  style: TextStyle(color: ColorConst.cwhite)),
+                              onPressed: () {
+                                var value = Sleep(
+                                  id: widget.id,
+                                  fellSleep: widget.feelSleep,
+                                  wokeUp: widget.wokeUp,
+                                  text: _noteController.text,
+                                  createdTime: widget.createdTime,
+                                );
+                                sleepViewmodel.updateSleep(value);
+                                sleepViewmodel.toggleBlur2(context);
+                              },
+                            );
+                          },
+                        ),
+                        SizedBox(height: displayHeight(context) * 0.035),
+                      ],
+                    ),
+                  )
+                ],
               ),
-          ]);
-        }));
+              if (sleepViewmodel.isBlurred2)
+                Positioned.fill(
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+                    child: Container(
+                        color: ColorConst.cblack.withOpacity(0),
+                        child: Center(child: Lottie.asset(ImagesConst.lottie))),
+                  ),
+                ),
+            ]);
+          })),
+    );
   }
 }

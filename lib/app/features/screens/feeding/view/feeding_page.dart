@@ -14,68 +14,72 @@ class FeedingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final FeedingViewModel feedingViewModel = locator.get<FeedingViewModel>();
-    return Scaffold(
-      appBar: CustomAppbar(appbarText: AppLocalizations.of(context)!.feedingAppbar),
-      body: Observer(builder: (context) {
-        return Stack(
-          children: [
-            CustomScrollView(
-              slivers: [
-                SliverFillRemaining(
-                  hasScrollBody: false,
-                  child: Column(
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          feedingViewModel.selectTime(context);
-                          feedingViewModel.changeVisible();
-                        },
-                        child: CustomTimePicker(
-                          text: feedingViewModel.time != null
-                              ? feedingViewModel.time!.format(context)
-                              : AppLocalizations.of(context)!.time,
-                          color: feedingViewModel.time != null ? ColorConst.cblack : ColorConst.settingsIndex,
+    return GestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: Scaffold(
+        appBar: CustomAppbar(appbarText: AppLocalizations.of(context)!.feedingAppbar),
+        body: Observer(builder: (context) {
+          return Stack(
+            children: [
+              CustomScrollView(
+                slivers: [
+                  SliverFillRemaining(
+                    hasScrollBody: false,
+                    child: Column(
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            feedingViewModel.selectTime(context);
+                            feedingViewModel.changeVisible();
+                          },
+                          child: CustomTimePicker(
+                            text: feedingViewModel.time != null
+                                ? feedingViewModel.time!.format(context)
+                                : AppLocalizations.of(context)!.time,
+                            color: feedingViewModel.time != null ? ColorConst.cblack : ColorConst.settingsIndex,
+                          ),
                         ),
-                      ),
-                      SizedBox(height: displayHeight(context) * 0.01),
-                      AmountTextField(controller: feedingViewModel.amountController),
-                      SizedBox(height: displayHeight(context) * 0.01),
-                      CustomNoteTextfield(
-                        controller: feedingViewModel.noteController,
-                        onChanged: (p0) => feedingViewModel.changeVisible(),
-                      ),
-                      const Spacer(),
-                      Observer(
-                        builder: (context) {
-                          return Visibility(
-                            visible: feedingViewModel.isButtonVisible,
-                            child: CustomButton(
-                                text: Text(AppLocalizations.of(context)!.save,
-                                    style: TextStyle(color: ColorConst.cwhite)),
-                                onPressed: () {
-                                  feedingViewModel.addFeeding();
-                                  feedingViewModel.toggleBlur(context);
-                                }),
-                          );
-                        },
-                      ),
-                      SizedBox(height: displayHeight(context) * 0.03),
-                    ],
-                  ),
-                )
-              ],
-            ),
-            if (feedingViewModel.isBlurred)
-              Positioned.fill(
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                  child: Container(
-                      color: ColorConst.cblack.withOpacity(0), child: Center(child: Lottie.asset(ImagesConst.lottie))),
-                ),
+                        SizedBox(height: displayHeight(context) * 0.01),
+                        AmountTextField(controller: feedingViewModel.amountController),
+                        SizedBox(height: displayHeight(context) * 0.01),
+                        CustomNoteTextfield(
+                          controller: feedingViewModel.noteController,
+                          onChanged: (p0) => feedingViewModel.changeVisible(),
+                        ),
+                        const Spacer(),
+                        Observer(
+                          builder: (context) {
+                            return Visibility(
+                              visible: feedingViewModel.isButtonVisible,
+                              child: CustomButton(
+                                  text: Text(AppLocalizations.of(context)!.save,
+                                      style: TextStyle(color: ColorConst.cwhite)),
+                                  onPressed: () {
+                                    feedingViewModel.addFeeding();
+                                    feedingViewModel.toggleBlur(context);
+                                  }),
+                            );
+                          },
+                        ),
+                        SizedBox(height: displayHeight(context) * 0.03),
+                      ],
+                    ),
+                  )
+                ],
               ),
-          ],
-        );
-      }),
+              if (feedingViewModel.isBlurred)
+                Positioned.fill(
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+                    child: Container(
+                        color: ColorConst.cblack.withOpacity(0),
+                        child: Center(child: Lottie.asset(ImagesConst.lottie))),
+                  ),
+                ),
+            ],
+          );
+        }),
+      ),
     );
   }
 }

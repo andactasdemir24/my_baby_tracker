@@ -15,24 +15,21 @@ class CustomNoteTextfield extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.06),
-      child: ConstrainedBox(
-        constraints: BoxConstraints.tightFor(height: displayHeight(context) * 0.5),
-        child: TextField(
-          onChanged: onChanged,
-          style: const TextStyle(fontWeight: FontWeight.bold),
-          maxLines: 8,
-          maxLength: 60,
-          controller: controller,
-          decoration: InputDecoration(
-              filled: true,
-              fillColor: ColorConst.annualColor,
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(25),
-                borderSide: BorderSide.none,
-              ),
-              hintText: AppLocalizations.of(context)!.note,
-              hintStyle: TextStyle(color: ColorConst.settingsIndex)),
-        ),
+      child: TextField(
+        onChanged: onChanged,
+        style: const TextStyle(fontWeight: FontWeight.bold),
+        maxLines: 8,
+        maxLength: 60,
+        controller: controller,
+        decoration: InputDecoration(
+            filled: true,
+            fillColor: ColorConst.annualColor,
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(25),
+              borderSide: BorderSide.none,
+            ),
+            hintText: AppLocalizations.of(context)!.note,
+            hintStyle: TextStyle(color: ColorConst.settingsIndex)),
       ),
     );
   }

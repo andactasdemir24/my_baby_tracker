@@ -47,75 +47,80 @@ class _FeedingEditState extends State<FeedingEdit> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: CustomAppbar(appbarText: AppLocalizations.of(context)!.feedingAppbar),
-      body: Observer(builder: (context) {
-        return Stack(
-          children: [
-            CustomScrollView(
-              slivers: [
-                SliverFillRemaining(
-                  hasScrollBody: false,
-                  child: Column(
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          viewmodel.selectTime(context);
-                          viewmodel.changeVisible();
-                        },
-                        child: CustomTimePicker(
-                            text: viewmodel.time != null
-                                ? viewmodel.time!.format(context)
-                                : '${widget.time.hour.toString()}:${widget.time.minute.toString()}',
-                            color: ColorConst.cblack),
-                      ),
-                      SizedBox(height: displayHeight(context) * 0.01),
-                      AmountTextField(controller: _amountController),
-                      SizedBox(height: displayHeight(context) * 0.01),
-                      CustomNoteTextfield(
-                        controller: _noteController,
-                        onChanged: (p0) => viewmodel.changeVisible(),
-                      ),
-                      const Spacer(),
-                      Observer(builder: (context) {
-                        return CustomButton(
-                          text: Text(AppLocalizations.of(context)!.update, style: TextStyle(color: ColorConst.cwhite)),
-                          onPressed: () {
-                            try {
-                              int.parse(_amountController.text);
-                            } catch (e) {
-                              viewmodel.showMyDialog(context);
-                              return;
-                            }
-                            var value = Feeding(
-                              id: widget.id,
-                              time: widget.time,
-                              amount: int.parse(_amountController.text),
-                              text: _noteController.text,
-                              createdTime: widget.createdTime,
-                            );
-                            viewmodel.updateFeeding(value);
-                            viewmodel.toggleBlur(context);
+    return GestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: Scaffold(
+        appBar: CustomAppbar(appbarText: AppLocalizations.of(context)!.feedingAppbar),
+        body: Observer(builder: (context) {
+          return Stack(
+            children: [
+              CustomScrollView(
+                slivers: [
+                  SliverFillRemaining(
+                    hasScrollBody: false,
+                    child: Column(
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            viewmodel.selectTime(context);
+                            viewmodel.changeVisible();
                           },
-                        );
-                      }),
-                      SizedBox(height: displayHeight(context) * 0.035),
-                    ],
-                  ),
-                )
-              ],
-            ),
-            if (viewmodel.isBlurred)
-              Positioned.fill(
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                  child: Container(
-                      color: ColorConst.cblack.withOpacity(0), child: Center(child: Lottie.asset(ImagesConst.lottie))),
-                ),
+                          child: CustomTimePicker(
+                              text: viewmodel.time != null
+                                  ? viewmodel.time!.format(context)
+                                  : '${widget.time.hour.toString()}:${widget.time.minute.toString()}',
+                              color: ColorConst.cblack),
+                        ),
+                        SizedBox(height: displayHeight(context) * 0.01),
+                        AmountTextField(controller: _amountController),
+                        SizedBox(height: displayHeight(context) * 0.01),
+                        CustomNoteTextfield(
+                          controller: _noteController,
+                          onChanged: (p0) => viewmodel.changeVisible(),
+                        ),
+                        const Spacer(),
+                        Observer(builder: (context) {
+                          return CustomButton(
+                            text:
+                                Text(AppLocalizations.of(context)!.update, style: TextStyle(color: ColorConst.cwhite)),
+                            onPressed: () {
+                              try {
+                                int.parse(_amountController.text);
+                              } catch (e) {
+                                viewmodel.showMyDialog(context);
+                                return;
+                              }
+                              var value = Feeding(
+                                id: widget.id,
+                                time: widget.time,
+                                amount: int.parse(_amountController.text),
+                                text: _noteController.text,
+                                createdTime: widget.createdTime,
+                              );
+                              viewmodel.updateFeeding(value);
+                              viewmodel.toggleBlur(context);
+                            },
+                          );
+                        }),
+                        SizedBox(height: displayHeight(context) * 0.035),
+                      ],
+                    ),
+                  )
+                ],
               ),
-          ],
-        );
-      }),
+              if (viewmodel.isBlurred)
+                Positioned.fill(
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+                    child: Container(
+                        color: ColorConst.cblack.withOpacity(0),
+                        child: Center(child: Lottie.asset(ImagesConst.lottie))),
+                  ),
+                ),
+            ],
+          );
+        }),
+      ),
     );
   }
 }

@@ -12,70 +12,74 @@ class VaccinePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var vaccineViewModel = locator.get<VaccineViewModel>();
-    return Scaffold(
-      appBar: CustomAppbar(appbarText: AppLocalizations.of(context)!.vaccineAppbar),
-      body: Observer(builder: (context) {
-        return Stack(
-          children: [
-            CustomScrollView(
-              slivers: [
-                SliverFillRemaining(
-                  hasScrollBody: false,
-                  child: Column(
-                    children: [
-                      CustomVaccineTextField(
-                        onChanged: (p0) => vaccineViewModel.changeVisible(),
-                        controller: vaccineViewModel.dateController,
-                        hintText: AppLocalizations.of(context)!.vaccineDate,
-                        hintStyle: TextStyle(color: ColorConst.settingsIndex),
-                        textInputType: TextInputType.none,
-                        textStyle: const TextStyle(fontWeight: FontWeight.bold),
-                        onTap: () {
-                          vaccineViewModel.selectDate(context, vaccineViewModel.dateController);
-                        },
-                      ),
-                      SizedBox(height: displayHeight(context) * 0.01),
-                      CustomDropdownButton(
-                          vaccineViewModel: vaccineViewModel,
-                          text: AppLocalizations.of(context)!.vaccine,
-                          color: ColorConst.settingsIndex),
-                      SizedBox(height: displayHeight(context) * 0.01),
-                      CustomNoteTextfield(
-                        controller: vaccineViewModel.noteController,
-                        onChanged: (p0) => vaccineViewModel.changeVisible(),
-                      ),
-                      const Spacer(),
-                      Observer(
-                        builder: (context) {
-                          return Visibility(
-                            visible: vaccineViewModel.isButtonVisible,
-                            child: CustomButton(
-                                text: Text(AppLocalizations.of(context)!.save,
-                                    style: TextStyle(color: ColorConst.cwhite)),
-                                onPressed: () {
-                                  vaccineViewModel.addVaccine();
-                                  vaccineViewModel.toggleBlur(context);
-                                }),
-                          );
-                        },
-                      ),
-                      SizedBox(height: displayHeight(context) * 0.035),
-                    ],
-                  ),
-                )
-              ],
-            ),
-            if (vaccineViewModel.isBlurred)
-              Positioned.fill(
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                  child: Container(
-                      color: ColorConst.cblack.withOpacity(0), child: Center(child: Lottie.asset(ImagesConst.lottie))),
-                ),
+    return GestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: Scaffold(
+        appBar: CustomAppbar(appbarText: AppLocalizations.of(context)!.vaccineAppbar),
+        body: Observer(builder: (context) {
+          return Stack(
+            children: [
+              CustomScrollView(
+                slivers: [
+                  SliverFillRemaining(
+                    hasScrollBody: false,
+                    child: Column(
+                      children: [
+                        CustomVaccineTextField(
+                          onChanged: (p0) => vaccineViewModel.changeVisible(),
+                          controller: vaccineViewModel.dateController,
+                          hintText: AppLocalizations.of(context)!.vaccineDate,
+                          hintStyle: TextStyle(color: ColorConst.settingsIndex),
+                          textInputType: TextInputType.none,
+                          textStyle: const TextStyle(fontWeight: FontWeight.bold),
+                          onTap: () {
+                            vaccineViewModel.selectDate(context, vaccineViewModel.dateController);
+                          },
+                        ),
+                        SizedBox(height: displayHeight(context) * 0.01),
+                        CustomDropdownButton(
+                            vaccineViewModel: vaccineViewModel,
+                            text: AppLocalizations.of(context)!.vaccine,
+                            color: ColorConst.settingsIndex),
+                        SizedBox(height: displayHeight(context) * 0.01),
+                        CustomNoteTextfield(
+                          controller: vaccineViewModel.noteController,
+                          onChanged: (p0) => vaccineViewModel.changeVisible(),
+                        ),
+                        const Spacer(),
+                        Observer(
+                          builder: (context) {
+                            return Visibility(
+                              visible: vaccineViewModel.isButtonVisible,
+                              child: CustomButton(
+                                  text: Text(AppLocalizations.of(context)!.save,
+                                      style: TextStyle(color: ColorConst.cwhite)),
+                                  onPressed: () {
+                                    vaccineViewModel.addVaccine();
+                                    vaccineViewModel.toggleBlur(context);
+                                  }),
+                            );
+                          },
+                        ),
+                        SizedBox(height: displayHeight(context) * 0.035),
+                      ],
+                    ),
+                  )
+                ],
               ),
-          ],
-        );
-      }),
+              if (vaccineViewModel.isBlurred)
+                Positioned.fill(
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+                    child: Container(
+                        color: ColorConst.cblack.withOpacity(0),
+                        child: Center(child: Lottie.asset(ImagesConst.lottie))),
+                  ),
+                ),
+            ],
+          );
+        }),
+      ),
     );
   }
 }
