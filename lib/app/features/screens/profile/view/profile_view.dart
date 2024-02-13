@@ -58,7 +58,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             : ClipRRect(
                                 child: informationviewmodel.selectedImage != null
                                     ? CircleAvatar(
-                                        maxRadius: 70.r,
+                                        maxRadius: 60.r,
                                         backgroundImage: FileImage(informationviewmodel.selectedImage!),
                                         child: Container(
                                           decoration: ShapeDecoration(
@@ -72,7 +72,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               );
                       },
                     ),
-                    SizedBox(height: displayHeight(context) * 0.03),
+                    SizedBox(height: displayHeight(context) * 0.02),
                     CustomInformationTextField(
                       controller: informationviewmodel.nameController,
                       textInputType: TextInputType.name,
@@ -135,37 +135,6 @@ class _ProfilePageState extends State<ProfilePage> {
                           color: !informationviewmodel.isEdit ? ColorConst.shade500 : ColorConst.cblack),
                       inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'^\d{1,3}$'))],
                     ),
-                    SizedBox(height: displayHeight(context) * 0.1),
-                    Observer(builder: (context) {
-                      return Visibility(
-                        visible: informationviewmodel.isEdit,
-                        child: CustomButton(
-                          text: Text(AppLocalizations.of(context)!.babyUpdate,
-                              style: TextStyle(color: ColorConst.cwhite)),
-                          onPressed: () {
-                            if (informationviewmodel.areFieldsFilled) {
-                              // Update the information
-                              var value = Information(
-                                id: informationviewmodel.selectedInformation!.id,
-                                image: informationviewmodel.selectedImage?.path,
-                                genderList: informationviewmodel.genderList,
-                                fullname: informationviewmodel.nameController.text,
-                                birthDate: informationviewmodel.birthDateController.text,
-                                weight: int.parse(informationviewmodel.weightController.text),
-                                height: int.parse(informationviewmodel.heightController.text),
-                                selectedGender: informationviewmodel.selectedInformation?.selectedGender,
-                              );
-                              informationviewmodel.updateInformation(value);
-                              informationviewmodel.toggleBlur(context);
-                              informationviewmodel.isEditControl();
-                            } else {
-                              ScaffoldMessenger.of(context).showSnackBar(CustomSnackbar.show(context));
-                            }
-                          },
-                        ),
-                      );
-                    }),
-                    SizedBox(height: displayHeight(context) * 0.01),
                   ],
                 ),
               ),
@@ -182,6 +151,40 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
         );
       }),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: Observer(
+        builder: (context) {
+          return Padding(
+            padding: EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.06, vertical: 5),
+            child: Visibility(
+              visible: informationviewmodel.isEdit,
+              child: CustomButton(
+                text: Text(AppLocalizations.of(context)!.babyUpdate, style: TextStyle(color: ColorConst.cwhite)),
+                onPressed: () {
+                  if (informationviewmodel.areFieldsFilled) {
+                    // Update the information
+                    var value = Information(
+                      id: informationviewmodel.selectedInformation!.id,
+                      image: informationviewmodel.selectedImage?.path,
+                      genderList: informationviewmodel.genderList,
+                      fullname: informationviewmodel.nameController.text,
+                      birthDate: informationviewmodel.birthDateController.text,
+                      weight: int.parse(informationviewmodel.weightController.text),
+                      height: int.parse(informationviewmodel.heightController.text),
+                      selectedGender: informationviewmodel.selectedInformation?.selectedGender,
+                    );
+                    informationviewmodel.updateInformation(value);
+                    informationviewmodel.toggleBlur(context);
+                    informationviewmodel.isEditControl();
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(CustomSnackbar.show(context));
+                  }
+                },
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 }

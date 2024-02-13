@@ -8,7 +8,7 @@ class CustomSnackbar {
         label: AppLocalizations.of(context)!.undo,
         onPressed: () {},
       ),
-      content: Text(AppLocalizations.of(context)!.deleteText),
+      content: Text(AppLocalizations.of(context)!.warningText),
       duration: const Duration(milliseconds: 1500),
       behavior: SnackBarBehavior.floating,
       shape: RoundedRectangleBorder(

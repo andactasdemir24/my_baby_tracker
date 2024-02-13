@@ -20,7 +20,7 @@ class CustomPicker extends StatelessWidget {
           child: ClipRRect(
             child: informationviewmodel.selectedImage != null
                 ? CircleAvatar(
-                    maxRadius: 70.r,
+                    maxRadius: 60.r,
                     backgroundImage: FileImage(informationviewmodel.selectedImage!),
                     child: Container(
                       decoration: ShapeDecoration(
