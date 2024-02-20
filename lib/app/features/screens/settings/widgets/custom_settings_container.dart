@@ -23,7 +23,7 @@ class CustomSettingsContainer extends StatelessWidget {
         vertical: displayHeight(context) * 0.01,
       ),
       child: Material(
-        elevation: 2,
+        elevation: 1,
         borderRadius: BorderRadius.circular(20),
         child: GestureDetector(
           onTap: onTap,

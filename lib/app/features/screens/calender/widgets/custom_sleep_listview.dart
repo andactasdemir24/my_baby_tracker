@@ -85,7 +85,8 @@ class CustomSleepListView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text('Feel sleep:',
-                    style: TextStyle(fontSize: 15.spMin, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor)),
+                    style: TextStyle(
+                        fontSize: 15.spMin, fontWeight: FontWeight.bold, color: ColorConst.getPremiumTextColor)),
                 Text(
                     '${sleep.fellSleep!.hour.toString().padLeft(2, '0')}:${sleep.fellSleep!.minute.toString().padLeft(2, '0')}',
                     style: TextStyle(fontSize: 15.spMin, fontWeight: FontWeight.bold))
@@ -95,7 +96,8 @@ class CustomSleepListView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text('Woke up:',
-                    style: TextStyle(fontSize: 15.spMin, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor)),
+                    style: TextStyle(
+                        fontSize: 15.spMin, fontWeight: FontWeight.bold, color: ColorConst.getPremiumTextColor)),
                 Text(
                     '${sleep.wokeUp?.hour.toString().padLeft(2, '0')}:${sleep.wokeUp?.minute.toString().padLeft(2, '0')}',
                     style: TextStyle(fontSize: 15.spMin, fontWeight: FontWeight.bold)),

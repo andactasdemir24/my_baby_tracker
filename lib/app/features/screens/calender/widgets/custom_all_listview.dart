@@ -23,8 +23,8 @@ class CustomAllListview extends StatelessWidget {
                       padding: EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.06, vertical: 5),
                       child: Text(
                         entry.key,
-                        style:
-                            TextStyle(fontSize: 20.spMin, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor),
+                        style: TextStyle(
+                            fontSize: 20.spMin, fontWeight: FontWeight.bold, color: ColorConst.getPremiumTextColor),
                       ),
                     ),
                     ...entry.value.map((all) => _buildItem(context, all, allviewmodel)).toList(),
@@ -408,6 +408,6 @@ class CustomAllListview extends StatelessWidget {
   }
 
   TextStyle customTextStyle() {
-    return TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor);
+    return TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.bold, color: ColorConst.getPremiumTextColor);
   }
 }

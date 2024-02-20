@@ -22,7 +22,7 @@ class CustomDeleteAllButton extends StatelessWidget {
             child: Align(
               alignment: Alignment.centerRight,
               child: Text(AppLocalizations.of(context)!.deleteAll,
-                  style: TextStyle(color: ColorConst.buttonColor, fontWeight: FontWeight.bold, fontSize: 15.spMin)),
+                  style: TextStyle(color: ColorConst.cred, fontWeight: FontWeight.bold, fontSize: 15.spMin)),
             ),
           ));
     });

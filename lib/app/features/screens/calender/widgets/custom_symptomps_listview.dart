@@ -85,7 +85,7 @@ class CustomSymptompsListView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(symptomps.sympList!.map((e) => e.name).join(', '),
-              style: TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor)),
+              style: TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.bold, color: ColorConst.getPremiumTextColor)),
           Text(
               '${symptomps.symTime!.hour.toString().padLeft(2, '0')}:${symptomps.symTime!.minute.toString().padLeft(2, '0')}',
               style: TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.bold)),
@@ -104,7 +104,8 @@ class CustomSymptompsListView extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(symptomps.sympList!.map((e) => e.name).join(', '),
-                style: TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor)),
+                style:
+                    TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.bold, color: ColorConst.getPremiumTextColor)),
             Flexible(
               child: Text(
                   '${symptomps.symTime!.hour.toString().padLeft(2, '0')}:${symptomps.symTime!.minute.toString().padLeft(2, '0')}',

@@ -33,20 +33,25 @@ class InformationPage extends StatelessWidget {
                                   informationviewmodel.pickImageFromGalery();
                                   informationviewmodel.changeVisible();
                                 },
-                                child: ClipRRect(
-                                  child: informationviewmodel.selectedImage != null
-                                      ? CircleAvatar(
-                                          maxRadius: 60.r,
-                                          backgroundImage: FileImage(informationviewmodel.selectedImage!),
-                                          child: Container(
-                                            decoration: ShapeDecoration(
-                                              shape: OvalBorder(
-                                                side: BorderSide(width: 2, color: ColorConst.feedindIconColor),
+                                child: Column(
+                                  children: [
+                                    SizedBox(height: displayHeight(context) * 0.02),
+                                    ClipRRect(
+                                      child: informationviewmodel.selectedImage != null
+                                          ? CircleAvatar(
+                                              maxRadius: 70.r,
+                                              backgroundImage: FileImage(informationviewmodel.selectedImage!),
+                                              child: Container(
+                                                decoration: ShapeDecoration(
+                                                  shape: OvalBorder(
+                                                    side: BorderSide(width: 2, color: ColorConst.borderSideColor),
+                                                  ),
+                                                ),
                                               ),
-                                            ),
-                                          ),
-                                        )
-                                      : Image.asset(ImagesConst.picker, height: displayHeight(context) * 0.2),
+                                            )
+                                          : Image.asset(ImagesConst.picker, height: displayHeight(context) * 0.2),
+                                    ),
+                                  ],
                                 ),
                               );
                             },

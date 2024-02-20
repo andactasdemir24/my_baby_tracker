@@ -84,7 +84,7 @@ class CustomVaccineListView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text('${vaccine.vaccine}',
-              style: TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor)),
+              style: TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.bold, color: ColorConst.getPremiumTextColor)),
           Text('${vaccine.date}', style: TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.bold)),
         ],
       ),
@@ -101,7 +101,8 @@ class CustomVaccineListView extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text('${vaccine.vaccine}',
-                style: TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor)),
+                style:
+                    TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.bold, color: ColorConst.getPremiumTextColor)),
             Text('${vaccine.date}', style: TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.bold)),
             Text(
               '${AppLocalizations.of(context)!.note}: ${vaccine.text.toString()}',

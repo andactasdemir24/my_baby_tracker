@@ -9,14 +9,15 @@ class ColorConst {
   static Color cred = Colors.red;
 
 //Onboarding
-  static Color buttonColor = const Color(0xff4625c3);
+  static Color buttonColor = const Color(0xffA020F0);
   static Color buttonTextColor = const Color(0xfffafafa);
   static Color bg = const Color(0xfffcfcfc);
+  static Color onbButtonColor = const Color(0xff570987);
 
-  static Color sympListShadow = const Color(0xff8a3af8);
+  static Color sympListShadow = const Color(0xffA020F0);
 
 //inApp
-  static Color getPremiumTextColor = const Color(0xFF4625C3);
+  static Color getPremiumTextColor = const Color(0xff570987);
   static Color annualColor = const Color(0xFFF3F3F3);
   static Color annualPriceText = const Color(0xFF010101);
   static Color vebviewText = const Color(0xFF1E1F23);
@@ -32,8 +33,9 @@ class ColorConst {
   static Color mainIconColor = const Color(0xff4625C3);
 //information
   static Color pickerColor = const Color(0xff547eff);
+  static Color borderSideColor = const Color(0xffA020F0);
 //homeappbar color
-  static Color homeAppbar = const Color.fromARGB(255, 230, 30, 80);
+  static Color homeAppbar = const Color.fromARGB(255, 199, 11, 83);
 
 //grey shade
   static Color shade100 = Colors.grey.shade100;
@@ -42,12 +44,19 @@ class ColorConst {
   static Color shade400 = Colors.grey.shade400;
   static Color shade500 = Colors.grey.shade500;
 
+//memories
+  static Color fabbutton = const Color(0xff6A19B5);
+
 //tabbar icon color
   static Color feedingTab = const Color(0xff9B64FF);
   static Color nappyTab = const Color(0xff69CDDA);
   static Color symptompsTab = const Color(0xffFFC664);
   static Color sleepTab = const Color(0xff635AFF);
   static Color vaccineTab = const Color(0xff006977);
+
+//navbar icon color
+  static Color navbarIconColor = const Color(0xff6A19B5);
+  static Color navbarTextColor = const Color(0xff6A19B5);
 
 //home model container
   static Color containerFeeding = const Color(0xff9b64ff);

@@ -58,7 +58,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             : ClipRRect(
                                 child: informationviewmodel.selectedImage != null
                                     ? CircleAvatar(
-                                        maxRadius: 60.r,
+                                        maxRadius: 70.r,
                                         backgroundImage: FileImage(informationviewmodel.selectedImage!),
                                         child: Container(
                                           decoration: ShapeDecoration(
@@ -79,7 +79,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       hintText: AppLocalizations.of(context)!.babyFullName,
                       hintStyle: TextStyle(color: ColorConst.settingsIndex),
                       icon: Icon(Baby.baby,
-                          color: !informationviewmodel.isEdit ? ColorConst.shade500 : ColorConst.mainIconColor,
+                          color: !informationviewmodel.isEdit ? ColorConst.shade500 : ColorConst.sympListShadow,
                           size: 16.spMin),
                       readOnly: !informationviewmodel.isEdit,
                       textStyle: TextStyle(
@@ -96,7 +96,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         hintStyle: TextStyle(color: ColorConst.settingsIndex),
                         textInputType: TextInputType.none,
                         icon: Icon(Baby.birthdaycake,
-                            color: !informationviewmodel.isEdit ? ColorConst.shade500 : ColorConst.mainIconColor,
+                            color: !informationviewmodel.isEdit ? ColorConst.shade500 : ColorConst.sympListShadow,
                             size: 16.spMin),
                         readOnly: !informationviewmodel.isEdit,
                         textStyle: TextStyle(
@@ -113,7 +113,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       hintText: AppLocalizations.of(context)!.babyWeight,
                       hintStyle: TextStyle(color: ColorConst.settingsIndex),
                       icon: Icon(Baby.weight,
-                          color: !informationviewmodel.isEdit ? ColorConst.shade500 : ColorConst.mainIconColor,
+                          color: !informationviewmodel.isEdit ? ColorConst.shade500 : ColorConst.sympListShadow,
                           size: 16.spMin),
                       readOnly: !informationviewmodel.isEdit,
                       textStyle: TextStyle(
@@ -128,7 +128,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       hintStyle: TextStyle(color: ColorConst.settingsIndex),
                       icon: Icon(Icons.height,
                           size: 16.spMin,
-                          color: !informationviewmodel.isEdit ? ColorConst.shade500 : ColorConst.mainIconColor),
+                          color: !informationviewmodel.isEdit ? ColorConst.shade500 : ColorConst.sympListShadow),
                       readOnly: !informationviewmodel.isEdit,
                       textStyle: TextStyle(
                           fontWeight: FontWeight.bold,

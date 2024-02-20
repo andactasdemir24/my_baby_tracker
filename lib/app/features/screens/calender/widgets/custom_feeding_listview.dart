@@ -83,7 +83,7 @@ class CustomFeedigListView extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text('${feeding.amount} (ml)',
-              style: TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor)),
+              style: TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.bold, color: ColorConst.getPremiumTextColor)),
           Text('${feeding.time?.hour.toString().padLeft(2, '0')}:${feeding.time?.minute.toString().padLeft(2, '0')}',
               style: TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.bold)),
         ],
@@ -104,7 +104,8 @@ class CustomFeedigListView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text('${feeding.amount} (ml)',
-                    style: TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor)),
+                    style: TextStyle(
+                        fontSize: 14.spMin, fontWeight: FontWeight.bold, color: ColorConst.getPremiumTextColor)),
                 Text(
                   '${feeding.time?.hour.toString().padLeft(2, '0')}:${feeding.time?.minute.toString().padLeft(2, '0')}',
                   style: TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.bold),
