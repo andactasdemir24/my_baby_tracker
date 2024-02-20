@@ -1,8 +1,8 @@
 class ImagesConst {
   //onboarding
-  static String onboarding1 = 'assets/images/onb1.jpg';
-  static String onboarding2 = 'assets/images/onb2.jpg';
-  static String onboarding3 = 'assets/images/onb3.jpg';
+  static String onboarding1 = 'assets/images/onboarding1.jpg';
+  static String onboarding2 = 'assets/images/onboarding2.jpg';
+  static String onboarding3 = 'assets/images/onboarding3.jpg';
 
 //InApp
   static String inApp = 'assets/images/pre1.png';

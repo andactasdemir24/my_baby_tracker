@@ -14,13 +14,13 @@ class CustomOnbImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      elevation: 3,
-      borderRadius: BorderRadius.circular(20.r),
+      elevation: 10,
+      borderRadius: BorderRadius.circular(20),
       child: Container(
         width: displayWidth(context) * 0.9,
         height: displayHeight(context) * 0.5,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20.r),
+          borderRadius: BorderRadius.circular(20),
           image: image,
         ),
       ),
