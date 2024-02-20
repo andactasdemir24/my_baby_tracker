@@ -13,7 +13,31 @@ class CustomDeleteAllButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: () {
-          memoriesViewmodel.clearAllMemories();
+          showDialog<void>(
+            context: context,
+            barrierDismissible: false,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: Text(AppLocalizations.of(context)!.deleteText),
+                content: SingleChildScrollView(
+                  child: ListBody(children: <Widget>[Text(AppLocalizations.of(context)!.listBodyText)]),
+                ),
+                actions: <Widget>[
+                  TextButton(
+                      child: Text(AppLocalizations.of(context)!.cancelText),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      }),
+                  TextButton(
+                      child: Text(AppLocalizations.of(context)!.okeyText),
+                      onPressed: () {
+                        memoriesViewmodel.clearAllMemories();
+                        Navigator.of(context).pop();
+                      }),
+                ],
+              );
+            },
+          );
         },
         child: Padding(
           padding: const EdgeInsets.only(right: 15),
