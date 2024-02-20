@@ -18,51 +18,48 @@ class CustomFeedigListView extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.01, vertical: 5),
               child: Column(
                 children: [
-                  Center(child: Observer(
-                    builder: (context) {
-                      return Dismissible(
-                        key: Key(feeding.id!),
-                        background: Container(
-                          color: ColorConst.cred,
-                          alignment: Alignment.centerRight,
-                          padding: const EdgeInsets.only(right: 20.0),
-                          child: Icon(Icons.delete, color: ColorConst.cwhite),
-                        ),
-                        direction: DismissDirection.endToStart,
-                        onDismissed: (direction) {
-                          calenderViewmodel.deleteFeeding(feeding.id!);
-                        },
-                        child: GestureDetector(
-                            onLongPress: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => FeedingEdit(
-                                      id: feeding.id!,
-                                      time: feeding.time!,
-                                      amount: feeding.amount!,
-                                      note: feeding.text!,
-                                      createdTime: feeding.createdTime!,
-                                    ),
-                                  ));
-                            },
-                            onTap: () {
-                              calenderViewmodel.toggleSelected(index);
-                            },
-                            child: AnimatedContainer(
-                              duration: const Duration(milliseconds: 500),
-                              curve: Curves.ease,
-                              width: displayWidth(context) * 0.9,
-                              height: feeding.isSelected ? displayHeight(context) * 0.15 : displayHeight(context) * 0.1,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: ColorConst.annualColor,
-                              ),
-                              alignment: Alignment.center,
-                              child: !feeding.isSelected ? notpress(feeding) : whenipress(feeding, context),
-                            )),
-                      );
+                  Center(
+                      child: Dismissible(
+                    key: Key(feeding.id!),
+                    background: Container(
+                      color: ColorConst.cred,
+                      alignment: Alignment.centerRight,
+                      padding: const EdgeInsets.only(right: 20.0),
+                      child: Icon(Icons.delete, color: ColorConst.cwhite),
+                    ),
+                    direction: DismissDirection.endToStart,
+                    onDismissed: (direction) {
+                      calenderViewmodel.deleteFeeding(feeding.id!);
                     },
+                    child: GestureDetector(
+                        onLongPress: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => FeedingEdit(
+                                  id: feeding.id!,
+                                  time: feeding.time!,
+                                  amount: feeding.amount!,
+                                  note: feeding.text!,
+                                  createdTime: feeding.createdTime!,
+                                ),
+                              ));
+                        },
+                        onTap: () {
+                          calenderViewmodel.toggleSelected(index);
+                        },
+                        child: AnimatedContainer(
+                          duration: const Duration(milliseconds: 500),
+                          curve: Curves.ease,
+                          width: displayWidth(context) * 0.9,
+                          height: feeding.isSelected ? displayHeight(context) * 0.15 : displayHeight(context) * 0.1,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: ColorConst.annualColor,
+                          ),
+                          alignment: Alignment.center,
+                          child: !feeding.isSelected ? notpress(feeding) : whenipress(feeding, context),
+                        )),
                   )),
                 ],
               ),

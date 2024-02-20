@@ -37,12 +37,10 @@ class NappyList extends StatelessWidget {
                 itemCount: nappyViewmodel.nappyStatusList.length,
                 itemBuilder: (BuildContext context, index) {
                   var nappy = nappyViewmodel.nappyStatusList[index];
-                  return Observer(builder: (_) {
-                    return CustomNappyListContainer(
-                      nappyViewmodel: nappyViewmodel,
-                      nappy: nappy,
-                    );
-                  });
+                  return CustomNappyListContainer(
+                    nappyViewmodel: nappyViewmodel,
+                    nappy: nappy,
+                  );
                 },
               ),
               if (nappyViewmodel.isBlurred)

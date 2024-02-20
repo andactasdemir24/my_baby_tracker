@@ -88,23 +88,18 @@ class _SleepPageEditState extends State<SleepPageEdit> {
                           onChanged: (p0) => sleepViewmodel.changeVisible(),
                         ),
                         const Spacer(),
-                        Observer(
-                          builder: (context) {
-                            return CustomButton(
-                              text: Text(AppLocalizations.of(context)!.update,
-                                  style: TextStyle(color: ColorConst.cwhite)),
-                              onPressed: () {
-                                var value = Sleep(
-                                  id: widget.id,
-                                  fellSleep: widget.feelSleep,
-                                  wokeUp: widget.wokeUp,
-                                  text: _noteController.text,
-                                  createdTime: widget.createdTime,
-                                );
-                                sleepViewmodel.updateSleep(value);
-                                sleepViewmodel.toggleBlur2(context);
-                              },
+                        CustomButton(
+                          text: Text(AppLocalizations.of(context)!.update, style: TextStyle(color: ColorConst.cwhite)),
+                          onPressed: () {
+                            var value = Sleep(
+                              id: widget.id,
+                              fellSleep: widget.feelSleep,
+                              wokeUp: widget.wokeUp,
+                              text: _noteController.text,
+                              createdTime: widget.createdTime,
                             );
+                            sleepViewmodel.updateSleep(value);
+                            sleepViewmodel.toggleBlur2(context);
                           },
                         ),
                         SizedBox(height: displayHeight(context) * 0.035),

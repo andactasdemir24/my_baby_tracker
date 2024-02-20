@@ -83,23 +83,18 @@ class _NappyPageEditState extends State<NappyPageEdit> {
                           onChanged: (p0) => nappyViewmodel.changeVisibleNappy(),
                         ),
                         const Spacer(),
-                        Observer(
-                          builder: (context) {
-                            return CustomButton(
-                              text: Text(AppLocalizations.of(context)!.update,
-                                  style: TextStyle(color: ColorConst.cwhite)),
-                              onPressed: () {
-                                var updatedNappy = Nappy(
-                                  id: widget.id,
-                                  nappyTime: widget.nappyTime,
-                                  napList: nappyViewmodel.selectedIndicess,
-                                  text: noteController.text,
-                                  createdTime: widget.createdTime,
-                                );
-                                nappyViewmodel.updateNappy(updatedNappy);
-                                nappyViewmodel.toggleBlur5(context);
-                              },
+                        CustomButton(
+                          text: Text(AppLocalizations.of(context)!.update, style: TextStyle(color: ColorConst.cwhite)),
+                          onPressed: () {
+                            var updatedNappy = Nappy(
+                              id: widget.id,
+                              nappyTime: widget.nappyTime,
+                              napList: nappyViewmodel.selectedIndicess,
+                              text: noteController.text,
+                              createdTime: widget.createdTime,
                             );
+                            nappyViewmodel.updateNappy(updatedNappy);
+                            nappyViewmodel.toggleBlur5(context);
                           },
                         ),
                         SizedBox(height: displayHeight(context) * 0.035),

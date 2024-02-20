@@ -87,23 +87,19 @@ class _VaccineEditState extends State<VaccineEdit> {
                           onChanged: (p0) => vaccineViewModel.changeVisible(),
                         ),
                         const Spacer(),
-                        Observer(
-                          builder: (context) {
-                            return CustomButton(
-                                text: Text(AppLocalizations.of(context)!.update,
-                                    style: TextStyle(color: ColorConst.cwhite)),
-                                onPressed: () {
-                                  var value = Vaccine(
-                                      id: widget.id,
-                                      date: vaccineViewModel.dateController.text,
-                                      vaccine: vaccineViewModel.vaccineController.text,
-                                      text: _noteController.text,
-                                      createdTime: widget.createdTime);
-                                  vaccineViewModel.updateVaccine(value);
-                                  vaccineViewModel.toggleBlur(context);
-                                });
-                          },
-                        ),
+                        CustomButton(
+                            text:
+                                Text(AppLocalizations.of(context)!.update, style: TextStyle(color: ColorConst.cwhite)),
+                            onPressed: () {
+                              var value = Vaccine(
+                                  id: widget.id,
+                                  date: vaccineViewModel.dateController.text,
+                                  vaccine: vaccineViewModel.vaccineController.text,
+                                  text: _noteController.text,
+                                  createdTime: widget.createdTime);
+                              vaccineViewModel.updateVaccine(value);
+                              vaccineViewModel.toggleBlur(context);
+                            }),
                         SizedBox(height: displayHeight(context) * 0.035),
                       ],
                     ),

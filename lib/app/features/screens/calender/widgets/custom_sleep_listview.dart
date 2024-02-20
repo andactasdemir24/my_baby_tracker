@@ -18,50 +18,47 @@ class CustomSleepListView extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.01, vertical: 5),
               child: Column(
                 children: [
-                  Center(child: Observer(
-                    builder: (context) {
-                      return Dismissible(
-                        key: Key(sleep.id!),
-                        background: Container(
-                          color: ColorConst.cred,
-                          alignment: Alignment.centerRight,
-                          padding: const EdgeInsets.only(right: 20.0),
-                          child: Icon(Icons.delete, color: ColorConst.cwhite),
-                        ),
-                        direction: DismissDirection.endToStart,
-                        onDismissed: (direction) {
-                          calenderViewmodel.deleteSleep(sleep.id!);
-                        },
-                        child: GestureDetector(
-                            onLongPress: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => SleepPageEdit(
-                                            id: sleep.id!,
-                                            feelSleep: sleep.fellSleep!,
-                                            wokeUp: sleep.wokeUp!,
-                                            note: sleep.text!,
-                                            createdTime: sleep.createdTime!,
-                                          )));
-                            },
-                            onTap: () {
-                              calenderViewmodel.toggleSelected1(index);
-                            },
-                            child: AnimatedContainer(
-                              duration: const Duration(milliseconds: 500),
-                              curve: Curves.ease,
-                              width: displayWidth(context) * 0.9,
-                              height: sleep.isSelected ? displayHeight(context) * 0.15 : displayHeight(context) * 0.1,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: ColorConst.annualColor,
-                              ),
-                              alignment: Alignment.center,
-                              child: !sleep.isSelected ? notpress(sleep) : whenipress(sleep, context),
-                            )),
-                      );
+                  Center(
+                      child: Dismissible(
+                    key: Key(sleep.id!),
+                    background: Container(
+                      color: ColorConst.cred,
+                      alignment: Alignment.centerRight,
+                      padding: const EdgeInsets.only(right: 20.0),
+                      child: Icon(Icons.delete, color: ColorConst.cwhite),
+                    ),
+                    direction: DismissDirection.endToStart,
+                    onDismissed: (direction) {
+                      calenderViewmodel.deleteSleep(sleep.id!);
                     },
+                    child: GestureDetector(
+                        onLongPress: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SleepPageEdit(
+                                        id: sleep.id!,
+                                        feelSleep: sleep.fellSleep!,
+                                        wokeUp: sleep.wokeUp!,
+                                        note: sleep.text!,
+                                        createdTime: sleep.createdTime!,
+                                      )));
+                        },
+                        onTap: () {
+                          calenderViewmodel.toggleSelected1(index);
+                        },
+                        child: AnimatedContainer(
+                          duration: const Duration(milliseconds: 500),
+                          curve: Curves.ease,
+                          width: displayWidth(context) * 0.9,
+                          height: sleep.isSelected ? displayHeight(context) * 0.15 : displayHeight(context) * 0.1,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: ColorConst.annualColor,
+                          ),
+                          alignment: Alignment.center,
+                          child: !sleep.isSelected ? notpress(sleep) : whenipress(sleep, context),
+                        )),
                   )),
                 ],
               ),
@@ -120,8 +117,8 @@ class CustomSleepListView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text('Feel sleep:',
-                      style:
-                          TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor)),
+                      style: TextStyle(
+                          fontSize: 14.spMin, fontWeight: FontWeight.bold, color: ColorConst.getPremiumTextColor)),
                   Flexible(
                     child: Text(
                         '${sleep.fellSleep!.hour.toString().padLeft(2, '0')}:${sleep.fellSleep!.minute.toString().padLeft(2, '0')}',
@@ -134,7 +131,8 @@ class CustomSleepListView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text('Woke up:',
-                      style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: ColorConst.mainIconColor)),
+                      style:
+                          TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: ColorConst.getPremiumTextColor)),
                   Flexible(
                     child: Text(
                         '${sleep.wokeUp?.hour.toString().padLeft(2, '0')}:${sleep.wokeUp?.minute.toString().padLeft(2, '0')}',

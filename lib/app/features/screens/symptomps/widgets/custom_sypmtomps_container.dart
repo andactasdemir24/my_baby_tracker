@@ -1,6 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:baby_tracker_app/app/app.dart';
 
 class CustomSymptompsList extends StatelessWidget {
@@ -35,14 +34,7 @@ class CustomSymptompsList extends StatelessWidget {
             alignment: Alignment.centerLeft,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Observer(
-                  builder: (context) {
-                    return text;
-                  },
-                ),
-                Icon(Baby.left, color: ColorConst.settingsIndex)
-              ],
+              children: [text, Icon(Baby.left, color: ColorConst.settingsIndex)],
             ),
           ),
         ),

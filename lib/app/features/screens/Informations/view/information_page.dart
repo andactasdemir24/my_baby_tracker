@@ -35,7 +35,7 @@ class InformationPage extends StatelessWidget {
                                 },
                                 child: Column(
                                   children: [
-                                    SizedBox(height: displayHeight(context) * 0.02),
+                                    const SizedBox(height: 20),
                                     ClipRRect(
                                       child: informationviewmodel.selectedImage != null
                                           ? CircleAvatar(
@@ -69,12 +69,10 @@ class InformationPage extends StatelessWidget {
                             itemCount: informationviewmodel.genderList.length,
                             itemBuilder: (BuildContext context, index) {
                               var gender = informationviewmodel.genderList[index];
-                              return Observer(builder: (_) {
-                                return CustomGenderListContainer(
-                                  informationViewModel: informationviewmodel,
-                                  gender: gender,
-                                );
-                              });
+                              return CustomGenderListContainer(
+                                informationViewModel: informationviewmodel,
+                                gender: gender,
+                              );
                             },
                           ),
                           SizedBox(height: displayHeight(context) * 0.01),

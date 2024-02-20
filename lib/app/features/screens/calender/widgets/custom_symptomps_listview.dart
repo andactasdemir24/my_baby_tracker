@@ -18,52 +18,48 @@ class CustomSymptompsListView extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.01, vertical: 5),
               child: Column(
                 children: [
-                  Center(child: Observer(
-                    builder: (context) {
-                      return Dismissible(
-                        key: Key(symptomps.id!),
-                        background: Container(
-                          color: ColorConst.cred,
-                          alignment: Alignment.centerRight,
-                          padding: const EdgeInsets.only(right: 20.0),
-                          child: Icon(Icons.delete, color: ColorConst.cwhite),
-                        ),
-                        direction: DismissDirection.endToStart,
-                        onDismissed: (direction) {
-                          calenderViewmodel.deleteSymptomps(symptomps.id!);
-                        },
-                        child: GestureDetector(
-                            onLongPress: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => SymptompsPageEdit(
-                                      id: symptomps.id!,
-                                      symTime: symptomps.symTime!,
-                                      sympList: symptomps.sympList!,
-                                      note: symptomps.text!,
-                                      createdTime: symptomps.createdTime!,
-                                    ),
-                                  ));
-                            },
-                            onTap: () {
-                              calenderViewmodel.toogleSelected2(index);
-                            },
-                            child: AnimatedContainer(
-                              duration: const Duration(milliseconds: 500),
-                              curve: Curves.ease,
-                              width: displayWidth(context) * 0.9,
-                              height:
-                                  symptomps.isSelected ? displayHeight(context) * 0.15 : displayHeight(context) * 0.1,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: ColorConst.annualColor,
-                              ),
-                              alignment: Alignment.center,
-                              child: !symptomps.isSelected ? notpress(symptomps) : whenipress(symptomps, context),
-                            )),
-                      );
+                  Center(
+                      child: Dismissible(
+                    key: Key(symptomps.id!),
+                    background: Container(
+                      color: ColorConst.cred,
+                      alignment: Alignment.centerRight,
+                      padding: const EdgeInsets.only(right: 20.0),
+                      child: Icon(Icons.delete, color: ColorConst.cwhite),
+                    ),
+                    direction: DismissDirection.endToStart,
+                    onDismissed: (direction) {
+                      calenderViewmodel.deleteSymptomps(symptomps.id!);
                     },
+                    child: GestureDetector(
+                        onLongPress: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => SymptompsPageEdit(
+                                  id: symptomps.id!,
+                                  symTime: symptomps.symTime!,
+                                  sympList: symptomps.sympList!,
+                                  note: symptomps.text!,
+                                  createdTime: symptomps.createdTime!,
+                                ),
+                              ));
+                        },
+                        onTap: () {
+                          calenderViewmodel.toogleSelected2(index);
+                        },
+                        child: AnimatedContainer(
+                          duration: const Duration(milliseconds: 500),
+                          curve: Curves.ease,
+                          width: displayWidth(context) * 0.9,
+                          height: symptomps.isSelected ? displayHeight(context) * 0.15 : displayHeight(context) * 0.1,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: ColorConst.annualColor,
+                          ),
+                          alignment: Alignment.center,
+                          child: !symptomps.isSelected ? notpress(symptomps) : whenipress(symptomps, context),
+                        )),
                   )),
                 ],
               ),

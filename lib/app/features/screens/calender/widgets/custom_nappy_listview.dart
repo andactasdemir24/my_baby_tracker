@@ -18,50 +18,47 @@ class CustomNappyListView extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.01, vertical: 5),
               child: Column(
                 children: [
-                  Center(child: Observer(
-                    builder: (context) {
-                      return Dismissible(
-                        key: Key(nappy.id!),
-                        background: Container(
-                          color: ColorConst.cred,
-                          alignment: Alignment.centerRight,
-                          padding: const EdgeInsets.only(right: 20.0),
-                          child: Icon(Icons.delete, color: ColorConst.cwhite),
-                        ),
-                        direction: DismissDirection.endToStart,
-                        onDismissed: (direction) {
-                          calenderViewmodel.deleteNappy(nappy.id!);
-                        },
-                        child: GestureDetector(
-                            onLongPress: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => NappyPageEdit(
-                                        id: nappy.id!,
-                                        nappyTime: nappy.nappyTime!,
-                                        napList: nappy.napList!,
-                                        note: nappy.text!,
-                                        createdTime: nappy.createdTime!),
-                                  ));
-                            },
-                            onTap: () {
-                              calenderViewmodel.toogleSelected3(index);
-                            },
-                            child: AnimatedContainer(
-                              duration: const Duration(milliseconds: 500),
-                              curve: Curves.ease,
-                              width: displayWidth(context) * 0.9,
-                              height: nappy.isSelected ? displayHeight(context) * 0.15 : displayHeight(context) * 0.1,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: ColorConst.annualColor,
-                              ),
-                              alignment: Alignment.center,
-                              child: !nappy.isSelected ? notpress(nappy) : whenipress(nappy, context),
-                            )),
-                      );
+                  Center(
+                      child: Dismissible(
+                    key: Key(nappy.id!),
+                    background: Container(
+                      color: ColorConst.cred,
+                      alignment: Alignment.centerRight,
+                      padding: const EdgeInsets.only(right: 20.0),
+                      child: Icon(Icons.delete, color: ColorConst.cwhite),
+                    ),
+                    direction: DismissDirection.endToStart,
+                    onDismissed: (direction) {
+                      calenderViewmodel.deleteNappy(nappy.id!);
                     },
+                    child: GestureDetector(
+                        onLongPress: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => NappyPageEdit(
+                                    id: nappy.id!,
+                                    nappyTime: nappy.nappyTime!,
+                                    napList: nappy.napList!,
+                                    note: nappy.text!,
+                                    createdTime: nappy.createdTime!),
+                              ));
+                        },
+                        onTap: () {
+                          calenderViewmodel.toogleSelected3(index);
+                        },
+                        child: AnimatedContainer(
+                          duration: const Duration(milliseconds: 500),
+                          curve: Curves.ease,
+                          width: displayWidth(context) * 0.9,
+                          height: nappy.isSelected ? displayHeight(context) * 0.15 : displayHeight(context) * 0.1,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: ColorConst.annualColor,
+                          ),
+                          alignment: Alignment.center,
+                          child: !nappy.isSelected ? notpress(nappy) : whenipress(nappy, context),
+                        )),
                   )),
                 ],
               ),

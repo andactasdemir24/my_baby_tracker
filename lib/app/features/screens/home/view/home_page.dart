@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:baby_tracker_app/app/app.dart';
 
 class HomePage extends StatefulWidget {
@@ -31,9 +30,7 @@ class _HomePagetate extends State<HomePage> {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              Observer(builder: (context) {
-                return CustomStack(informationVeiwmodel: informationVeiwmodel);
-              }),
+              CustomStack(informationVeiwmodel: informationVeiwmodel),
               SizedBox(height: displayHeight(context) * 0.08),
               GestureDetector(
                   onTap: () {

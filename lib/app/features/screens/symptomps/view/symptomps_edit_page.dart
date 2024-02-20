@@ -92,23 +92,18 @@ class _SymptompsPageEditState extends State<SymptompsPageEdit> {
                           onChanged: (p0) => symptompsViewmodel.changeVisible(),
                         ),
                         const Spacer(),
-                        Observer(
-                          builder: (context) {
-                            return CustomButton(
-                              text: Text(AppLocalizations.of(context)!.update,
-                                  style: TextStyle(color: ColorConst.cwhite)),
-                              onPressed: () {
-                                var value = Symptomps(
-                                  id: widget.id,
-                                  symTime: widget.symTime,
-                                  sympList: symptompsViewmodel.selectedIndices,
-                                  text: noteController.text,
-                                  createdTime: widget.createdTime,
-                                );
-                                symptompsViewmodel.updateSymptomps(value);
-                                symptompsViewmodel.toggleBlur4(context);
-                              },
+                        CustomButton(
+                          text: Text(AppLocalizations.of(context)!.update, style: TextStyle(color: ColorConst.cwhite)),
+                          onPressed: () {
+                            var value = Symptomps(
+                              id: widget.id,
+                              symTime: widget.symTime,
+                              sympList: symptompsViewmodel.selectedIndices,
+                              text: noteController.text,
+                              createdTime: widget.createdTime,
                             );
+                            symptompsViewmodel.updateSymptomps(value);
+                            symptompsViewmodel.toggleBlur4(context);
                           },
                         ),
                         SizedBox(height: displayHeight(context) * 0.035),

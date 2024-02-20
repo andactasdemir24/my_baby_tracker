@@ -79,29 +79,26 @@ class _FeedingEditState extends State<FeedingEdit> {
                           onChanged: (p0) => viewmodel.changeVisible(),
                         ),
                         const Spacer(),
-                        Observer(builder: (context) {
-                          return CustomButton(
-                            text:
-                                Text(AppLocalizations.of(context)!.update, style: TextStyle(color: ColorConst.cwhite)),
-                            onPressed: () {
-                              try {
-                                int.parse(_amountController.text);
-                              } catch (e) {
-                                viewmodel.showMyDialog(context);
-                                return;
-                              }
-                              var value = Feeding(
-                                id: widget.id,
-                                time: widget.time,
-                                amount: int.parse(_amountController.text),
-                                text: _noteController.text,
-                                createdTime: widget.createdTime,
-                              );
-                              viewmodel.updateFeeding(value);
-                              viewmodel.toggleBlur(context);
-                            },
-                          );
-                        }),
+                        CustomButton(
+                          text: Text(AppLocalizations.of(context)!.update, style: TextStyle(color: ColorConst.cwhite)),
+                          onPressed: () {
+                            try {
+                              int.parse(_amountController.text);
+                            } catch (e) {
+                              viewmodel.showMyDialog(context);
+                              return;
+                            }
+                            var value = Feeding(
+                              id: widget.id,
+                              time: widget.time,
+                              amount: int.parse(_amountController.text),
+                              text: _noteController.text,
+                              createdTime: widget.createdTime,
+                            );
+                            viewmodel.updateFeeding(value);
+                            viewmodel.toggleBlur(context);
+                          },
+                        ),
                         SizedBox(height: displayHeight(context) * 0.035),
                       ],
                     ),

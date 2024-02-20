@@ -38,12 +38,10 @@ class SymptompsList extends StatelessWidget {
                 itemCount: symptompsViewmodel.symptompsList.length,
                 itemBuilder: (BuildContext context, index) {
                   var symptomp = symptompsViewmodel.symptompsList[index];
-                  return Observer(builder: (_) {
-                    return CustomSymptompsListContainer(
-                      symptompsViewmodel: symptompsViewmodel,
-                      symptomp: symptomp,
-                    );
-                  });
+                  return CustomSymptompsListContainer(
+                    symptompsViewmodel: symptompsViewmodel,
+                    symptomp: symptomp,
+                  );
                 },
               ),
               if (symptompsViewmodel.isBlurred3)
