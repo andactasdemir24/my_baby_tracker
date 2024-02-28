@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1001842594968",
+    "project_id": "my-baby-tracker-app24",
+    "storage_bucket": "my-baby-tracker-app24.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1001842594968:android:dce84f1e2cd8d925b0eced",
+        "android_client_info": {
+          "package_name": "com.example.baby_tracker_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDeibkJar0-ZLgSY2NYNSHPKCB7Ak7uGE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

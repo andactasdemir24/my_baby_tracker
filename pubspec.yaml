@@ -55,7 +55,8 @@ dependencies:
   flutter_speed_dial: ^7.0.0
   carousel_slider: ^4.2.1
   url_launcher: ^6.2.4
-  flutter_native_splash: ^2.3.11
+  flutter_native_splash: ^2.3.10
+  firebase_core: ^2.25.5
 
 dev_dependencies:
   flutter_test:
