@@ -57,6 +57,8 @@ dependencies:
   url_launcher: ^6.2.4
   flutter_native_splash: ^2.3.10
   firebase_core: ^2.25.5
+  firebase_messaging: ^14.7.17
+  flutter_local_notifications: ^16.3.2
 
 dev_dependencies:
   flutter_test:
