@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
       designSize: const Size(360, 690),
       builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
+        title: 'Baby Tracker | Bloom',
         localizationsDelegates: const [
           AppLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
