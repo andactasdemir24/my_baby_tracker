@@ -19,7 +19,7 @@ class SettingsPage extends StatelessWidget {
           //   onTap: () {},
           //   child: Image.asset(ImagesConst.settingsPremium, height: displayHeight(context) * 0.09),
           // ),
-          CustomSettingsContainer(text: AppLocalizations.of(context)!.rateUs, image: ImagesConst.s1),
+          //CustomSettingsContainer(text: AppLocalizations.of(context)!.rateUs, image: ImagesConst.s1),
           CustomSettingsContainer(
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const TermsOfUse()));
@@ -41,8 +41,7 @@ class SettingsPage extends StatelessWidget {
                         .encodeQueryParameters(<String, String>{'subject': AppLocalizations.of(context)!.subject}));
                 launchUrl(emailLaunchUri);
               },
-              child: CustomSettingsContainer(
-                  text: AppLocalizations.of(context)!.contact, image: ImagesConst.s4)),
+              child: CustomSettingsContainer(text: AppLocalizations.of(context)!.contact, image: ImagesConst.s4)),
           const Spacer(),
           const RemoveBabyWidget(),
           SizedBox(height: displayHeight(context) * 0.03),
