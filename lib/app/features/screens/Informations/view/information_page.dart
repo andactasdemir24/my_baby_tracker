@@ -49,7 +49,8 @@ class InformationPage extends StatelessWidget {
                                                 ),
                                               ),
                                             )
-                                          : Image.asset(ImagesConst.picker, height: displayHeight(context) * 0.2),
+                                          : Image.asset(ImagesConst.picker,
+                                              height: displayHeight(context) * 0.2, semanticLabel: "Profile picture"),
                                     ),
                                   ],
                                 ),
