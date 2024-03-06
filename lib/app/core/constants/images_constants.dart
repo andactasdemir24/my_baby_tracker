@@ -51,4 +51,7 @@ class ImagesConst {
   static String nappy2 = 'assets/images/diaper2.png';
   static String nappy3 = 'assets/images/diaper3.png';
   static String nappy4 = 'assets/images/diaper4.png';
+
+  //empty image
+  static String emptyImage = 'assets/images/empty-profile.jpg';
 }

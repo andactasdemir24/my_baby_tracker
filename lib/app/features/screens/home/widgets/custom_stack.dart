@@ -49,7 +49,7 @@ class CustomStack extends StatelessWidget {
                                 backgroundImage: FileImage(File(info.image!)),
                               ),
                             )
-                          : CircleAvatar(radius: 40.r),
+                          : CircleAvatar(radius: 40.r, backgroundImage: AssetImage(ImagesConst.emptyImage)),
                       SizedBox(width: displayWidth(context) * 0.05),
                       Expanded(
                         child: Column(

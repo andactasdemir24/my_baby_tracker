@@ -67,8 +67,7 @@ abstract class _InformationViewModelBase with Store {
   //Profile Alanındaki textfieldlar boş kaldığında snacbar çıkması için değer
   @computed
   bool get areFieldsFilled {
-    return selectedImage != null &&
-        nameController.text.isNotEmpty &&
+    return nameController.text.isNotEmpty &&
         birthDateController.text.isNotEmpty &&
         weightController.text.isNotEmpty &&
         heightController.text.isNotEmpty;
@@ -167,8 +166,7 @@ abstract class _InformationViewModelBase with Store {
   //boş mu dolu mu kontrol
   @action
   void changeVisible() {
-    isButtonVisibleInf = selectedImage != null &&
-        selectedIndices.isNotEmpty &&
+    isButtonVisibleInf = selectedIndices.isNotEmpty &&
         nameController.text.isNotEmpty &&
         birthDateController.text.isNotEmpty &&
         heightController.text.isNotEmpty &&

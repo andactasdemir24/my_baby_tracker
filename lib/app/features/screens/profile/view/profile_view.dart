@@ -68,7 +68,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                           ),
                                         ),
                                       )
-                                    : Image.asset(ImagesConst.picker, height: displayHeight(context) * 0.2),
+                                    : CircleAvatar(radius: 70.r, backgroundImage: AssetImage(ImagesConst.emptyImage)),
                               );
                       },
                     ),
