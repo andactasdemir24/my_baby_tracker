@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 import 'package:baby_tracker_app/app/app.dart';
 
 class CustomInformationTextField extends StatelessWidget {
@@ -14,6 +15,7 @@ class CustomInformationTextField extends StatelessWidget {
   final TextStyle? textStyle;
   final TextStyle? hintStyle;
   final List<TextInputFormatter>? inputFormatters;
+  final Text? labelText;
 
   const CustomInformationTextField({
     Key? key,
@@ -27,6 +29,7 @@ class CustomInformationTextField extends StatelessWidget {
     this.textStyle,
     this.hintStyle,
     this.inputFormatters,
+    this.labelText,
   }) : super(key: key);
 
   @override
@@ -42,6 +45,7 @@ class CustomInformationTextField extends StatelessWidget {
         style: textStyle,
         controller: controller,
         decoration: InputDecoration(
+            label: labelText,
             prefixIcon: icon,
             prefixIconColor: ColorConst.sympListShadow,
             filled: true,

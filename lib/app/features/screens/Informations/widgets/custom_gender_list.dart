@@ -46,7 +46,7 @@ class _CustomGenderListContainerState extends State<CustomGenderListContainer> {
                   width: displayWidth(context) * 0.08,
                 ),
                 Text(
-                  widget.gender.name!,
+                  '${widget.gender.name!} *',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14.spMin),
                 ),
               ],

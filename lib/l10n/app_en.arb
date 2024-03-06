@@ -29,10 +29,10 @@
     "nauseaT" : "Nausea",
     "coughT" : "Cough",
     "feverT" : "Fever",
-    "babyFullName" : "Baby Full Name",
-    "babyBirthDate" : "Baby Birth Date",
-    "babyWeight" : "Baby Weight",
-    "babyHeight" : "Baby Height",
+    "babyFullName" : "Baby Full Name*",
+    "babyBirthDate" : "Baby Birth Date*",
+    "babyWeight" : "Baby Weight*",
+    "babyHeight" : "Baby Height*",
     "babyContinue" : "Continue",
     "babyUpdate" : "Update",
     "babyAppbartext" : "Baby Tracker",
@@ -129,5 +129,6 @@
     "onb3Title" : "Keep Vaccination and Health Information in One Place.",
     "onb1Description" : "Take the first step to track your baby's feeding, diaper changing, sleep patterns, and more...",
     "onb2Description" : "Ensure your baby's healthy growth by tracking their feeding, diaper changes, and food intake times.",
-    "onb3Description" : "Log vaccination schedules and doctor visits to plan ahead and prioritize your baby's health."
+    "onb3Description" : "Log vaccination schedules and doctor visits to plan ahead and prioritize your baby's health.",
+    "informationInfoText" : "The button will be active after all fields marked with * are filled in."
     }

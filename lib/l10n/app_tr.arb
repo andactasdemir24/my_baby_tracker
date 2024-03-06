@@ -29,10 +29,10 @@
     "nauseaT" : "Bulantı",
     "coughT" : "Öksürük",
     "feverT" : "Ateş",
-    "babyFullName" : "Bebeğin adı soyadı",
-    "babyBirthDate" : "Bebeğin doğum tarihi",
-    "babyWeight" : "Bebeğin kilosu",
-    "babyHeight" : "Bebeğin boyu",
+    "babyFullName" : "Bebeğin adı soyadı*",
+    "babyBirthDate" : "Bebeğin doğum tarihi*",
+    "babyWeight" : "Bebeğin kilosu*",
+    "babyHeight" : "Bebeğin boyu*",
     "babyContinue" : "kaydet",
     "babyUpdate" : "Güncelle",
     "babyAppbartext" : "Bebek takip uygulaması",
@@ -129,5 +129,6 @@
     "onb3Title" : "Aşı ve Sağlık Bilgilerini Tek Yerde Tutun.",
     "onb1Description" : "Bebeğinizin beslenme, alt değiştirme, uyku düzeni ve daha fazlasını takip etmeye başlamak için adım atın...",
     "onb2Description" : "Bebeğinizin beslenme, bez takibi ve gıda alımını saatlerini takip ederek sağlıklı büyümesini sağlayın.",
-    "onb3Description" : "Aşı takvimini ve doktor ziyaretlerini kaydederek ziyaretleri planlayın, bebeğinizin sağlığını önceliklendirin."
+    "onb3Description" : "Aşı takvimini ve doktor ziyaretlerini kaydederek ziyaretleri planlayın, bebeğinizin sağlığını önceliklendirin.",
+    "informationInfoText" : "* ile işaretli tüm alanlar doldurulduktan sonra buton aktif olacaktır."
 }

@@ -35,7 +35,6 @@ class InformationPage extends StatelessWidget {
                                 },
                                 child: Column(
                                   children: [
-                                    const SizedBox(height: 20),
                                     ClipRRect(
                                       child: informationviewmodel.selectedImage != null
                                           ? CircleAvatar(
@@ -57,7 +56,7 @@ class InformationPage extends StatelessWidget {
                               );
                             },
                           ),
-                          SizedBox(height: displayHeight(context) * 0.02),
+                          SizedBox(height: displayHeight(context) * 0.01),
                           GridView.builder(
                             padding: EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.2),
                             physics: const NeverScrollableScrollPhysics(),
@@ -80,9 +79,9 @@ class InformationPage extends StatelessWidget {
                           CustomInformationTextField(
                             onChanged: (p0) => informationviewmodel.changeVisible(),
                             controller: informationviewmodel.nameController,
-                            textInputType: TextInputType.name,
-                            hintText: AppLocalizations.of(context)!.babyFullName,
-                            hintStyle: TextStyle(color: ColorConst.settingsIndex, fontSize: 18.spMin),
+                            labelText: Text(AppLocalizations.of(context)!.babyFullName,
+                                style: TextStyle(
+                                    color: ColorConst.settingsIndex, fontSize: 18.spMin, fontWeight: FontWeight.bold)),
                             icon: Icon(Baby.baby, size: 16.spMin),
                             textStyle: const TextStyle(fontWeight: FontWeight.bold),
                             inputFormatters: [
@@ -93,8 +92,9 @@ class InformationPage extends StatelessWidget {
                           CustomInformationTextField(
                             onChanged: (p0) => informationviewmodel.changeVisible(),
                             controller: informationviewmodel.birthDateController,
-                            hintText: AppLocalizations.of(context)!.babyBirthDate,
-                            hintStyle: TextStyle(color: ColorConst.settingsIndex, fontSize: 18.spMin),
+                            labelText: Text(AppLocalizations.of(context)!.babyBirthDate,
+                                style: TextStyle(
+                                    color: ColorConst.settingsIndex, fontSize: 18.spMin, fontWeight: FontWeight.bold)),
                             textInputType: TextInputType.none,
                             icon: Icon(Baby.birthdaycake, size: 16.spMin),
                             textStyle: const TextStyle(fontWeight: FontWeight.bold),
@@ -106,8 +106,9 @@ class InformationPage extends StatelessWidget {
                             onChanged: (p0) => informationviewmodel.changeVisible(),
                             controller: informationviewmodel.weightController,
                             textInputType: TextInputType.number,
-                            hintText: AppLocalizations.of(context)!.babyWeight,
-                            hintStyle: TextStyle(color: ColorConst.settingsIndex, fontSize: 18.spMin),
+                            labelText: Text(AppLocalizations.of(context)!.babyWeight,
+                                style: TextStyle(
+                                    color: ColorConst.settingsIndex, fontSize: 18.spMin, fontWeight: FontWeight.bold)),
                             icon: Icon(Baby.weight, size: 16.spMin),
                             textStyle: const TextStyle(fontWeight: FontWeight.bold),
                             inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'^\d{1,3}$'))],
@@ -116,12 +117,19 @@ class InformationPage extends StatelessWidget {
                             onChanged: (p0) => informationviewmodel.changeVisible(),
                             controller: informationviewmodel.heightController,
                             textInputType: TextInputType.number,
-                            hintText: AppLocalizations.of(context)!.babyHeight,
-                            hintStyle: TextStyle(color: ColorConst.settingsIndex, fontSize: 18.spMin),
+                            labelText: Text(AppLocalizations.of(context)!.babyHeight,
+                                style: TextStyle(
+                                    color: ColorConst.settingsIndex, fontSize: 18.spMin, fontWeight: FontWeight.bold)),
                             icon: Icon(Icons.height, size: 16.spMin),
                             textStyle: const TextStyle(fontWeight: FontWeight.bold),
                             inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'^\d{1,3}$'))],
                           ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: displayWidth(context) * 0.07, vertical: displayHeight(context) * 0.01),
+                            child: Text(AppLocalizations.of(context)!.informationInfoText,
+                                style: TextStyle(color: ColorConst.cblack, fontSize: 13.spMin)),
+                          )
                         ],
                       ),
                       if (informationviewmodel.isBlurred)
@@ -144,7 +152,7 @@ class InformationPage extends StatelessWidget {
           floatingActionButton: Observer(
             builder: (context) {
               return Padding(
-                padding: EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.06, vertical: 20),
+                padding: EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.06, vertical: 5),
                 child: Visibility(
                   visible: informationviewmodel.isButtonVisibleInf,
                   child: CustomButton(
