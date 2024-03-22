@@ -21,16 +21,16 @@ class CustomContainer extends StatelessWidget {
           width: displayWidth(context) * 0.9,
           child: Text(
             text,
-            style: TextStyle(fontSize: 24.spMin, fontWeight: FontWeight.w600, color: ColorConst.cblack),
+            style: TextStyle(fontSize: 24.spMin, fontWeight: FontWeight.w600, color: ColorConst.cblack), //spmin
             textAlign: TextAlign.center,
           ),
         ),
-        SizedBox(height: displayHeight(context) * 0.02),
+        SizedBox(height: displayHeight(context) * 0.01),
         SizedBox(
           width: displayWidth(context) * 0.9,
           child: Text(
             text2,
-            style: TextStyle(fontSize: 16.spMin, fontWeight: FontWeight.w500, color: ColorConst.cblack),
+            style: TextStyle(fontSize: 16.h, fontWeight: FontWeight.w500, color: ColorConst.cblack), //spmin
             textAlign: TextAlign.center,
           ),
         ),

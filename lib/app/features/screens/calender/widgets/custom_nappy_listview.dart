@@ -106,7 +106,7 @@ class CustomNappyListView extends StatelessWidget {
                   '${nappys.nappyTime!.hour.toString().padLeft(2, '0')}:${nappys.nappyTime!.minute.toString().padLeft(2, '0')}',
                   style: TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.bold, overflow: TextOverflow.ellipsis)),
             ),
-            Text('${AppLocalizations.of(context)!.note}: ${nappys.text.toString()}',
+            Text('${AppLocalizations.of(context)!.noteAll}: ${nappys.text.toString()}',
                 style: TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.w500)),
           ],
         ),

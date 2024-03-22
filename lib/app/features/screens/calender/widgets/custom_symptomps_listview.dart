@@ -107,7 +107,7 @@ class CustomSymptompsListView extends StatelessWidget {
                   '${symptomps.symTime!.hour.toString().padLeft(2, '0')}:${symptomps.symTime!.minute.toString().padLeft(2, '0')}',
                   style: TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.bold, overflow: TextOverflow.ellipsis)),
             ),
-            Text('${AppLocalizations.of(context)!.note}: ${symptomps.text.toString()}',
+            Text('${AppLocalizations.of(context)!.noteAll}: ${symptomps.text.toString()}',
                 style: TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.w500)),
           ],
         ),

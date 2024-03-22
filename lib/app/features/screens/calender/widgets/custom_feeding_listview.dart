@@ -111,7 +111,7 @@ class CustomFeedigListView extends StatelessWidget {
               ],
             ),
             Text(
-              '${AppLocalizations.of(context)!.note}: ${feeding.text.toString()}',
+              '${AppLocalizations.of(context)!.noteAll}: ${feeding.text.toString()}',
               style: TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.w500),
             ),
           ],

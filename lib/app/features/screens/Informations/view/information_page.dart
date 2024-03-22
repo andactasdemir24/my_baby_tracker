@@ -111,7 +111,7 @@ class InformationPage extends StatelessWidget {
                                     color: ColorConst.settingsIndex, fontSize: 18.spMin, fontWeight: FontWeight.bold)),
                             icon: Icon(Baby.weight, size: 16.spMin),
                             textStyle: const TextStyle(fontWeight: FontWeight.bold),
-                            inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'^\d{1,3}$'))],
+                            inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'^\d{1,2}$'))],
                           ),
                           CustomInformationTextField(
                             onChanged: (p0) => informationviewmodel.changeVisible(),
@@ -122,13 +122,16 @@ class InformationPage extends StatelessWidget {
                                     color: ColorConst.settingsIndex, fontSize: 18.spMin, fontWeight: FontWeight.bold)),
                             icon: Icon(Icons.height, size: 16.spMin),
                             textStyle: const TextStyle(fontWeight: FontWeight.bold),
-                            inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'^\d{1,3}$'))],
+                            inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'^\d{1,2}$'))],
                           ),
                           Padding(
                             padding: EdgeInsets.symmetric(
-                                horizontal: displayWidth(context) * 0.07, vertical: displayHeight(context) * 0.01),
-                            child: Text(AppLocalizations.of(context)!.informationInfoText,
-                                style: TextStyle(color: ColorConst.cblack, fontSize: 13.spMin)),
+                                horizontal: displayWidth(context) * 0.065, vertical: displayHeight(context) * 0.01),
+                            child: Align(
+                              alignment: Alignment.centerLeft,
+                              child: Text(AppLocalizations.of(context)!.informationInfoText,
+                                  style: TextStyle(color: ColorConst.cblack, fontSize: 13.spMin)),
+                            ),
                           )
                         ],
                       ),

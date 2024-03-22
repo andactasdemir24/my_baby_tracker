@@ -105,7 +105,7 @@ class CustomVaccineListView extends StatelessWidget {
                     TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.bold, color: ColorConst.getPremiumTextColor)),
             Text('${vaccine.date}', style: TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.bold)),
             Text(
-              '${AppLocalizations.of(context)!.note}: ${vaccine.text.toString()}',
+              '${AppLocalizations.of(context)!.noteAll}: ${vaccine.text.toString()}',
               style: TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.w500),
             ),
           ],

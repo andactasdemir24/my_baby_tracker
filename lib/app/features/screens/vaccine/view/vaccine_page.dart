@@ -46,6 +46,15 @@ class VaccinePage extends StatelessWidget {
                           controller: vaccineViewModel.noteController,
                           onChanged: (p0) => vaccineViewModel.changeVisible(),
                         ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: displayWidth(context) * 0.065, vertical: displayHeight(context) * 0.01),
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(AppLocalizations.of(context)!.informationInfoText,
+                                style: TextStyle(color: ColorConst.cblack, fontSize: 13.spMin)),
+                          ),
+                        ),
                         const Spacer(),
                         Observer(
                           builder: (context) {

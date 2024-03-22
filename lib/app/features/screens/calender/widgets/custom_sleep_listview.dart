@@ -141,7 +141,7 @@ class CustomSleepListView extends StatelessWidget {
                   ),
                 ],
               ),
-              Text('${AppLocalizations.of(context)!.note}: ${sleep.text.toString()}',
+              Text('${AppLocalizations.of(context)!.noteAll}: ${sleep.text.toString()}',
                   style: TextStyle(fontSize: 14.spMin, fontWeight: FontWeight.w500)),
             ],
           )),

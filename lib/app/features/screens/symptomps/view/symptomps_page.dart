@@ -38,7 +38,7 @@ class SymptompsPage extends StatelessWidget {
                         CustomSymptompsList(
                             text: Text(
                           symptompsViewmodel.selectedIndices.isEmpty
-                              ? AppLocalizations.of(context)!.symptomos
+                              ? AppLocalizations.of(context)!.symptomosTextField
                               : symptompsViewmodel.selectedIndices.map((index) => index.name).join(', '),
                           style: TextStyle(
                               fontSize: 16,
@@ -51,6 +51,15 @@ class SymptompsPage extends StatelessWidget {
                         CustomNoteTextfield(
                           controller: symptompsViewmodel.noteController,
                           onChanged: (p0) => symptompsViewmodel.changeVisible(),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: displayWidth(context) * 0.065, vertical: displayHeight(context) * 0.01),
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(AppLocalizations.of(context)!.informationInfoText,
+                                style: TextStyle(color: ColorConst.cblack, fontSize: 13.spMin)),
+                          ),
                         ),
                         const Spacer(),
                         Observer(

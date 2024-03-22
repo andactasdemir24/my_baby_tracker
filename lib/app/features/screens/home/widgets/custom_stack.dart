@@ -120,11 +120,11 @@ class CustomStack extends StatelessWidget {
                                   ImagesConst.weight,
                                   width: 30.spMin,
                                   height: 30.spMin,
-                                  fit: BoxFit.cover,
+                                  fit: BoxFit.fill,
                                 ),
                                 SizedBox(width: displayWidth(context) * 0.025),
                                 SizedBox(
-                                  width: displayWidth(context) * 0.1,
+                                  width: displayWidth(context) * 0.125,
                                   child: Text(info.weight.toString(),
                                       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30.spMin)),
                                 ),
@@ -153,13 +153,13 @@ class CustomStack extends StatelessWidget {
                               children: [
                                 Image.asset(
                                   ImagesConst.height,
-                                  width: 32.spMin,
+                                  width: 30.spMin,
                                   height: 30.spMin,
                                   fit: BoxFit.fill,
                                 ),
                                 SizedBox(width: displayWidth(context) * 0.025),
                                 SizedBox(
-                                  width: displayWidth(context) * 0.15,
+                                  width: displayWidth(context) * 0.125,
                                   child: Text(info.height.toString(),
                                       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30.spMin)),
                                 ),

@@ -38,7 +38,7 @@ class NappyPage extends StatelessWidget {
                         CustomNappyList(
                             text: Text(
                           nappyViewmodel.selectedIndicess.isEmpty
-                              ? AppLocalizations.of(context)!.nappyAppbar
+                              ? AppLocalizations.of(context)!.nappyTextField
                               : nappyViewmodel.selectedIndicess.map((index) => index.name).join(', '),
                           style: TextStyle(
                               fontSize: 16,
@@ -51,6 +51,15 @@ class NappyPage extends StatelessWidget {
                         CustomNoteTextfield(
                           controller: nappyViewmodel.noteController,
                           onChanged: (p0) => nappyViewmodel.changeVisibleNappy(),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: displayWidth(context) * 0.065, vertical: displayHeight(context) * 0.01),
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(AppLocalizations.of(context)!.informationInfoText,
+                                style: TextStyle(color: ColorConst.cblack, fontSize: 13.spMin)),
+                          ),
                         ),
                         const Spacer(),
                         Observer(
