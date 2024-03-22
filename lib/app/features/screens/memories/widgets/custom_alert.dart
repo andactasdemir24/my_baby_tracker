@@ -4,7 +4,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:baby_tracker_app/app/app.dart';
 
 class CustomAlert extends StatelessWidget {
-  const CustomAlert({Key? key, required this.id}) : super(key: key);
+  const CustomAlert({super.key, required this.id});
   final String id;
   @override
   Widget build(BuildContext context) {

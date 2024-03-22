@@ -6,10 +6,10 @@ class CustomNoteTextfield extends StatelessWidget {
   final TextEditingController controller;
   final Function(String) onChanged;
   const CustomNoteTextfield({
-    Key? key,
+    super.key,
     required this.controller,
     required this.onChanged,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

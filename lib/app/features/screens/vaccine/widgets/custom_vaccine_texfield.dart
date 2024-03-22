@@ -16,7 +16,7 @@ class CustomVaccineTextField extends StatelessWidget {
   final List<TextInputFormatter>? inputFormatters;
 
   const CustomVaccineTextField({
-    Key? key,
+    super.key,
     required this.controller,
     this.textInputType,
     this.onTap,
@@ -27,7 +27,7 @@ class CustomVaccineTextField extends StatelessWidget {
     this.textStyle,
     this.hintStyle,
     this.inputFormatters,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

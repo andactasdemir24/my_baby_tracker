@@ -6,7 +6,7 @@ import 'package:baby_tracker_app/app/app.dart';
 class DateButton extends StatelessWidget {
   final CalenderViewModel calenderViewmodel;
 
-  const DateButton({Key? key, required this.calenderViewmodel}) : super(key: key);
+  const DateButton({super.key, required this.calenderViewmodel});
 
   @override
   Widget build(BuildContext context) {

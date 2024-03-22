@@ -7,13 +7,13 @@ import 'package:baby_tracker_app/app/app.dart';
 
 class SymptompsPageEdit extends StatefulWidget {
   const SymptompsPageEdit({
-    Key? key,
+    super.key,
     required this.id,
     required this.symTime,
     required this.sympList,
     required this.note,
     required this.createdTime,
-  }) : super(key: key);
+  });
 
   final String id;
   final DateTime symTime;

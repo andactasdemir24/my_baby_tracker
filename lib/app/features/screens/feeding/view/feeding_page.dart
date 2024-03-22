@@ -8,8 +8,8 @@ import 'package:baby_tracker_app/app/app.dart';
 
 class FeedingPage extends StatelessWidget {
   const FeedingPage({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

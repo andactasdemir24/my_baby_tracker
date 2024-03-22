@@ -7,13 +7,13 @@ import 'package:baby_tracker_app/app/app.dart';
 
 class SleepPageEdit extends StatefulWidget {
   const SleepPageEdit({
-    Key? key,
+    super.key,
     required this.id,
     required this.feelSleep,
     required this.wokeUp,
     required this.note,
     required this.createdTime,
-  }) : super(key: key);
+  });
 
   final String id;
   final DateTime feelSleep;

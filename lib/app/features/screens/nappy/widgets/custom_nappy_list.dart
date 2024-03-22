@@ -4,10 +4,10 @@ import 'package:baby_tracker_app/app/app.dart';
 
 class CustomNappyListContainer extends StatefulWidget {
   const CustomNappyListContainer({
-    Key? key,
+    super.key,
     required this.nappyViewmodel,
     required this.nappy,
-  }) : super(key: key);
+  });
 
   final NappyViewModel nappyViewmodel;
   final NappyModel nappy;

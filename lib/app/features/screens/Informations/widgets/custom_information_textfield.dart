@@ -18,7 +18,7 @@ class CustomInformationTextField extends StatelessWidget {
   final Text? labelText;
 
   const CustomInformationTextField({
-    Key? key,
+    super.key,
     required this.controller,
     this.textInputType,
     this.onTap,
@@ -30,7 +30,7 @@ class CustomInformationTextField extends StatelessWidget {
     this.hintStyle,
     this.inputFormatters,
     this.labelText,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

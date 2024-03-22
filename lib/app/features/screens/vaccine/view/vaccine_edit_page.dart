@@ -7,13 +7,13 @@ import 'package:baby_tracker_app/app/app.dart';
 
 class VaccineEdit extends StatefulWidget {
   const VaccineEdit({
-    Key? key,
+    super.key,
     required this.id,
     required this.date,
     required this.vaccine,
     required this.note,
     required this.createdTime,
-  }) : super(key: key);
+  });
 
   final String id;
   final String date;

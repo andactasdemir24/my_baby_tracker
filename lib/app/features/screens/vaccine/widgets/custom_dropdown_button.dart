@@ -7,11 +7,11 @@ import 'package:baby_tracker_app/app/app.dart';
 
 class CustomDropdownButton extends StatelessWidget {
   const CustomDropdownButton({
-    Key? key,
+    super.key,
     required this.vaccineViewModel,
     required this.text,
     this.color,
-  }) : super(key: key);
+  });
 
   final VaccineViewModel vaccineViewModel;
   final String text;

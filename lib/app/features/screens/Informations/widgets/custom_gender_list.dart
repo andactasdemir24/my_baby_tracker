@@ -4,10 +4,10 @@ import 'package:baby_tracker_app/app/app.dart';
 
 class CustomGenderListContainer extends StatefulWidget {
   const CustomGenderListContainer({
-    Key? key,
+    super.key,
     required this.informationViewModel,
     required this.gender,
-  }) : super(key: key);
+  });
 
   final InformationViewModel informationViewModel;
   final InformationGender gender;

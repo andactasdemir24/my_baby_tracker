@@ -5,10 +5,10 @@ import 'package:baby_tracker_app/app/core/constants/color_constants.dart';
 
 class CustomNoDataWidget extends StatelessWidget {
   const CustomNoDataWidget({
-    Key? key,
+    super.key,
     required this.image,
     required this.text,
-  }) : super(key: key);
+  });
 
   final String image;
   final String text;

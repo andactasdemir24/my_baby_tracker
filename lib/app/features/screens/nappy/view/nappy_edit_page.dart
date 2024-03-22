@@ -6,13 +6,13 @@ import 'package:baby_tracker_app/app/app.dart';
 
 class NappyPageEdit extends StatefulWidget {
   const NappyPageEdit({
-    Key? key,
+    super.key,
     required this.id,
     required this.nappyTime,
     required this.napList,
     required this.note,
     required this.createdTime,
-  }) : super(key: key);
+  });
 
   final String id;
   final DateTime nappyTime;

@@ -9,11 +9,11 @@ class CustomSettingsContainer extends StatelessWidget {
   final Function()? onTap;
 
   const CustomSettingsContainer({
-    Key? key,
+    super.key,
     required this.text,
     required this.image,
     this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

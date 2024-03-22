@@ -4,7 +4,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:baby_tracker_app/app/app.dart';
 
 class Deneme extends StatelessWidget {
-  const Deneme({Key? key}) : super(key: key);
+  const Deneme({super.key});
 
   @override
   Widget build(BuildContext context) {

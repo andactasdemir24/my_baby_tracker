@@ -7,8 +7,7 @@ import 'package:lottie/lottie.dart';
 import 'package:baby_tracker_app/app/app.dart';
 
 class ProfilePage extends StatefulWidget {
-  const ProfilePage({Key? key, this.id, this.image, this.fullname, this.birthDate, this.weight, this.height})
-      : super(key: key);
+  const ProfilePage({super.key, this.id, this.image, this.fullname, this.birthDate, this.weight, this.height});
 
   final String? id;
   final String? image;

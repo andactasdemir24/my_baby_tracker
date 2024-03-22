@@ -6,8 +6,8 @@ import 'package:baby_tracker_app/app/app.dart';
 
 class VaccinePage extends StatelessWidget {
   const VaccinePage({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

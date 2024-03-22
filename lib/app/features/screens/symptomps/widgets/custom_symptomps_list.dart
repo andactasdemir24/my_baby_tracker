@@ -4,10 +4,10 @@ import 'package:baby_tracker_app/app/app.dart';
 
 class CustomSymptompsListContainer extends StatefulWidget {
   const CustomSymptompsListContainer({
-    Key? key,
+    super.key,
     required this.symptompsViewmodel,
     required this.symptomp,
-  }) : super(key: key);
+  });
 
   final SymptompsViewmodel symptompsViewmodel;
   final SymptopmsModel symptomp;

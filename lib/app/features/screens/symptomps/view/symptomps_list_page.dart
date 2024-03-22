@@ -5,7 +5,7 @@ import 'package:lottie/lottie.dart';
 import 'package:baby_tracker_app/app/app.dart';
 
 class SymptompsList extends StatelessWidget {
-  const SymptompsList({Key? key}) : super(key: key);
+  const SymptompsList({super.key});
 
   @override
   Widget build(BuildContext context) {

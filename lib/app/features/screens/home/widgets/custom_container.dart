@@ -8,11 +8,11 @@ class CustomImageContainer extends StatelessWidget {
   final Color containerColor;
   final String text;
   const CustomImageContainer({
-    Key? key,
+    super.key,
     required this.icons,
     required this.containerColor,
     required this.text,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

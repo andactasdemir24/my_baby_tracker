@@ -5,7 +5,7 @@ import 'package:lottie/lottie.dart';
 import 'package:baby_tracker_app/app/app.dart';
 
 class NappyList extends StatelessWidget {
-  const NappyList({Key? key}) : super(key: key);
+  const NappyList({super.key});
 
   @override
   Widget build(BuildContext context) {

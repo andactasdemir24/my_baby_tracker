@@ -27,7 +27,7 @@ class CustomAllListview extends StatelessWidget {
                             fontSize: 20.spMin, fontWeight: FontWeight.bold, color: ColorConst.getPremiumTextColor),
                       ),
                     ),
-                    ...entry.value.map((all) => _buildItem(context, all, allviewmodel)).toList(),
+                    ...entry.value.map((all) => _buildItem(context, all, allviewmodel)),
                   ],
                 );
               }).toList(),
@@ -42,7 +42,7 @@ class CustomAllListview extends StatelessWidget {
 
   Widget _buildItem(BuildContext context, dynamic all, CalenderViewModel allviewmodel) {
     switch (all.runtimeType) {
-      case Feeding:
+      case const (Feeding):
         return Padding(
           padding: EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.01, vertical: 5),
           child: Column(
@@ -107,7 +107,7 @@ class CustomAllListview extends StatelessWidget {
             ],
           ),
         );
-      case Sleep:
+      case const (Sleep):
         return Padding(
           padding: EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.01, vertical: 5),
           child: Column(
@@ -180,7 +180,7 @@ class CustomAllListview extends StatelessWidget {
             ],
           ),
         );
-      case Symptomps:
+      case const (Symptomps):
         return Padding(
           padding: EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.01, vertical: 5),
           child: Column(
@@ -246,7 +246,7 @@ class CustomAllListview extends StatelessWidget {
             ],
           ),
         );
-      case Nappy:
+      case const (Nappy):
         return Padding(
           padding: EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.01, vertical: 5),
           child: Column(
@@ -312,7 +312,7 @@ class CustomAllListview extends StatelessWidget {
             ],
           ),
         );
-      case Vaccine:
+      case const (Vaccine):
         return Padding(
           padding: EdgeInsets.symmetric(horizontal: displayWidth(context) * 0.01, vertical: 5),
           child: Column(

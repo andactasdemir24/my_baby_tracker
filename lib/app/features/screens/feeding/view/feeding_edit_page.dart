@@ -7,13 +7,13 @@ import 'package:baby_tracker_app/app/app.dart';
 
 class FeedingEdit extends StatefulWidget {
   const FeedingEdit({
-    Key? key,
+    super.key,
     required this.id,
     required this.time,
     required this.amount,
     required this.note,
     required this.createdTime,
-  }) : super(key: key);
+  });
 
   final String id;
   final DateTime time;

@@ -4,9 +4,9 @@ import 'package:baby_tracker_app/app/app.dart';
 
 class CustomSymptompsList extends StatelessWidget {
   const CustomSymptompsList({
-    Key? key,
+    super.key,
     required this.text,
-  }) : super(key: key);
+  });
 
   final Text text;
 
